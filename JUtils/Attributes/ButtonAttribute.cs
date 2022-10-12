@@ -28,12 +28,12 @@ namespace JUtils.Attributes
             this.playModeOnly = playModeOnly;
         }
     }
-     
-    
+
+
 #if UNITY_EDITOR
         
     [CustomEditor(typeof(MonoBehaviour), true), CanEditMultipleObjects]
-    public class ButtonEditor : Editor
+    public class ButtonEditor : UnityEditor.Editor
     {
         // private bool _enabled;
         
