@@ -76,18 +76,6 @@ namespace JUtils.Extensions
         
         
         /// <summary>
-        /// Divide the Vector3 by a scalar
-        /// </summary>
-        public static Vector2 Divide(this Vector2 self, Vector2 other)
-        {
-            return new Vector2(
-                self.x / other.x,
-                self.y / other.y
-            );
-        }
-        
-        
-        /// <summary>
         /// Multiply the Vector3 by a scalar
         /// </summary>
         public static Vector2 Multiply(this Vector2 self, Vector2 other)
