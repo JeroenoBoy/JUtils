@@ -9,7 +9,7 @@ namespace JUtils.Attributes
 {
     public class ShowWhen : PropertyAttribute
     {
-        public enum Comparer { EQUALS, OR, GREATER, LESSER }
+        public enum Comparer { Equals, Or, Greater, Smaller }
         
         private string   _variable;
         private object   _value;
@@ -19,16 +19,7 @@ namespace JUtils.Attributes
         /**
          * Serializes an attribute when the given variable is equal to the given value
          */
-        public ShowWhen(string variable, string value)
-        {
-            _variable = variable;
-            _value    = value;
-        }
-        
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
-        public ShowWhen(string variable, string value, bool showAsObject)
+        public ShowWhen(string variable, string value, bool showAsObject = false)
         {
             _variable     = variable;
             _value        = value;
@@ -38,7 +29,7 @@ namespace JUtils.Attributes
         /**
          * Serializes an attribute when the given variable is equal to the given value
          */
-        public ShowWhen(string variable, int value, Comparer comparer = Comparer.EQUALS)
+        public ShowWhen(string variable, int value, Comparer comparer = Comparer.Equals)
         {
             _variable = variable;
             _value    = value;
@@ -48,7 +39,28 @@ namespace JUtils.Attributes
         /**
          * Serializes an attribute when the given variable is equal to the given value
          */
-        public ShowWhen(string variable, int value, bool showAsObject, Comparer comparer = Comparer.EQUALS)
+        public ShowWhen(string variable, int value, bool showAsObject, Comparer comparer = Comparer.Equals)
+        {
+            _variable     = variable;
+            _value        = value;
+            _comparer     = comparer;
+            _showAsObject = showAsObject;
+        }
+        
+        /**
+         * Serializes an attribute when the given variable is equal to the given value
+         */
+        public ShowWhen(string variable, float value, Comparer comparer = Comparer.Equals)
+        {
+            _variable = variable;
+            _value    = value;
+            _comparer = comparer;
+        }
+        
+        /**
+         * Serializes an attribute when the given variable is equal to the given value
+         */
+        public ShowWhen(string variable, float value, bool showAsObject, Comparer comparer = Comparer.Equals)
         {
             _variable     = variable;
             _value        = value;
@@ -150,10 +162,15 @@ namespace JUtils.Attributes
                     string value => variable.stringValue == value,
                     bool   value => variable.boolValue   == value,
                     
-                    int value when attribute._comparer == Comparer.EQUALS  => variable.intValue == value,
-                    int value when attribute._comparer == Comparer.GREATER => variable.intValue > value,
-                    int value when attribute._comparer == Comparer.LESSER  => variable.intValue < value,
-                    int value when attribute._comparer == Comparer.OR      => (variable.intValue & value) != 0,
+                    int value when attribute._comparer == Comparer.Equals  => variable.intValue == value,
+                    int value when attribute._comparer == Comparer.Greater => variable.intValue > value,
+                    int value when attribute._comparer == Comparer.Smaller => variable.intValue < value,
+                    int value when attribute._comparer == Comparer.Or      => (variable.intValue & value) != 0,
+                    
+                    float value when attribute._comparer == Comparer.Equals  => variable.floatValue == value,
+                    float value when attribute._comparer == Comparer.Greater => variable.floatValue > value,
+                    float value when attribute._comparer == Comparer.Smaller => variable.floatValue < value,
+                    float       when attribute._comparer == Comparer.Or      => throw new Exception("Or is now allowed on floats"),
                     
                     _ => throw new Exception("Unsupported value type")
                 };

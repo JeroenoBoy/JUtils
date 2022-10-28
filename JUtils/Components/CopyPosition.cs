@@ -2,7 +2,7 @@
 
 
 
-namespace JUtils
+namespace JUtils.Components
 {
     public class CopyPosition : MonoBehaviour
     {

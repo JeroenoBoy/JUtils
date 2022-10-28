@@ -17,20 +17,23 @@ namespace JUtils.Attributes
     public class Button : Attribute
     {
         [CanBeNull] public string name;
-        public bool playModeOnly;
+        public bool clickableInEditor;
         
         
         /// <summary>
         /// Create an inspector button for this atribute
         /// </summary>
         /// <param name="name">The name of the button</param>
-        /// <param name="playModeOnly">Should the button only run in playmode</param>
+        /// <param name="clickableInEditor">Should the button only run in playmode</param>
+        /// <param name="playModeOnly">Deprecated Param, only here for compatability sake</param>
+        /// 
         public Button(
             [CanBeNull] string name = null,
-            bool playModeOnly = true)
+            bool clickableInEditor = false,
+            bool playModeOnly = true )
         {
             this.name = name;
-            this.playModeOnly = playModeOnly;
+            this.clickableInEditor = clickableInEditor || !playModeOnly;
         }
     }
 
@@ -69,7 +72,7 @@ namespace JUtils.Attributes
 
                 //  Checking if the button is playmode only
                 
-                if (attribute.playModeOnly && !Application.isPlaying)
+                if (attribute.clickableInEditor && !Application.isPlaying)
                 {
                     GUI.enabled = false;
                     bool pressed = GUILayout.Button(name);
@@ -87,7 +90,7 @@ namespace JUtils.Attributes
                 
                 //  Double checking playmode
                 
-                if (attribute.playModeOnly && !Application.isPlaying) {
+                if (attribute.clickableInEditor && !Application.isPlaying) {
                     Debug.LogWarning("Button is only available in play mode");
                     continue;
                 }

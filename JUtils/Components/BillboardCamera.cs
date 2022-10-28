@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-namespace JUtils
+namespace JUtils.Components
 {
     public class BillboardCamera : MonoBehaviour
     {

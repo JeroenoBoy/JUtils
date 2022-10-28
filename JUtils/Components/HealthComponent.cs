@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-namespace JUtils
+namespace JUtils.Components
 {
     public class HealthComponent : MonoBehaviour
     {
@@ -93,7 +93,7 @@ namespace JUtils
         public void Kill()
         {
             if (isDead) return;
-            ChangeHealth(-_health * 10000);
+            ChangeHealth(-_maxHealth * 10000);
         }
     }
 }
