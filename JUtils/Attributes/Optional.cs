@@ -14,7 +14,7 @@ namespace JUtils.Attributes
         [SerializeField] private T _value;
 
         public bool enabled => _enabled;
-        public T value => _value;
+        public T    value   => _value;
 
 
         public Optional(T initialValue)
@@ -40,19 +40,40 @@ namespace JUtils.Attributes
 
             public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
             {
+                GUIContent ogLabel = new (label.text, label.image, label.tooltip);
 
+                //  Getting properties
+                
                 SerializedProperty enabledProperty = property.FindPropertyRelative("_enabled");
                 SerializedProperty valueProperty   = property.FindPropertyRelative("_value");
 
-                position.width -= 24;
+                float enabledHeight = EditorGUI.GetPropertyHeight(enabledProperty);
+
+                //  Creating rects
+
+                Rect valueRect = new ()
+                {
+                    x = position.x,
+                    y = position.y,
+                    width = position.width - 20,
+                    height = position.height
+                };
+
+                Rect toggleRect = new ()
+                {
+                    x = position.x + 2 + valueRect.width - (property.depth >= 1 ? 14 : 0),
+                    y = position.y,
+                    width = enabledHeight,
+                    height = enabledHeight
+                };
+                
+                //  Drawing gui things
+                
                 EditorGUI.BeginDisabledGroup(!enabledProperty.boolValue);
-                EditorGUI.PropertyField(position, valueProperty, label, true);
+                EditorGUI.PropertyField(valueRect, valueProperty, ogLabel, true);
                 EditorGUI.EndDisabledGroup();
                 
-                position.x += position.width + 24;
-                position.width = position.height = EditorGUI.GetPropertyHeight(enabledProperty);
-                position.x -= position.width;
-                EditorGUI.PropertyField(position, enabledProperty, GUIContent.none);
+                EditorGUI.PropertyField(toggleRect, enabledProperty, GUIContent.none);
             }
         }
 #endif
