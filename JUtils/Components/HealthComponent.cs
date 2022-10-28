@@ -93,7 +93,7 @@ namespace JUtils.Components
         public void Kill()
         {
             if (isDead) return;
-            ChangeHealth(-_health * 10000);
+            ChangeHealth(-_maxHealth * 10000);
         }
     }
 }

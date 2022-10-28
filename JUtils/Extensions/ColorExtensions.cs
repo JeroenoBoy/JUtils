@@ -39,7 +39,7 @@ namespace JUtils.Extensions
 
 
         /// <summary>
-        /// Compare 2 colors with a threshold, probably worse but idk
+        /// Compare 2 colors with a threshold
         /// </summary>
         public static bool TContains(
             this IEnumerable<Color> self,
