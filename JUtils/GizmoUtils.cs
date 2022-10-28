@@ -16,7 +16,7 @@ namespace JUtils
         public static void DrawVector(Vector3 position, Vector3 Vector, Color color)
         {
 #if UNITY_EDITOR
-            var target = position + Vector;
+            Vector3 target = position + Vector;
             Handles.color = color;
             Handles.DrawLine(position, target);
             Handles.DrawSolidDisc(target, Vector3.up, 0.3f);
@@ -37,10 +37,12 @@ namespace JUtils
             Handles.BeginGUI();
             try {
                 if (colour.HasValue) GUI.color = colour.Value;
-                var view = SceneView.currentDrawingSceneView;
-                Vector3 screenPos = view.camera.WorldToScreenPoint(worldPos);
-                Vector2 size = GUI.skin.label.CalcSize(new GUIContent(text));
-                GUI.Label(new Rect(screenPos.x - (size.x / 2), -screenPos.y + view.position.height + 4, size.x, size.y), text);
+                
+                SceneView view      = SceneView.currentDrawingSceneView;
+                Vector3   screenPos = view.camera.WorldToScreenPoint(worldPos);
+                Vector2   size      = GUI.skin.label.CalcSize(new GUIContent(text));
+                
+                GUI.Label(new Rect(screenPos.x - size.x / 2, -screenPos.y + view.position.height + 4, size.x, size.y), text);
             }
             catch (Exception _) { }
             Handles.EndGUI();

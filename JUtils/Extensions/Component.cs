@@ -11,7 +11,7 @@ namespace JUtils.Extensions
         /// </summary>
         public static Ray ForwardRay(this Component self)
         {
-            var transform = self.transform;
+            Transform transform = self.transform;
             return new Ray(transform.position, transform.forward);
         }
 
@@ -21,7 +21,7 @@ namespace JUtils.Extensions
         /// </summary>
         public static bool HasLayer(this Component comp, int layer)
         {
-            var gameObject = comp.gameObject;
+            GameObject gameObject = comp.gameObject;
             return ((1 << gameObject.layer) & layer) != 0 || layer == gameObject.layer;
         }
     }

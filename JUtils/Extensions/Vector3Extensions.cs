@@ -32,8 +32,8 @@ namespace JUtils.Extensions
         /// <returns>The closest vector</returns>
         public static Vector3 Closest(this Vector3 self, Vector3 a, Vector3 b)
         {
-            var d1 = (a - self).sqrMagnitude;
-            var d2 = (b - self).sqrMagnitude;
+            float d1 = (a - self).sqrMagnitude;
+            float d2 = (b - self).sqrMagnitude;
             return d1 < d2 ? a : b;
         }
 
