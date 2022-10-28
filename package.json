@@ -1,7 +1,7 @@
 {
 	"name": "jutils",
 	"displayName": "JUtils",
-	"version": "1.0.5",
+	"version": "1.2.0",
 	"description": "Many useful extensions / classes for unity",
 	"license": "MIT",
 	"author": { "name": "Jeroen van de Geest" },
