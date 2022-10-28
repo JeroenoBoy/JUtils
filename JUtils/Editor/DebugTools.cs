@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 
 
@@ -78,3 +75,4 @@ namespace JUtils.Editor
         }
     }
 }
+#endif
