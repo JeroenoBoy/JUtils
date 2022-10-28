@@ -92,7 +92,7 @@ namespace JUtils.Attributes
                 
                 //  Drawing the property
                 
-                var asObject = ((ShowWhen) attribute)._showAsObject;
+                bool asObject = ((ShowWhen) attribute)._showAsObject;
 
                 //  Skipping the property if we don't want to show it as an object
                 if (asObject) {
@@ -119,23 +119,23 @@ namespace JUtils.Attributes
 
             public bool Matches(SerializedProperty property)
             {
-                var attribute = (ShowWhen)this.attribute;
+                ShowWhen attribute = (ShowWhen)this.attribute;
                 
                 //  Getting the variable & how far back we need to go
                 
-                var variables = attribute._variable.Split('.');
-                var nane       = variables.Last();
+                string[] variables = attribute._variable.Split('.');
+                string nane       = variables.Last();
                 
                 int backTrace = variables.Length;
 
                 //  Getting the value
                 
-                var paths = property.propertyPath.Split('.');
-                var path   = paths.Length > backTrace
+                string[] paths = property.propertyPath.Split('.');
+                string    path = paths.Length > backTrace
                     ? string.Join('.', paths[..^backTrace]) + '.' + nane
                     : nane;
                 
-                var variable = property.serializedObject.FindProperty(path);
+                SerializedProperty variable = property.serializedObject.FindProperty(path);
                 
                 //  Checking if the variable is null
                 
