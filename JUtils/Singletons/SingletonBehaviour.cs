@@ -7,7 +7,7 @@ namespace JUtils.Singletons
     /// <summary>
     /// Your simple and everyday singleton class
     /// </summary>
-    public abstract class Singleton<T> : MonoBehaviour, ISingleton<T>, ISerializationCallbackReceiver
+    public abstract class SingletonBehaviour<T> : MonoBehaviour, ISingleton<T>, ISerializationCallbackReceiver
         where T : MonoBehaviour, ISingleton<T>
     {
         public static T instance { get; private set; }
