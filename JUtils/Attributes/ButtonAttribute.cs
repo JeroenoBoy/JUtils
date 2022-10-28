@@ -22,7 +22,7 @@ namespace JUtils.Attributes
         
         public Button(
             [CanBeNull] string name = null,
-            bool playModeOnly = false)
+            bool playModeOnly = true)
         {
             this.name = name;
             this.playModeOnly = playModeOnly;
