@@ -2,7 +2,7 @@
 
 
 
-namespace JUtils
+namespace JUtils.Extensions
 {
     public static class AudioListenerExtensions
     {
