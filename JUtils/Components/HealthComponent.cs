@@ -14,7 +14,7 @@ namespace JUtils
         public bool isDead;
 
         public int maxHealth => _maxHealth;
-        public int health => _health;
+        public int health    => _health;
 
 
         /**
@@ -60,9 +60,9 @@ namespace JUtils
 
             //  Setting the health based on the changed amount
 
-            var newHealth = Mathf.Clamp(_health + amount, 0, _maxHealth);
-            var changed = newHealth - _health;
-            _health = newHealth;
+            int newHealth = Mathf.Clamp(_health + amount, 0, _maxHealth);
+            int changed   = newHealth - _health;
+            _health       = newHealth;
 
             //  Running events
 

@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 
 
@@ -36,7 +33,7 @@ namespace JUtils.Editor
                 return;
             }
         
-            var textStyle = new GUIStyle(GUI.skin.label)
+            GUIStyle textStyle = new GUIStyle(GUI.skin.label)
             {
                 fixedWidth = Mathf.Min(Screen.width*.5f, 100)
             };
@@ -70,7 +67,7 @@ namespace JUtils.Editor
             GUILayout.BeginHorizontal();
             GUILayout.Label("Time Scale", textStyle);
             
-            var value = EditorGUILayout.FloatField(Time.timeScale);
+            float value = EditorGUILayout.FloatField(Time.timeScale);
             value = Mathf.Clamp(value, 0, 100);
             Time.timeScale = value;
             
@@ -78,3 +75,4 @@ namespace JUtils.Editor
         }
     }
 }
+#endif

@@ -20,9 +20,14 @@ namespace JUtils.Attributes
         public bool playModeOnly;
         
         
+        /// <summary>
+        /// Create an inspector button for this atribute
+        /// </summary>
+        /// <param name="name">The name of the button</param>
+        /// <param name="playModeOnly">Should the button only run in playmode</param>
         public Button(
             [CanBeNull] string name = null,
-            bool playModeOnly = false)
+            bool playModeOnly = true)
         {
             this.name = name;
             this.playModeOnly = playModeOnly;
@@ -40,11 +45,11 @@ namespace JUtils.Attributes
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            var behaviour = target as MonoBehaviour;
+            MonoBehaviour behaviour = target as MonoBehaviour;
  
             //  Get all methods with Button attribute
             
-            var methods = behaviour.GetType()
+            MemberInfo[] methods = behaviour.GetType()
                 .GetMembers(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                 .Where(o => Attribute.IsDefined(o, typeof (Button)))
                 .ToArray();
@@ -58,12 +63,12 @@ namespace JUtils.Attributes
             
             //  Draw buttons
             
-            foreach (var info in methods) {
-                var attribute = info.GetCustomAttributes(typeof(Button), true)
-                    .First() as Button;
-                
-                var name = attribute.name ?? PrettifyName(info.Name);
+            foreach (MemberInfo info in methods) {
+                Button attribute = info.GetCustomAttributes(typeof(Button), true).First() as Button;
+                string name      = attribute.name ?? PrettifyName(info.Name);
 
+                //  Checking if the button is playmode only
+                
                 if (attribute.playModeOnly && !Application.isPlaying)
                 {
                     GUI.enabled = false;
@@ -76,14 +81,20 @@ namespace JUtils.Attributes
                     continue;
                 }
                 
+                //  Checking if the button was clicked
+                
                 if (!GUILayout.Button(name)) continue;
+                
+                //  Double checking playmode
                 
                 if (attribute.playModeOnly && !Application.isPlaying) {
                     Debug.LogWarning("Button is only available in play mode");
                     continue;
                 }
+                
+                //  Invoking method
                     
-                var method = info as MethodInfo;
+                MethodInfo method = info as MethodInfo;
                 method.Invoke(behaviour, null);
             }
         }
