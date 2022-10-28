@@ -170,6 +170,7 @@ namespace JUtils.Attributes
                     float value when attribute._comparer == Comparer.Equals  => variable.floatValue == value,
                     float value when attribute._comparer == Comparer.Greater => variable.floatValue > value,
                     float value when attribute._comparer == Comparer.Smaller => variable.floatValue < value,
+                    float       when attribute._comparer == Comparer.Or      => throw new Exception("Or is now allowed on floats"),
                     
                     _ => throw new Exception("Unsupported value type")
                 };
