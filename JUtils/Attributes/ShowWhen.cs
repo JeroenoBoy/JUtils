@@ -19,7 +19,7 @@ namespace JUtils.Attributes
         /**
          * Serializes an attribute when the given variable is equal to the given value
          */
-        public ShowWhen(string variable, string value, bool showAsObject = false)
+        public ShowWhen(string variable, string value, bool showAsObject = true)
         {
             _variable     = variable;
             _value        = value;
@@ -34,6 +34,7 @@ namespace JUtils.Attributes
             _variable = variable;
             _value    = value;
             _comparer = comparer;
+            _showAsObject = true;
         }
         
         /**
@@ -45,6 +46,7 @@ namespace JUtils.Attributes
             _value        = value;
             _comparer     = comparer;
             _showAsObject = showAsObject;
+            _showAsObject = true;
         }
         
         /**

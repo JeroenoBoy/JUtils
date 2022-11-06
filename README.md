@@ -127,7 +127,7 @@ Conditions can only be of type bool, string, float, int (also works with enums)
 
 **Constructors**
 ```cs
-public ShowWhen(string variable, string value, bool showAsObject = false)
+public ShowWhen(string variable, string value, bool showAsObject = true)
 public ShowWhen(string variable, bool value, bool showAsObject = true)
 public ShowWhen(string variable, int value, Comparer comparer = Comparer.Equals)
 public ShowWhen(string variable, int value, bool showAsObject, Comparer comparer = Comparer.Equals)
