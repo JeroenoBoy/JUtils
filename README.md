@@ -135,6 +135,30 @@ public class BillboardCamera : MonoBehaviour
 }
 ```
 
+### Unpack
+
+This attribute can be used to unpack a serializable object in the inspector so it looks nicer.
+
+Usage:
+```cs
+[Serializable]
+public struct PlayerMovement : IComponent
+{
+    public float speed;
+    public float jumpHeight;
+}
+
+
+public class PlayerMovementAuthoring : Monobehaviour
+{
+    [SerializeField, Unpack] private PlayerMovement _data
+    
+    //  Baker
+}
+
+
+```
+
 
 ## JUtils.Components
 
