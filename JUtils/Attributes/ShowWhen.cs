@@ -46,7 +46,6 @@ namespace JUtils.Attributes
             _value        = value;
             _comparer     = comparer;
             _showAsObject = showAsObject;
-            _showAsObject = true;
         }
         
         /**
@@ -57,6 +56,7 @@ namespace JUtils.Attributes
             _variable = variable;
             _value    = value;
             _comparer = comparer;
+            _showAsObject = true;
         }
         
         /**
