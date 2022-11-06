@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using JetBrains.Annotations;
-
+using JUtils.Extensions;
 using UnityEditor;
 
 using UnityEngine;
@@ -43,6 +44,8 @@ namespace JUtils.Attributes
     [CustomEditor(typeof(MonoBehaviour), true), CanEditMultipleObjects]
     public class ButtonEditor : UnityEditor.Editor
     {
+        private bool _inCoroutine;
+        
         // private bool _enabled;
         
         public override void OnInspectorGUI()
@@ -67,12 +70,22 @@ namespace JUtils.Attributes
             //  Draw buttons
             
             foreach (MemberInfo info in methods) {
-                Button attribute = info.GetCustomAttributes(typeof(Button), true).First() as Button;
-                string name      = attribute.name ?? PrettifyName(info.Name);
+                Button attribute  = info.GetCustomAttributes(typeof(Button), true).First() as Button;
+                string name       = attribute.name ?? PrettifyName(info.Name);
+                MethodInfo method = info as MethodInfo;
+                
+                //  Checking if the method has arguments
+
+                System.Diagnostics.Debug.Assert(method != null, nameof(method) + " != null");
+                if (method.GetParameters().Length > 0) throw new Exception("No parameters allowed for buttons");
+                
+                //  Checking if the button is a coroutine
+                
+                bool isCoroutine = method.ReturnType == typeof(IEnumerator);
 
                 //  Checking if the button is playmode only
                 
-                if (attribute.clickableInEditor && !Application.isPlaying)
+                if ((attribute.clickableInEditor || isCoroutine) && !Application.isPlaying)
                 {
                     GUI.enabled = false;
                     bool pressed = GUILayout.Button(name);
@@ -96,9 +109,42 @@ namespace JUtils.Attributes
                 }
                 
                 //  Invoking method
-                    
-                MethodInfo method = info as MethodInfo;
-                method.Invoke(behaviour, null);
+
+                if (isCoroutine) {
+                    behaviour.StartCoroutine(CoroutineWrapper(method.Invoke(behaviour, null) as IEnumerator));
+                }
+                else {
+                    method.Invoke(behaviour, null);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// This is a wrapper for the coroutine and checks it for errors
+        /// </summary>
+        private IEnumerator CoroutineWrapper(IEnumerator coroutine)
+        {
+            //  Checking if its already running
+            
+            if (_inCoroutine) {
+                Debug.LogWarning("Coroutine is currently running!");
+                yield break;
+            }
+
+            _inCoroutine = true;
+            
+            //  Running coroutine
+            
+            CoroutineCatcher catcher = Coroutines.Catcher(coroutine);
+            yield return catcher;
+
+            //  Ending
+            
+            _inCoroutine = false;
+            
+            if (catcher.HasThrown(out Exception exception)) {
+                Debug.LogError(exception);
             }
         }
         
