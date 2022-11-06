@@ -36,6 +36,20 @@ private void AccessibleInEditor()
 {
     //  Do something
 }
+
+//  Added in 1.4.0 
+
+[Button]
+private void Damage(int amount)
+{
+    //  Do something
+}
+
+[Button]
+private IEnumerator Coroutine()
+{
+    //  Some coroutine, this is only clickable in playmode
+}
 ```
 
 ### CustomName
