@@ -40,8 +40,10 @@ namespace JUtils.Attributes
 
 
 #if UNITY_EDITOR
-    public class ButtonEditor : JUtilsEditorPostCallbackReceiver
+    public class ButtonEditor : JUtilsEditorCallbackReceiver
     {
+        public override Type targetAttribute => typeof(Button);
+
         private InspectorButton[] _buttons;
 
 

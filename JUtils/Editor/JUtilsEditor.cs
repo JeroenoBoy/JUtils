@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
@@ -13,15 +14,15 @@ namespace JUtils.Editor
     [CustomEditor(typeof(MonoBehaviour), true), CanEditMultipleObjects]
     public class JUtilsEditor : UnityEditor.Editor
     {
-        private JUtilsEditorPostCallbackReceiver[] _postCallbackReceivers;
+        private JUtilsEditorCallbackReceiver[] _callbackReceivers;
         
         public JUtilsEditor()
         {
-            Type postCallbackType = typeof(JUtilsEditorPostCallbackReceiver);
+            Type postCallbackType = typeof(JUtilsEditorCallbackReceiver);
             
-            _postCallbackReceivers = Assembly.GetAssembly(postCallbackType).GetTypes()
+            _callbackReceivers = Assembly.GetAssembly(postCallbackType).GetTypes()
                 .Where(t => !t.IsAbstract && t.IsSubclassOf(postCallbackType))
-                .Select(t => Activator.CreateInstance(t) as JUtilsEditorPostCallbackReceiver)
+                .Select(t => Activator.CreateInstance(t) as JUtilsEditorCallbackReceiver)
                 .ToArray();
         }
 
@@ -30,22 +31,55 @@ namespace JUtils.Editor
         {
             base.OnInspectorGUI();
          
-            if (_postCallbackReceivers is null) return;
+            if (_callbackReceivers is null) return;
             
             MonoBehaviour target = this.target as MonoBehaviour;
-
+            Type type = target.GetType();
             
-            foreach (JUtilsEditorPostCallbackReceiver receiver in _postCallbackReceivers) {
+            LoopRecursive(type, target, serializedObject.GetIterator());
+            
+            foreach (JUtilsEditorCallbackReceiver receiver in _callbackReceivers) {
                 receiver.PostCallback(target);
             }
+        }
+
+
+        private void LoopRecursive(Type type, MonoBehaviour target, SerializedProperty property)
+        {
+            int depth = property.depth;
+            List<JUtilsEditorCallbackReceiver> receivers = new ();
+
+            //  Looping through all the children
+            
+            do {
+                foreach (CustomAttributeData attribute in type.GetProperty(property.name)!.CustomAttributes) {
+                    Type attributeType = attribute.AttributeType;
+
+                    //  Getting custom attributes
+                    
+                    foreach (JUtilsEditorCallbackReceiver reciever in _callbackReceivers) {
+                        if (attributeType != reciever.targetAttribute) continue;
+                        receivers.Add(reciever);
+                    }
+                    
+                    //  Handling 
+                    
+                    receivers.Clear();
+                }
+                
+            } while (property.NextVisible(false));
         }
     }
 
 
 
-    public abstract class JUtilsEditorPostCallbackReceiver
+    public abstract class JUtilsEditorCallbackReceiver
     {
-        public abstract void PostCallback(MonoBehaviour target);
+        public abstract Type targetAttribute { get; }
+
+        
+        public virtual void PreFieldDrawn(Type type, Attribute attribute, MonoBehaviour target) {}
+        public virtual void PostCallback(MonoBehaviour target) {}
     }
 #endif
 }
