@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
+using JUtils.Editor;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,27 +15,21 @@ namespace JUtils.Attributes
     {
 #if UNITY_EDITOR
 
-        [CustomPropertyDrawer(typeof(Required))]
-        private class RequiredEditor : PropertyDrawer
+        private class RequiredEditor : JUtilsAttributeEditor
         {
-            public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-            {
-                return EditorGUI.GetPropertyHeight(property, true);
-            }
-        
-        
-            public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-            {
-                EditorGUI.PropertyField(position, property, label, true);
+            public override Type targetAttribute { get; } = typeof(Required);
 
-                Debug.Log(property.propertyPath);
-                object obj = property.serializedObject.targetObject;
+            public override bool OverrideFieldDraw(JUtilsEditorInfo info)
+            {
+                EditorGUILayout.PropertyField(info.property);
 
-                if (property.objectReferenceValue == null)
+                if (info.property.objectReferenceValue == null)
                 {
-                    EditorGUILayout.HelpBox($"Field \"{property.displayName}\" is required", MessageType.Error);
+                    EditorGUILayout.HelpBox($"Field \"{info.property.displayName}\" is required", MessageType.Error);
                     EditorGUILayout.Space(4);
                 }
+                
+                return true;
             }
         }
 #endif
@@ -59,37 +54,10 @@ namespace JUtils.Attributes
 
 #if UNITY_EDITOR
 
-        [CustomEditor(typeof(MonoBehaviour), true), CanEditMultipleObjects]
-        public class RequiredEditor : UnityEditor.Editor
+        public class RequiredEditor : JUtilsAttributeEditor
         {
-            public override void OnInspectorGUI()
-            {
-                IEnumerable<ITest> classes = Assembly.GetAssembly(typeof(ITest))
-                    .GetTypes()
-                    .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(ITest)))
-                    .Select(t => (ITest)Activator.CreateInstance(t, new { }));
-                
-                
-                
-                Type type = serializedObject.targetObject.GetType(); 
-                Debug.Log("Hi1");
-                foreach (SerializedProperty property in serializedObject.GetIterator()) {
-                    Debug.Log(property.propertyPath);
-                }
-                
-                base.OnInspectorGUI();
-            }
+            public override Type targetAttribute { get; } = typeof(ExperimentalRequired);
         }
-        
-        
-        public interface ITest
-        {
-            
-        }
-
-
-
-        public interface IJUtilsEditor { }
 #endif
     }
 }
