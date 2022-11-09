@@ -15,6 +15,23 @@ namespace JUtils.Editor
     [CustomEditor(typeof(MonoBehaviour), true), CanEditMultipleObjects]
     public sealed class JUtilsEditor : UnityEditor.Editor
     {
+        #region Static properties
+
+        private static JUtilsEditorProperties _properties = null;
+
+
+        public static bool hidden
+        {
+            get => _properties.hidden;
+            set => _properties.hidden = value;
+        }
+        
+
+        #endregion
+        
+        
+        #region Loading
+        
         private JUtilsAttributeEditor[] _callbackReceivers;
         
         public JUtilsEditor()
@@ -27,10 +44,19 @@ namespace JUtils.Editor
                 .ToArray();
         }
 
+        #endregion
 
+
+        #region Drawing
+        
         public override void OnInspectorGUI()
         {
-            if (_callbackReceivers is null) return;
+            if (_callbackReceivers is null) {
+                Debug.Log("Failed to initialized _callbackReceivers");
+                return;
+            }
+
+            _properties = new JUtilsEditorProperties();
             
             MonoBehaviour target = this.target as MonoBehaviour;
             Type type = target.GetType();
@@ -60,6 +86,8 @@ namespace JUtils.Editor
             foreach (JUtilsAttributeEditor receiver in _callbackReceivers) {
                 receiver.PostCallback(target);
             }
+
+            _properties = null;
         }
 
 
@@ -96,17 +124,19 @@ namespace JUtils.Editor
                 
                 //  Handling
 
-                bool overridden = false;
-                
-                foreach (ReceiverContext receiver in receivers) {
-                    info.attribute = receiver.attribute;
-                    if (!receiver.receiver.OverrideFieldDraw(info)) continue;
-                    overridden = true;
-                    break;
+                if (!hidden) {
+                    bool overridden = false;
+                    
+                    foreach (ReceiverContext receiver in receivers) {
+                        info.attribute = receiver.attribute;
+                        if (!receiver.receiver.OverrideFieldDraw(info)) continue;
+                        overridden = true;
+                        break;
+                    }
+                    
+                    if (!overridden) EditorGUILayout.PropertyField(property);
                 }
-                
-                if (!overridden) EditorGUILayout.PropertyField(property);
-                
+
                 //  Post drawn
                 
                 foreach (ReceiverContext receiver in receivers) {
@@ -124,6 +154,15 @@ namespace JUtils.Editor
             public JUtilsAttributeEditor receiver;
             public Attribute attribute;
         }
+
+        #endregion
+    }
+
+
+
+    public class JUtilsEditorProperties
+    {
+        public bool hidden;
     }
 
 

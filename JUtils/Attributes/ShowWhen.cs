@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using JUtils.Editor;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,127 +15,122 @@ namespace JUtils.Attributes
         private string   _variable;
         private object   _value;
         private Comparer _comparer;
-        private bool     _showAsObject = true;
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
-        public ShowWhen(string variable, string value, bool showAsObject = true)
+        
+        /// <summary>
+        /// Serializes an attribute when the given variable is equal to the given value
+        /// </summary>
+        public ShowWhen(string variable, string value)
         {
             _variable     = variable;
             _value        = value;
-            _showAsObject = showAsObject;
         }
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
+        
+        /// <summary>
+        /// Serializes an attribute when the given variable is equal to the given value
+        /// </summary>
         public ShowWhen(string variable, int value, Comparer comparer = Comparer.Equals)
         {
             _variable = variable;
             _value    = value;
             _comparer = comparer;
-            _showAsObject = true;
         }
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
-        public ShowWhen(string variable, int value, bool showAsObject, Comparer comparer = Comparer.Equals)
-        {
-            _variable     = variable;
-            _value        = value;
-            _comparer     = comparer;
-            _showAsObject = showAsObject;
-        }
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
+        /// <summary>
+        /// Serializes an attribute when the given variable is equal to the given value
+        /// </summary>
         public ShowWhen(string variable, float value, Comparer comparer = Comparer.Equals)
         {
             _variable = variable;
             _value    = value;
             _comparer = comparer;
-            _showAsObject = true;
+        }
+
+
+        #region Obselete
+
+        /// <summary>
+        /// Serializes an attribute when the given variable is equal to the given value
+        /// </summary
+        [Obsolete("showAsObject is obsolete. Add the Unpack attribute instead")]
+        public ShowWhen(string variable, int value, bool showAsObject, Comparer comparer = Comparer.Equals)
+        {
+            _variable     = variable;
+            _value        = value;
+            _comparer     = comparer;
         }
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
+        
+        /// <summary>
+        /// Serializes an attribute when the given variable is equal to the given value
+        /// </summary>
+        [Obsolete("showAsObject is obsolete. Add Unpack instead")]
+        public ShowWhen(string variable, string value, bool showAsObject)
+        {
+            _variable     = variable;
+            _value        = value;
+        }
+        
+        
+        /// <summary>
+        /// Serializes an attribute when the given variable is equal to the given value
+        /// </summary>
+        [Obsolete("showAsObject is obsolete. Add the Unpack attribute instead")]
         public ShowWhen(string variable, float value, bool showAsObject, Comparer comparer = Comparer.Equals)
         {
             _variable     = variable;
             _value        = value;
             _comparer     = comparer;
-            _showAsObject = showAsObject;
         }
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
-        public ShowWhen(string variable, bool value, bool showAsObject = true)
+        
+        /// <summary>
+        /// Serializes an attribute when the given variable is equal to the given value
+        /// </summary>
+        [Obsolete("showAsObject is obsolete. Add the Unpack attribute instead")]
+        public ShowWhen(string variable, bool value, bool showAsObject)
         {
             _variable     = variable;
             _value        = value;
-            _showAsObject = showAsObject;
+        }
+        
+        
+        /// <summary>
+        /// Serializes an attribute when the given variable is equal to the given value
+        /// </summary>
+        public ShowWhen(string variable, bool value)
+        {
+            _variable     = variable;
+            _value        = value;
         }
 
+        #endregion
 
-        
+
+
 #if UNITY_EDITOR
-        [CustomPropertyDrawer(typeof(ShowWhen))]
-        private class SerializeWhenEditor : PropertyDrawer
+        private class SerializeWhenEditor : JUtilsAttributeEditor
         {
+            public override Type targetAttribute { get; } = typeof(ShowWhen);
             private bool _includeChildren = true;
-            
-            
-            public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+
+
+            public override void PreFieldDrawn(JUtilsEditorInfo info)
             {
-                return -2;
+                JUtilsEditor.hidden = !Matches(info.property, info.attribute as ShowWhen);
             }
 
 
-            public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+            public override void PostFieldDrawn(JUtilsEditorInfo info)
             {
-                if (!Matches(property)) return;
-
-                if (property.propertyType != SerializedPropertyType.Generic) {
-                    EditorGUILayout.PropertyField(property, label);
-                    return;
-                }
-                
-                //  Drawing the property
-                
-                bool asObject = ((ShowWhen) attribute)._showAsObject;
-
-                //  Skipping the property if we don't want to show it as an object
-                if (asObject) {
-                    EditorGUILayout.BeginHorizontal();
-                    _includeChildren = EditorGUILayout.Foldout(_includeChildren, label);
-                    EditorGUILayout.EndHorizontal();
-    
-                    if (!_includeChildren) return;
-                    EditorGUI.indentLevel++;
-                }
-                
-                //  Drawing the children
-                
-                property.NextVisible(true);
-                int depth = property.depth;
-
-                do EditorGUILayout.PropertyField(property);
-                while (property.NextVisible(false) && property.depth == depth);
-
-                //  Decreasing the indent level
-                if (asObject) EditorGUI.indentLevel--;
+                JUtilsEditor.hidden = false;
             }
+            
 
-
-            public bool Matches(SerializedProperty property)
+            public bool Matches(SerializedProperty property, ShowWhen attribute)
             {
-                ShowWhen attribute = (ShowWhen)this.attribute;
-                
                 //  Getting the variable & how far back we need to go
                 
                 string[] variables = attribute._variable.Split('.');
