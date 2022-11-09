@@ -18,7 +18,8 @@ namespace JUtils.Editor
         #region Static properties
 
         private static JUtilsEditorProperties _properties = null;
-
+        public static readonly BindingFlags fieldBindings = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+        
 
         public static bool hidden
         {
@@ -77,7 +78,7 @@ namespace JUtils.Editor
             
             //  Going into members
             
-            if (iterator.NextVisible(true)) LoopRecursive(type, target, iterator);
+            if (iterator.NextVisible(true)) LoopRecursive(type, target, target, iterator);
 
             serializedObject.ApplyModifiedProperties();
             
@@ -91,20 +92,23 @@ namespace JUtils.Editor
         }
 
 
-        private void LoopRecursive(Type type, MonoBehaviour target, SerializedProperty property)
+        private void LoopRecursive(Type type, MonoBehaviour target, object relative, SerializedProperty property)
         {
             List<ReceiverContext> receivers = new ();
 
             //  Looping through all the children
             
             do {
-                FieldInfo fieldInfo = type.GetField(property.name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)!;
+                FieldInfo fieldInfo = type.GetField(property.name, fieldBindings)!;
 
                 JUtilsEditorInfo info = new ()
                 {
                     property = property,
                     type = type,
-                    target = target,
+                    owner = target,
+                    parentObject = relative,
+                    currentObject = fieldInfo.GetValue(relative),
+                    field = fieldInfo,
                     label = new GUIContent()
                     {
                         text = property.displayName,
@@ -174,9 +178,12 @@ namespace JUtils.Editor
     public struct JUtilsEditorInfo
     {
         public Type type;
-        public FieldInfo info;
         public SerializedProperty property;
-        public MonoBehaviour target;
+        public MonoBehaviour owner;
+        
+        public FieldInfo field;
+        public object parentObject;
+        public object currentObject;
         public GUIContent label;
         public Attribute attribute;
     }

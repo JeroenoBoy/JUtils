@@ -39,15 +39,12 @@ namespace JUtils.Attributes
     
     public class ExperimentalRequired : PropertyAttribute
     {
-        private bool _isUnityObject;
-        [CanBeNull]
-        private string _relativePath;
+        [CanBeNull] private string _relativePath = null;
 
 
         public ExperimentalRequired() { }
-        public ExperimentalRequired(bool isUnityObject = true, [CanBeNull] string relativePath = null)
+        public ExperimentalRequired(string relativePath = null)
         {
-            _isUnityObject = isUnityObject;
             _relativePath = relativePath;
         }
 
@@ -57,6 +54,31 @@ namespace JUtils.Attributes
         public class RequiredEditor : JUtilsAttributeEditor
         {
             public override Type targetAttribute { get; } = typeof(ExperimentalRequired);
+
+            
+            public override void PostFieldDrawn(JUtilsEditorInfo info)
+            {
+                ExperimentalRequired attribute = info.attribute as ExperimentalRequired;
+
+                bool show = false;
+                
+                if (attribute._relativePath == null) {
+                    show = info.field.GetValue(info.parentObject).Equals(null);
+                }
+                else {
+                    Type type = info.currentObject.GetType();
+                    FieldInfo field = type.GetField(attribute._relativePath, JUtilsEditor.fieldBindings);
+                    if (field == null) throw new Exception($"Field \"{attribute._relativePath}\" was not found");
+                    show = field.GetValue(info.currentObject).Equals(null);
+                }
+                
+
+                if (!show) return;
+                
+                
+                EditorGUILayout.HelpBox($"Field \"{info.property.displayName}\" is required", MessageType.Error);
+                EditorGUILayout.Space(4);
+            }
         }
 #endif
     }
