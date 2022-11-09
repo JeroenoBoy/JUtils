@@ -1,6 +1,7 @@
 using System;
+using JUtils.Extensions;
+using UnityEditor.Presets;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 
@@ -118,9 +119,13 @@ namespace JUtils.Singletons
         public void AddComponent<T>(T behaviour)
             where T : MonoBehaviour, ISingleton<T>
         {
+            Preset preset = new (behaviour);
             Destroy(behaviour);
+            
             T instance = gameObject.AddComponent<T>();
-
+            if (instance is not MonoBehaviour copiedBehaviour) throw new Exception();
+            copiedBehaviour.GetCopyOf(behaviour);
+            
             if (instance is PersistentSingletonBehaviour<T> t) t.Init();
         }
     }
