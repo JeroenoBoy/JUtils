@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Codice.CM.Common.Serialization;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
