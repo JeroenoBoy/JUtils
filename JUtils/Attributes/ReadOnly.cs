@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Reflection;
 using JetBrains.Annotations;
+using JUtils.Editor;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,13 +16,18 @@ namespace JUtils.Attributes
     
 #if UNITY_EDITOR
 
-    [CustomPropertyDrawer(typeof(ReadOnly))]
-    public class MyClass : PropertyDrawer
+    public class MyClass : JUtilsAttributeEditor
     {
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        public override Type targetAttribute { get; } = typeof(ReadOnly);
+
+        public override void PreFieldDrawn(JUtilsEditorInfo info)
         {
             GUI.enabled = false;
-            EditorGUI.PropertyField(position, property, label, true);
+        }
+
+
+        public override void PostFieldDrawn(JUtilsEditorInfo info)
+        {
             GUI.enabled = true;
         }
     }
