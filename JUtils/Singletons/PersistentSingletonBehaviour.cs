@@ -1,6 +1,5 @@
 using System;
 using JUtils.Extensions;
-using UnityEditor.Presets;
 using UnityEngine;
 
 
@@ -119,7 +118,6 @@ namespace JUtils.Singletons
         public void AddComponent<T>(T behaviour)
             where T : MonoBehaviour, ISingleton<T>
         {
-            Preset preset = new (behaviour);
             Destroy(behaviour);
             
             T instance = gameObject.AddComponent<T>();
