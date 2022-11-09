@@ -93,7 +93,6 @@ namespace JUtils.Editor
 
         private void LoopRecursive(Type type, MonoBehaviour target, SerializedProperty property)
         {
-            int depth = property.depth;
             List<ReceiverContext> receivers = new ();
 
             //  Looping through all the children
@@ -106,6 +105,11 @@ namespace JUtils.Editor
                     property = property,
                     type = type,
                     target = target,
+                    label = new GUIContent()
+                    {
+                        text = property.displayName,
+                        tooltip = property.tooltip
+                    }
                 };
                 
                 //  Getting custom attributes
@@ -129,12 +133,12 @@ namespace JUtils.Editor
                     
                     foreach (ReceiverContext receiver in receivers) {
                         info.attribute = receiver.attribute;
-                        if (!receiver.receiver.OverrideFieldDraw(info)) continue;
+                        if (!receiver.receiver.OverrideFieldDraw(info, info.label)) continue;
                         overridden = true;
                         break;
                     }
                     
-                    if (!overridden) EditorGUILayout.PropertyField(property);
+                    if (!overridden) EditorGUILayout.PropertyField(property, info.label);
                 }
 
                 //  Post drawn
@@ -173,6 +177,7 @@ namespace JUtils.Editor
         public FieldInfo info;
         public SerializedProperty property;
         public MonoBehaviour target;
+        public GUIContent label;
         
         public Attribute attribute;
     }
@@ -184,7 +189,7 @@ namespace JUtils.Editor
 
 
         public virtual void PreFieldDrawn(JUtilsEditorInfo info) {}
-        public virtual bool OverrideFieldDraw(JUtilsEditorInfo info) => false;
+        public virtual bool OverrideFieldDraw(JUtilsEditorInfo info, GUIContent label) => false;
         public virtual void PostFieldDrawn(JUtilsEditorInfo info) {}
         public virtual void PostCallback(MonoBehaviour target) {}
     }

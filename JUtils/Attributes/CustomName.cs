@@ -1,3 +1,5 @@
+using System;
+using JUtils.Editor;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,13 +19,14 @@ namespace JUtils.Attributes
         
         
         #if UNITY_EDITOR
-        [CustomPropertyDrawer(typeof(CustomName))]
-        private class NameEditor : PropertyDrawer
+        private class NameEditor : JUtilsAttributeEditor
         {
-            public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+            public override Type targetAttribute { get; } = typeof(CustomName);
+
+
+            public override void PreFieldDrawn(JUtilsEditorInfo info)
             {
-                label.text = ((CustomName)attribute)._name;
-                EditorGUI.PropertyField(position, property, label);
+                info.label.text = ((CustomName)info.attribute)._name;
             }
         }
         #endif

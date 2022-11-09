@@ -19,9 +19,9 @@ namespace JUtils.Attributes
         {
             public override Type targetAttribute { get; } = typeof(Required);
 
-            public override bool OverrideFieldDraw(JUtilsEditorInfo info)
+            public override bool OverrideFieldDraw(JUtilsEditorInfo info, GUIContent label)
             {
-                EditorGUILayout.PropertyField(info.property);
+                EditorGUILayout.PropertyField(info.property, label);
 
                 if (info.property.objectReferenceValue == null)
                 {
