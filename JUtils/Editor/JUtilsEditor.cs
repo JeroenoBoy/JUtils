@@ -178,7 +178,6 @@ namespace JUtils.Editor
         public SerializedProperty property;
         public MonoBehaviour target;
         public GUIContent label;
-        
         public Attribute attribute;
     }
     

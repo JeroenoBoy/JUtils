@@ -58,7 +58,7 @@ namespace JUtils.Attributes
 
                 Rect toggleRect = new ()
                 {
-                    x = position.x + 2 + valueRect.width - (property.depth >= 1 ? 14 : 0),
+                    x = position.x + valueRect.width + 2 ,// + 2 + valueRect.width - (property.depth >= 1 ? 14 : 0),
                     y = position.y,
                     width = enabledHeight,
                     height = enabledHeight
