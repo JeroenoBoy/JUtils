@@ -40,13 +40,13 @@ namespace JUtils.Attributes
 
 
 #if UNITY_EDITOR
-    public class ButtonEditor : JUtilsEditorCallbackReceiver
+    public class ButtonAttributeEditor : JUtilsAttributeEditor
     {
-        public override Type targetAttribute => typeof(Button);
+        public override Type targetAttribute { get; } = typeof(Button);
 
         private InspectorButton[] _buttons;
 
-
+        
         public override void PostCallback(MonoBehaviour behaviour)
         {
             //  Get all methods with Button attribute
