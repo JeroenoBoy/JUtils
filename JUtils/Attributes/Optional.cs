@@ -53,13 +53,13 @@ namespace JUtils.Attributes
                 {
                     x = position.x,
                     y = position.y,
-                    width = position.width - 20,
+                    width = EditorGUIUtility.currentViewWidth - 42,
                     height = position.height
                 };
-
+                
                 Rect toggleRect = new ()
                 {
-                    x = position.x + valueRect.width + 2 ,// + 2 + valueRect.width - (property.depth >= 1 ? 14 : 0),
+                    x = EditorGUIUtility.currentViewWidth - (20 + 15 * EditorGUI.indentLevel),
                     y = position.y,
                     width = enabledHeight,
                     height = enabledHeight
