@@ -32,9 +32,11 @@ namespace JUtils.Editor.Editors
             //  Displaying
 
             EditorGUI.indentLevel++;
+            int depth = property.depth + 1;
             
             foreach (SerializedProperty child in property) {
-                JUtilsEditor.PropertyField(child, label);
+                if (depth != child.depth) continue;
+                JUtilsEditor.PropertyField(child);
             }
             EditorGUI.indentLevel--;
         }
@@ -64,9 +66,11 @@ namespace JUtils.Editor.Editors
             //  Displaying
 
             EditorGUI.indentLevel++;
+            int depth = property.depth + 1;
             
             foreach (SerializedProperty child in property) {
-                JUtilsEditor.PropertyField(child, label);
+                if (depth != child.depth) continue;
+                JUtilsEditor.PropertyField(child);
             }
 
             EditorGUI.indentLevel--;

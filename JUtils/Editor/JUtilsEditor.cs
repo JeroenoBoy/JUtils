@@ -47,7 +47,7 @@ namespace JUtils.Editor
             MonoBehaviour target = _context.target;
             GetObjectViaPath(field.propertyPath, target, out object currentObject);
             
-            HandlePropertyField(currentObject.GetType(), target, currentObject, field);
+            HandlePropertyField(currentObject.GetType(), target, currentObject, field, label);
         }
         
         
@@ -61,7 +61,7 @@ namespace JUtils.Editor
             MonoBehaviour target = _context.target;
             GetObjectViaPath(field.propertyPath, target, out object currentObject);
             
-            HandlePropertyField(rect, currentObject.GetType(), target, currentObject, field);
+            HandlePropertyField(rect, currentObject.GetType(), target, currentObject, field, label);
         }
 
 
@@ -70,8 +70,17 @@ namespace JUtils.Editor
         /// </summary>
         private static void GetObjectViaPath(string path, MonoBehaviour target, out object result)
         {
-            Type resultType = target.GetType();
-            result = target;
+            string cachedPath = _context.relativeObjectPath;
+            
+            if (cachedPath != "" && path.StartsWith(cachedPath)) {
+                result = _context.relativeObject;
+                path = path[(cachedPath.Length+1)..];
+            }
+            else {
+                result = target;
+            }
+
+            Type resultType = result.GetType();
             
             foreach (string s in path.Split('.').SkipLast(1)) {
                 result = resultType.GetField(s, fieldBindings)?.GetValue(result);
@@ -244,7 +253,7 @@ namespace JUtils.Editor
             
             //  Going into members
 
-            _context = new JUtilsEditorContext {baseType = type, target = target};
+            _context = new JUtilsEditorContext {baseType = type, target = target, relativeObject = target, relativeObjectPath = ""};
 
             while (iterator.NextVisible(false)) {
                 HandlePropertyField(type, target, target, iterator.Copy());
@@ -267,8 +276,17 @@ namespace JUtils.Editor
         /// <summary>
         /// Handle the property field
         /// </summary>
-        private static void HandlePropertyField(Type type, MonoBehaviour target, object relative, SerializedProperty property)
+        private static void HandlePropertyField(Type type, MonoBehaviour target, object relative, SerializedProperty property, GUIContent label = null)
         {
+            JUtilsEditorContext oldContext = _context;
+            _context = new JUtilsEditorContext()
+            {
+                baseType = target.GetType(),
+                target = target,
+                relativeObject = relative.GetType().GetField(property.name, fieldBindings)!.GetValue(relative),
+                relativeObjectPath = property.propertyPath
+            };
+            
             List<ReceiverContext> receivers = new ();
             
             //  Getting field
@@ -289,7 +307,7 @@ namespace JUtils.Editor
                 parentObject = relative,
                 currentObject = fieldInfo.GetValue(relative),
                 field = fieldInfo,
-                label = new GUIContent
+                label = label ?? new GUIContent
                 {
                     text = property.displayName,
                     tooltip = property.tooltip
@@ -310,7 +328,7 @@ namespace JUtils.Editor
                     receiver.PreFieldDrawn(info);
                 }
                 catch (Exception e) {
-                    Debug.LogError(e);
+                    Debug.LogException(e);
                 }
                 finally {
                     receivers.Add(new ReceiverContext {attribute = attribute, receiver = receiver});
@@ -329,7 +347,7 @@ namespace JUtils.Editor
                         if (!receiver.receiver.OverrideFieldDraw(info, info.label)) continue;
                     }
                     catch (Exception e) {
-                        Debug.LogError(e);
+                        Debug.LogException(e);
                     }
                     
                     overridden = true;
@@ -362,16 +380,18 @@ namespace JUtils.Editor
                     receiver.receiver.PostFieldDrawn(info);
                 }
                 catch (Exception e) {
-                    Debug.LogError(e);
+                    Debug.LogException(e);
                 }
             }
+
+            _context = oldContext;
         }
         
         
         /// <summary>
         /// Handle the property with a fixed rect
         /// </summary>
-        private static void HandlePropertyField(Rect rect, Type type, MonoBehaviour target, object relative, SerializedProperty property)
+        private static void HandlePropertyField(Rect rect, Type type, MonoBehaviour target, object relative, SerializedProperty property, GUIContent label = null)
         {
             List<ReceiverContext> receivers = new ();
             
@@ -393,7 +413,7 @@ namespace JUtils.Editor
                 parentObject = relative,
                 currentObject = fieldInfo.GetValue(relative),
                 field = fieldInfo,
-                label = new GUIContent
+                label = label ?? new GUIContent
                 {
                     text = property.displayName,
                     tooltip = property.tooltip
@@ -414,7 +434,7 @@ namespace JUtils.Editor
                     receiver.PreFieldDrawn(info);
                 }
                 catch (Exception e) {
-                    Debug.LogError(e);
+                    Debug.LogException(e);
                 }
                 finally {
                     receivers.Add(new ReceiverContext {attribute = attribute, receiver = receiver});
@@ -433,7 +453,7 @@ namespace JUtils.Editor
                         if (!receiver.receiver.OverrideFieldDraw(info, info.label)) continue;
                     }
                     catch (Exception e) {
-                        Debug.LogError(e);
+                        Debug.LogException(e);
                     }
                     
                     overridden = true;
@@ -466,7 +486,7 @@ namespace JUtils.Editor
                     receiver.receiver.PostFieldDrawn(info);
                 }
                 catch (Exception e) {
-                    Debug.LogError(e);
+                    Debug.LogException(e);
                 }
             }
         }
@@ -485,6 +505,8 @@ namespace JUtils.Editor
         {
             public Type baseType;
             public MonoBehaviour target;
+            public string relativeObjectPath;
+            public object relativeObject;
         }
 
         #endregion
