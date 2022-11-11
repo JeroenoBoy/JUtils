@@ -13,37 +13,11 @@ namespace JUtils.Attributes
 {
     public class Required : PropertyAttribute
     {
-#if UNITY_EDITOR
-
-        private class RequiredEditor : JUtilsAttributeEditor
-        {
-            public override Type targetAttribute { get; } = typeof(Required);
-
-            public override bool OverrideFieldDraw(JUtilsEditorInfo info, GUIContent label)
-            {
-                EditorGUILayout.PropertyField(info.property, label);
-
-                if (info.property.objectReferenceValue == null)
-                {
-                    EditorGUILayout.HelpBox($"Field \"{info.property.displayName}\" is required", MessageType.Error);
-                    EditorGUILayout.Space(4);
-                }
-                
-                return true;
-            }
-        }
-#endif
-    }
-    
-    
-    
-    public class ExperimentalRequired : PropertyAttribute
-    {
         [CanBeNull] private string _relativePath = null;
 
 
-        public ExperimentalRequired() { }
-        public ExperimentalRequired(string relativePath = null)
+        public Required() { }
+        public Required(string relativePath = null)
         {
             _relativePath = relativePath;
         }
@@ -53,12 +27,12 @@ namespace JUtils.Attributes
 
         public class RequiredEditor : JUtilsAttributeEditor
         {
-            public override Type targetAttribute { get; } = typeof(ExperimentalRequired);
+            public override Type targetAttribute { get; } = typeof(Required);
 
             
             public override void PostFieldDrawn(JUtilsEditorInfo info)
             {
-                ExperimentalRequired attribute = info.attribute as ExperimentalRequired;
+                Required attribute = info.attribute as Required;
                 
                 bool show = false;
                 
