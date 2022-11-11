@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Scripting;
 
 
 
 namespace JUtils.Editor.Editors
 {
+#if UNITY_EDITOR
     internal class GenericProperty : JUtilsPropertyDrawer
     {
         public static List<string> _openPaths = new ();
@@ -76,4 +76,5 @@ namespace JUtils.Editor.Editors
             EditorGUI.indentLevel--;
         }
     }
+#endif
 }

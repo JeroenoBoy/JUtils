@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿#if UNITY_EDITOR
+using UnityEditor;
 using UnityEngine;
 
 
@@ -11,3 +12,5 @@ namespace JUtils.Editor
         public abstract void OnGUI(Rect rect, SerializedProperty property, GUIContent label);
     }
 }
+
+#endif
