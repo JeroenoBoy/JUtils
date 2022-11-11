@@ -47,7 +47,7 @@ namespace JUtils.Attributes
         private InspectorButton[] _buttons;
 
         
-        public override void PostCallback(MonoBehaviour behaviour)
+        public override void FinishedDrawing(MonoBehaviour behaviour)
         {
             //  Get all methods with Button attribute
             

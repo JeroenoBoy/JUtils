@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using JUtils.Editor;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -32,7 +33,7 @@ namespace JUtils.Attributes
 
                 do {
                     float height = position.height = EditorGUI.GetPropertyHeight(property);
-                    EditorGUI.PropertyField(position, property, true);
+                    JUtilsEditor.PropertyField(position, property);
                     position.y += height + 2;
 
                 } while (property.NextVisible(false) && property.depth == depth);

@@ -1,3 +1,4 @@
+using JUtils.Editor;
 using UnityEditor;
 using UnityEngine;
 
@@ -67,7 +68,7 @@ namespace JUtils.Attributes
                 //  Drawing gui things
                 
                 EditorGUI.BeginDisabledGroup(!enabledProperty.boolValue);
-                EditorGUI.PropertyField(valueRect, valueProperty, ogLabel, true);
+                JUtilsEditor.PropertyField(valueRect, valueProperty, ogLabel);
                 EditorGUI.EndDisabledGroup();
                 
                 EditorGUI.PropertyField(toggleRect, enabledProperty, GUIContent.none);

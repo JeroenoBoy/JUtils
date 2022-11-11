@@ -59,7 +59,7 @@ namespace JUtils.Attributes
             public override void PostFieldDrawn(JUtilsEditorInfo info)
             {
                 ExperimentalRequired attribute = info.attribute as ExperimentalRequired;
-
+                
                 bool show = false;
                 
                 if (attribute._relativePath == null) {
@@ -71,10 +71,8 @@ namespace JUtils.Attributes
                     if (field == null) throw new Exception($"Field \"{attribute._relativePath}\" was not found");
                     show = field.GetValue(info.currentObject).Equals(null);
                 }
-                
 
                 if (!show) return;
-                
                 
                 EditorGUILayout.HelpBox($"Field \"{info.property.displayName}\" is required", MessageType.Error);
                 EditorGUILayout.Space(4);

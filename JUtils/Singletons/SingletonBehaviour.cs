@@ -33,6 +33,7 @@ namespace JUtils.Singletons
         public void OnBeforeSerialize() { }
         public void OnAfterDeserialize()
         {
+            if (!Application.isPlaying) return;
             OnEnable();
         }
     }

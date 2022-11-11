@@ -33,7 +33,7 @@ namespace JUtils.Editor
                 return;
             }
         
-            GUIStyle textStyle = new GUIStyle(GUI.skin.label)
+            GUIStyle textStyle = new (GUI.skin.label)
             {
                 fixedWidth = Mathf.Min(Screen.width*.5f, 100)
             };

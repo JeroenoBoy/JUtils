@@ -67,17 +67,21 @@ namespace JUtils.Singletons
         public void OnAfterDeserialize()
         {
             if (instance && instance != this) {
-                Destroy(this);
-                Debug.LogWarning("Instance already exists, destroying current instance");
+                try {
+                    Destroy(this);
+                    Debug.LogWarning("Instance already exists, destroying current instance");
+                }
+                catch {
+                    Type type = GetType();
+                    Debug.LogWarning($"Multiple instances of \"{type.Namespace}.{type.Name}\" exist!");
+                }
                 return;
             }
-            
+
             instance = this as T;
         }
     }
-        
-        
-        
+    
         
     public class PersistentSingletonManager : SingletonBehaviour<PersistentSingletonManager>
     {
@@ -109,8 +113,7 @@ namespace JUtils.Singletons
         {
             if (HasComponent<T>()) return false;
             AddComponent(behaviour);
-            
-            
+
             return true;
         }
 
