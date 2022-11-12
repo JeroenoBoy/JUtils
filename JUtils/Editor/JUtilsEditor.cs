@@ -279,6 +279,13 @@ namespace JUtils.Editor
         private static void HandlePropertyField(Type type, MonoBehaviour target, object relative, SerializedProperty property, GUIContent label = null)
         {
             JUtilsEditorContext oldContext = _context;
+
+            object relativeObject = relative.GetType().GetField(property.name, fieldBindings)!.GetValue(relative);
+            if (relativeObject == null) {
+                EditorGUILayout.PropertyField(property, label);
+                return;
+            }
+            
             _context = new JUtilsEditorContext()
             {
                 baseType = target.GetType(),
@@ -361,12 +368,14 @@ namespace JUtils.Editor
                         EditorGUILayout.PropertyField(property, info.label);
                     else {
                         Type newType = info.currentObject.GetType();
-
+                        
                         SerializedProperty copy = property.Copy();
                         string name = PurifyTypeName(newType);
                         
                         if (_excludeTypes.Any(t => t == name))
-                            EditorGUILayout.PropertyField(property, info.label);
+                            EditorGUILayout.PropertyField(copy, info.label);
+                        else if (info.field.CustomAttributes.Any(t => { string purified = PurifyTypeName(t.AttributeType); return _excludeAttributeTypes.Any(t => t == purified);}))
+                            EditorGUILayout.PropertyField(copy, info.label);
                         else _generic.OnGUI(copy, info.label);
                     }
                 }
@@ -497,6 +506,13 @@ namespace JUtils.Editor
         {
             public JUtilsAttributeEditor receiver;
             public Attribute attribute;
+        }
+        
+        
+        private class PurifiedTypePair
+        {
+            public Type type;
+            public string name;
         }
         
         
