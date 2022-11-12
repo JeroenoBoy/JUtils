@@ -48,18 +48,18 @@ namespace JUtils.Attributes
                 float enabledHeight = EditorGUI.GetPropertyHeight(enabledProperty);
 
                 //  Creating rects
-
+                
                 Rect valueRect = new ()
                 {
                     x = position.x,
                     y = position.y,
-                    width = EditorGUIUtility.currentViewWidth - 42,
+                    width = position.width - 18,
                     height = position.height
                 };
                 
                 Rect toggleRect = new ()
                 {
-                    x = EditorGUIUtility.currentViewWidth - (20 + 15 * EditorGUI.indentLevel),
+                    x = position.width - (15 * EditorGUI.indentLevel - 3),
                     y = position.y,
                     width = enabledHeight,
                     height = enabledHeight
