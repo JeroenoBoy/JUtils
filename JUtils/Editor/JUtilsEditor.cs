@@ -28,6 +28,7 @@ namespace JUtils.Editor
         public static readonly BindingFlags fieldBindings = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 
         private static GenericProperty _generic;
+        private static ArrayProperty _array;
         
         #endregion
 
@@ -45,7 +46,7 @@ namespace JUtils.Editor
             if (_context == null) throw new Exception("Cannot call JUtils.PropertyField outside of JUtils editor");
 
             MonoBehaviour target = _context.target;
-            GetObjectViaPath(field.propertyPath, target, out object currentObject);
+            object currentObject = GetObjectViaPath(field.propertyPath, target);
             
             HandlePropertyField(currentObject.GetType(), target, currentObject, field, label);
         }
@@ -59,7 +60,7 @@ namespace JUtils.Editor
             if (_context == null) throw new Exception("Cannot call JUtils.PropertyField outside of JUtils editor");
 
             MonoBehaviour target = _context.target;
-            GetObjectViaPath(field.propertyPath, target, out object currentObject);
+            object currentObject = GetObjectViaPath(field.propertyPath, target);
             
             HandlePropertyField(rect, currentObject.GetType(), target, currentObject, field, label);
         }
@@ -68,8 +69,9 @@ namespace JUtils.Editor
         /// <summary>
         /// Get the reference of an object via a path
         /// </summary>
-        private static void GetObjectViaPath(string path, MonoBehaviour target, out object result)
+        public static object GetObjectViaPath(string path, MonoBehaviour target)
         {
+            object result;
             string cachedPath = _context.relativeObjectPath;
             
             if (cachedPath != "" && path.StartsWith(cachedPath)) {
@@ -88,6 +90,8 @@ namespace JUtils.Editor
                 
                 resultType = result.GetType();
             }
+
+            return result;
         }
         
 
@@ -158,6 +162,7 @@ namespace JUtils.Editor
             if (_loaded) return;
             
             _generic = new GenericProperty();
+            _array = new ArrayProperty();
 
             Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
 
