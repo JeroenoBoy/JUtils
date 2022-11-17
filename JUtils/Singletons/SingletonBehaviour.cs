@@ -33,8 +33,12 @@ namespace JUtils.Singletons
         public void OnBeforeSerialize() { }
         public void OnAfterDeserialize()
         {
-            if (!Application.isPlaying) return;
-            OnEnable();
+            if (instance) {
+                Debug.LogWarning("Instance already exists, can be ignored when reloading scene");
+            }
+            else {
+                instance = this as T;
+            }
         }
     }
 }

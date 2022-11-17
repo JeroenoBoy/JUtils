@@ -68,7 +68,6 @@ namespace JUtils.Singletons
         {
             if (instance && instance != this) {
                 try {
-                    Destroy(this);
                     Debug.LogWarning("Instance already exists, destroying current instance");
                 }
                 catch {
