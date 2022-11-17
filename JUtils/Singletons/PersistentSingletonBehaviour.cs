@@ -67,8 +67,7 @@ namespace JUtils.Singletons
         public void OnAfterDeserialize()
         {
             if (instance && instance != this) {
-                Destroy(this);
-                Debug.LogWarning("Instance already exists, destroying current instance");
+                Debug.LogWarning("Instance already exists, can be ignored when switching scene");
                 return;
             }
             
