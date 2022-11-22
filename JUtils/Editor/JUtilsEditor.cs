@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -74,7 +75,7 @@ namespace JUtils.Editor
             object result;
             string cachedPath = _context.relativeObjectPath;
             
-            if (cachedPath != "" && path.StartsWith(cachedPath)) {
+            if (cachedPath != "" && path.StartsWith(cachedPath) && path != cachedPath) {
                 result = _context.relativeObject;
                 path = path[(cachedPath.Length+1)..];
             }
@@ -84,16 +85,72 @@ namespace JUtils.Editor
 
             Type resultType = result.GetType();
             
-            foreach (string s in path.Split('.').SkipLast(1)) {
-                result = resultType.GetField(s, fieldBindings)?.GetValue(result);
-                if (result == null) throw new Exception($"Property {s} ({path}) does not exist on target");
+            //  Getting the requested object
+
+            string[] splitted = path.Split('.');
+            bool expectArray = result is IList;
+
+            for (int i = 0; i < splitted.Length-1; i++) {
+                string s = splitted[i];
+
+                //  Handling list
                 
-                resultType = result.GetType();
+                // if (expectArray && s == "data") {
+                //     int charIndex = s.IndexOf('[');
+                //     int    sIndex = int.Parse(s[(charIndex+1)..1]);
+                //     string  field = s[..charIndex];
+                //
+                //     if (result == null)           throw new Exception($"Property {s} ({path}) does not exist on target");
+                //     if (result is not IList list) throw new Exception($"Property {field} ({path}) is not a list!");
+                //     if (sIndex > list.Count)      throw new Exception($"Getting an out of bounds element in list {field} ({path})");
+                //     result = list[sIndex];
+                //
+                //     expectArray = false;
+                // }
+                
+                if (expectArray && s == "Array") {
+                    s = splitted[++i];
+
+                    if (s.StartsWith("data[")) {
+                        if (i > splitted.Length-1) break;
+                        
+                        int charIndex = s.IndexOf('[');
+                        Debug.Log(s[(charIndex+1)..^1]);
+                        int    sIndex = int.Parse(s[(charIndex+1)..^1]);
+                        string  field = s[..charIndex];
+    
+                        if (result == null)           throw new Exception($"Property {s} ({path}) does not exist on target");
+                        if (result is not IList list) throw new Exception($"Property {field} ({path}) is not a list!");
+                        if (sIndex > list.Count)      throw new Exception($"Getting an out of bounds element in list {field} ({path})");
+                        Debug.Log(sIndex);
+                        result = list[sIndex];
+                    }
+                    
+                    expectArray = false;
+                    continue;
+                }
+                
+                //  Handling object
+                
+                result = resultType.GetField(s, fieldBindings)?.GetValue(result);
+                switch (result) {
+                    case null:
+                        throw new Exception($"Property {s} ({path}) does not exist on target");
+
+                    case IList:
+                        expectArray = true;
+                        resultType = result.GetType();
+                        break;
+                    
+                    default:
+                        resultType = result.GetType();
+                        break;
+                }
+                
             }
 
             return result;
         }
-        
 
         #endregion
         
@@ -208,6 +265,7 @@ namespace JUtils.Editor
                         }
                     }
                 }
+                
                 //  Saving
 
                 _loaded = true;
@@ -285,11 +343,31 @@ namespace JUtils.Editor
         {
             JUtilsEditorContext oldContext = _context;
 
-            object relativeObject = relative.GetType().GetField(property.name, fieldBindings)!.GetValue(relative);
+            //  Getting object
+
+            object relativeObject;
+            
+            if (relative is IList list) {
+                if (property.name == "data") {
+                    string  tValue = property.propertyPath.Split(".").Last();
+                    int      index = int.Parse(tValue[tValue.IndexOf('[')..^1]);
+                    relativeObject = list[index];
+                }
+                else
+                {
+                    relativeObject = relative.GetType().GetField(property.name, fieldBindings)!.GetValue(relative);
+                }
+            }
+            else {
+                relativeObject = relative.GetType().GetField(property.name, fieldBindings)!.GetValue(relative);
+            }
+
             if (relativeObject == null) {
                 EditorGUILayout.PropertyField(property, label);
                 return;
             }
+            
+            //  Creating context
             
             _context = new JUtilsEditorContext()
             {
@@ -376,11 +454,13 @@ namespace JUtils.Editor
                         
                         SerializedProperty copy = property.Copy();
                         string name = PurifyTypeName(newType);
-                        
+
                         if (_excludeTypes.Any(t => t == name))
                             EditorGUILayout.PropertyField(copy, info.label);
                         else if (info.field.CustomAttributes.Any(t => { string purified = PurifyTypeName(t.AttributeType); return _excludeAttributeTypes.Any(t => t == purified);}))
                             EditorGUILayout.PropertyField(copy, info.label);
+                        else if (property.isArray) 
+                            _array.OnGUI(copy, info.label);
                         else _generic.OnGUI(copy, info.label);
                     }
                 }

@@ -16,26 +16,43 @@ namespace JUtils.Editor.Editors
 
         public override void OnGUI(SerializedProperty property, GUIContent label)
         {
-            const int foldoutHeight = 20;
-            
             string path = property.propertyPath;
             bool isOpen = _openPaths.Contains(path);
             
+            //  Getting list
+
+            float width = Screen.width;
+
             //  Foldout knob
-            
+
+            EditorGUILayout.BeginHorizontal();
+
+            EditorGUILayout.BeginHorizontal(new GUIStyle() {fixedWidth = width - 64 - 7, fixedHeight = GUI.skin.textField.fixedHeight});
             bool openPhase = EditorGUILayout.Foldout(isOpen, label, true);
+            EditorGUILayout.EndHorizontal();
             if (openPhase != isOpen) {
                 if (openPhase)
                     _openPaths.Add(path);
                 else
                     _openPaths.Remove(path);
             }
+
+            int oldIndex = property.arraySize;
+            property.arraySize = EditorGUILayout.IntField(oldIndex, new GUIStyle(GUI.skin.textField) {fixedWidth = 48, margin = new RectOffset(0, 0, -2, 0)});
+            EditorGUILayout.EndHorizontal();
             
             if (!openPhase) return;
             
-            object obj = JUtilsEditor.GetObjectViaPath(property.propertyPath, property.serializedObject.targetObject as MonoBehaviour);
+            //  Showing children
 
-            if (obj is not IList list) throw new Exception($"Object {property.propertyPath} does not inherit IList");
+            EditorGUILayout.BeginVertical(GUI.skin.scrollView);
+            
+            for (int i = 0; i < oldIndex; i++) {
+                SerializedProperty arrayProperty = property.GetArrayElementAtIndex(i);
+                JUtilsEditor.PropertyField(arrayProperty);
+            }
+            
+            EditorGUILayout.EndVertical();
         }
 
 
