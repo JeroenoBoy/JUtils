@@ -74,7 +74,7 @@ namespace JUtils.Singletons
             
             //  Error
 
-            throw new ArgumentException($"Singleton of type {type} does not exist");
+            return null;
         }
         
 
@@ -98,7 +98,7 @@ namespace JUtils.Singletons
             SingletonManager manager = instance;
             
             Type type = singleton.GetType();
-            if (manager._fastLookup.ContainsKey(type)) manager._fastLookup.Remove(type);
+            if (manager._fastLookup.ContainsKey(type) && manager._fastLookup[type] == singleton) manager._fastLookup.Remove(type);
 
             manager._singletons.Remove(singleton);
 ;       }
