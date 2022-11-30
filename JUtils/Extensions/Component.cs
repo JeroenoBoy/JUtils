@@ -26,8 +26,26 @@ namespace JUtils.Extensions
             GameObject gameObject = comp.gameObject;
             return ((1 << gameObject.layer) & layer) != 0 || layer == gameObject.layer;
         }
-        
-        
+
+
+        /// <summary>
+        /// Check if a component exists
+        /// </summary>
+        /// <param name="self">Object to check on</param>
+        /// <typeparam name="T">The component type</typeparam>
+        /// <returns></returns>
+        public static bool HasComponent<T>(this Component self) => self.GetComponent<T>() != null;
+
+
+        /// <summary>
+        /// Check if a component exists
+        /// </summary>
+        /// <param name="self">Object to check on</param>
+        /// <param name="tyoe">The component type</param>
+        /// <returns></returns>
+        public static bool HasComponent(this Component self, Type type) => self.GetComponent(type) != null;
+
+
         /// <summary>
         /// Copy one component to another
         /// Source: https://answers.unity.com/questions/530178/how-to-get-a-component-from-an-object-and-add-it-t.html

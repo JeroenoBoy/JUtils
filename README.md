@@ -284,6 +284,53 @@ Vector3 vector3.Positive(Vector2 other) // Returns the absolute vesion of the ve
 Vector3 vector3.Negative(Vector2 other) // Returns the negative version of the vector
 ```
 
+### Range Enumerator
+
+Since 1.4.6, the Range operator also got extensions:
+
+Usages: <br>
+`A..B`  - Loops from A to B -- <br>
+`^A..B` - Loops from A to B-1 -- ^ at the start excludes the end number <br>
+`A..^B` - Loops from B-1 to A -- ^ before the second number makes it loop in reverse<br>
+`^A..^B` - Loops from A-1 to B -- Loops in reverse and excludes first number<br>
+
+```cs
+
+//  Syntax
+
+RangeEnumerator (..10).GetEnumerator();
+RangeEnumerator (10).GetEnumerator();
+
+//  Can be used as following:
+
+using JUtils.Extensions;
+
+foreach (int i in 10..) {
+    Debug.Log(i); // Logs 10 > 0
+}
+
+foreach (int i in ^10..^0) { // alias: ^10..
+    Debug.Log(i); // Logs 9 > 0
+}
+
+foreach (int i in ^0..10) {
+    Debug.Log(i); // Logs 0 > 9
+}
+
+foreach (int i in ..10) {
+    Debug.Log(i); // Logs 0 > 10
+}
+
+foreach (int i in 20..^10) {
+    Debug.Log(i); // Logs 0 > 10
+}
+
+foreach (int i in 10) {
+    Debug.Log(i); // Logs 0 > 9
+}
+
+```
+
 
 ## JUtils.Singletons
 
