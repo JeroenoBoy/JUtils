@@ -76,17 +76,10 @@ namespace JUtils.Singletons
         }
 
 
-        public bool HasComponent<T>()
-            where T : MonoBehaviour, ISingleton<T>
-        {
-            return gameObject.GetComponent<T>() != null;
-        }
-
-
         public bool TryAddComponent<T>(T behaviour)
             where T : MonoBehaviour, ISingleton<T>
         {
-            if (HasComponent<T>()) return false;
+            if (this.HasComponent<T>()) return false;
             AddComponent(behaviour);
             
             
