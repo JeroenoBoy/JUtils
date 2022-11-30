@@ -284,6 +284,8 @@ Vector3 vector3.Positive(Vector2 other) // Returns the absolute vesion of the ve
 Vector3 vector3.Negative(Vector2 other) // Returns the negative version of the vector
 ```
 
+### Range Enumerator
+
 Since 1.4.6, the Range operator also got extensions:
 
 Usages: <br>
