@@ -322,7 +322,7 @@ foreach (int i in ..10) {
 }
 
 foreach (int i in 20..^10) {
-    Debug.Log(i); // Logs 0 > 10
+    Debug.Log(i); // Logs 20 > 10
 }
 
 foreach (int i in 10) {
