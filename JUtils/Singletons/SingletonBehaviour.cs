@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -82,7 +83,8 @@ namespace JUtils.Singletons
             SingletonManager manager = instance;
             
             Type type = singleton.GetType();
-            if (manager._singletons.Contains(singleton)) return false;
+            MonoBehaviour behaviour = manager._singletons.FirstOrDefault(s => s is T);
+            if (behaviour != null) return singleton == behaviour;
 
             manager._singletons.Add(singleton);
             manager._fastLookup.Add(type, singleton);
@@ -99,7 +101,8 @@ namespace JUtils.Singletons
             if (manager._fastLookup.ContainsKey(type)) manager._fastLookup.Remove(type);
 
             manager._singletons.Remove(singleton);
-;        }
+;       }
+        
         
         //  Instance
 
@@ -112,15 +115,15 @@ namespace JUtils.Singletons
         {
             if (_instance == null) {
                 _instance = this;
+                DontDestroyOnLoad(gameObject);
             }
-            else {
+            else if (_instance != this) {
                 Debug.LogError("SingletonManager already exists!");
                 return;
             }
             
-            if (_fastLookup == null) _fastLookup = new ();
-            if (_singletons == null) _singletons = new ();
-            DontDestroyOnLoad(gameObject);
+            _fastLookup ??= new ();
+            _singletons ??= new ();
         }
 
 
@@ -134,6 +137,8 @@ namespace JUtils.Singletons
         public void OnAfterDeserialize()
         {
             _instance = this;
+            _fastLookup ??= new ();
+            _singletons ??= new ();
         }
     }
 }
