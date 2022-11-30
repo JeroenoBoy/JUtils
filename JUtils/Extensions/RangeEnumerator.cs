@@ -14,6 +14,9 @@ namespace JUtils.Extensions
     }
     
     
+    /// <summary>
+    /// Idea from: https://www.youtube.com/watch?v=jmmz1cInNow
+    /// </summary>
     public class RangeEnumerator : IEnumerator<int>
     {
         private readonly int _startIndex;
@@ -40,7 +43,7 @@ namespace JUtils.Extensions
 
             else if (range.End.IsFromEnd) {
                 _direction = -1;
-                _startIndex = _index = range.Start.Value;
+                _startIndex = _index = range.Start.Value+1;
                 _end = range.End.Value;
             }
 
@@ -57,10 +60,12 @@ namespace JUtils.Extensions
 
         internal RangeEnumerator(int start, int end)
         {
+            Debug.Log(start);
+            Debug.Log(end);
             if (start > end) throw new ArgumentException("Start must not be greater than end");
 
             _startIndex = _index = start-1;
-            _end = end;
+            _end = end-1;
         }
 
 
