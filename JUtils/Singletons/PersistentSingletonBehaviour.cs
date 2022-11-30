@@ -74,14 +74,13 @@ namespace JUtils.Singletons
                 return instance;
             }
         }
-
-
+        
+        
         public bool TryAddComponent<T>(T behaviour)
             where T : MonoBehaviour, ISingleton<T>
         {
             if (this.HasComponent<T>()) return false;
             AddComponent(behaviour);
-            
             
             return true;
         }
