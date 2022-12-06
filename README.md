@@ -119,6 +119,20 @@ public class PlayerMovement : Monobehaviour
 }
 ```
 
+### SerializeInterface
+
+This attribute allows you to restrict an UnityEngine.Object to be of a certain interface type
+
+Usage:
+```cs
+public class InterfaceSerializer : MonoBehaviour
+{
+    [SerializeInterface(typeof IProcessor)]
+    [SerializeField] private Object _processor;
+    public IProcessor processor => _processor as IProcessor;
+}
+```
+
 ### ShowWhen
 
 This attribute hides the current field if a certain variable doesn't match a condition.
