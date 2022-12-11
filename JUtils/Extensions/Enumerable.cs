@@ -28,5 +28,17 @@ namespace JUtils.Extensions
                 ? default
                 : enumerable.ElementAt(random.Next(0, size));
         }
+
+
+        public static int IndexOf<T>(this IEnumerable<T> self, Func<T, bool> comparer)
+        {
+            int i = 0;
+            foreach (T x in self) {
+                if (comparer(x)) return i;
+                i++;
+            }
+
+            return -1;
+        }
     }
 }
