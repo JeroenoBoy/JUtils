@@ -163,6 +163,41 @@ public class BillboardCamera : MonoBehaviour
 }
 ```
 
+### TypeSelector
+
+Select SerializeReference types, useful for strategy patterns.
+
+Usage:
+
+```cs
+public class TypeSelectorTest : MonoBehaviour
+{
+    [SerializeReference, TypeSelector] public IAnimal _animal;
+}
+
+public interface IAnimal {
+    string name { get; }
+}
+
+public class Dog : IAnimal
+{
+    [field: SerializeField]
+    public string name { get; set; }
+    
+    [field: SerializeField]
+    public string bark { get; set; }
+}
+
+public class Cat : IAnimal
+{
+    [field: SerializeField]
+    public string name { get; set; }
+    
+    [field: SerializeField]
+    public string meow { get; set; }
+}
+```
+
 ### Unpack
 
 This attribute can be used to unpack a serializable object in the inspector so it looks nicer.
@@ -272,6 +307,7 @@ yield return catcher; //  Can be used like this to run the coroutine
 IEnumerable<Any> enumerator; // Can also be array, list, pretty much everything that inherits IEnumerable<T>
 T enumerator.Random() // Returns a random element from the array based on UnityEngine.Random
 T enumerator.Random(System.Random randomizer) // Returns a random element based on System.Random
+int enumerator.IndexOf(t => t == "Value") // Get the index of the first matching the comparer 
 
 //  Vectors
 
