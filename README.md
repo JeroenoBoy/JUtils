@@ -250,18 +250,27 @@ int maxHealth { get } // Get the maxHealth of the component
 
 Methods:
 ```cs
-int Damage(int amount) // Damage the component by a certain amount
-int Heal(int amount) // Heal the component by a certain amount
+int Damage(IDamageEvent e) // Damage the component by a certain amount
+int Heal(IHealEvent e) // Heal the component by a certain amount
 void Kill() // Does A LOT of damage to the health component and kills it
 ```
 
 Messages the component sends (also gets send in this order)
 ```cs
 void OnDeath()
-void OnDamage(int damage)
-void OnHeal(int health)
 void OnHealthChange(int changedHealth)
+void OnDamage(IDamageEvent damage)
+void OnHeal(IHealEvent health)
+
+//  Additionally, You can also listen to these events in an ordered manner
+
+void OnDamage(SimpleDamageEvent e) // <-- Only get fired when the parmeter is SimpleDamageEvent
+void OnDamage(IDamageEvent e) // <-- Gets fired on all IDamageEvent
 ```
+
+**These classes are build in for damage events.**
+- SimpleDamageEvent
+- SimpleHealEvent
 
 
 ## JUtils.Extensions
