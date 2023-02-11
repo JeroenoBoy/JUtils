@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
+using JUtils.Singletons;
 using UnityEngine;
 
 
@@ -9,12 +11,12 @@ namespace JUtils.Extensions
 {
     public static class Coroutines
     {
-        private static Dictionary<int, WaitForSeconds> _wfsDictionary;
-        public static Dictionary<int, WaitForSeconds> wfsDictionary => _wfsDictionary ??= new Dictionary<int, WaitForSeconds>();
+        private static Dictionary<float, WaitForSeconds> _wfsDictionary;
+        public static Dictionary<float, WaitForSeconds> wfsDictionary => _wfsDictionary ??= new Dictionary<float, WaitForSeconds>();
 
         
-        private static Dictionary<int, WaitForSecondsRealtime> _wfsRtDictionary;
-        public static Dictionary<int, WaitForSecondsRealtime> wfsRtDictionary => _wfsRtDictionary ??= new Dictionary<int, WaitForSecondsRealtime>();
+        private static Dictionary<float, WaitForSecondsRealtime> _wfsRtDictionary;
+        public static Dictionary<float, WaitForSecondsRealtime> wfsRtDictionary => _wfsRtDictionary ??= new Dictionary<float, WaitForSecondsRealtime>();
 
         
         private static WaitForFixedUpdate _waitForFixedUpdate;
@@ -27,9 +29,9 @@ namespace JUtils.Extensions
         /// </summary>
         /// <param name="seconds">The amount of seconds to wait</param>
         /// <returns></returns>
-        public static WaitForSeconds WaitForSeconds(int seconds)
+        public static WaitForSeconds WaitForSeconds(float seconds)
         {
-            Dictionary<int, WaitForSeconds> dict = wfsDictionary;
+            Dictionary<float, WaitForSeconds> dict = wfsDictionary;
             if (wfsDictionary.ContainsKey(seconds)) return dict[seconds];
             return dict[seconds] = new WaitForSeconds(seconds);
         }
@@ -41,9 +43,9 @@ namespace JUtils.Extensions
         /// </summary>
         /// <param name="seconds">The amount of seconds to wait</param>
         /// <returns></returns>
-        public static WaitForSecondsRealtime WaitForSecondsRealtime(int seconds)
+        public static WaitForSecondsRealtime WaitForSecondsRealtime(float seconds)
         {
-            Dictionary<int, WaitForSecondsRealtime> dict = wfsRtDictionary;
+            Dictionary<float, WaitForSecondsRealtime> dict = wfsRtDictionary;
             if (wfsDictionary.ContainsKey(seconds)) return dict[seconds];
             return dict[seconds] = new WaitForSecondsRealtime(seconds);
         }
@@ -68,6 +70,43 @@ namespace JUtils.Extensions
         /// </summary>
         /// <returns></returns>
         public static CoroutineCatcher Catcher(IEnumerator coroutine) => new (coroutine);
+
+
+        /// <summary>
+        /// Run a action in the next frame
+        /// </summary>
+        /// <param name="action">The action to run</param>
+        public static void RunNextFrame(Action action)
+        {
+            SingletonManager.instance.StartCoroutine(NextFrameRoutine(action));
+        }
+
+
+        /// <summary>
+        /// Run a action after a certain amount of seconds;
+        /// </summary>
+        /// <param name="action">The action to run</param>
+        /// <param name="delay">The delay to use</param>
+        public static void RunAfter(Action action, float delay)
+        {
+            SingletonManager.instance.StartCoroutine(RunAfterRoutine(action, delay));
+        }
+        
+        
+#region Routines
+        private static IEnumerator NextFrameRoutine(Action action)
+        {
+            yield return null;
+            action.Invoke();
+        }
+
+
+        private static IEnumerator RunAfterRoutine(Action action, float delay)
+        {
+            yield return new WaitForSeconds(delay); // Not using Coroutines.WaitForSeconds to avoid unwanted caching
+            action.Invoke();
+        }
+#endregion
     }
     
     

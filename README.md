@@ -307,6 +307,10 @@ WaitForFixedUpdate     Coroutines.WaitForFixedUpdate() // Returns a cached versi
 WaitForEndOfFrame      Coroutines.WaitForEndOfFrame() // Returns a cached version of the WaitForEndOfFrame instance
 CoroutineCatcher       Coroutines.Catcher(IEnumerator coroutine) // Returns a CoroutineCatcher that can catch errors happening in the coroutine
 
+// There are just little shorthands if you don't want to create a new coroutine for something simple
+void Coroutines.RunNextFrame(Action action) // Run an action in the next frame
+void Coroutines.RunAfter(Action action, float delay) // Run an action after a certain delay
+
 CoroutineCatcher catcher;
 bool catcher.HasThrown(out Exception exception) // Check if the coroutine has thrown an exception
 yield return catcher; //  Can be used like this to run the coroutine
