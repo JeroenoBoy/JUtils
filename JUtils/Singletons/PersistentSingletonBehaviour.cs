@@ -46,15 +46,6 @@ namespace JUtils.Singletons
         /// Use this to prevent duplicate Awake calls
         /// </summary>
         protected abstract void OnAwake();
-
-
-        /// <summary>
-        /// Removes itself as the instance
-        /// </summary>
-        protected virtual void OnDisable()
-        {
-            SingletonManager.RemoveSingleton(this);
-        }
     }
         
         

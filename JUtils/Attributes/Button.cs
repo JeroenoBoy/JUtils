@@ -195,7 +195,7 @@ namespace JUtils.Attributes
                     _params[i] = (object)EditorGUILayout.DoubleField(name, (double)_params[i]);
                 }
                 else if (type == typeof(long)) {
-                    if (_params[i] is not long) _params[i] = info.HasDefaultValue ? info.DefaultValue : 0l;
+                    if (_params[i] is not long) _params[i] = info.HasDefaultValue ? info.DefaultValue : 0;
                     _params[i] = (object)EditorGUILayout.LongField(name, (long)_params[i]);
                 }
                 

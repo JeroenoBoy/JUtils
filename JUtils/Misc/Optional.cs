@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEngine;
 
 
-namespace JUtils.Attributes
+namespace JUtils
 {
     [System.Serializable]
     public struct Optional<T>
