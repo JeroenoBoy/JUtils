@@ -30,7 +30,6 @@ namespace JUtils.Components
         /// <summary>
         /// Damage the component
         /// </summary>
-        [Obsolete("Use Damage(IDamageEvent) instead")]
         public int Damage(int amount)
         {
             if (amount < 0) throw new ArgumentException("Amount must not be lower than one");
@@ -47,7 +46,6 @@ namespace JUtils.Components
         /// <summary>
         /// Heal the component
         /// </summary>
-        [Obsolete("Use Heal(IHealEvent) instead")]
         public int Heal(int amount)
         {
             if (amount < 1) throw new ArgumentException("Amount must not be lower than one");

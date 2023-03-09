@@ -1,5 +1,6 @@
 ﻿namespace JUtils.Components
 {
+    [System.Serializable]
     public struct SimpleDamageEvent : IDamageEvent
     {
         public int damage { get; set; }
@@ -8,6 +9,8 @@
     }
     
     
+    
+    [System.Serializable]
     public struct SimpleHealEvent : IHealEvent {
         public int amount { get; set; }
 
