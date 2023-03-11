@@ -90,13 +90,21 @@ namespace JUtils
                 SerializedProperty minField = property.FindPropertyRelative(nameof(_min));
                 SerializedProperty maxField = property.FindPropertyRelative(nameof(_max));
 
+                bool mode = EditorGUIUtility.wideMode;
+                EditorGUIUtility.wideMode = false;
+                
+                EditorGUI.LabelField(position, label);
+                
                 _values[0] = minField.floatValue;
                 _values[1] = maxField.floatValue;
-                
-                EditorGUI.MultiFloatField(position, label, _labels, _values);
+
+                Rect rect = new Rect(position) { x = position.x + EditorGUIUtility.labelWidth + 2, width = position.width - EditorGUIUtility.labelWidth - 2};
+                EditorGUI.MultiFloatField(rect, _labels, _values);
 
                 minField.floatValue = _values[0];
                 maxField.floatValue = _values[1];
+
+                EditorGUIUtility.wideMode = mode;
                 
                 property.serializedObject.ApplyModifiedProperties();
             }

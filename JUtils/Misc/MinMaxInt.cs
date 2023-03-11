@@ -98,7 +98,7 @@ namespace JUtils
                 _values[0] = minField.intValue;
                 _values[1] = maxField.intValue;
 
-                Rect rect = new Rect(position) { x = position.x + EditorGUIUtility.labelWidth, width = position.width - EditorGUIUtility.labelWidth};
+                Rect rect = new Rect(position) { x = position.x + EditorGUIUtility.labelWidth + 2, width = position.width - EditorGUIUtility.labelWidth - 2};
                 EditorGUI.MultiIntField(rect, _labels, _values);
 
                 minField.intValue = _values[0];
