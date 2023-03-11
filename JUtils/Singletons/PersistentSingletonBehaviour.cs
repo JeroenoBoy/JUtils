@@ -1,5 +1,6 @@
 using System;
 using JUtils.Extensions;
+using JUtils.Internal;
 using UnityEngine;
 
 
@@ -21,7 +22,7 @@ namespace JUtils.Singletons
         /// <summary>
         /// The main culprit to the chaos
         /// </summary>
-        protected override void OnEnable()
+        protected override void Awake()
         {
             if (!SingletonManager.SetSingleton(this)) {
                 Destroy(this);
@@ -33,14 +34,14 @@ namespace JUtils.Singletons
             persistentSingletonManager.TryAddComponent(this as T);
         }
 
-
+        
         internal void Init()
         {
             if (attachedToManager) return;
             attachedToManager = true;
             OnAwake();
         }
-        
+
 
         /// <summary>
         /// Use this to prevent duplicate Awake calls
@@ -61,8 +62,7 @@ namespace JUtils.Singletons
             get {
                 if (instance) return instance;
     
-                SingletonManager.instance.gameObject.AddComponent<PersistentSingletonManager>();
-                return instance;
+                return JUtilsObject.GetOrAdd<PersistentSingletonManager>();
             }
         }
         
@@ -80,7 +80,7 @@ namespace JUtils.Singletons
         public void AddComponent<T>(T behaviour)
             where T : MonoBehaviour, ISingleton<T>
         {
-            Destroy(behaviour);
+            DestroyImmediate(behaviour);
             
             T instance = gameObject.AddComponent<T>();
             if (instance is not MonoBehaviour copiedBehaviour) throw new Exception();

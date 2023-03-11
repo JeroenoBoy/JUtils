@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
+using JUtils.Internal;
 using JUtils.Singletons;
 using UnityEngine;
 
@@ -78,7 +79,7 @@ namespace JUtils.Extensions
         /// <param name="action">The action to run</param>
         public static void RunNextFrame(Action action)
         {
-            SingletonManager.instance.StartCoroutine(NextFrameRoutine(action));
+            JUtilsObject.instance.StartCoroutine(NextFrameRoutine(action));
         }
 
 
@@ -89,19 +90,19 @@ namespace JUtils.Extensions
         /// <param name="delay">The delay to use</param>
         public static void RunAfter(Action action, float delay)
         {
-            SingletonManager.instance.StartCoroutine(RunAfterRoutine(action, delay));
+            JUtilsObject.instance.StartCoroutine(RunAfterRoutine(action, delay));
         }
         
         
 #region Routines
-        private static IEnumerator NextFrameRoutine(Action action)
+        public static IEnumerator NextFrameRoutine(Action action)
         {
             yield return null;
             action.Invoke();
         }
 
 
-        private static IEnumerator RunAfterRoutine(Action action, float delay)
+        public static IEnumerator RunAfterRoutine(Action action, float delay)
         {
             yield return new WaitForSeconds(delay); // Not using Coroutines.WaitForSeconds to avoid unwanted caching
             action.Invoke();
