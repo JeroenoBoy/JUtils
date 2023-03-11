@@ -19,9 +19,12 @@ namespace JUtils
         public T value => _value;
 
 
-        public Weighted(T initialValue)
+        /// <summary>
+        /// Create a new instance of Weighted`T
+        /// </summary>
+        public Weighted(T initialValue, float weight)
         {
-            _weight = 1;
+            _weight = weight;
             _value = initialValue;
         }
     }

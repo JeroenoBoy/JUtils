@@ -6,20 +6,20 @@ using UnityEngine;
 namespace JUtils
 {
     [System.Serializable]
-    public struct MinMax
+    public struct MinMaxInt
     {
-        [SerializeField] private float _min;
-        [SerializeField] private float _max;
+        [SerializeField] private int _min;
+        [SerializeField] private int _max;
 
         /// <summary>
         /// Get the min value
         /// </summary>
-        public float min => _min;
+        public int min => _min;
         
         /// <summary>
         /// Get the max value
         /// </summary>
-        public float max => _max;
+        public int max => _max;
 
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace JUtils
         /// </summary>
         /// <param name="min"></param>
         /// <param name="max"></param>
-        public MinMax(float min, float max)
+        public MinMaxInt(int min, int max)
         {
             _min = min;
             _max = max;
@@ -38,7 +38,7 @@ namespace JUtils
         /// Get a random value from min to max using UnityEngine.Random
         /// </summary>
         /// <returns></returns>
-        public float Random()
+        public int Random()
         {
             return UnityEngine.Random.Range(_min, _max);
         }
@@ -47,16 +47,16 @@ namespace JUtils
         /// <summary>
         /// Get a ranbdom value from min to max using System.Random
         /// </summary>
-        public float Random(System.Random random)
+        public int Random(System.Random random)
         {
-            return (float)(random.NextDouble() * (_max - _min) + _min);
+            return (int)(random.NextDouble() * (_max - _min) + _min);
         }
 
 
         /// <summary>
         /// Check if the value is contained between min and max
         /// </summary>
-        public bool Contains(float value)
+        public bool Contains(int value)
         {
             return value > min && value < max;
         }
@@ -67,14 +67,14 @@ namespace JUtils
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public float Clamp(float value)
+        public int Clamp(int value)
         {
             return Mathf.Clamp(value, min, max);
         }
         
 
 #if UNITY_EDITOR
-        [CustomPropertyDrawer(typeof(MinMax))]
+        [CustomPropertyDrawer(typeof(MinMaxInt))]
         public class RangeEditor : PropertyDrawer
         {
             private GUIContent[] _labels = new[]
@@ -83,20 +83,28 @@ namespace JUtils
                 new GUIContent("Max")
             };
 
-            private float[] _values = new float[2];
+            private int[] _values = new int[2];
             
             public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
             {
                 SerializedProperty minField = property.FindPropertyRelative(nameof(_min));
                 SerializedProperty maxField = property.FindPropertyRelative(nameof(_max));
 
-                _values[0] = minField.floatValue;
-                _values[1] = maxField.floatValue;
+                bool mode = EditorGUIUtility.wideMode;
+                EditorGUIUtility.wideMode = false;
                 
-                EditorGUI.MultiFloatField(position, label, _labels, _values);
+                EditorGUI.LabelField(position, label);
+                
+                _values[0] = minField.intValue;
+                _values[1] = maxField.intValue;
 
-                minField.floatValue = _values[0];
-                maxField.floatValue = _values[1];
+                Rect rect = new Rect(position) { x = position.x + EditorGUIUtility.labelWidth, width = position.width - EditorGUIUtility.labelWidth};
+                EditorGUI.MultiIntField(rect, _labels, _values);
+
+                minField.intValue = _values[0];
+                maxField.intValue = _values[1];
+
+                EditorGUIUtility.wideMode = mode;
                 
                 property.serializedObject.ApplyModifiedProperties();
             }
