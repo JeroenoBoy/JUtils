@@ -61,7 +61,6 @@ namespace JUtils
             return value > min && value < max;
         }
 
-
         /// <summary>
         /// Clamps the value to be between A and B
         /// </summary>
