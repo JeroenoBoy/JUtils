@@ -37,7 +37,7 @@ namespace JUtils.Internal
 
         private void Awake()
         {
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
         }
 
 
