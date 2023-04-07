@@ -77,9 +77,9 @@ namespace JUtils.Extensions
         /// Run a action in the next frame
         /// </summary>
         /// <param name="action">The action to run</param>
-        public static void RunNextFrame(Action action)
+        public static void RunNextFrame(Action action, int frames = 0)
         {
-            JUtilsObject.instance.StartCoroutine(NextFrameRoutine(action));
+            JUtilsObject.instance.StartCoroutine(NextFrameRoutine(action, frames));
         }
 
 
@@ -95,9 +95,11 @@ namespace JUtils.Extensions
         
         
 #region Routines
-        public static IEnumerator NextFrameRoutine(Action action)
+        public static IEnumerator NextFrameRoutine(Action action, int frames = 1)
         {
-            yield return null;
+            while (frames-- > 0) {
+                yield return null;
+            }
             action.Invoke();
         }
 
