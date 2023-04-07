@@ -9,8 +9,14 @@ using UnityEngine.UI;
 
 namespace JUtils
 {
+    public interface IWeighted
+    {
+        public float weight { get; }
+    }
+    
+    
     [System.Serializable]
-    public struct Weighted<T>
+    public struct Weighted<T> : IWeighted
     {
         [SerializeField] private float _weight;
         [SerializeField] private T _value;
@@ -62,7 +68,7 @@ namespace JUtils
             //  Drawing managed field
 
             Rect weightFieldRect = new Rect(position) {x = position.x + position.width - 48, width = 48, height = EditorGUI.GetPropertyHeight(weightField)};
-            Rect valueFieldRect  = new Rect(position) { width = position.width - 50};
+            Rect valueFieldRect  = new Rect(position) {width = position.width - 50};
             
             EditorGUI.PropertyField(valueFieldRect, valueField, labelCopy, true);
             EditorGUI.PropertyField(weightFieldRect, weightField, GUIContent.none);
@@ -104,35 +110,53 @@ namespace JUtils
         {
             float sum = weightedArray.WeightedSum();
             float index = UnityEngine.Random.Range(0, sum);
-            return weightedArray.GetWeightedValue(index);
+            return weightedArray.GetWeightedValue(index).value;
         }
 
 
         /// <summary>
         /// Get a random weighted value using System.Random
         /// </summary>
-        /// <param name="weightedArray"></param>
-        /// <param name="random"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
         public static T Random<T>(this Weighted<T>[] weightedArray, System.Random random)
+        {
+            float sum = weightedArray.WeightedSum();
+            float index = (float)(random.NextDouble() * sum);
+            return weightedArray.GetWeightedValue(index).value;
+        }
+
+
+        /// <summary>
+        /// Get a random weighted value using UnityEngine.Random
+        /// </summary>
+        public static T Random<T>(this T[] weightedArray) where T : IWeighted
+        {
+            float sum = weightedArray.WeightedSum();
+            float index = UnityEngine.Random.Range(0, sum);
+            return weightedArray.GetWeightedValue(index);
+        }
+        
+        
+        /// <summary>
+        /// Get a random weighted value using System.Random
+        /// </summary>
+        public static T Random<T>(this T[] weightedArray, System.Random random) where T : IWeighted
         {
             float sum = weightedArray.WeightedSum();
             float index = (float)(random.NextDouble() * sum);
             return weightedArray.GetWeightedValue(index);
         }
-        
+
 
         /// <summary>
         /// Get a weighted value at a certain index
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static T GetWeightedValue<T>(this Weighted<T>[] weightedArray, float index)
+        public static T GetWeightedValue<T>(this T[] weightedArray, float index) where T : IWeighted
         { 
             T value = default;
 
             for (int i = 0; index > 0; i++) {
-                value = weightedArray[i].value;
+                value = weightedArray[i];
                 index -= weightedArray[i].weight;
             }
 
@@ -143,7 +167,7 @@ namespace JUtils
         /// <summary>
         /// Get the sum of a weighted array
         /// </summary>
-        public static float WeightedSum<T>(this Weighted<T>[] weightedArray)
+        public static float WeightedSum<T>(this T[] weightedArray) where T : IWeighted
         {
             float sum = 0;
             for (int i = weightedArray.Length; i --> 0;) {

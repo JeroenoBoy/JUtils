@@ -1,11 +1,13 @@
-﻿using UnityEditor;
+﻿using System;
+using UnityEditor;
 using UnityEngine;
+using Random = System.Random;
 
 
 
 namespace JUtils
 {
-    [System.Serializable]
+    [Serializable]
     public struct MinMax
     {
         [SerializeField] private float _min;
@@ -47,7 +49,7 @@ namespace JUtils
         /// <summary>
         /// Get a ranbdom value from min to max using System.Random
         /// </summary>
-        public float Random(System.Random random)
+        public float Random(Random random)
         {
             return (float)(random.NextDouble() * (_max - _min) + _min);
         }
