@@ -5,14 +5,14 @@ using UnityEngine;
 
 namespace JUtils.Internal
 {
-    internal class JUtilsObject : MonoBehaviour, ISerializationCallbackReceiver
+    internal class JUtilsObject : MonoBehaviour
     {
         private static JUtilsObject _instance;
         internal static JUtilsObject instance
         {
             get {
                 if (_instance != null) return _instance;
-                return _instance = new GameObject("[JUtils Components]").AddComponent<JUtilsObject>();
+                return _instance = FindObjectOfType<JUtilsObject>() ?? new GameObject("[JUtils Components]").AddComponent<JUtilsObject>();
             }
         }
 
@@ -41,10 +41,9 @@ namespace JUtils.Internal
         }
 
 
-        public void OnBeforeSerialize() {}
-        public void OnAfterDeserialize()
+        private void OnDestroy()
         {
-            _instance = this;
+            _instance = null;
         }
     }
 }

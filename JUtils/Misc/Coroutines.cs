@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Dynamic;
 using JUtils.Internal;
-using JUtils.Singletons;
 using UnityEngine;
 
 
 
-namespace JUtils.Extensions
+namespace JUtils
 {
     public static class Coroutines
     {
@@ -77,9 +75,9 @@ namespace JUtils.Extensions
         /// Run a action in the next frame
         /// </summary>
         /// <param name="action">The action to run</param>
-        public static void RunNextFrame(Action action, int frames = 0)
+        public static void RunNextFrame(Action action)
         {
-            JUtilsObject.instance.StartCoroutine(NextFrameRoutine(action, frames));
+            JUtilsObject.instance.StartCoroutine(Routines.NextFrameRoutine(action));
         }
 
 
@@ -88,28 +86,21 @@ namespace JUtils.Extensions
         /// </summary>
         /// <param name="action">The action to run</param>
         /// <param name="delay">The delay to use</param>
-        public static void RunAfter(Action action, float delay)
+        public static void Delay(float delay, Action action)
         {
-            JUtilsObject.instance.StartCoroutine(RunAfterRoutine(action, delay));
-        }
-        
-        
-#region Routines
-        public static IEnumerator NextFrameRoutine(Action action, int frames = 1)
-        {
-            while (frames-- > 0) {
-                yield return null;
-            }
-            action.Invoke();
+            JUtilsObject.instance.StartCoroutine(Routines.DelayRoutine(delay, action));
         }
 
 
-        public static IEnumerator RunAfterRoutine(Action action, float delay)
+        /// <summary>
+        /// Run a action after a certain amount of seconds;
+        /// </summary>
+        /// <param name="action">The action to run</param>
+        /// <param name="delay">The delay to use</param>
+        public static void Delay(TimeSpan delay, Action action)
         {
-            yield return new WaitForSeconds(delay); // Not using Coroutines.WaitForSeconds to avoid unwanted caching
-            action.Invoke();
+            JUtilsObject.instance.StartCoroutine(Routines.DelayRoutine(delay, action));
         }
-#endregion
     }
     
     
