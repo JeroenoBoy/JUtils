@@ -15,8 +15,9 @@ namespace JUtils.FSM
 
         public bool         IsActive     { get; internal set; }
         public StateMachine StateMachine { get; internal set; }
+        public StateData    Data         { get; internal set; }
 
-
+        
         internal void ActivateState()
         {
             try {
@@ -75,5 +76,50 @@ namespace JUtils.FSM
         {
             if (IsActive) ActiveUpdate();
         }
+    }
+
+
+
+    public abstract class State<T> : State
+    {
+        protected override void OnActivate()
+        {
+            T a = Data.Get<T>(0);
+            OnActivate(a);
+        }
+
+
+        protected abstract void OnActivate(T a);
+    }
+
+
+
+    public abstract class State<T1, T2> : State
+    {
+        protected override void OnActivate()
+        {
+            T1 a = Data.Get<T1>(0);
+            T2 b = Data.Get<T2>(0);
+            OnActivate(a, b);
+        }
+
+
+        protected abstract void OnActivate(T1 a, T2 b);
+    }
+    
+    
+    
+    public abstract class State<T1, T2, T3> : State
+    {
+        protected override void OnActivate()
+        {
+            T1 a = Data.Get<T1>(0);
+            T2 b = Data.Get<T2>(0);
+            T3 c = Data.Get<T3>(0);
+            OnActivate(a, b, c);
+        }
+
+
+        protected abstract void OnActivate(T1 a, T2 b, T3 c);
     }
 }

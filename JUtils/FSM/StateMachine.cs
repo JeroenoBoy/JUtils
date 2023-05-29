@@ -7,14 +7,14 @@ using UnityEngine;
 
 namespace JUtils.FSM
 {
-    public abstract class StateMachine : State
+    public abstract partial class StateMachine : State
     {
         [SerializeField] private bool showLogs;
         [SerializeField] private bool autoActivate;
         [SerializeField] private bool autoCreateStates = true;
 
-        protected State        CurrentState;
-        protected Queue<State> StateQueue = new ();
+        protected State             CurrentState;
+        protected Queue<QueueEntry> StateQueue = new ();
 
 
         protected virtual void Reset()
@@ -41,12 +41,12 @@ namespace JUtils.FSM
             StateQueue.Clear();
             ContinueQueue();
         }
-
-
+        
+        
         /// <summary>
         /// Clears the StateQueue and goes to the given state
         /// </summary>
-        public void GoToState(State state)
+        public void GoToState(State state, params object[] arguments)
         {
             if (!state) {
                 GoToNoState();
@@ -55,17 +55,17 @@ namespace JUtils.FSM
             
             Log($"Force go to state '{state.GetType().Name}'");
             StateQueue.Clear();
-            if (!AddToQueue(state)) ContinueQueue();
+            if (!AddToQueue(state, arguments)) ContinueQueue();
         }
 
 
         /// <summary>
         /// Clears the StateQueue and goes to the given state
         /// </summary>
-        public void GoToState<T>() where T : State
+        public void GoToState<T>(params object[] arguments) where T : State
         {
             if (!TryFindState(out T state)) return;
-            GoToState(state);
+            GoToState(state, arguments);
         }
 
 
@@ -73,13 +73,13 @@ namespace JUtils.FSM
         /// Adds a new state to the queue
         /// </summary>
         /// <returns>True if the added state has been set as the current state</returns>
-        public bool AddToQueue(State state)
+        public bool AddToQueue(State state, params object[] arguments)
         {
             if (!state) {
                 Log($"Tried to add Null state");
             }
             else {
-                StateQueue.Enqueue(state);
+                StateQueue.Enqueue(new QueueEntry {State = state, Data = new StateData(arguments)});
                 Log($"Add '{state.GetType().Name}' to the queue");
             }
             
@@ -92,10 +92,9 @@ namespace JUtils.FSM
         /// <summary>
         /// Adds a new state to the queue
         /// </summary>
-        /// <returns>True if the added state has been set as the current state</returns>
-        public bool AddToQueue<T>() where T : State
+        public void AddToQueue<T>(params object[] arguments) where T : State
         {
-            return TryFindState(out T state) && AddToQueue(state);
+            if (TryFindState(out T state)) AddToQueue(state, arguments);
         }
         
         
@@ -114,7 +113,10 @@ namespace JUtils.FSM
                 CurrentState.DeactivateState();
             }
 
-            if (StateQueue.TryDequeue(out State state)) {
+            if (StateQueue.TryDequeue(out QueueEntry entry)) {
+                State state = entry.State;
+
+                state.Data         = entry.Data;
                 state.StateMachine = this;
                 CurrentState       = state;
                 
@@ -184,6 +186,14 @@ namespace JUtils.FSM
             if (showLogs) {
                 Debug.Log($"[{GetType().Name}] : {message}", this);
             }
+        }
+
+
+
+        public struct QueueEntry
+        {
+            public State     State;
+            public StateData Data;
         }
     }
 }
