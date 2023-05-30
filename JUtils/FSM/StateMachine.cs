@@ -46,7 +46,7 @@ namespace JUtils.FSM
         /// <summary>
         /// Clears the StateQueue and goes to the given state
         /// </summary>
-        public void GoToState(State state, params object[] arguments)
+        public void GoToState(State state, StateData data)
         {
             if (!state) {
                 GoToNoState();
@@ -55,17 +55,17 @@ namespace JUtils.FSM
             
             Log($"Force go to state '{state.GetType().Name}'");
             StateQueue.Clear();
-            if (!AddToQueue(state, arguments)) ContinueQueue();
+            if (!AddToQueue(state, data)) ContinueQueue();
         }
 
 
         /// <summary>
         /// Clears the StateQueue and goes to the given state
         /// </summary>
-        public void GoToState<T>(params object[] arguments) where T : State
+        public void GoToState<T>(StateData data) where T : State
         {
             if (!TryFindState(out T state)) return;
-            GoToState(state, arguments);
+            GoToState(state, data);
         }
 
 
@@ -73,13 +73,13 @@ namespace JUtils.FSM
         /// Adds a new state to the queue
         /// </summary>
         /// <returns>True if the added state has been set as the current state</returns>
-        public bool AddToQueue(State state, params object[] arguments)
+        public bool AddToQueue(State state, StateData data)
         {
             if (!state) {
                 Log($"Tried to add Null state");
             }
             else {
-                StateQueue.Enqueue(new QueueEntry {State = state, Data = new StateData(arguments)});
+                StateQueue.Enqueue(new QueueEntry {State = state, Data = data ?? new StateData()});
                 Log($"Add '{state.GetType().Name}' to the queue");
             }
             
@@ -92,9 +92,9 @@ namespace JUtils.FSM
         /// <summary>
         /// Adds a new state to the queue
         /// </summary>
-        public void AddToQueue<T>(params object[] arguments) where T : State
+        public void AddToQueue<T>(StateData data) where T : State
         {
-            if (TryFindState(out T state)) AddToQueue(state, arguments);
+            if (TryFindState(out T state)) AddToQueue(state, data);
         }
         
         
@@ -129,6 +129,38 @@ namespace JUtils.FSM
                 OnNoState();
             }
         }
+        
+
+        /// <summary>
+        /// Find a state within the child objects of this state-machine, if <see cref="autoCreateStates"/> is enabled, it will automatically instantiate the state
+        /// </summary>
+        public T FindState<T>() where T : State
+        {
+            TryFindState(out T state);
+            return state;
+        }
+
+
+        /// <summary>
+        /// Try finding a state within the child objects of this state-machine, if <see cref="autoCreateStates"/> is enabled, it will automatically instantiate that state
+        /// </summary>
+        public bool TryFindState<T>(out T state) where T : State
+        {
+            if (this.TryGetComponentInDirectChildren(out state)) 
+                return true;
+
+            if (!autoCreateStates) {
+                Debug.LogError($"[{GetType().Name}] : Tried to load state '{typeof(T).Name}' but it does not exist");
+                return false;
+            }
+            
+            Log($"Created new state '{typeof(T).Name}'");
+            
+            GameObject obj = new (typeof(T).Name);
+            obj.transform.parent = transform;
+            state = obj.AddComponent<T>();
+            return true;
+        }
 
 
         protected override void OnActivate()
@@ -161,24 +193,6 @@ namespace JUtils.FSM
         
         protected abstract void OnNoState();
 
-
-        private bool TryFindState<T>(out T state) where T : State
-        {
-            if (this.TryGetComponentInDirectChildren(out state)) 
-                return true;
-
-            if (!autoCreateStates) {
-                Debug.LogError($"[{GetType().Name}] : Tried to load state '{typeof(T).Name}' but it does not exist");
-                return false;
-            }
-            
-            Log($"Created new state '{typeof(T).Name}'");
-            
-            GameObject obj = new (typeof(T).Name);
-            obj.transform.parent = transform;
-            state = obj.AddComponent<T>();
-            return true;
-        }
 
 
         private void Log(object message)
