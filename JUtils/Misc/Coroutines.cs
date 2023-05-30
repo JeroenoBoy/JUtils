@@ -77,7 +77,7 @@ namespace JUtils
         /// <param name="action">The action to run</param>
         public static void RunNextFrame(Action action)
         {
-            JUtilsObject.instance.StartCoroutine(Routines.NextFrameRoutine(action));
+            JUtilsObject.Instance.StartCoroutine(Routines.NextFrameRoutine(action));
         }
 
 
@@ -88,7 +88,7 @@ namespace JUtils
         /// <param name="delay">The delay to use</param>
         public static void Delay(float delay, Action action)
         {
-            JUtilsObject.instance.StartCoroutine(Routines.DelayRoutine(delay, action));
+            JUtilsObject.Instance.StartCoroutine(Routines.DelayRoutine(delay, action));
         }
 
 
@@ -99,7 +99,7 @@ namespace JUtils
         /// <param name="delay">The delay to use</param>
         public static void Delay(TimeSpan delay, Action action)
         {
-            JUtilsObject.instance.StartCoroutine(Routines.DelayRoutine(delay, action));
+            JUtilsObject.Instance.StartCoroutine(Routines.DelayRoutine(delay, action));
         }
     }
     

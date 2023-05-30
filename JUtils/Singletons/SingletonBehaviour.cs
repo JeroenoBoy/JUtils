@@ -9,8 +9,7 @@ namespace JUtils.Singletons
     /// </summary>
     public abstract class SingletonBehaviour<T> : MonoBehaviour, ISingleton<T> where T : MonoBehaviour, ISingleton<T>
     {
-        private static T _instance;
-        public static T instance => _instance ??= SingletonManager.GetSingleton<T>();
+        public static T Instance => SingletonManager.GetSingleton<T>();
 
 
         protected virtual void Awake()

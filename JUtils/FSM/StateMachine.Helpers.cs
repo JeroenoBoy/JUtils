@@ -7,7 +7,7 @@
         /// </summary>
         public void GoToState(State state)
         {
-            AddToQueue(state, new StateData());
+            GoToState(state, new StateData());
         }
         
         
