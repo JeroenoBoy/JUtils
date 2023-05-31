@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using JUtils.Internal;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.Serialization;
 
 
 
@@ -19,14 +22,7 @@ namespace JUtils.Singletons
         /// </summary>
         public static T GetSingleton<T>() where T : MonoBehaviour, ISingleton<T>
         {
-           SingletonManager manager = Instance;
-           
-           Type type = typeof(T);
-           if (manager._singletons.TryGetValue(type, out MonoBehaviour singleton)) {
-               return singleton as T;
-           }
-
-           return default;
+            return Instance._singletons.FirstOrDefault(x => x is T) as T;
         }
 
 
@@ -36,9 +32,13 @@ namespace JUtils.Singletons
         public static bool SetSingleton<T>(ISingleton<T> singleton) where T : MonoBehaviour, ISingleton<T>
         {
            SingletonManager manager = Instance;
+
+           if (manager._singletons.Any(x => x is T)) {
+               return false;
+           }
            
-           Type type = singleton.GetType();
-           return manager._singletons.TryAdd(type, singleton as MonoBehaviour);
+           manager._singletons.Add(singleton as MonoBehaviour);
+           return true;
         }
 
 
@@ -47,22 +47,11 @@ namespace JUtils.Singletons
         /// </summary>
         public static bool RemoveSingleton<T>(ISingleton<T> singleton) where T : MonoBehaviour, ISingleton<T>
         {
-           SingletonManager manager = Instance;
-           
-           Type type = singleton.GetType();
-
-           if (!manager._singletons.TryGetValue(type, out MonoBehaviour foundSingleton)) return false;
-           return foundSingleton == singleton && manager._singletons.Remove(type);
+           return Instance._singletons.Remove(singleton as MonoBehaviour);
         }
 
         //  Instance
 
-        private SerializableDictionary<Type, MonoBehaviour> _singletons;
-
-
-        private void Awake()
-        {
-            _singletons = new SerializableDictionary<Type, MonoBehaviour>();
-        }
+        [SerializeField] private List<MonoBehaviour> _singletons = new ();
     } 
 }

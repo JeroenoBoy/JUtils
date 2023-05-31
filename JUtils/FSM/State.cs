@@ -13,14 +13,21 @@ namespace JUtils.FSM
         public event Action<State> OnStateActivate;
         public event Action<State> OnStateDeactivate;
 
-        public bool         IsActive     { get; internal set; }
-        public StateMachine StateMachine { get; internal set; }
-        public StateData    Data         { get; internal set; }
+        public bool         IsActive            { get; private set; }
+        public float        TimeInState         => IsActive ? Time.time - _timeEnteredState : -1f;
+        public float        UnscaledTimeInState => IsActive ? Time.unscaledTime - _unscaledTimeEnteredState : -1f;
+        public StateMachine StateMachine        { get; internal set; }
+        public StateData    Data                { get; internal set; }
 
+        private float _timeEnteredState;
+        private float _unscaledTimeEnteredState;
         
         internal void ActivateState()
         {
             try {
+                _timeEnteredState         = Time.time;
+                _unscaledTimeEnteredState = Time.unscaledTime;
+                
                 gameObject.SetActive(true);
                 IsActive = true;
                 OnActivate();

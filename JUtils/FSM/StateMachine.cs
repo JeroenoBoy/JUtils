@@ -13,6 +13,8 @@ namespace JUtils.FSM
         [SerializeField] private bool autoActivate;
         [SerializeField] private bool autoCreateStates = true;
 
+        public event Action<State> OnStateChanged; 
+
         protected State             CurrentState;
         protected Queue<QueueEntry> StateQueue = new ();
 
@@ -122,6 +124,7 @@ namespace JUtils.FSM
                 
                 Log($"Activate state '{state.GetType().Name}'");
                 state.ActivateState();
+                OnStateChanged?.Invoke(state);
             }
             else {
                 Log($"Firing function '{nameof(OnNoState)}'");

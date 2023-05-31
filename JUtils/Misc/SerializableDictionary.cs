@@ -20,7 +20,7 @@ namespace JUtils
 
             _pairs = new Pair[keys.Length];
 
-            for (int i = _pairs.Length; i-- > 0;) {
+            for (int i = _pairs.Length; i --> 0;) {
                 _pairs[i] = new Pair(keys[i], values[i]);
             }
         }
@@ -29,7 +29,7 @@ namespace JUtils
         public void OnAfterDeserialize()
         {
             Clear();
-            for (int i = _pairs.Length; i-- > 0;) {
+            for (int i = _pairs.Length; i --> 0;) {
                 if (_pairs[i].key == null || _pairs[i].value == null) {
                     Debug.LogError("Key or Value was null!");
                 }
@@ -37,11 +37,10 @@ namespace JUtils
                     Add(_pairs[i].key, _pairs[i].value);
                 }
             }
-
-            _pairs = Array.Empty<Pair>();
         }
 
-
+        
+        
         [System.Serializable]
         public struct Pair
         {
