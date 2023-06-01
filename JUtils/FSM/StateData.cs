@@ -6,7 +6,7 @@ namespace JUtils.FSM
 {
     public class StateData
     {
-        public object[] Arguments;
+        public readonly object[] Arguments;
         
         
         public StateData(params object[] arguments)

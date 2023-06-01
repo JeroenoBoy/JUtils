@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using JUtils.Extensions;
 using UnityEngine;
 
@@ -66,6 +67,10 @@ namespace JUtils.FSM
         
         protected abstract void OnActivate();
         protected abstract void OnDeactivate();
+
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        protected StateRef<T> Ref<T>() where T : State => new ();
 
 
         protected virtual void ActiveUpdate()
