@@ -76,7 +76,7 @@ namespace JUtils
         /// <summary>
         /// Run a action after a certain amount of seconds;
         /// </summary>
-        public static Coroutine Delay(float delay, Action action)
+        public static Coroutine RunDelay(float delay, Action action)
         {
             return JUtilsObject.Instance.StartCoroutine(Routines.DelayRoutine(delay, action));
         }
@@ -85,7 +85,7 @@ namespace JUtils
         /// <summary>
         /// Run a action after a certain amount of seconds;
         /// </summary>
-        public static Coroutine Delay(TimeSpan delay, Action action)
+        public static Coroutine RunDelay(TimeSpan delay, Action action)
         {
             return JUtilsObject.Instance.StartCoroutine(Routines.DelayRoutine(delay, action));
         }
