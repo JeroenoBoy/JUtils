@@ -26,8 +26,6 @@ namespace JUtils
         /// Faster alternative to WaitForSeconds, caches the object.
         /// This will permanently cache the instance unless removed with Coroutines.wfsDictionary
         /// </summary>
-        /// <param name="seconds">The amount of seconds to wait</param>
-        /// <returns></returns>
         public static WaitForSeconds WaitForSeconds(float seconds)
         {
             Dictionary<float, WaitForSeconds> dict = wfsDictionary;
@@ -40,8 +38,6 @@ namespace JUtils
         /// Faster alternative to creating a new WaitForSecondsRealtime, caches the object.
         /// This will permanently cache the instance unless removed with Coroutines.wfsRtDictionary
         /// </summary>
-        /// <param name="seconds">The amount of seconds to wait</param>
-        /// <returns></returns>
         public static WaitForSecondsRealtime WaitForSecondsRealtime(float seconds)
         {
             Dictionary<float, WaitForSecondsRealtime> dict = wfsRtDictionary;
@@ -53,53 +49,54 @@ namespace JUtils
         /// <summary>
         /// Return the cached WaitForFixedUpdate instance
         /// </summary>
-        /// <returns></returns>
         public static WaitForFixedUpdate WaitForFixedUpdate() => _waitForFixedUpdate ??= new WaitForFixedUpdate();
 
         
         /// <summary>
         /// Return the cached WaitForFixedUpdate instance
         /// </summary>
-        /// <returns></returns>
         public static WaitForEndOfFrame WaitForEndOfFrame() => _waitForEndOfFrame ??= new WaitForEndOfFrame();
 
 
         /// <summary>
         /// Returns a CoroutineCatcher
         /// </summary>
-        /// <returns></returns>
         public static CoroutineCatcher Catcher(IEnumerator coroutine) => new (coroutine);
 
 
         /// <summary>
         /// Run a action in the next frame
         /// </summary>
-        /// <param name="action">The action to run</param>
-        public static void RunNextFrame(Action action)
+        public static Coroutine RunNextFrame(Action action)
         {
-            JUtilsObject.Instance.StartCoroutine(Routines.NextFrameRoutine(action));
+            return JUtilsObject.Instance.StartCoroutine(Routines.NextFrameRoutine(action));
         }
 
 
         /// <summary>
         /// Run a action after a certain amount of seconds;
         /// </summary>
-        /// <param name="action">The action to run</param>
-        /// <param name="delay">The delay to use</param>
-        public static void Delay(float delay, Action action)
+        public static Coroutine Delay(float delay, Action action)
         {
-            JUtilsObject.Instance.StartCoroutine(Routines.DelayRoutine(delay, action));
+            return JUtilsObject.Instance.StartCoroutine(Routines.DelayRoutine(delay, action));
         }
 
 
         /// <summary>
         /// Run a action after a certain amount of seconds;
         /// </summary>
-        /// <param name="action">The action to run</param>
-        /// <param name="delay">The delay to use</param>
-        public static void Delay(TimeSpan delay, Action action)
+        public static Coroutine Delay(TimeSpan delay, Action action)
         {
-            JUtilsObject.Instance.StartCoroutine(Routines.DelayRoutine(delay, action));
+            return JUtilsObject.Instance.StartCoroutine(Routines.DelayRoutine(delay, action));
+        }
+
+
+        /// <summary>
+        /// Run a routine on the JUtils Object
+        /// </summary>
+        public static Coroutine Run(IEnumerator routine)
+        {
+            return JUtilsObject.Instance.StartCoroutine(routine);
         }
     }
     
@@ -114,7 +111,6 @@ namespace JUtils
         /// <summary>
         /// This allows you to catch errors in enumerators
         /// </summary>
-        /// <param name="coroutine"></param>
         public CoroutineCatcher(IEnumerator coroutine)
         {
             _enumerator = coroutine;
@@ -124,8 +120,6 @@ namespace JUtils
         /// <summary>
         /// Check if the coroutine has thrown an exception
         /// </summary>
-        /// <param name="exception">The caught exception, can be null</param>
-        /// <returns>True if there was an exception</returns>
         public bool HasThrown(out Exception exception)
         {
             exception = _threwException;
