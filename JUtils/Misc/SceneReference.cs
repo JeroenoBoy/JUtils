@@ -75,7 +75,6 @@ namespace JUtils
             public enum ErrorType { Success, Null, BuildIndexMissing, PathMissing }
 
             private GUIStyle _backgroundStyle;
-            private GUIStyle _buttonStyle;
             
             
             public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
@@ -120,7 +119,7 @@ namespace JUtils
                 switch (errorType) {
                     case ErrorType.Success: break;
                     case ErrorType.Null:
-                        EditorGUI.LabelField(position, "Scene reference was null", _buttonStyle);
+                        EditorGUI.LabelField(position, "Reference is not set", _backgroundStyle);
                         break;
                     case ErrorType.BuildIndexMissing:
                         position.width -= 34;
@@ -172,7 +171,7 @@ namespace JUtils
 
             private void GenerateStyles()
             {
-                if (_backgroundStyle != null && _buttonStyle != null) {return;}
+                if (_backgroundStyle != null) {return;}
                 
                 Texture2D background = new Texture2D(1,1,TextureFormat.RGBAFloat,false);
                 background.SetPixel(0,0, new Color(.015f,.0f,.01f, .2f));
