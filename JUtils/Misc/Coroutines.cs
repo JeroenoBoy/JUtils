@@ -75,6 +75,7 @@ namespace JUtils
 
         /// <summary>
         /// Run a action after a certain amount of seconds;
+        /// -- You should always use StartCoroutine instead of the Coroutines, but this can be more useful.
         /// </summary>
         public static Coroutine RunDelay(float delay, Action action)
         {
@@ -83,7 +84,8 @@ namespace JUtils
 
 
         /// <summary>
-        /// Run a action after a certain amount of seconds;
+        /// Run a action after a certain amount of seconds
+        /// -- You should always use StartCoroutine instead of the Coroutines, but this can be more useful.
         /// </summary>
         public static Coroutine RunDelay(TimeSpan delay, Action action)
         {
@@ -93,6 +95,7 @@ namespace JUtils
 
         /// <summary>
         /// Run a routine on the JUtils Object
+        /// -- You should always use StartCoroutine instead of the Coroutines, but this can be more useful.
         /// </summary>
         public static Coroutine Run(IEnumerator routine)
         {

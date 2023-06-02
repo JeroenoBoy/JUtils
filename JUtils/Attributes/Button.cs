@@ -173,74 +173,74 @@ namespace JUtils.Attributes
     
                 if (type == typeof(bool)) {
                     if (_params[i] is not bool) _params[i] = info.HasDefaultValue ? info.DefaultValue : false;
-                    _params[i] = (object)EditorGUILayout.Toggle(name, (bool)_params[i]);
+                    _params[i] = EditorGUILayout.Toggle(name, (bool)_params[i]);
                 }
                 else if (type == typeof(string)) {
                     if (_params[i] is not string) _params[i] = info.HasDefaultValue ? info.DefaultValue : "";
-                    _params[i] = (object)EditorGUILayout.TextField(name, (string)_params[i]);
+                    _params[i] = EditorGUILayout.TextField(name, (string)_params[i]);
                 }
                 
                 //  Numbers
                 
                 else if (type == typeof(int)) {
                     if (_params[i] is not int) _params[i] = info.HasDefaultValue ? info.DefaultValue : 0;
-                    _params[i] = (object)EditorGUILayout.IntField(name, (int)_params[i]);
+                    _params[i] = EditorGUILayout.IntField(name, (int)_params[i]);
                 }
                 else if (type == typeof(float)) {
                     if (_params[i] is not float) _params[i] = info.HasDefaultValue ? info.DefaultValue : 0f;
-                    _params[i] = (object)EditorGUILayout.FloatField(name, (float)_params[i]);
+                    _params[i] = EditorGUILayout.FloatField(name, (float)_params[i]);
                 }
                 else if (type == typeof(double)) {
                     if (_params[i] is not double) _params[i] = info.HasDefaultValue ? info.DefaultValue : 0d;
-                    _params[i] = (object)EditorGUILayout.DoubleField(name, (double)_params[i]);
+                    _params[i] = EditorGUILayout.DoubleField(name, (double)_params[i]);
                 }
                 else if (type == typeof(long)) {
                     if (_params[i] is not long) _params[i] = info.HasDefaultValue ? info.DefaultValue : 0;
-                    _params[i] = (object)EditorGUILayout.LongField(name, (long)_params[i]);
+                    _params[i] = EditorGUILayout.LongField(name, (long)_params[i]);
                 }
                 
                 //  Vectors
                 
                 else if (type == typeof(Vector2)) {
                     if (_params[i] is not Vector2) _params[i] = info.HasDefaultValue ? info.DefaultValue : Vector2.zero;
-                    _params[i] = (object)EditorGUILayout.Vector2Field(name, (Vector2)_params[i]);
+                    _params[i] = EditorGUILayout.Vector2Field(name, (Vector2)_params[i]);
                 }
                 
                 else if (type == typeof(Vector3)) {
                     if (_params[i] is not Vector3) _params[i] = info.HasDefaultValue ? info.DefaultValue : Vector3.zero;
-                    _params[i] = (object)EditorGUILayout.Vector3Field(name, (Vector3)_params[i]);
+                    _params[i] = EditorGUILayout.Vector3Field(name, (Vector3)_params[i]);
                 }
                 else if (type == typeof(Vector4)) {
                     if (_params[i] is not Vector4) _params[i] = info.HasDefaultValue ? info.DefaultValue : Vector4.zero;
-                    _params[i] = (object)EditorGUILayout.Vector4Field(name, (Vector4)_params[i]);
+                    _params[i] = EditorGUILayout.Vector4Field(name, (Vector4)_params[i]);
                 }
                 else if (type == typeof(Vector2Int)) {
                     if (_params[i] is not Vector2Int) _params[i] = info.HasDefaultValue ? info.DefaultValue : Vector2Int.zero;
-                    _params[i] = (object)EditorGUILayout.Vector2IntField(name, (Vector2Int)_params[i]);
+                    _params[i] = EditorGUILayout.Vector2IntField(name, (Vector2Int)_params[i]);
                 }
                 else if (type == typeof(Vector3Int)) {
                     if (_params[i] is not Vector3Int) _params[i] = info.HasDefaultValue ? info.DefaultValue : Vector3Int.zero;
-                    _params[i] = (object)EditorGUILayout.Vector3IntField(name, (Vector3Int)_params[i]);
+                    _params[i] = EditorGUILayout.Vector3IntField(name, (Vector3Int)_params[i]);
                 }
                 
                 //  Other
 
                 else if (type == typeof(Rect)) {
                     if (_params[i] is not Rect) _params[i] = info.HasDefaultValue ? info.DefaultValue : Rect.zero;
-                    _params[i] = (object)EditorGUILayout.RectField(name, (Rect)_params[i]);
+                    _params[i] = EditorGUILayout.RectField(name, (Rect)_params[i]);
                 }
                 else if (type == typeof(RectInt)) {
                     if (_params[i] is not RectInt) _params[i] = info.HasDefaultValue ? info.DefaultValue : default(Bounds);
-                    _params[i] = (object)EditorGUILayout.RectIntField(name, (RectInt)_params[i]);
+                    _params[i] = EditorGUILayout.RectIntField(name, (RectInt)_params[i]);
                 }
                 else if (type == typeof(Bounds)) {
                     if (_params[i] is not Bounds) _params[i] = info.HasDefaultValue ? info.DefaultValue : default(Bounds);
-                    _params[i] = (object)EditorGUILayout.BoundsField(name, (Bounds)_params[i]);
+                    _params[i] = EditorGUILayout.BoundsField(name, (Bounds)_params[i]);
                 }
                 
                 else if (type == typeof(Color)) {
                     if (_params[i] is not Color) _params[i] = info.HasDefaultValue ? info.DefaultValue : Color.black;
-                    _params[i] = (object)EditorGUILayout.ColorField(name, (Color)_params[i]);
+                    _params[i] = EditorGUILayout.ColorField(name, (Color)_params[i]);
                 }
                 
                 else if (type == typeof(LayerMask)) {
