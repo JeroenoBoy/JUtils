@@ -9,6 +9,9 @@ using UnityEngine.Serialization;
 
 namespace JUtils.Components
 {
+    /// <summary>
+    /// A simple implementation for an object pool
+    /// </summary>
     public sealed class ObjectPool : MonoBehaviour
     {
         [SerializeField] private PoolItem template;
@@ -22,12 +25,7 @@ namespace JUtils.Components
         private Queue<PoolItem> freeItems;
 
 
-        public PoolItem SpawnItem()
-        {
-            return SpawnItem(Vector3.zero, Quaternion.identity);
-        }
-
-
+        public PoolItem SpawnItem() => SpawnItem(Vector3.zero, Quaternion.identity);
         public PoolItem SpawnItem(Vector3 localPosition) => SpawnItem(localPosition, Quaternion.identity);
         public PoolItem SpawnItem(Vector3 localPosition, Transform parent) => SpawnItem(localPosition, Quaternion.identity, parent);
         public PoolItem SpawnItem(Transform parent) => SpawnItem(Vector3.zero, Quaternion.identity, parent);
@@ -46,7 +44,7 @@ namespace JUtils.Components
         
         public bool TryGetItem(out PoolItem item)
         {
-            if (freeItems.Count == 0 && (!autoExpand || AddItems() <= 0)) {
+            if (freeItems.Count == 0 && (!autoExpand || InstantiateNewItems() <= 0)) {
                 Debug.LogWarning("Tried to get item from empty pool");
                 item = null;
                 return false;
@@ -59,7 +57,7 @@ namespace JUtils.Components
         }
         
         
-        public int AddItems(int amount = -1)
+        public int InstantiateNewItems(int amount = -1)
         {
             if (amount <= 0) amount = autoExpandAmount;
             int newSize = maxSize > 0 ? Mathf.Max(poolItems.Length, amount + poolItems.Length) : amount + poolItems.Length;
@@ -121,7 +119,7 @@ namespace JUtils.Components
             
             poolItems = Array.Empty<PoolItem>();
             freeItems = new Queue<PoolItem>();
-            AddItems(prefill);
+            InstantiateNewItems(prefill);
         }
     }
 }
