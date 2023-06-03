@@ -7,6 +7,9 @@ using System.Reflection;
 
 namespace JUtils.Editor
 {
+    /// <summary>
+    /// Utilities class working with assemblies
+    /// </summary>
     public static class JUtility
     {
         /// <summary>

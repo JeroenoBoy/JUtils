@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace JUtils.Editor
 {
+    /// <summary>
+    /// A small debug window which allows for setting VSync, TimeScale and a FPS limit
+    /// </summary>
     public class DebugTools : EditorWindow
     {
         private bool _isOverriding;
