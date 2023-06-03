@@ -1,0 +1,5 @@
+<map id="JUtils.Internal.JUtilsObject" name="JUtils.Internal.JUtilsObject">
+<area shape="rect" id="node1" title=" " alt="" coords="5,185,196,212"/>
+<area shape="rect" id="node2" title=" " alt="" coords="33,5,157,32"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1Singletons_1_1SingletonManager.html" title="Centralized singleton to fix reference &amp; hot reload issues issues" alt="" coords="117,81,311,123"/>
+</map>

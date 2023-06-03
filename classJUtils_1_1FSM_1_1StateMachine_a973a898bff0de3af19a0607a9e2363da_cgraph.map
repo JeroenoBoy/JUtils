@@ -1,0 +1,13 @@
+<map id="JUtils.FSM.StateMachine.AddToQueue" name="JUtils.FSM.StateMachine.AddToQueue">
+<area shape="rect" id="node1" title="Adds a new state to the queue" alt="" coords="5,185,189,226"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707" title="Deactivate the current state and go to the next one" alt="" coords="237,155,421,197"/>
+<area shape="rect" id="node10" href="$classJUtils_1_1FSM_1_1StateMachine.html#a74822865517420aa01a42d66ba31f4a0" title=" " alt="" coords="469,253,676,280"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1FSM_1_1State.html#ab14352e6c9019d52e8b4af8b625aa033" title=" " alt="" coords="481,57,664,98"/>
+<area shape="rect" id="node8" href="$classJUtils_1_1FSM_1_1State.html#a4d025fb23c90bded0d3fd391f958c28f" title=" " alt="" coords="473,122,673,163"/>
+<area shape="rect" id="node11" href="$classJUtils_1_1FSM_1_1StateMachine.html#afd2db7b644c05eb5e5846c17c7297fbb" title=" " alt="" coords="481,187,665,229"/>
+<area shape="rect" id="node4" href="$classJUtils_1_1FSM_1_1State.html#aee0c53f9ec46af7b9d2d58824f059100" title=" " alt="" coords="733,5,933,32"/>
+<area shape="rect" id="node5" href="$classJUtils_1_1FSM_1_1State.html#ab4d21d741b6b3e14321234003419059f" title=" " alt="" coords="733,123,934,149"/>
+<area shape="rect" id="node6" href="$classJUtils_1_1Coroutines.html#a268b4578e1ab1618a519f442aedcd067" title="Run a action in the next frame" alt="" coords="738,57,929,98"/>
+<area shape="rect" id="node7" href="$classJUtils_1_1Routines.html#aeb93e703f82c0bb1fe26a7713b68ed6c" title=" " alt="" coords="991,57,1184,98"/>
+<area shape="rect" id="node9" href="$classJUtils_1_1FSM_1_1State.html#abdbd1ad4204021fe5bc848c1f17a645b" title=" " alt="" coords="724,173,943,200"/>
+</map>

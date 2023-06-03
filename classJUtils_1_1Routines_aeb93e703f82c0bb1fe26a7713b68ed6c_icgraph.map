@@ -1,0 +1,14 @@
+<map id="JUtils.Routines.NextFrameRoutine" name="JUtils.Routines.NextFrameRoutine">
+<area shape="rect" id="node1" title=" " alt="" coords="1419,191,1612,232"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1Coroutines.html#a268b4578e1ab1618a519f442aedcd067" title="Run a action in the next frame" alt="" coords="1180,191,1371,232"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1FSM_1_1State.html#ab14352e6c9019d52e8b4af8b625aa033" title=" " alt="" coords="949,191,1132,232"/>
+<area shape="rect" id="node4" href="$classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707" title="Deactivate the current state and go to the next one" alt="" coords="717,125,901,167"/>
+<area shape="rect" id="node12" href="$classJUtils_1_1FSM_1_1StateMachine.html#a5de071744b1fe652826f9078ab878928" title=" " alt="" coords="717,191,901,232"/>
+<area shape="rect" id="node5" href="$classJUtils_1_1FSM_1_1StateMachine.html#a973a898bff0de3af19a0607a9e2363da" title="Adds a new state to the queue" alt="" coords="477,8,661,49"/>
+<area shape="rect" id="node7" href="$classJUtils_1_1FSM_1_1StateMachine.html#a191804e54a49176eaa81d06e864bfb35" title="Clears the StateQueue and goes to the given state" alt="" coords="237,71,421,112"/>
+<area shape="rect" id="node9" href="$classJUtils_1_1FSM_1_1State.html#aee0c53f9ec46af7b9d2d58824f059100" title=" " alt="" coords="469,257,669,283"/>
+<area shape="rect" id="node10" href="$classJUtils_1_1FSM_1_1StateMachine.html#a93e950d633bd3a76bbbaf51558626b94" title="Clears the queue and triggers OnNoState&gt;" alt="" coords="477,125,661,167"/>
+<area shape="rect" id="node11" href="$classJUtils_1_1FSM_1_1StateMachine.html#ad890ef1f1bbf951c972d4eadce2cc4f4" title=" " alt="" coords="477,191,661,232"/>
+<area shape="rect" id="node6" href="$classJUtils_1_1FSM_1_1StateMachine.html#abadd2f7a9ab4303192220f1ba4a1193a" title="Adds a new state to the queue" alt="" coords="237,5,421,47"/>
+<area shape="rect" id="node8" href="$classJUtils_1_1FSM_1_1StateMachine.html#aabae18666371c0e1c40f8638096f9157" title="Clears the StateQueue and goes to the given state" alt="" coords="5,71,189,112"/>
+</map>

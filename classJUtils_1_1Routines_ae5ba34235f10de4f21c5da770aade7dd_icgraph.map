@@ -1,0 +1,4 @@
+<map id="JUtils.Routines.DelayRoutine" name="JUtils.Routines.DelayRoutine">
+<area shape="rect" id="node1" title=" " alt="" coords="251,5,460,32"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1Coroutines.html#ab385f3ac1e56dffd0c00c99febd2f36a" title="Run a action after a certain amount of seconds; – You should always use StartCoroutine instead of the..." alt="" coords="5,5,203,32"/>
+</map>
