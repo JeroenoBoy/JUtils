@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using JUtils.Internal;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.Serialization;
 
 
 
@@ -11,79 +14,44 @@ namespace JUtils.Singletons
     /// </summary>
     public class SingletonManager : MonoBehaviour
     {
-        private static SingletonManager _instance;
-        public static SingletonManager instance
+        public static SingletonManager Instance => JUtilsObject.Instance.SingletonManager;
+
+
+        /// <summary>
+        /// Get a singleton from this class
+        /// </summary>
+        public static T GetSingleton<T>() where T : MonoBehaviour, ISingleton<T>
         {
-           get {
-               if (_instance != null) return _instance;
-               return _instance = JUtilsObject.GetOrAdd<SingletonManager>();
-           }
+            return Instance._singletons.FirstOrDefault(x => x is T) as T;
         }
 
 
         /// <summary>
-        /// 
+        /// Set a singleton reference
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
-        /// <exception cref="ArgumentException"></exception>
-        public static T GetSingleton<T>() where T : MonoBehaviour, ISingleton<T>
+        public static bool SetSingleton<T>(ISingleton<T> singleton) where T : MonoBehaviour, ISingleton<T>
         {
-           SingletonManager manager = instance;
-           
-           Type type = typeof(T);
-           if (manager._singletons.TryGetValue(type, out MonoBehaviour singleton)) {
-               return singleton as T;
+           SingletonManager manager = Instance;
+
+           if (manager._singletons.Any(x => x is T)) {
+               return false;
            }
-
-           return null;
-        }
-
-
-        public static bool SetSingleton<T>(SingletonBehaviour<T> singleton) where T : MonoBehaviour, ISingleton<T>
-        {
-           SingletonManager manager = instance;
            
-           Type type = singleton.GetType();
-           return manager._singletons.TryAdd(type, singleton);
+           manager._singletons.Add(singleton as MonoBehaviour);
+           return true;
         }
 
 
-        public static bool RemoveSingleton<T>(SingletonBehaviour<T> singleton) where T : MonoBehaviour, ISingleton<T>
+        /// <summary>
+        /// Remove a singleton from all lists
+        /// </summary>
+        public static bool RemoveSingleton<T>(ISingleton<T> singleton) where T : MonoBehaviour, ISingleton<T>
         {
-           SingletonManager manager = instance;
-           
-           Type type = singleton.GetType();
-
-           if (!manager._singletons.TryGetValue(type, out MonoBehaviour foundSingleton)) return false;
-           return foundSingleton == singleton && manager._singletons.Remove(type);
+           return Instance._singletons.Remove(singleton as MonoBehaviour);
         }
-
 
         //  Instance
 
-
-        private SerializableDictionary<Type, MonoBehaviour> _singletons;
-
-
-        private void Awake()
-        {
-           if (_instance == null) {
-               _instance = this;
-               DontDestroyOnLoad(gameObject);
-           }
-           else if (_instance != this) {
-               Debug.LogError("SingletonManager already exists!");
-               return;
-           }
-
-           _singletons = new SerializableDictionary<Type, MonoBehaviour>();
-        }
-
-
-        private void OnDestroy()
-        {
-           if (instance == this) _instance = null;
-        }
+        [SerializeField] private List<MonoBehaviour> _singletons = new ();
     } 
 }

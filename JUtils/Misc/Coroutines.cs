@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Dynamic;
 using JUtils.Internal;
-using JUtils.Singletons;
 using UnityEngine;
 
 
 
-namespace JUtils.Extensions
+namespace JUtils
 {
     public static class Coroutines
     {
@@ -28,8 +26,6 @@ namespace JUtils.Extensions
         /// Faster alternative to WaitForSeconds, caches the object.
         /// This will permanently cache the instance unless removed with Coroutines.wfsDictionary
         /// </summary>
-        /// <param name="seconds">The amount of seconds to wait</param>
-        /// <returns></returns>
         public static WaitForSeconds WaitForSeconds(float seconds)
         {
             Dictionary<float, WaitForSeconds> dict = wfsDictionary;
@@ -42,8 +38,6 @@ namespace JUtils.Extensions
         /// Faster alternative to creating a new WaitForSecondsRealtime, caches the object.
         /// This will permanently cache the instance unless removed with Coroutines.wfsRtDictionary
         /// </summary>
-        /// <param name="seconds">The amount of seconds to wait</param>
-        /// <returns></returns>
         public static WaitForSecondsRealtime WaitForSecondsRealtime(float seconds)
         {
             Dictionary<float, WaitForSecondsRealtime> dict = wfsRtDictionary;
@@ -55,61 +49,58 @@ namespace JUtils.Extensions
         /// <summary>
         /// Return the cached WaitForFixedUpdate instance
         /// </summary>
-        /// <returns></returns>
         public static WaitForFixedUpdate WaitForFixedUpdate() => _waitForFixedUpdate ??= new WaitForFixedUpdate();
 
         
         /// <summary>
         /// Return the cached WaitForFixedUpdate instance
         /// </summary>
-        /// <returns></returns>
         public static WaitForEndOfFrame WaitForEndOfFrame() => _waitForEndOfFrame ??= new WaitForEndOfFrame();
 
 
         /// <summary>
         /// Returns a CoroutineCatcher
         /// </summary>
-        /// <returns></returns>
         public static CoroutineCatcher Catcher(IEnumerator coroutine) => new (coroutine);
 
 
         /// <summary>
         /// Run a action in the next frame
         /// </summary>
-        /// <param name="action">The action to run</param>
-        public static void RunNextFrame(Action action, int frames = 0)
+        public static Coroutine RunNextFrame(Action action)
         {
-            JUtilsObject.instance.StartCoroutine(NextFrameRoutine(action, frames));
+            return JUtilsObject.Instance.StartCoroutine(Routines.NextFrameRoutine(action));
         }
 
 
         /// <summary>
         /// Run a action after a certain amount of seconds;
+        /// -- You should always use StartCoroutine instead of the Coroutines, but this can be more useful.
         /// </summary>
-        /// <param name="action">The action to run</param>
-        /// <param name="delay">The delay to use</param>
-        public static void RunAfter(Action action, float delay)
+        public static Coroutine RunDelay(float delay, Action action)
         {
-            JUtilsObject.instance.StartCoroutine(RunAfterRoutine(action, delay));
-        }
-        
-        
-#region Routines
-        public static IEnumerator NextFrameRoutine(Action action, int frames = 1)
-        {
-            while (frames-- > 0) {
-                yield return null;
-            }
-            action.Invoke();
+            return JUtilsObject.Instance.StartCoroutine(Routines.DelayRoutine(delay, action));
         }
 
 
-        public static IEnumerator RunAfterRoutine(Action action, float delay)
+        /// <summary>
+        /// Run a action after a certain amount of seconds
+        /// -- You should always use StartCoroutine instead of the Coroutines, but this can be more useful.
+        /// </summary>
+        public static Coroutine RunDelay(TimeSpan delay, Action action)
         {
-            yield return new WaitForSeconds(delay); // Not using Coroutines.WaitForSeconds to avoid unwanted caching
-            action.Invoke();
+            return JUtilsObject.Instance.StartCoroutine(Routines.DelayRoutine(delay, action));
         }
-#endregion
+
+
+        /// <summary>
+        /// Run a routine on the JUtils Object
+        /// -- You should always use StartCoroutine instead of the Coroutines, but this can be more useful.
+        /// </summary>
+        public static Coroutine Run(IEnumerator routine)
+        {
+            return JUtilsObject.Instance.StartCoroutine(routine);
+        }
     }
     
     
@@ -123,7 +114,6 @@ namespace JUtils.Extensions
         /// <summary>
         /// This allows you to catch errors in enumerators
         /// </summary>
-        /// <param name="coroutine"></param>
         public CoroutineCatcher(IEnumerator coroutine)
         {
             _enumerator = coroutine;
@@ -133,8 +123,6 @@ namespace JUtils.Extensions
         /// <summary>
         /// Check if the coroutine has thrown an exception
         /// </summary>
-        /// <param name="exception">The caught exception, can be null</param>
-        /// <returns>True if there was an exception</returns>
         public bool HasThrown(out Exception exception)
         {
             exception = _threwException;

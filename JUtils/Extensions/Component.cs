@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System;
+using JUtils.FSM;
 using UnityEngine;
 
 
@@ -31,29 +32,61 @@ namespace JUtils.Extensions
         /// <summary>
         /// Check if a component exists
         /// </summary>
-        /// <param name="self">Object to check on</param>
-        /// <typeparam name="T">The component type</typeparam>
-        /// <returns></returns>
         public static bool HasComponent<T>(this Component self) => self.GetComponent<T>() != null;
 
 
         /// <summary>
         /// Check if a component exists
         /// </summary>
-        /// <param name="self">Object to check on</param>
-        /// <param name="tyoe">The component type</param>
-        /// <returns></returns>
         public static bool HasComponent(this Component self, Type type) => self.GetComponent(type) != null;
+
+
+        /// <summary>
+        /// Try get a component in the children
+        /// </summary>
+        public static bool TryGetComponentInChildren<T>(this Component self, out T component) where T : Component
+        {
+            component = self.GetComponentInChildren<T>();
+            return component;
+        }
+
+
+        /// <summary>
+        /// Get a component in the direct children of the component's transform. Won't look into children of children
+        /// </summary>
+        public static T GetComponentInDirectChildren<T>(this Component self) where T : Component
+        {
+            foreach (Transform t in self.transform) {
+                if (t.TryGetComponent(out T component))
+                    return component;
+            }
+            return null;
+        }
+        
+        
+        /// <summary>
+        /// Try get a component in in the direct children of this component
+        /// </summary>
+        public static bool TryGetComponentInDirectChildren<T>(this Component self, out T component) where T : Component
+        {
+            component = self.GetComponentInDirectChildren<T>();
+            return component;
+        }
+
+
+        /// <summary>
+        /// Get a component in the direct parents of this component (Without this my own component)
+        /// </summary>
+        public static T GetComponentInParentsDirect<T>(this Component self) where T : Component
+        {
+            return self.transform.parent ? self.transform.parent.GetComponentInParent<T>() : null;
+        }
 
 
         /// <summary>
         /// Copy one component to another
         /// Source: https://answers.unity.com/questions/530178/how-to-get-a-component-from-an-object-and-add-it-t.html
         /// </summary>
-        /// <param name="comp"></param>
-        /// <param name="other"></param>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
         public static T GetCopyOf<T>(this Component comp, T other) where T : Component
         {
             Type type = comp.GetType();

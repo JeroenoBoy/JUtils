@@ -1,51 +1,44 @@
 ﻿using System;
+using JUtils.Singletons;
 using UnityEngine;
 
 
 
 namespace JUtils.Internal
 {
-    internal class JUtilsObject : MonoBehaviour, ISerializationCallbackReceiver
+    internal class JUtilsObject : MonoBehaviour
     {
-        private static JUtilsObject _instance;
-        internal static JUtilsObject instance
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        private static void CreateInstance()
         {
-            get {
-                if (_instance != null) return _instance;
-                return _instance = new GameObject("[JUtils Components]").AddComponent<JUtilsObject>();
-            }
+            _instance = new GameObject("[JUtilsObject]").AddComponent<JUtilsObject>();
+            DontDestroyOnLoad(_instance.gameObject);
         }
+        
+        
+        private static  JUtilsObject _instance;
+        internal static JUtilsObject Instance => _instance ??= FindObjectOfType<JUtilsObject>();
 
 
         internal static T Add<T>() where T : Component
         {
-            return instance.gameObject.AddComponent<T>();
+            return Instance.gameObject.AddComponent<T>();
         }
 
 
         internal static T Get<T>() where T : Component
         {
-            return instance.GetComponent<T>();
+            return Instance.GetComponent<T>();
         }
 
 
         internal static T GetOrAdd<T>() where T : Component
         {
-            return instance.GetComponent<T>() ?? Add<T>();
-        }
-        
-
-        private void Awake()
-        {
-            DontDestroyOnLoad(gameObject);
+            return Instance.GetComponent<T>() ?? Add<T>();
         }
 
 
-        public void OnBeforeSerialize() {}
-        public void OnAfterDeserialize()
-        {
-            _instance = this;
-        }
+        private SingletonManager _singletonManager;
+        public  SingletonManager SingletonManager => _singletonManager ??= GetOrAdd<SingletonManager>();
     }
 }
-

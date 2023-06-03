@@ -1,9 +1,9 @@
 {
 	"name": "jutils",
 	"displayName": "JUtils",
-	"version": "1.8.0",
-	"description": "Many useful extensions / classes for unity",
+	"version": "1.9.0",
+	"description": "A unity utilities library, this contains many handy extensions, components and data structures with custom editors",
 	"license": "MIT",
-	"author": { "name": "Jeroen van de Geest" },
+	"author": { "name": "Jeroen van de Geest", "url": "https://jeroenvdg.com" },
 	"hideInEditor": false
 }

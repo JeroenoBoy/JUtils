@@ -1,0 +1,18 @@
+﻿name: Create a new Release
+
+on:
+  release: 
+    types: [published]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - uses: pCYSl5EDgo/create-unitypackage@master
+        with:
+          package-path: 'JUtils.unitypackage'
+          include-files: metaList
