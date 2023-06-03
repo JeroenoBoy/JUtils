@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 
 namespace JUtils.Components
 {
-    public class ObjectPool : MonoBehaviour
+    public sealed class ObjectPool : MonoBehaviour
     {
-        [SerializeField] private PoolItem prefab;
+        [SerializeField] private PoolItem template;
         [SerializeField] private int prefill = 10;
         [SerializeField] private int maxSize = -1;
         
@@ -21,16 +22,30 @@ namespace JUtils.Components
         private Queue<PoolItem> freeItems;
 
 
-        public PoolItem GetItem()
+        public PoolItem SpawnItem()
         {
-            TryGetItem(out PoolItem item);
+            return SpawnItem(Vector3.zero, Quaternion.identity);
+        }
+
+
+        public PoolItem SpawnItem(Vector3 localPosition) => SpawnItem(localPosition, Quaternion.identity);
+        public PoolItem SpawnItem(Vector3 localPosition, Transform parent) => SpawnItem(localPosition, Quaternion.identity, parent);
+        public PoolItem SpawnItem(Transform parent) => SpawnItem(Vector3.zero, Quaternion.identity, parent);
+        public PoolItem SpawnItem(Vector3 localPosition, Quaternion localRotation, Transform parent = null)
+        {
+            if (!TryGetItem(out PoolItem item)) return null;
+            Transform transform = item.transform;
+            transform.parent        = parent;
+            transform.localPosition = localPosition;
+            transform.rotation      = localRotation;
             return item;
         }
         
         
         public bool TryGetItem(out PoolItem item)
         {
-            if (freeItems.Count == 0 && autoExpand && AddItems() == 0) {
+            if (freeItems.Count == 0 && (!autoExpand || AddItems() <= 0)) {
+                Debug.LogWarning("Tried to get item from empty pool");
                 item = null;
                 return false;
             }
@@ -55,8 +70,9 @@ namespace JUtils.Components
             Array.Resize(ref poolItems, newSize);
 
             while (amount --> 0) {
-                PoolItem item = Instantiate(prefab);
+                PoolItem item = Instantiate(template, Vector3.zero, Quaternion.identity, transform);
                 item.ObjectPool = this;
+                item.gameObject.SetActive(false);
                 poolItems[newSize - amount - 1] = item;
                 freeItems.Enqueue(item);
             }
@@ -72,15 +88,34 @@ namespace JUtils.Components
             }
 
             item.Despawn();
-            item.transform.parent = transform;
+            Transform transform = item.transform;
+            transform.parent        = this.transform;
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
             freeItems.Enqueue(item);
             
             return true;
         }
 
 
+        private void Awake()
+        {
+            if (template == null) {
+                Debug.LogError("No template has been set!", this);
+                return;
+            }
+
+            if (template.transform.parent != transform) return;
+            
+            template.gameObject.SetActive(false);
+            template.ObjectPool = this;
+        }
+        
+
         private void Start()
         {
+            if (!template) return;
+            
             poolItems = Array.Empty<PoolItem>();
             freeItems = new Queue<PoolItem>();
             AddItems(prefill);
