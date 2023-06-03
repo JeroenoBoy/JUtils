@@ -16,8 +16,8 @@ namespace JUtils.Attributes
     [AttributeUsage(AttributeTargets.Method)]
     public class Button : Attribute
     {
-        [CanBeNull] public string name;
-        public bool clickableInEditor;
+        [CanBeNull] public readonly string Name;
+        public bool ClickableInEditor;
         
         
         /// <summary>
@@ -25,15 +25,12 @@ namespace JUtils.Attributes
         /// </summary>
         /// <param name="name">The name of the button</param>
         /// <param name="clickableInEditor">Should the button only run in playmode</param>
-        /// <param name="playModeOnly">Deprecated Param, only here for compatability sake</param>
-        /// 
         public Button(
             [CanBeNull] string name = null,
-            bool clickableInEditor = false,
-            bool playModeOnly = true )
+            bool clickableInEditor = false)
         {
-            this.name = name;
-            this.clickableInEditor = clickableInEditor || !playModeOnly;
+            Name = name;
+            ClickableInEditor = clickableInEditor;
         }
     }
 
@@ -92,7 +89,7 @@ namespace JUtils.Attributes
             public void Draw(MonoBehaviour behaviour, MethodInfo method)
             {
                 Button attribute  = method.GetCustomAttributes(typeof(Button), true).First() as Button;
-                string name       = attribute.name ?? PrettifyName(method.Name);
+                string name       = attribute.Name ?? PrettifyName(method.Name);
                 
                 //  Checking if the button is a coroutine
                 
@@ -100,7 +97,7 @@ namespace JUtils.Attributes
 
                 //  Checking if the button is playmode only
                 
-                if ((!attribute.clickableInEditor || isCoroutine) && !Application.isPlaying)
+                if ((!attribute.ClickableInEditor || isCoroutine) && !Application.isPlaying)
                 {
                     GUI.enabled = false;
                     bool pressed = DrawButtonInGui(method, name);

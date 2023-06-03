@@ -5,6 +5,12 @@ using UnityEngine;
 
 namespace JUtils.Attributes
 {
+    /// <summary>
+    /// Change the name of a parameter in the inspector
+    /// </summary>
+    /// <example>
+    /// 
+    /// </example>
     public class CustomName : PropertyAttribute
     {
         private readonly string _name;
@@ -12,7 +18,7 @@ namespace JUtils.Attributes
 
         public CustomName(string name)
         {
-            this._name = name;
+            _name = name;
         }
         
         
