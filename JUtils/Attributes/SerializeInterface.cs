@@ -6,6 +6,20 @@ using UnityEngine;
 
 namespace JUtils.Attributes
 {
+    /// <summary>
+    /// Restrict the UnityEngine.Object field to extend a certain interface
+    /// </summary>
+    /// <example><code lang="CSharp">
+    /// namespace Example
+    /// {
+    ///     public class SerializeInterfaceExample : MonoBehaviour
+    ///     {
+    ///         [SerializeInterface(typeof(IProcessor))]
+    ///         [SerializeField, Required] private Object _processor;
+    ///         public IProcessor processor => _processor as IProcessor;
+    ///     }  
+    /// }
+    /// </code></example>
     public class SerializeInterface : PropertyAttribute
     {
         private readonly Type _type;

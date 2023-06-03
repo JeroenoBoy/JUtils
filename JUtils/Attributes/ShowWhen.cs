@@ -7,6 +7,21 @@ using UnityEngine;
 
 namespace JUtils.Attributes
 {
+    /// <summary>
+    /// Hide a field if the condition does not match, allows checks for bools, ints, floats & strings
+    /// </summary>
+    /// <example><code lang="CSharp">
+    /// namespace Example
+    /// {
+    ///     public class ShowWhenExample : MonoBehaviour
+    ///     {
+    ///         [SerializeField] private bool _autoSet;
+    /// 
+    ///         [ShowWhen(nameof(_autoSet), false)]
+    ///         [SerializeField, Required] private Settings _settings;
+    ///     }  
+    /// }
+    /// </code></example>
     public class ShowWhen : PropertyAttribute
     {
         public enum Comparer { Equals, Or, Greater, Smaller }
@@ -16,9 +31,10 @@ namespace JUtils.Attributes
         private Comparer _comparer;
         private bool     _showAsObject = true;
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
+        
+        /// <summary>
+        /// Shows when the "Variable" field does not match the "value"
+        /// </summary>
         public ShowWhen(string variable, string value, bool showAsObject = true)
         {
             _variable     = variable;
@@ -26,9 +42,9 @@ namespace JUtils.Attributes
             _showAsObject = showAsObject;
         }
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
+        /// <summary>
+        /// Shows when the "Variable" field does not match the "value"
+        /// </summary>
         public ShowWhen(string variable, int value, Comparer comparer = Comparer.Equals)
         {
             _variable = variable;
@@ -37,9 +53,9 @@ namespace JUtils.Attributes
             _showAsObject = true;
         }
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
+        /// <summary>
+        /// Shows when the "Variable" field returns true on tne comparer 
+        /// </summary>
         public ShowWhen(string variable, int value, bool showAsObject, Comparer comparer = Comparer.Equals)
         {
             _variable     = variable;
@@ -48,9 +64,9 @@ namespace JUtils.Attributes
             _showAsObject = showAsObject;
         }
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
+        /// <summary>
+        /// Shows when the "Variable" field returns true on tne comparer 
+        /// </summary>
         public ShowWhen(string variable, float value, Comparer comparer = Comparer.Equals)
         {
             _variable = variable;
@@ -59,9 +75,9 @@ namespace JUtils.Attributes
             _showAsObject = true;
         }
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
+        /// <summary>
+        /// Shows when the "Variable" field returns true on tne comparer 
+        /// </summary>
         public ShowWhen(string variable, float value, bool showAsObject, Comparer comparer = Comparer.Equals)
         {
             _variable     = variable;
@@ -70,9 +86,9 @@ namespace JUtils.Attributes
             _showAsObject = showAsObject;
         }
         
-        /**
-         * Serializes an attribute when the given variable is equal to the given value
-         */
+        /// <summary>
+        /// Shows when the "Variable" field matches the bool value
+        /// </summary>
         public ShowWhen(string variable, bool value, bool showAsObject = true)
         {
             _variable     = variable;
