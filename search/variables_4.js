@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['freeitems_589',['freeItems',['../classJUtils_1_1Components_1_1ObjectPool.html#a085e42927f14dcefb9acbd29b072bc23',1,'JUtils::Components::ObjectPool']]]
+  ['key_472',['key',['../structJUtils_1_1SerializableDictionary_1_1Pair.html#a45b4dfc3d3793461682414b7f2564786',1,'JUtils::SerializableDictionary::Pair']]]
 ];

@@ -45,7 +45,6 @@ var hierarchy =
       [ "JUtils.FSM.State< T1, T2, T3 >", "classJUtils_1_1FSM_1_1State.html", [
         [ "JUtils.FSM.StateMachine", "classJUtils_1_1FSM_1_1StateMachine.html", null ]
       ] ],
-      [ "JUtils.Internal.JUtilsObject", "classJUtils_1_1Internal_1_1JUtilsObject.html", null ],
       [ "JUtils.Singletons.SingletonBehaviour< T >", "classJUtils_1_1Singletons_1_1SingletonBehaviour.html", null ],
       [ "JUtils.Singletons.SingletonManager", "classJUtils_1_1Singletons_1_1SingletonManager.html", null ]
     ] ],

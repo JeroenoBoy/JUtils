@@ -1,13 +1,6 @@
 var searchData=
 [
-  ['max_176',['max',['../structJUtils_1_1MinMax.html#ac483c66bd159e4c044d7f6a2537866be',1,'JUtils.MinMax.max()'],['../structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f',1,'JUtils.MinMaxInt.max()']]],
-  ['maxhealth_177',['maxHealth',['../classJUtils_1_1Components_1_1HealthComponent.html#a1aa75cb42f345f12d671eaf79ec08117',1,'JUtils::Components::HealthComponent']]],
-  ['maxsize_178',['maxSize',['../classJUtils_1_1Components_1_1ObjectPool.html#a29b42af19720c9874c6f1f1f72231e43',1,'JUtils::Components::ObjectPool']]],
-  ['min_179',['min',['../structJUtils_1_1MinMax.html#a76998df2801389efd7a2c3eba61b177e',1,'JUtils.MinMax.min()'],['../structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980',1,'JUtils.MinMaxInt.min()']]],
-  ['minmax_180',['MinMax',['../structJUtils_1_1MinMax.html',1,'JUtils.MinMax'],['../structJUtils_1_1MinMax.html#a9c0867406aa3c758be3273ae5c9bed6a',1,'JUtils.MinMax.MinMax()']]],
-  ['minmax_2ecs_181',['MinMax.cs',['../MinMax_8cs.html',1,'']]],
-  ['minmaxint_182',['MinMaxInt',['../structJUtils_1_1MinMaxInt.html',1,'JUtils.MinMaxInt'],['../structJUtils_1_1MinMaxInt.html#a8417c3a0f567dea951f84c7c515ab4d3',1,'JUtils.MinMaxInt.MinMaxInt()']]],
-  ['minmaxint_2ecs_183',['MinMaxInt.cs',['../MinMaxInt_8cs.html',1,'']]],
-  ['movenext_184',['MoveNext',['../classJUtils_1_1Extensions_1_1RangeEnumerator.html#a55e1b154f637afdcf8ce372676ffa42d',1,'JUtils.Extensions.RangeEnumerator.MoveNext()'],['../classJUtils_1_1CoroutineCatcher.html#a0acfa1d5f7bc07b66bc6718603792d80',1,'JUtils.CoroutineCatcher.MoveNext()']]],
-  ['multiply_185',['Multiply',['../classJUtils_1_1Extensions_1_1Vector2Extensions.html#a2ce06e8e05d1bad0fffdcbef9e10590e',1,'JUtils.Extensions.Vector2Extensions.Multiply()'],['../classJUtils_1_1Extensions_1_1Vector3Extensions.html#ae9aaca4d066fd9560ba985f30444a347',1,'JUtils.Extensions.Vector3Extensions.Multiply()']]]
+  ['name_131',['Name',['../classJUtils_1_1Attributes_1_1Button.html#a7e1fb3d300d3590ba12184eb1ed67d45',1,'JUtils::Attributes::Button']]],
+  ['negative_132',['Negative',['../classJUtils_1_1Extensions_1_1Vector2Extensions.html#af033cd299c42709d20da7a6f279c2a77',1,'JUtils.Extensions.Vector2Extensions.Negative()'],['../classJUtils_1_1Extensions_1_1Vector3Extensions.html#abeb7e1564f2ae102f2628591b096c7e5',1,'JUtils.Extensions.Vector3Extensions.Negative()']]],
+  ['nextframeroutine_133',['NextFrameRoutine',['../classJUtils_1_1Routines.html#aeb93e703f82c0bb1fe26a7713b68ed6c',1,'JUtils::Routines']]]
 ];

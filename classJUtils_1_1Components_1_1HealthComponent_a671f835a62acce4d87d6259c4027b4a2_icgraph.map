@@ -1,6 +1,0 @@
-<map id="JUtils.Components.HealthComponent.ChangeHealth" name="JUtils.Components.HealthComponent.ChangeHealth">
-<area shape="rect" id="node1" title=" " alt="" coords="243,71,436,112"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1Components_1_1HealthComponent.html#a4096744851b1c1c6e82eb54a78deb24c" title="Damage the component" alt="" coords="5,5,195,47"/>
-<area shape="rect" id="node3" href="$classJUtils_1_1Components_1_1HealthComponent.html#a4af91acf7cec981ef4eb45adadd62a15" title="Heal the component" alt="" coords="5,71,195,112"/>
-<area shape="rect" id="node4" href="$classJUtils_1_1Components_1_1HealthComponent.html#aee07f067c9675ea831f085d6f277d54d" title=" " alt="" coords="5,136,195,177"/>
-</map>

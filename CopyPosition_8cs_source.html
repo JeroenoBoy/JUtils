@@ -29,7 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">JUtils
    </div>
-   <div id="projectbrief">A unity utilities library, this contains many handy extensions, components and data structures with custom editors</div>
+   <div id="projectbrief">A unity utilities library</div>
   </td>
  </tr>
  </tbody>
@@ -96,19 +96,16 @@ $(document).ready(function(){initNavTree('CopyPosition_8cs_source.html',''); ini
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1CopyPosition.html">    7</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classJUtils_1_1Components_1_1CopyPosition.html">CopyPosition</a> : MonoBehaviour</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    {</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1CopyPosition.html#aa47d8ccec02d211b92cd343566901a96">    9</a></span>&#160;        [SerializeField] <span class="keyword">private</span> Transform <a class="code" href="classJUtils_1_1Components_1_1CopyPosition.html#aa47d8ccec02d211b92cd343566901a96">_target</a>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1CopyPosition.html#a5fff2312b52479b9ab7d38ce9411fd6c">   10</a></span>&#160;        [SerializeField] <span class="keyword">private</span> Vector3   <a class="code" href="classJUtils_1_1Components_1_1CopyPosition.html#a5fff2312b52479b9ab7d38ce9411fd6c">_offset</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        [SerializeField] <span class="keyword">private</span> Transform _target;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        [SerializeField] <span class="keyword">private</span> Vector3   _offset;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1CopyPosition.html#a4bb712457d7a1fc456324407dede2b98">   12</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="classJUtils_1_1Components_1_1CopyPosition.html#a4bb712457d7a1fc456324407dede2b98">Update</a>()</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> Update()</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            transform.position = <a class="code" href="classJUtils_1_1Components_1_1CopyPosition.html#aa47d8ccec02d211b92cd343566901a96">_target</a>.position + <a class="code" href="classJUtils_1_1Components_1_1CopyPosition.html#a5fff2312b52479b9ab7d38ce9411fd6c">_offset</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            transform.position = _target.position + _offset;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        }</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
 <div class="ttc" id="aclassJUtils_1_1Components_1_1CopyPosition_html"><div class="ttname"><a href="classJUtils_1_1Components_1_1CopyPosition.html">JUtils.Components.CopyPosition</a></div><div class="ttdef"><b>Definition:</b> <a href="CopyPosition_8cs_source.html#l00007">CopyPosition.cs:8</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1CopyPosition_html_a4bb712457d7a1fc456324407dede2b98"><div class="ttname"><a href="classJUtils_1_1Components_1_1CopyPosition.html#a4bb712457d7a1fc456324407dede2b98">JUtils.Components.CopyPosition.Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition:</b> <a href="CopyPosition_8cs_source.html#l00012">CopyPosition.cs:12</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1CopyPosition_html_a5fff2312b52479b9ab7d38ce9411fd6c"><div class="ttname"><a href="classJUtils_1_1Components_1_1CopyPosition.html#a5fff2312b52479b9ab7d38ce9411fd6c">JUtils.Components.CopyPosition._offset</a></div><div class="ttdeci">Vector3 _offset</div><div class="ttdef"><b>Definition:</b> <a href="CopyPosition_8cs_source.html#l00010">CopyPosition.cs:10</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1CopyPosition_html_aa47d8ccec02d211b92cd343566901a96"><div class="ttname"><a href="classJUtils_1_1Components_1_1CopyPosition.html#aa47d8ccec02d211b92cd343566901a96">JUtils.Components.CopyPosition._target</a></div><div class="ttdeci">Transform _target</div><div class="ttdef"><b>Definition:</b> <a href="CopyPosition_8cs_source.html#l00009">CopyPosition.cs:9</a></div></div>
 <div class="ttc" id="anamespaceJUtils_1_1Components_html"><div class="ttname"><a href="namespaceJUtils_1_1Components.html">JUtils.Components</a></div><div class="ttdef"><b>Definition:</b> <a href="BillboardCamera_8cs_source.html#l00007">BillboardCamera.cs:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

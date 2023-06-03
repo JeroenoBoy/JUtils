@@ -5,7 +5,7 @@ var namespaceJUtils =
     [ "Editor", "namespaceJUtils_1_1Editor.html", "namespaceJUtils_1_1Editor" ],
     [ "Extensions", "namespaceJUtils_1_1Extensions.html", "namespaceJUtils_1_1Extensions" ],
     [ "FSM", "namespaceJUtils_1_1FSM.html", "namespaceJUtils_1_1FSM" ],
-    [ "Internal", "namespaceJUtils_1_1Internal.html", "namespaceJUtils_1_1Internal" ],
+    [ "Internal", "namespaceJUtils_1_1Internal.html", null ],
     [ "Singletons", "namespaceJUtils_1_1Singletons.html", "namespaceJUtils_1_1Singletons" ],
     [ "GizmoUtils", "classJUtils_1_1GizmoUtils.html", "classJUtils_1_1GizmoUtils" ],
     [ "Coroutines", "classJUtils_1_1Coroutines.html", "classJUtils_1_1Coroutines" ],

@@ -29,7 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">JUtils
    </div>
-   <div id="projectbrief">A unity utilities library, this contains many handy extensions, components and data structures with custom editors</div>
+   <div id="projectbrief">A unity utilities library</div>
   </td>
  </tr>
  </tbody>
@@ -87,7 +87,6 @@ $(document).ready(function(){initNavTree('classJUtils_1_1SerializableDictionary.
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classJUtils_1_1SerializableDictionary-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">JUtils.SerializableDictionary&lt; TKey, TValue &gt; Class Template Reference</div>  </div>
@@ -108,10 +107,9 @@ Collaboration diagram for JUtils.SerializableDictionary&lt; TKey, TValue &gt;:</
 <div class="dyncontent">
 <div class="center"><img src="classJUtils_1_1SerializableDictionary__coll__graph.png" border="0" usemap="#aJUtils_8SerializableDictionary_3_01TKey_00_01TValue_01_4_coll__map" alt="Collaboration graph"/></div>
 <map name="aJUtils_8SerializableDictionary_3_01TKey_00_01TValue_01_4_coll__map" id="aJUtils_8SerializableDictionary_3_01TKey_00_01TValue_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="317,49,520,90"/>
-<area shape="rect" title=" " alt="" coords="14,5,217,32"/>
-<area shape="rect" title=" " alt="" coords="5,56,225,83"/>
-<area shape="rect" href="structJUtils_1_1SerializableDictionary_1_1Pair.html" title=" " alt="" coords="14,107,217,149"/>
+<area shape="rect" title=" " alt="" coords="123,80,325,121"/>
+<area shape="rect" title=" " alt="" coords="5,5,208,32"/>
+<area shape="rect" title=" " alt="" coords="233,5,453,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -126,11 +124,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:addebef6920c9a899173a47f7d51ee580"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a306238a9962c7b0573943683c0594a4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1SerializableDictionary.html#a306238a9962c7b0573943683c0594a4b">OnAfterDeserialize</a> ()</td></tr>
 <tr class="separator:a306238a9962c7b0573943683c0594a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a8df6bf94eee06231e900fe304add09eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structJUtils_1_1SerializableDictionary_1_1Pair.html">Pair</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">_pairs</a></td></tr>
-<tr class="separator:a8df6bf94eee06231e900fe304add09eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -162,19 +155,16 @@ Private Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="SerializableDictionary_8cs_source.html#l00029">29</a> of file <a class="el" href="SerializableDictionary_8cs_source.html">SerializableDictionary.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            Clear();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <a class="code" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">_pairs</a>.Length; i --&gt; 0;) {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">_pairs</a>[i].key == <span class="keyword">null</span> || <a class="code" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">_pairs</a>[i].value == <span class="keyword">null</span>) {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = _pairs.Length; i --&gt; 0;) {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                <span class="keywordflow">if</span> (_pairs[i].key == <span class="keyword">null</span> || _pairs[i].value == <span class="keyword">null</span>) {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                    Debug.LogError(<span class="stringliteral">&quot;Key or Value was null!&quot;</span>);</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                }</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                    Add(<a class="code" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">_pairs</a>[i].key, <a class="code" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">_pairs</a>[i].value);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                    Add(_pairs[i].key, _pairs[i].value);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1SerializableDictionary_html_a8df6bf94eee06231e900fe304add09eb"><div class="ttname"><a href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">JUtils.SerializableDictionary._pairs</a></div><div class="ttdeci">Pair[] _pairs</div><div class="ttdef"><b>Definition:</b> <a href="SerializableDictionary_8cs_source.html#l00013">SerializableDictionary.cs:13</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">JUtils.SerializableDictionary&lt; TKey, TValue &gt;._pairs</a>.</p>
-
 </div>
 </div>
 <a id="addebef6920c9a899173a47f7d51ee580"></a>
@@ -205,42 +195,13 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            TKey[] keys = Keys.ToArray();</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            TValue[] values = Values.ToArray();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <a class="code" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">_pairs</a> = <span class="keyword">new</span> Pair[keys.Length];</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            _pairs = <span class="keyword">new</span> Pair[keys.Length];</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <a class="code" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">_pairs</a>.Length; i --&gt; 0;) {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                <a class="code" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">_pairs</a>[i] = <span class="keyword">new</span> Pair(keys[i], values[i]);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = _pairs.Length; i --&gt; 0;) {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                _pairs[i] = <span class="keyword">new</span> Pair(keys[i], values[i]);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classJUtils_1_1SerializableDictionary.html#a8df6bf94eee06231e900fe304add09eb">JUtils.SerializableDictionary&lt; TKey, TValue &gt;._pairs</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8df6bf94eee06231e900fe304add09eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8df6bf94eee06231e900fe304add09eb">&#9670;&nbsp;</a></span>_pairs</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structJUtils_1_1SerializableDictionary_1_1Pair.html">Pair</a> [] <a class="el" href="classJUtils_1_1SerializableDictionary.html">JUtils.SerializableDictionary</a>&lt; TKey, TValue &gt;._pairs</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="SerializableDictionary_8cs_source.html#l00013">13</a> of file <a class="el" href="SerializableDictionary_8cs_source.html">SerializableDictionary.cs</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="classJUtils_1_1SerializableDictionary.html#a306238a9962c7b0573943683c0594a4b">JUtils.SerializableDictionary&lt; TKey, TValue &gt;.OnAfterDeserialize()</a>, and <a class="el" href="classJUtils_1_1SerializableDictionary.html#addebef6920c9a899173a47f7d51ee580">JUtils.SerializableDictionary&lt; TKey, TValue &gt;.OnBeforeSerialize()</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

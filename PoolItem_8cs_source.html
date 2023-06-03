@@ -29,7 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">JUtils
    </div>
-   <div id="projectbrief">A unity utilities library, this contains many handy extensions, components and data structures with custom editors</div>
+   <div id="projectbrief">A unity utilities library</div>
   </td>
  </tr>
  </tbody>
@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('PoolItem_8cs_source.html',''); initRes
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1PoolItem.html#a4bcd92b9f686c4ec2f6691cbcef76701">   14</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">event</span> Action <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#a4bcd92b9f686c4ec2f6691cbcef76701">OnDespawn</a>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1PoolItem.html#ab8692868002cf6decfef41f2ead1b694">   17</a></span>&#160;        <span class="keyword">internal</span> <span class="keywordtype">void</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#ab8692868002cf6decfef41f2ead1b694">Spawn</a>()</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">internal</span> <span class="keywordtype">void</span> Spawn()</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            gameObject.SetActive(<span class="keyword">true</span>);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#aef25e405cd8f1f969279f6cdb97f9485">IsActive</a> = <span class="keyword">true</span>;</div>
@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('PoolItem_8cs_source.html',''); initRes
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1PoolItem.html#a13d7e6b0dd7ce8d8cf8e001f0d187920">   25</a></span>&#160;        <span class="keyword">internal</span> <span class="keywordtype">void</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#a13d7e6b0dd7ce8d8cf8e001f0d187920">Despawn</a>()</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">internal</span> <span class="keywordtype">void</span> Despawn()</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#a4bcd92b9f686c4ec2f6691cbcef76701">OnDespawn</a>?.Invoke();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#aef25e405cd8f1f969279f6cdb97f9485">IsActive</a> = <span class="keyword">false</span>;</div>
@@ -123,18 +123,15 @@ $(document).ready(function(){initNavTree('PoolItem_8cs_source.html',''); initRes
 <div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1PoolItem.html#a0c2f54bf825293c96a21899e2196758c">   33</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#a0c2f54bf825293c96a21899e2196758c">ReturnToPool</a>()</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#aef25e405cd8f1f969279f6cdb97f9485">IsActive</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html">ObjectPool</a>.<a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#adf5b413b611a3ab3a328fecdc20d9492">ReturnItem</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html">ObjectPool</a>.ReturnItem(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 <div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html">JUtils.Components.ObjectPool</a></div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00012">ObjectPool.cs:13</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_adf5b413b611a3ab3a328fecdc20d9492"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#adf5b413b611a3ab3a328fecdc20d9492">JUtils.Components.ObjectPool.ReturnItem</a></div><div class="ttdeci">bool ReturnItem(PoolItem item)</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00086">ObjectPool.cs:86</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html">JUtils.Components.PoolItem</a></div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00008">PoolItem.cs:9</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html_a0c2f54bf825293c96a21899e2196758c"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html#a0c2f54bf825293c96a21899e2196758c">JUtils.Components.PoolItem.ReturnToPool</a></div><div class="ttdeci">void ReturnToPool()</div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00033">PoolItem.cs:33</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html_a13d7e6b0dd7ce8d8cf8e001f0d187920"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html#a13d7e6b0dd7ce8d8cf8e001f0d187920">JUtils.Components.PoolItem.Despawn</a></div><div class="ttdeci">void Despawn()</div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00025">PoolItem.cs:25</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html_a281521278dbd6c7da7c8703b96acdda6"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html#a281521278dbd6c7da7c8703b96acdda6">JUtils.Components.PoolItem.OnSpawn</a></div><div class="ttdeci">Action OnSpawn</div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00013">PoolItem.cs:13</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html_a4bcd92b9f686c4ec2f6691cbcef76701"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html#a4bcd92b9f686c4ec2f6691cbcef76701">JUtils.Components.PoolItem.OnDespawn</a></div><div class="ttdeci">Action OnDespawn</div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00014">PoolItem.cs:14</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html_ab8692868002cf6decfef41f2ead1b694"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html#ab8692868002cf6decfef41f2ead1b694">JUtils.Components.PoolItem.Spawn</a></div><div class="ttdeci">void Spawn()</div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00017">PoolItem.cs:17</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html_aef25e405cd8f1f969279f6cdb97f9485"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html#aef25e405cd8f1f969279f6cdb97f9485">JUtils.Components.PoolItem.IsActive</a></div><div class="ttdeci">bool IsActive</div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00011">PoolItem.cs:11</a></div></div>
 <div class="ttc" id="anamespaceJUtils_1_1Components_html"><div class="ttname"><a href="namespaceJUtils_1_1Components.html">JUtils.Components</a></div><div class="ttdef"><b>Definition:</b> <a href="BillboardCamera_8cs_source.html#l00007">BillboardCamera.cs:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -6,10 +6,10 @@ var dir_bcb8665d8788d37ac020e55c603a82f7 =
       [ "BillBoardSettings", "classJUtils_1_1Components_1_1BillboardCamera_1_1BillBoardSettings.html", "classJUtils_1_1Components_1_1BillboardCamera_1_1BillBoardSettings" ]
     ] ],
     [ "CopyPosition.cs", "CopyPosition_8cs.html", [
-      [ "CopyPosition", "classJUtils_1_1Components_1_1CopyPosition.html", "classJUtils_1_1Components_1_1CopyPosition" ]
+      [ "CopyPosition", "classJUtils_1_1Components_1_1CopyPosition.html", null ]
     ] ],
     [ "DontDestroyOnLoad.cs", "DontDestroyOnLoad_8cs.html", [
-      [ "DontDestroyOnLoad", "classJUtils_1_1Components_1_1DontDestroyOnLoad.html", "classJUtils_1_1Components_1_1DontDestroyOnLoad" ]
+      [ "DontDestroyOnLoad", "classJUtils_1_1Components_1_1DontDestroyOnLoad.html", null ]
     ] ],
     [ "ObjectPool.cs", "ObjectPool_8cs.html", [
       [ "ObjectPool", "classJUtils_1_1Components_1_1ObjectPool.html", "classJUtils_1_1Components_1_1ObjectPool" ]

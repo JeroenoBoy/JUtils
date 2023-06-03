@@ -29,7 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">JUtils
    </div>
-   <div id="projectbrief">A unity utilities library, this contains many handy extensions, components and data structures with custom editors</div>
+   <div id="projectbrief">A unity utilities library</div>
   </td>
  </tr>
  </tbody>
@@ -97,17 +97,17 @@ $(document).ready(function(){initNavTree('Optional_8cs_source.html',''); initRes
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    [System.Serializable]</div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html">    8</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">struct </span><a class="code" href="structJUtils_1_1Optional.html">Optional</a>&lt;T&gt;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    {</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a5c3f15a64e1f99dbb7138af3aafed74d">   10</a></span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">bool</span> <a class="code" href="structJUtils_1_1Optional.html#a5c3f15a64e1f99dbb7138af3aafed74d">_enabled</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#aea55edfa70a928b8d2a1b5435a5929f5">   11</a></span>&#160;        [SerializeField] <span class="keyword">private</span> T <a class="code" href="structJUtils_1_1Optional.html#aea55edfa70a928b8d2a1b5435a5929f5">_value</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">bool</span> _enabled;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        [SerializeField] <span class="keyword">private</span> T _value;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">   13</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code" href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">enabled</a> =&gt; <a class="code" href="structJUtils_1_1Optional.html#a5c3f15a64e1f99dbb7138af3aafed74d">_enabled</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">   14</a></span>&#160;        <span class="keyword">public</span> T    <a class="code" href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">value</a>   =&gt; <a class="code" href="structJUtils_1_1Optional.html#aea55edfa70a928b8d2a1b5435a5929f5">_value</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">   13</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code" href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">enabled</a> =&gt; _enabled;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">   14</a></span>&#160;        <span class="keyword">public</span> T    <a class="code" href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">value</a>   =&gt; _value;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">   17</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">Optional</a>(T initialValue)</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <a class="code" href="structJUtils_1_1Optional.html#a5c3f15a64e1f99dbb7138af3aafed74d">_enabled</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <a class="code" href="structJUtils_1_1Optional.html#aea55edfa70a928b8d2a1b5435a5929f5">_value</a> = initialValue;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            _enabled = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            _value = initialValue;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
@@ -168,9 +168,7 @@ $(document).ready(function(){initNavTree('Optional_8cs_source.html',''); initRes
 <div class="ttc" id="anamespaceJUtils_html"><div class="ttname"><a href="namespaceJUtils.html">JUtils</a></div><div class="ttdef"><b>Definition:</b> <a href="Button_8cs_source.html#l00014">Button.cs:15</a></div></div>
 <div class="ttc" id="astructJUtils_1_1Optional_html"><div class="ttname"><a href="structJUtils_1_1Optional.html">JUtils.Optional</a></div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00008">Optional.cs:9</a></div></div>
 <div class="ttc" id="astructJUtils_1_1Optional_html_a00e4b08af9b4c759c45895875a1923b9"><div class="ttname"><a href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">JUtils.Optional.enabled</a></div><div class="ttdeci">bool enabled</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00013">Optional.cs:13</a></div></div>
-<div class="ttc" id="astructJUtils_1_1Optional_html_a5c3f15a64e1f99dbb7138af3aafed74d"><div class="ttname"><a href="structJUtils_1_1Optional.html#a5c3f15a64e1f99dbb7138af3aafed74d">JUtils.Optional._enabled</a></div><div class="ttdeci">bool _enabled</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00010">Optional.cs:10</a></div></div>
 <div class="ttc" id="astructJUtils_1_1Optional_html_a74c21e369953bfddf5562ed814aaa5bc"><div class="ttname"><a href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">JUtils.Optional.value</a></div><div class="ttdeci">T value</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00014">Optional.cs:14</a></div></div>
-<div class="ttc" id="astructJUtils_1_1Optional_html_aea55edfa70a928b8d2a1b5435a5929f5"><div class="ttname"><a href="structJUtils_1_1Optional.html#aea55edfa70a928b8d2a1b5435a5929f5">JUtils.Optional._value</a></div><div class="ttdeci">T _value</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00011">Optional.cs:11</a></div></div>
 <div class="ttc" id="astructJUtils_1_1Optional_html_afa9fe53276132abcca547ea7fd14361e"><div class="ttname"><a href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">JUtils.Optional.Optional</a></div><div class="ttdeci">Optional(T initialValue)</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00017">Optional.cs:17</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

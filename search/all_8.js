@@ -1,13 +1,14 @@
 var searchData=
 [
-  ['has_134',['Has',['../classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e',1,'JUtils::FSM::StateData']]],
-  ['has_3c_20t_20_3e_135',['Has&lt; T &gt;',['../classJUtils_1_1FSM_1_1StateData.html#a9e55b7fc4ca62c3c897f3069c93b398d',1,'JUtils::FSM::StateData']]],
-  ['hascomponent_136',['HasComponent',['../classJUtils_1_1Extensions_1_1ComponentExtensions.html#abc63e6c70f1e52153d50c6947c77b567',1,'JUtils::Extensions::ComponentExtensions']]],
-  ['hascomponent_3c_20t_20_3e_137',['HasComponent&lt; T &gt;',['../classJUtils_1_1Extensions_1_1ComponentExtensions.html#aa4d895cfe51c24f8b2998c6a99ed6633',1,'JUtils::Extensions::ComponentExtensions']]],
-  ['haslayer_138',['HasLayer',['../classJUtils_1_1Extensions_1_1ComponentExtensions.html#a9c1200aa7867795358c7383710c0200a',1,'JUtils::Extensions::ComponentExtensions']]],
-  ['hasthrown_139',['HasThrown',['../classJUtils_1_1CoroutineCatcher.html#aea8859658c81ed6df4871fd11dacbbe6',1,'JUtils::CoroutineCatcher']]],
-  ['heal_140',['Heal',['../classJUtils_1_1Components_1_1HealthComponent.html#a4af91acf7cec981ef4eb45adadd62a15',1,'JUtils.Components.HealthComponent.Heal(int amount)'],['../classJUtils_1_1Components_1_1HealthComponent.html#a6eba98d648d3570dabf24558d1405ea0',1,'JUtils.Components.HealthComponent.Heal(IHealEvent @event)']]],
-  ['health_141',['health',['../classJUtils_1_1Components_1_1HealthComponent.html#a29e970ecdbec5aa6bfef2ff6f843f0be',1,'JUtils::Components::HealthComponent']]],
-  ['healthcomponent_142',['HealthComponent',['../classJUtils_1_1Components_1_1HealthComponent.html',1,'JUtils::Components']]],
-  ['healthcomponent_2ecs_143',['HealthComponent.cs',['../HealthComponent_8cs.html',1,'']]]
+  ['idamageevent_93',['IDamageEvent',['../interfaceJUtils_1_1Components_1_1IDamageEvent.html',1,'JUtils::Components']]],
+  ['idamageevent_2ecs_94',['IDamageEvent.cs',['../IDamageEvent_8cs.html',1,'']]],
+  ['ihealevent_95',['IHealEvent',['../interfaceJUtils_1_1Components_1_1IHealEvent.html',1,'JUtils::Components']]],
+  ['ihealevent_2ecs_96',['IHealEvent.cs',['../IHealEvent_8cs.html',1,'']]],
+  ['indexof_3c_20t_20_3e_97',['IndexOf&lt; T &gt;',['../classJUtils_1_1Extensions_1_1Enumerable.html#a584316e96e62df6f414a95d5cf169e5f',1,'JUtils::Extensions::Enumerable']]],
+  ['instance_98',['Instance',['../interfaceJUtils_1_1Singletons_1_1ISingleton.html#a74e581ebe42200146c2e1e5ea8425c85',1,'JUtils.Singletons.ISingleton.Instance()'],['../classJUtils_1_1Singletons_1_1SingletonBehaviour.html#a68949dc3c7436551904d0ada071991dd',1,'JUtils.Singletons.SingletonBehaviour.Instance()'],['../classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235',1,'JUtils.Singletons.SingletonManager.Instance()']]],
+  ['isactive_99',['IsActive',['../classJUtils_1_1Components_1_1PoolItem.html#aef25e405cd8f1f969279f6cdb97f9485',1,'JUtils.Components.PoolItem.IsActive()'],['../classJUtils_1_1FSM_1_1State.html#a1cb668ea18d1db0636e729ba1501bab1',1,'JUtils.FSM.State.IsActive()']]],
+  ['isdead_100',['isDead',['../classJUtils_1_1Components_1_1HealthComponent.html#af1199cd35c0c4086e622a549a09bcf73',1,'JUtils::Components::HealthComponent']]],
+  ['isingleton_101',['ISingleton',['../interfaceJUtils_1_1Singletons_1_1ISingleton.html',1,'JUtils::Singletons']]],
+  ['isingleton_2ecs_102',['ISingleton.cs',['../ISingleton_8cs.html',1,'']]],
+  ['iweighted_103',['IWeighted',['../interfaceJUtils_1_1IWeighted.html',1,'JUtils']]]
 ];

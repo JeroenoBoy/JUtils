@@ -13,8 +13,8 @@ var annotated_dup =
       ] ],
       [ "Components", "namespaceJUtils_1_1Components.html", [
         [ "BillboardCamera", "classJUtils_1_1Components_1_1BillboardCamera.html", "classJUtils_1_1Components_1_1BillboardCamera" ],
-        [ "CopyPosition", "classJUtils_1_1Components_1_1CopyPosition.html", "classJUtils_1_1Components_1_1CopyPosition" ],
-        [ "DontDestroyOnLoad", "classJUtils_1_1Components_1_1DontDestroyOnLoad.html", "classJUtils_1_1Components_1_1DontDestroyOnLoad" ],
+        [ "CopyPosition", "classJUtils_1_1Components_1_1CopyPosition.html", null ],
+        [ "DontDestroyOnLoad", "classJUtils_1_1Components_1_1DontDestroyOnLoad.html", null ],
         [ "HealthComponent", "classJUtils_1_1Components_1_1HealthComponent.html", "classJUtils_1_1Components_1_1HealthComponent" ],
         [ "IDamageEvent", "interfaceJUtils_1_1Components_1_1IDamageEvent.html", "interfaceJUtils_1_1Components_1_1IDamageEvent" ],
         [ "IHealEvent", "interfaceJUtils_1_1Components_1_1IHealEvent.html", "interfaceJUtils_1_1Components_1_1IHealEvent" ],
@@ -42,9 +42,6 @@ var annotated_dup =
         [ "StateData", "classJUtils_1_1FSM_1_1StateData.html", "classJUtils_1_1FSM_1_1StateData" ],
         [ "StateMachine", "classJUtils_1_1FSM_1_1StateMachine.html", "classJUtils_1_1FSM_1_1StateMachine" ],
         [ "StateRef", "structJUtils_1_1FSM_1_1StateRef.html", null ]
-      ] ],
-      [ "Internal", "namespaceJUtils_1_1Internal.html", [
-        [ "JUtilsObject", "classJUtils_1_1Internal_1_1JUtilsObject.html", "classJUtils_1_1Internal_1_1JUtilsObject" ]
       ] ],
       [ "Singletons", "namespaceJUtils_1_1Singletons.html", [
         [ "ISingleton", "interfaceJUtils_1_1Singletons_1_1ISingleton.html", "interfaceJUtils_1_1Singletons_1_1ISingleton" ],

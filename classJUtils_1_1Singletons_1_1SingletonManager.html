@@ -29,7 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">JUtils
    </div>
-   <div id="projectbrief">A unity utilities library, this contains many handy extensions, components and data structures with custom editors</div>
+   <div id="projectbrief">A unity utilities library</div>
   </td>
  </tr>
  </tbody>
@@ -87,7 +87,6 @@ $(document).ready(function(){initNavTree('classJUtils_1_1Singletons_1_1Singleton
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classJUtils_1_1Singletons_1_1SingletonManager-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">JUtils.Singletons.SingletonManager Class Reference</div>  </div>
@@ -131,11 +130,6 @@ Static Public Member Functions</h2></td></tr>
 Properties</h2></td></tr>
 <tr class="memitem:a67e602e4d9b6e7ee1133c7c9bc55e235"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html">SingletonManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">Instance</a><code> [get]</code></td></tr>
 <tr class="separator:a67e602e4d9b6e7ee1133c7c9bc55e235"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a539622a607448666ff26da7755f5cb03"><td class="memItemLeft" align="right" valign="top">List&lt; MonoBehaviour &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a539622a607448666ff26da7755f5cb03">_singletons</a> = new ()</td></tr>
-<tr class="separator:a539622a607448666ff26da7755f5cb03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Centralized singleton to fix reference &amp; hot reload issues issues </p>
@@ -179,12 +173,11 @@ Private Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="SingletonManager_8cs_source.html#l00023">23</a> of file <a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                                                  : MonoBehaviour, ISingleton&lt;T&gt;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">Instance</a>.<a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a539622a607448666ff26da7755f5cb03">_singletons</a>.FirstOrDefault(x =&gt; x is T) as T;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">Instance</a>._singletons.FirstOrDefault(x =&gt; x is T) as T;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1Singletons_1_1SingletonManager_html_a539622a607448666ff26da7755f5cb03"><div class="ttname"><a href="classJUtils_1_1Singletons_1_1SingletonManager.html#a539622a607448666ff26da7755f5cb03">JUtils.Singletons.SingletonManager._singletons</a></div><div class="ttdeci">List&lt; MonoBehaviour &gt; _singletons</div><div class="ttdef"><b>Definition:</b> <a href="SingletonManager_8cs_source.html#l00055">SingletonManager.cs:55</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1Singletons_1_1SingletonManager_html_a67e602e4d9b6e7ee1133c7c9bc55e235"><div class="ttname"><a href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">JUtils.Singletons.SingletonManager.Instance</a></div><div class="ttdeci">static SingletonManager Instance</div><div class="ttdef"><b>Definition:</b> <a href="SingletonManager_8cs_source.html#l00017">SingletonManager.cs:17</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a539622a607448666ff26da7755f5cb03">JUtils.Singletons.SingletonManager._singletons</a>, and <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">JUtils.Singletons.SingletonManager.Instance</a>.</p>
+<p class="reference">References <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">JUtils.Singletons.SingletonManager.Instance</a>.</p>
 
 </div>
 </div>
@@ -226,10 +219,10 @@ Private Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="SingletonManager_8cs_source.html#l00048">48</a> of file <a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a>.</p>
 <div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                                                               : MonoBehaviour, ISingleton&lt;T&gt;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;           <span class="keywordflow">return</span> <a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">Instance</a>.<a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a539622a607448666ff26da7755f5cb03">_singletons</a>.Remove(singleton as MonoBehaviour);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;           <span class="keywordflow">return</span> <a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">Instance</a>._singletons.Remove(singleton as MonoBehaviour);</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a539622a607448666ff26da7755f5cb03">JUtils.Singletons.SingletonManager._singletons</a>, and <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">JUtils.Singletons.SingletonManager.Instance</a>.</p>
+<p class="reference">References <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">JUtils.Singletons.SingletonManager.Instance</a>.</p>
 
 </div>
 </div>
@@ -277,38 +270,11 @@ Private Attributes</h2></td></tr>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;               <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;           }</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;           </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;           manager.<a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a539622a607448666ff26da7755f5cb03">_singletons</a>.Add(singleton as MonoBehaviour);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;           manager._singletons.Add(singleton as MonoBehaviour);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;           <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a539622a607448666ff26da7755f5cb03">JUtils.Singletons.SingletonManager._singletons</a>, and <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">JUtils.Singletons.SingletonManager.Instance</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a539622a607448666ff26da7755f5cb03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a539622a607448666ff26da7755f5cb03">&#9670;&nbsp;</a></span>_singletons</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">List&lt;MonoBehaviour&gt; JUtils.Singletons.SingletonManager._singletons = new ()</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="SingletonManager_8cs_source.html#l00055">55</a> of file <a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#aa7ede66e6c0637e6a456d56627d38837">JUtils.Singletons.SingletonManager.GetSingleton&lt; T &gt;()</a>, <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#acab9ff9ff95c9acaeccf7475f98f460d">JUtils.Singletons.SingletonManager.RemoveSingleton&lt; T &gt;()</a>, and <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a976d2c18dfd51e9ab68793c6de1c34ad">JUtils.Singletons.SingletonManager.SetSingleton&lt; T &gt;()</a>.</p>
+<p class="reference">References <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a67e602e4d9b6e7ee1133c7c9bc55e235">JUtils.Singletons.SingletonManager.Instance</a>.</p>
 
 </div>
 </div>
@@ -334,8 +300,6 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="SingletonManager_8cs_source.html#l00017">17</a> of file <a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#aa7ede66e6c0637e6a456d56627d38837">JUtils.Singletons.SingletonManager.GetSingleton&lt; T &gt;()</a>, <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#acab9ff9ff95c9acaeccf7475f98f460d">JUtils.Singletons.SingletonManager.RemoveSingleton&lt; T &gt;()</a>, and <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#a976d2c18dfd51e9ab68793c6de1c34ad">JUtils.Singletons.SingletonManager.SetSingleton&lt; T &gt;()</a>.</p>
 
 </div>
 </div>

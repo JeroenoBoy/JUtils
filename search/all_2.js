@@ -1,10 +1,25 @@
 var searchData=
 [
-  ['billboardcamera_58',['BillboardCamera',['../classJUtils_1_1Components_1_1BillboardCamera.html',1,'JUtils::Components']]],
-  ['billboardcamera_2ecs_59',['BillboardCamera.cs',['../BillboardCamera_8cs.html',1,'']]],
-  ['billboardsettings_60',['BillBoardSettings',['../classJUtils_1_1Components_1_1BillboardCamera_1_1BillBoardSettings.html',1,'JUtils::Components::BillboardCamera']]],
-  ['bottom_61',['Bottom',['../classJUtils_1_1Components_1_1BillboardCamera.html#af804698e6cd04feb1b6c834e83727f28a2ad9d63b69c4a10a5cc9cad923133bc4',1,'JUtils::Components::BillboardCamera']]],
-  ['buildindex_62',['BuildIndex',['../structJUtils_1_1SceneReference.html#a8a933dda77661c6e3812d051f12a2b98',1,'JUtils::SceneReference']]],
-  ['button_63',['Button',['../classJUtils_1_1Attributes_1_1Button.html#a350737d1f1c35562968e19ff7ce7113b',1,'JUtils.Attributes.Button.Button()'],['../classJUtils_1_1Attributes_1_1Button.html',1,'JUtils.Attributes.Button']]],
-  ['button_2ecs_64',['Button.cs',['../Button_8cs.html',1,'']]]
+  ['catcher_21',['Catcher',['../classJUtils_1_1Coroutines.html#af12c5f23d958bbced6d0ad0be210074c',1,'JUtils::Coroutines']]],
+  ['center_22',['Center',['../classJUtils_1_1Components_1_1BillboardCamera.html#af804698e6cd04feb1b6c834e83727f28a4f1f6016fc9f3f2353c0cc7c67b292bd',1,'JUtils::Components::BillboardCamera']]],
+  ['clamp_23',['Clamp',['../structJUtils_1_1MinMax.html#afc3ca877efb8224098cb0e71ca3f9395',1,'JUtils.MinMax.Clamp()'],['../structJUtils_1_1MinMaxInt.html#a190efe40247408a3420c5c6565b6023e',1,'JUtils.MinMaxInt.Clamp()']]],
+  ['clampmagnitude_24',['ClampMagnitude',['../classJUtils_1_1Extensions_1_1Vector3Extensions.html#af189baf4b81477ec2fc3241d6af0e0a7',1,'JUtils.Extensions.Vector3Extensions.ClampMagnitude()'],['../classJUtils_1_1Extensions_1_1Vector2Extensions.html#a46660334818a3e6ea05b3a22aab2a8ec',1,'JUtils.Extensions.Vector2Extensions.ClampMagnitude()']]],
+  ['clickableineditor_25',['ClickableInEditor',['../classJUtils_1_1Attributes_1_1Button.html#a6a907b72d335b53fdfd2235e3101639b',1,'JUtils::Attributes::Button']]],
+  ['closest_26',['Closest',['../classJUtils_1_1Extensions_1_1Vector3Extensions.html#abbdf6cd5a53d4b7174bbf38dee5a6f45',1,'JUtils.Extensions.Vector3Extensions.Closest()'],['../classJUtils_1_1Extensions_1_1Vector2Extensions.html#a2457cb2f16a063fa56d3d8e414caf3cc',1,'JUtils.Extensions.Vector2Extensions.Closest()'],['../classJUtils_1_1Extensions_1_1TransformExtensions.html#abe5fb20a88db8d7d770c440266f805b8',1,'JUtils.Extensions.TransformExtensions.Closest()']]],
+  ['colorextensions_27',['ColorExtensions',['../classJUtils_1_1Extensions_1_1ColorExtensions.html',1,'JUtils::Extensions']]],
+  ['colorextensions_2ecs_28',['ColorExtensions.cs',['../ColorExtensions_8cs.html',1,'']]],
+  ['comparer_29',['Comparer',['../classJUtils_1_1Attributes_1_1ShowWhen.html#a619ba962261caadb6070a0d211ac1a10',1,'JUtils::Attributes::ShowWhen']]],
+  ['component_2ecs_30',['Component.cs',['../Component_8cs.html',1,'']]],
+  ['componentextensions_31',['ComponentExtensions',['../classJUtils_1_1Extensions_1_1ComponentExtensions.html',1,'JUtils::Extensions']]],
+  ['contains_32',['Contains',['../structJUtils_1_1MinMax.html#af11cebad8a9004fdd5b1138b6210bd1f',1,'JUtils.MinMax.Contains()'],['../structJUtils_1_1MinMaxInt.html#a54e75ffcdca387c9e59b45f6cb38a3aa',1,'JUtils.MinMaxInt.Contains()']]],
+  ['continuequeue_33',['ContinueQueue',['../classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707',1,'JUtils::FSM::StateMachine']]],
+  ['copyposition_34',['CopyPosition',['../classJUtils_1_1Components_1_1CopyPosition.html',1,'JUtils::Components']]],
+  ['copyposition_2ecs_35',['CopyPosition.cs',['../CopyPosition_8cs.html',1,'']]],
+  ['coroutinecatcher_36',['CoroutineCatcher',['../classJUtils_1_1CoroutineCatcher.html#af2713887011d66dc7bd6163c124eb6e0',1,'JUtils.CoroutineCatcher.CoroutineCatcher()'],['../classJUtils_1_1CoroutineCatcher.html',1,'JUtils.CoroutineCatcher']]],
+  ['coroutines_37',['Coroutines',['../classJUtils_1_1Coroutines.html',1,'JUtils']]],
+  ['coroutines_2ecs_38',['Coroutines.cs',['../Coroutines_8cs.html',1,'']]],
+  ['current_39',['Current',['../classJUtils_1_1Extensions_1_1RangeEnumerator.html#a6dcb47277ffa960836279fd07ed4ac5e',1,'JUtils.Extensions.RangeEnumerator.Current()'],['../classJUtils_1_1CoroutineCatcher.html#a3a3b7ea45a0973daf43ebec591e9440e',1,'JUtils.CoroutineCatcher.Current()']]],
+  ['currentstate_40',['CurrentState',['../classJUtils_1_1FSM_1_1StateMachine.html#a89ebaa94908ff3503029bfb966f97a32',1,'JUtils::FSM::StateMachine']]],
+  ['customname_41',['CustomName',['../classJUtils_1_1Attributes_1_1CustomName.html#a63bd5234d567d5226c932faa1d564f14',1,'JUtils.Attributes.CustomName.CustomName()'],['../classJUtils_1_1Attributes_1_1CustomName.html',1,'JUtils.Attributes.CustomName']]],
+  ['customname_2ecs_42',['CustomName.cs',['../CustomName_8cs.html',1,'']]]
 ];

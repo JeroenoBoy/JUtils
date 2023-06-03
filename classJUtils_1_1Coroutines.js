@@ -9,10 +9,6 @@ var classJUtils_1_1Coroutines =
     [ "WaitForFixedUpdate", "classJUtils_1_1Coroutines.html#a8ec4d45eaeba6e9630a50ea831afa968", null ],
     [ "WaitForSeconds", "classJUtils_1_1Coroutines.html#a923a4e425a7b053b74eacd891728ae49", null ],
     [ "WaitForSecondsRealtime", "classJUtils_1_1Coroutines.html#a70249615f395e60d52c6cc78ef23d136", null ],
-    [ "_waitForEndOfFrame", "classJUtils_1_1Coroutines.html#a6bb60aa0bf0375fefff092a10eecb802", null ],
-    [ "_waitForFixedUpdate", "classJUtils_1_1Coroutines.html#a7a4d0dcff427c19b7e16ff631ff4f072", null ],
-    [ "_wfsDictionary", "classJUtils_1_1Coroutines.html#a007e97d33fec64ccca253b35d444a053", null ],
-    [ "_wfsRtDictionary", "classJUtils_1_1Coroutines.html#a1370284bfaa970a5f5473c00051b0cd4", null ],
     [ "wfsDictionary", "classJUtils_1_1Coroutines.html#aa5a80425d714274ae38022635a4ec663", null ],
     [ "wfsRtDictionary", "classJUtils_1_1Coroutines.html#ad828c85ebbe681f5f2ff242e16fb4889", null ]
 ];

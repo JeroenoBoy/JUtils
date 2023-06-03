@@ -29,7 +29,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">JUtils
    </div>
-   <div id="projectbrief">A unity utilities library, this contains many handy extensions, components and data structures with custom editors</div>
+   <div id="projectbrief">A unity utilities library</div>
   </td>
  </tr>
  </tbody>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('ColorExtensions_8cs_source.html',''); 
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classJUtils_1_1Extensions_1_1ColorExtensions.html">    9</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class </span><a class="code" href="classJUtils_1_1Extensions_1_1ColorExtensions.html">ColorExtensions</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#af5522caf6435e434a5ba06bed93fc948">   11</a></span>&#160;        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#af5522caf6435e434a5ba06bed93fc948">CompareThreshold</a>(<span class="keywordtype">float</span> a, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> threshold)</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> CompareThreshold(<span class="keywordtype">float</span> a, <span class="keywordtype">float</span> b, <span class="keywordtype">float</span> threshold)</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            <span class="keywordflow">return</span> Mathf.Abs(a - b) &lt; threshold;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        }</div>
@@ -106,15 +106,15 @@ $(document).ready(function(){initNavTree('ColorExtensions_8cs_source.html',''); 
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#aaaa06b77cbd6ccb6185833c258120163">   20</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#aaaa06b77cbd6ccb6185833c258120163">Equals</a>(<span class="keyword">this</span> Color <span class="keyword">self</span>, Color other, <span class="keywordtype">float</span> threshold)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#af5522caf6435e434a5ba06bed93fc948">CompareThreshold</a>(<span class="keyword">self</span>.r, other.r, threshold) &amp;&amp;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                   <a class="code" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#af5522caf6435e434a5ba06bed93fc948">CompareThreshold</a>(<span class="keyword">self</span>.g, other.g, threshold) &amp;&amp;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                   <a class="code" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#af5522caf6435e434a5ba06bed93fc948">CompareThreshold</a>(<span class="keyword">self</span>.b, other.b, threshold);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">return</span> CompareThreshold(<span class="keyword">self</span>.r, other.r, threshold) &amp;&amp;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                   CompareThreshold(<span class="keyword">self</span>.g, other.g, threshold) &amp;&amp;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                   CompareThreshold(<span class="keyword">self</span>.b, other.b, threshold);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#a9caa46df648a875171da78c23cd94b58">   31</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#a9caa46df648a875171da78c23cd94b58">Equals2</a>(<span class="keyword">this</span> Color <span class="keyword">self</span>, Color other, <span class="keywordtype">float</span> threshold)</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#af5522caf6435e434a5ba06bed93fc948">CompareThreshold</a>(</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> CompareThreshold(</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keyword">self</span>.r + <span class="keyword">self</span>.g + <span class="keyword">self</span>.b,</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                other.r + other.g + other.b,</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                threshold</div>
@@ -135,7 +135,6 @@ $(document).ready(function(){initNavTree('ColorExtensions_8cs_source.html',''); 
 <div class="ttc" id="aclassJUtils_1_1Extensions_1_1ColorExtensions_html_a9caa46df648a875171da78c23cd94b58"><div class="ttname"><a href="classJUtils_1_1Extensions_1_1ColorExtensions.html#a9caa46df648a875171da78c23cd94b58">JUtils.Extensions.ColorExtensions.Equals2</a></div><div class="ttdeci">static bool Equals2(this Color self, Color other, float threshold)</div><div class="ttdoc">Compare 2 colors with a threshold, probably worse but idk</div><div class="ttdef"><b>Definition:</b> <a href="ColorExtensions_8cs_source.html#l00031">ColorExtensions.cs:31</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1Extensions_1_1ColorExtensions_html_aaaa06b77cbd6ccb6185833c258120163"><div class="ttname"><a href="classJUtils_1_1Extensions_1_1ColorExtensions.html#aaaa06b77cbd6ccb6185833c258120163">JUtils.Extensions.ColorExtensions.Equals</a></div><div class="ttdeci">static bool Equals(this Color self, Color other, float threshold)</div><div class="ttdoc">Compare 2 colors with a threshold</div><div class="ttdef"><b>Definition:</b> <a href="ColorExtensions_8cs_source.html#l00020">ColorExtensions.cs:20</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1Extensions_1_1ColorExtensions_html_ac239e351a7cdace933dcacd29e6bf31b"><div class="ttname"><a href="classJUtils_1_1Extensions_1_1ColorExtensions.html#ac239e351a7cdace933dcacd29e6bf31b">JUtils.Extensions.ColorExtensions.TContains</a></div><div class="ttdeci">static bool TContains(this IEnumerable&lt; Color &gt; self, Color other, float threshold)</div><div class="ttdoc">Compare 2 colors with a threshold</div><div class="ttdef"><b>Definition:</b> <a href="ColorExtensions_8cs_source.html#l00044">ColorExtensions.cs:44</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Extensions_1_1ColorExtensions_html_af5522caf6435e434a5ba06bed93fc948"><div class="ttname"><a href="classJUtils_1_1Extensions_1_1ColorExtensions.html#af5522caf6435e434a5ba06bed93fc948">JUtils.Extensions.ColorExtensions.CompareThreshold</a></div><div class="ttdeci">static bool CompareThreshold(float a, float b, float threshold)</div><div class="ttdef"><b>Definition:</b> <a href="ColorExtensions_8cs_source.html#l00011">ColorExtensions.cs:11</a></div></div>
 <div class="ttc" id="anamespaceJUtils_1_1Extensions_html"><div class="ttname"><a href="namespaceJUtils_1_1Extensions.html">JUtils.Extensions</a></div><div class="ttdef"><b>Definition:</b> <a href="AudioListenerExtensions_8cs_source.html#l00005">AudioListenerExtensions.cs:6</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
