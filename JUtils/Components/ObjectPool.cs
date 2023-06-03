@@ -35,9 +35,11 @@ namespace JUtils.Components
         {
             if (!TryGetItem(out PoolItem item)) return null;
             Transform transform = item.transform;
+            
             transform.parent        = parent;
             transform.localPosition = localPosition;
             transform.rotation      = localRotation;
+            
             return item;
         }
         
@@ -89,11 +91,12 @@ namespace JUtils.Components
 
             item.Despawn();
             Transform transform = item.transform;
+            
             transform.parent        = this.transform;
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
-            freeItems.Enqueue(item);
             
+            freeItems.Enqueue(item);
             return true;
         }
 
