@@ -21,6 +21,13 @@ namespace JUtils.Editor
         }
 
 
+        public static Type GetTypeFromCode(int typeHashCode, int assemblyHashCode)
+        {
+            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.GetHashCode() == assemblyHashCode);
+            return assembly == null ? null : assembly.GetTypes().FirstOrDefault(x => x.GetHashCode() == typeHashCode);
+        }
+
+
         /// <summary>
         /// Get the type from a name
         /// </summary>

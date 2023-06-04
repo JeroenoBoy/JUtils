@@ -22,7 +22,7 @@ namespace JUtils.Components
         [SerializeField] private int autoExpandAmount = 5;
         
         private PoolItem[] poolItems;
-        private Queue<PoolItem> freeItems;
+        private List<PoolItem> freeItems;
 
 
         public PoolItem SpawnItem() => SpawnItem(Vector3.zero, Quaternion.identity);
@@ -50,7 +50,8 @@ namespace JUtils.Components
                 return false;
             }
 
-            item = freeItems.Dequeue();
+            item = freeItems[^1];
+            freeItems.Remove(item);
             item.Spawn();
 
             return true;
@@ -74,7 +75,7 @@ namespace JUtils.Components
                 item.ObjectPool = this;
                 item.gameObject.SetActive(false);
                 poolItems[newSize - amount - 1] = item;
-                freeItems.Enqueue(item);
+                freeItems.Add(item);
             }
             
             return amount;
@@ -94,7 +95,7 @@ namespace JUtils.Components
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             
-            freeItems.Enqueue(item);
+            freeItems.Add(item);
             return true;
         }
 
@@ -118,7 +119,7 @@ namespace JUtils.Components
             if (!template) return;
             
             poolItems = Array.Empty<PoolItem>();
-            freeItems = new Queue<PoolItem>();
+            freeItems = new List<PoolItem>();
             InstantiateNewItems(prefill);
         }
     }

@@ -41,7 +41,10 @@ namespace JUtils.Internal
         }
 
 
-        private SingletonManager _singletonManager;
-        public  SingletonManager singletonManager => _singletonManager ??= GetOrAdd<SingletonManager>();
+        [SerializeField] private SingletonManager           _singletonManager;
+        [SerializeField] private StaticListBehaviourManager _staticListBehaviourManager;
+        
+        public SingletonManager           singletonManager           => _singletonManager ??= GetOrAdd<SingletonManager>();
+        public StaticListBehaviourManager staticListBehaviourManager => _staticListBehaviourManager ??= GetOrAdd<StaticListBehaviourManager>();
     }
 }

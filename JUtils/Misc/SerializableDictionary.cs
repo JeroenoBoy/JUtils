@@ -8,7 +8,7 @@ using UnityEngine;
 namespace JUtils
 {
     /// <summary>
-    /// A dictionary of which the values do not get lost on serialization (does not work with UnityEngine.Object).
+    /// A dictionary of which the values do not get lost on serialization
     /// </summary>
     [System.Serializable]
     public class SerializableDictionary<TKey,TValue> : Dictionary<TKey,TValue>, ISerializationCallbackReceiver
@@ -39,8 +39,10 @@ namespace JUtils
         {
             Clear();
             for (int i = _pairs.Length; i --> 0;) {
-                if (_pairs[i].key == null || _pairs[i].value == null) {
-                    Debug.LogError("Key or Value was null!");
+                if (_pairs[i].key == null) {
+                    Debug.LogError($"Key is null! -- {typeof(TKey)} might not be serializable");
+                } else if (_pairs[i].value == null) {
+                    Debug.LogError($"Value is null! -- {typeof(TValue)} might not be serializable");
                 }
                 else {
                     Add(_pairs[i].key, _pairs[i].value);
