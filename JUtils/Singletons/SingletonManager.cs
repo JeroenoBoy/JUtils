@@ -4,6 +4,7 @@ using JUtils.Internal;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Serialization;
+using Object = UnityEngine.Object;
 
 
 
@@ -20,16 +21,23 @@ namespace JUtils.Singletons
         /// <summary>
         /// Get a singleton from this class
         /// </summary>
-        public static T GetSingleton<T>() where T : MonoBehaviour, ISingleton<T>
+        public static T GetSingleton<T>() where T : Object, ISingleton<T>
         {
             return instance._singletons.FirstOrDefault(x => x is T) as T;
+        }
+
+
+        public static bool TryGetSingleton<T>(out T singleton) where T : Object, ISingleton<T>
+        {
+            singleton = GetSingleton<T>();
+            return singleton != null;
         }
 
 
         /// <summary>
         /// Set a singleton reference
         /// </summary>
-        public static bool SetSingleton<T>(ISingleton<T> singleton) where T : MonoBehaviour, ISingleton<T>
+        public static bool SetSingleton<T>(ISingleton<T> singleton) where T : Object, ISingleton<T>
         {
            SingletonManager manager = instance;
 
@@ -37,7 +45,7 @@ namespace JUtils.Singletons
                return false;
            }
            
-           manager._singletons.Add(singleton as MonoBehaviour);
+           manager._singletons.Add(singleton as Object);
            return true;
         }
 
@@ -45,13 +53,13 @@ namespace JUtils.Singletons
         /// <summary>
         /// Remove a singleton from all lists
         /// </summary>
-        public static bool RemoveSingleton<T>(ISingleton<T> singleton) where T : MonoBehaviour, ISingleton<T>
+        public static bool RemoveSingleton<T>(ISingleton<T> singleton) where T : Object, ISingleton<T>
         {
-           return instance._singletons.Remove(singleton as MonoBehaviour);
+           return instance._singletons.Remove(singleton as Object);
         }
 
         //  Instance
 
-        [SerializeField] private List<MonoBehaviour> _singletons = new ();
+        [SerializeField] private List<Object> _singletons = new ();
     } 
 }
