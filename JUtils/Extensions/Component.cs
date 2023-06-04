@@ -7,10 +7,13 @@ using UnityEngine;
 
 namespace JUtils.Extensions
 {
+    /// <summary>
+    /// Useful extensions for working with components
+    /// </summary>
     public static class ComponentExtensions
     {
         /// <summary>
-        /// Set a specific value of the vector
+        /// Returns a Ray struct with the position and forward of this component's transform
         /// </summary>
         public static Ray ForwardRay(this Component self)
         {
@@ -30,13 +33,13 @@ namespace JUtils.Extensions
 
 
         /// <summary>
-        /// Check if a component exists
+        /// Check if a component exists on the components game-object
         /// </summary>
         public static bool HasComponent<T>(this Component self) => self.GetComponent<T>() != null;
 
 
         /// <summary>
-        /// Check if a component exists
+        /// Check if a component exists using the Type specification
         /// </summary>
         public static bool HasComponent(this Component self, Type type) => self.GetComponent(type) != null;
 

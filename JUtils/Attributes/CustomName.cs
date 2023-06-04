@@ -8,9 +8,16 @@ namespace JUtils.Attributes
     /// <summary>
     /// Change the name of a parameter in the inspector
     /// </summary>
-    /// <example>
-    /// 
-    /// </example>
+    /// <example><code lang="CSharp">
+    /// namespace Example
+    /// {
+    ///     public class CustomNameExample : MonoBehaviour
+    ///     {
+    ///         [Header("Spawn Settings")]
+    ///         [SerializeField, CustomName("Interval")] private float _spawnInterval; // will display as "Interval" in the inspector
+    ///     }  
+    /// }
+    /// </code></example>
     public class CustomName : PropertyAttribute
     {
         private readonly string _name;

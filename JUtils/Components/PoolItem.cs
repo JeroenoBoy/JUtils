@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace JUtils.Components
 {
+    /// <summary>
+    /// A behaviour that is used with the <see cref="ObjectPool"/>. Other behaviours can listen to the events this class sends.
+    /// </summary>
     public class PoolItem : MonoBehaviour
     {
         public ObjectPool ObjectPool { get; internal set; }

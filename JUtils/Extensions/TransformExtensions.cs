@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace JUtils.Extensions
 {
+    /// <summary>
+    ///  x
+    /// </summary>
     public static class TransformExtensions
     {
         /// <summary>

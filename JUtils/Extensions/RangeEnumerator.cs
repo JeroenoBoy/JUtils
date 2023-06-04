@@ -7,6 +7,26 @@ using UnityEngine;
 
 namespace JUtils.Extensions
 {
+    /// <summary>
+    /// Used to turn a range or int to a RangeEnumerator so it can be used in a Foreach loop
+    /// </summary>
+    /// <example><code lang="CSharp">
+    /// namespace Example
+    /// {
+    ///     public class RangeExample : MonoBehaviour
+    ///     {
+    ///         private void Start()
+    ///         {
+    ///             foreach (int i in 10) {} // Loop from 0 > 9
+    ///             foreach (int i in ..10) {} // Loop from 0 > 10
+    ///             foreach (int i in 10..) {} // Loop from 10 > 0
+    ///             foreach (int i in 20..^10) {} // Loop from 20 > 10
+    ///             foreach (int i in ^0..10) {} // Loop from 0 > 9
+    ///             foreach (int i in ^10..^0) {} // Loop from 9 > 0
+    ///         }
+    ///     }
+    /// }
+    /// </code></example>>
     public static class RangeExtensions
     {
         public static RangeEnumerator GetEnumerator(this Range range) => new (range);
@@ -15,7 +35,7 @@ namespace JUtils.Extensions
     
     
     /// <summary>
-    /// Idea from: https://www.youtube.com/watch?v=jmmz1cInNow
+    /// Allows for complex enumerations for Range types
     /// </summary>
     public class RangeEnumerator : IEnumerator<int>
     {
@@ -60,8 +80,6 @@ namespace JUtils.Extensions
 
         internal RangeEnumerator(int start, int end)
         {
-            Debug.Log(start);
-            Debug.Log(end);
             if (start > end) throw new ArgumentException("Start must not be greater than end");
 
             _startIndex = _index = start-1;

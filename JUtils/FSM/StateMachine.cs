@@ -7,18 +7,22 @@ using UnityEngine;
 
 namespace JUtils.FSM
 {
+    /// <summary>
+    /// A mono-behaviour state-machine that can also be used as a state
+    /// </summary>
     public abstract partial class StateMachine : State
     {
         [SerializeField] private bool showLogs;
         [SerializeField] private bool autoActivate;
         [SerializeField] private bool autoCreateStates = true;
 
-        public event Action<State> OnStateChanged; 
+        public event Action<State> OnStateChanged;
 
-        protected State             CurrentState;
-        protected Queue<QueueEntry> StateQueue = new ();
+        protected bool              hasActiveState => currentState != null;
+        protected State             currentState;
+        protected Queue<QueueEntry> stateQueue = new ();
 
-
+        
         protected virtual void Reset()
         {
             autoActivate = !GetComponentInParent<StateMachine>();
@@ -40,7 +44,7 @@ namespace JUtils.FSM
         public void GoToNoState()
         {
             Log("Forcibly go to no state");
-            StateQueue.Clear();
+            stateQueue.Clear();
             ContinueQueue();
         }
         
@@ -56,7 +60,7 @@ namespace JUtils.FSM
             }
             
             Log($"Force go to state '{state.GetType().Name}'");
-            StateQueue.Clear();
+            stateQueue.Clear();
             if (!AddToQueue(state, data)) ContinueQueue();
         }
 
@@ -81,11 +85,11 @@ namespace JUtils.FSM
                 Log($"Tried to add Null state");
             }
             else {
-                StateQueue.Enqueue(new QueueEntry {State = state, Data = data ?? new StateData()});
+                stateQueue.Enqueue(new QueueEntry {state = state, data = data ?? new StateData()});
                 Log($"Add '{state.GetType().Name}' to the queue");
             }
             
-            if (CurrentState) return false;
+            if (currentState) return false;
             ContinueQueue();
             return true;
         }
@@ -105,30 +109,29 @@ namespace JUtils.FSM
         /// </summary>
         public void ContinueQueue()
         {
-            if (!IsActive) {
+            if (!isActive) {
                 Debug.LogWarning($"[{GetType().Name}] Tried to continue the state queue, but the this state machine is not active!");
                 return;
             }
 
-            if (CurrentState) {
-                Log($"Deactivate state '{CurrentState.GetType().Name}'");
-                CurrentState.DeactivateState();
+            if (currentState) {
+                Log($"Deactivate state '{currentState.GetType().Name}'");
+                currentState.DeactivateState();
             }
 
-            if (StateQueue.TryDequeue(out QueueEntry entry)) {
-                State state = entry.State;
+            if (stateQueue.TryDequeue(out QueueEntry entry)) {
+                State state = entry.state;
 
-                state.Data         = entry.Data;
-                state.StateMachine = this;
-                CurrentState       = state;
+                state.stateMachine = this;
+                currentState       = state;
                 
                 Log($"Activate state '{state.GetType().Name}'");
-                state.ActivateState();
+                state.ActivateState(entry.data);
                 OnStateChanged?.Invoke(state);
             }
             else {
                 Log($"Firing function '{nameof(OnNoState)}'");
-                CurrentState = null;
+                currentState = null;
                 OnNoState();
             }
         }
@@ -164,21 +167,32 @@ namespace JUtils.FSM
             state = obj.AddComponent<T>();
             return true;
         }
-
-
-        protected override void OnActivate()
+        
+        
+        /// <summary>
+        /// Internal function of activating the state
+        /// </summary>
+        internal override bool ActivateState(StateData data)
         {
-            ContinueQueue();
+            if (!base.ActivateState(data)) return false;
+            if (!hasActiveState) {
+                ContinueQueue();
+            }
+            return true;
         }
 
 
-        protected override void OnDeactivate()
+        /// <summary>
+        /// Internal function for deactivating the state
+        /// </summary>
+        internal override void DeactivateState()
         {
-            StateQueue.Clear();
-
-            if (!CurrentState) return;
-            CurrentState.DeactivateState();
-            CurrentState = null;
+            base.DeactivateState();
+            stateQueue.Clear();
+            
+            if (!currentState) return;
+            currentState.DeactivateState();
+            currentState = null;
         }
 
 
@@ -190,7 +204,7 @@ namespace JUtils.FSM
 
         protected virtual void Start()
         {
-            if (autoActivate) { ActivateState(); }
+            if (autoActivate) { ActivateState(new StateData()); }
         }
         
         
@@ -206,11 +220,14 @@ namespace JUtils.FSM
         }
 
 
-
+        
+        /// <summary>
+        /// Representation of the state and its data in the queue
+        /// </summary>
         public struct QueueEntry
         {
-            public State     State;
-            public StateData Data;
+            public State     state;
+            public StateData data;
         }
     }
 }

@@ -7,6 +7,9 @@ using System.Reflection;
 
 namespace JUtils.Editor
 {
+    /// <summary>
+    /// Utilities class working with assemblies
+    /// </summary>
     public static class JUtility
     {
         /// <summary>
@@ -15,6 +18,13 @@ namespace JUtils.Editor
         public static IEnumerable<Type> GetAllTypes()
         {
             return AppDomain.CurrentDomain.GetAssemblies().SelectMany(assembly => assembly.GetTypes());
+        }
+
+
+        public static Type GetTypeFromCode(int typeHashCode, int assemblyHashCode)
+        {
+            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x => x.GetHashCode() == assemblyHashCode);
+            return assembly == null ? null : assembly.GetTypes().FirstOrDefault(x => x.GetHashCode() == typeHashCode);
         }
 
 

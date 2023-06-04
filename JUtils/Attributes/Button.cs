@@ -13,6 +13,21 @@ using Object = UnityEngine.Object;
 
 namespace JUtils.Attributes
 {
+    /// <summary>
+    /// Attach this button to a method to make it clickable in the inspector. This attribute will also draw parameters if it can.
+    /// </summary>
+    /// <example><code lang="CSharp">
+    /// namespace Example
+    /// {
+    ///     public class ButtonExample : MonoBehaviour
+    ///     {
+    ///         [Button]
+    ///         public void SimpleButton() {
+    ///             Debug.Log("The Simple button has been pressed");
+    ///         }
+    ///     }  
+    /// }
+    /// </code></example>
     [AttributeUsage(AttributeTargets.Method)]
     public class Button : Attribute
     {
@@ -285,7 +300,7 @@ namespace JUtils.Attributes
                 
                 //  Running coroutine
                 
-                CoroutineCatcher catcher = Coroutines.Catcher(coroutine);
+                CoroutineCatcher catcher = Routines.Catcher(coroutine);
                 yield return catcher;
     
                 //  Ending

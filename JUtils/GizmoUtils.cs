@@ -11,10 +11,10 @@ namespace JUtils
         /// <summary>
         /// Draws a ray with a disc relative to the position and the input ray
         /// </summary>
-        public static void DrawVector(Vector3 position, Vector3 Vector, Color color)
+        public static void DrawVector(Vector3 position, Vector3 vector, Color color)
         {
 #if UNITY_EDITOR
-            Vector3 target = position + Vector;
+            Vector3 target = position + vector;
             Handles.color = color;
             Handles.DrawLine(position, target);
             Handles.DrawSolidDisc(target, Vector3.up, 0.3f);
@@ -42,7 +42,10 @@ namespace JUtils
                 
                 GUI.Label(new Rect(screenPos.x - size.x / 2, -screenPos.y + view.position.height + 4, size.x, size.y), text);
             }
-            catch (Exception _) { }
+            catch (Exception _1) {
+                _ = _1;
+            }
+
             Handles.EndGUI();
 #endif
         }

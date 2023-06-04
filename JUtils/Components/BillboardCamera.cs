@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace JUtils.Components
 {
+    /// <summary>
+    /// Bill-boarding component which allows for advanced anchoring and other behaviours
+    /// </summary>
     public class BillboardCamera : MonoBehaviour
     {
         public enum Anchor { Top, Bottom, Left, Right, Center }
@@ -47,7 +50,7 @@ namespace JUtils.Components
         
         
         [System.Serializable]
-        public class BillBoardSettings
+        private class BillBoardSettings
         {
             public Anchor anchor;
             public float  scaleMultiplier;

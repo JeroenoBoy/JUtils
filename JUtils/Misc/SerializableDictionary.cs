@@ -7,12 +7,18 @@ using UnityEngine;
 
 namespace JUtils
 {
+    /// <summary>
+    /// A dictionary of which the values do not get lost on serialization
+    /// </summary>
     [System.Serializable]
     public class SerializableDictionary<TKey,TValue> : Dictionary<TKey,TValue>, ISerializationCallbackReceiver
     {
         [SerializeField] private Pair[] _pairs;
 
 
+        /// <summary>
+        /// Do not manually call
+        /// </summary>
         public void OnBeforeSerialize()
         {
             TKey[] keys = Keys.ToArray();
@@ -26,12 +32,17 @@ namespace JUtils
         }
 
 
+        /// <summary>
+        /// Do not manually call
+        /// </summary>
         public void OnAfterDeserialize()
         {
             Clear();
             for (int i = _pairs.Length; i --> 0;) {
-                if (_pairs[i].key == null || _pairs[i].value == null) {
-                    Debug.LogError("Key or Value was null!");
+                if (_pairs[i].key == null) {
+                    Debug.LogError($"Key is null! -- {typeof(TKey)} might not be serializable");
+                } else if (_pairs[i].value == null) {
+                    Debug.LogError($"Value is null! -- {typeof(TValue)} might not be serializable");
                 }
                 else {
                     Add(_pairs[i].key, _pairs[i].value);
@@ -41,6 +52,9 @@ namespace JUtils
 
         
         
+        /// <summary>
+        /// The pair object used for the internal data
+        /// </summary>
         [System.Serializable]
         public struct Pair
         {

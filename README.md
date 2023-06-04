@@ -1,410 +1,79 @@
 # JUtils
+A unity utilities library, this contains many handy extensions, components and data structures with custom editors
 
-An library purely aimed to make development in unity easier
+Documentation: https://jeroenoboy.github.io/JUtils/
 
-## Legenda
+## What is JUtils?
 
-- [Attributes](#jutilsattributes)
-- [Components](#jutilscomponents)
-- [Extensions](#jutilsextensions)
-- [Singletons](#jutilssingletons)
+JUtils adds handy extensions, classes and components which makes writing code faster and easier.
 
+Here is an example script written with JUtils extensions
 
-## JUtils.Attributes
-
-
-### Button
-
-The button attribute allows for easy setup of clickable buttons in the unity inspector. These buttons can be applied to functions and run them.
-
-Usage:
-```cs
-[Button]
-private void KillPlayer()
+```csharp
+namespace Example
 {
-    //  Do something
-}
-
-[Button("Heal Player")]
-private void WeirdName()
-{
-    //  Do something
-}
-
-[Button(clickableInEditor: true)]
-private void AccessibleInEditor()
-{
-    //  Do something
-}
-
-//  Added in 1.4.0 
-
-[Button]
-private void Damage(int amount)
-{
-    //  Do something
-}
-
-[Button]
-private IEnumerator Coroutine()
-{
-    //  Some coroutine, this is only clickable in playmode
-}
-```
-
-### CustomName
-
-This allows you to assign a custom name to a property in the inspector.
-
-Usage:
-```cs
-public class Generator : Monobehaviour
-{
-    [Header("Terrain")]
-    [CustomName("Enabled")]
-    [SerializeField] private bool _terrainEnabled;
-    [CustomName("Octaves")]
-    [SerializeField] private Octave[] _terrainOctaves;
-    
-    [Header("Caves")]
-    [CustomName("Enabled")]
-    [SerializeField] private bool _cavesEnabled;
-    [CustomName("octaves")]
-    [SerializeField] private Octave[] _caveOctaves;
-}
-```
-
-## Optional
-
-This isn't actually an attribute, but I still think it belongs in this list. This attribute allows you to clearly define optional variable types using the Optional struct
-
-Usage:
-```cs
-public class BillBoard : Monobehaviour
-{    
-    [SerializeField] private Optional<Transform> _target; 
-    
-    private void Update()
+    public class EnemySpawner : Monobehaviour
     {
-        if (_target.enabled) transform.rotation = _target.rotation;
+        [SerializeField, Required] private ObjectPool _objectPool;    // Shows an error in the inspector when the field is not assigned
+        [SerializeField] private Optinal<Transform> _optionalParent; //  Mark this variable as not being required, has a toggle in the inspector to make it more clear
+        
+        [Header("Spawn Settings")]
+        [SerializeField, CustomName("Interval")] private MinMax _spawnInterval;
+        [SerializeField, CustomName("Amount")] private MinMaxInt _spawnAmount;
+        [SerializeField, CustomName("Radius")] private float _spawnRadius;
+        [SerializeField] private Weighted<EnemyData>[] _randomEnemyData; // A helper struct for doing easy weighted randomness
+        
+        private Transform _parent;
+        private float _nextSpawn;
+        
+        
+        private void Awake()
+        {
+            _parent = _optionalParent.enabled ? _optionalParent.value : transform; // More efficient than checking object for null
+            _lastSpawnd = Time.time + _spawnInterval.Random()
+        }
+        
+        
+        private void Update()
+        {
+            if (Time.time < _nextSpawn) return;
+            _nextSpawn = Time.time + _spawnInterval.Random();
+            
+            SpawnBatch(_spawnAmount.Random());
+        }
+        
+        
+        [Button]
+        private void SpawnBatch(int spawnAmount)
+        {
+            for (int i = spawnAmount; i --> 0;) {
+                PoolItem item = _objectPool.SpawnItem(Random.insideUnitCircle.With(y: 0) * _spawnRadius, _parent);
+                
+                Enemy enemy = item.GetComponent<Enemy>();
+                enemy.EnemyData = _randomEnemyData.Random();
+                
+                StartCoroutine(Routines.Delay(i * .5f, () => enemy.WakeUp())) // You can use this instead of creating a new routine in the script
+            }
+        }
     }
-}
+)
 ```
 
-### ReadOnly
-
-Fields with this attribute cannot be edited via the inspector, they can still be edited by the script.
-
-Usage:
-```cs
-public class DoNotTouch : Monobehaviour
-{
-    [ReadOnly]
-    [SerializeField] private float _currentForce;
-}
-```
-
-### Required
-
-This attribute add a notification in the inspecotr when it is not filled in.
-
-Usage:
-```cs
-public class PlayerMovement : Monobehaviour
-{
-    [Required]
-    [SerializeField] private Animator _animator;
-    [Required]
-    [SerializeField] private CameraController _camera;
-}
-```
-
-### SerializeInterface
-
-This attribute allows you to restrict an UnityEngine.Object to be of a certain interface type
-
-Usage:
-```cs
-public class InterfaceSerializer : MonoBehaviour
-{
-    [SerializeInterface(typeof IProcessor)]
-    [SerializeField] private Object _processor;
-    public IProcessor processor => _processor as IProcessor;
-}
-```
-
-### ShowWhen
-
-This attribute hides the current field if a certain variable doesn't match a condition.
-
-Conditions can only be of type bool, string, float, int (also works with enums)
-
-**Constructors**
-```cs
-public ShowWhen(string variable, string value, bool showAsObject = true)
-public ShowWhen(string variable, bool value, bool showAsObject = true)
-public ShowWhen(string variable, int value, Comparer comparer = Comparer.Equals)
-public ShowWhen(string variable, int value, bool showAsObject, Comparer comparer = Comparer.Equals)
-public ShowWhen(string variable, float value, Comparer comparer = Comparer.Equals)
-public ShowWhen(string variable, float value, bool showAsObject, Comparer comparer = Comparer.Equals)
-```
-
-**Comparer enum** {Equals, Greater, Smaller, Or}
-
-Usage:
-```cs
-public class BillboardCamera : MonoBehaviour
-{
-    [SerializeField] private Camera _camera;
-    [SerializeField] private bool   _scaleWithDistance = true;
-    
-    [ShowWhen(nameof(_scaleWithDistance), true, false)]
-    [SerializeField] private BillBoardSettings _settings;
-}
-```
-
-### TypeSelector
-
-Select SerializeReference types, useful for strategy patterns.
-
-Usage:
-
-```cs
-public class TypeSelectorTest : MonoBehaviour
-{
-    [SerializeReference, TypeSelector] public IAnimal _animal;
-}
-
-public interface IAnimal {
-    string name { get; }
-}
-
-public class Dog : IAnimal
-{
-    [field: SerializeField]
-    public string name { get; set; }
-    
-    [field: SerializeField]
-    public string bark { get; set; }
-}
-
-public class Cat : IAnimal
-{
-    [field: SerializeField]
-    public string name { get; set; }
-    
-    [field: SerializeField]
-    public string meow { get; set; }
-}
-```
-
-### Unpack
-
-This attribute can be used to unpack a serializable object in the inspector so it looks nicer.
-
-Usage:
-```cs
-[Serializable]
-public struct PlayerMovement : IComponent
-{
-    public float speed;
-    public float jumpHeight;
-}
-
-
-public class PlayerMovementAuthoring : Monobehaviour
-{
-    [SerializeField, Unpack] private PlayerMovement _data
-    
-    //  Baker
-}
-
-
-```
-
-
-## JUtils.Components
-
-
-### Billboard Camera
-
-This component is a simple bill boarding script with a handful of features 
-- Can scale over distance
-- Can have a specific anchor position
-
-### Copy Position
-
-This component sets the position of the game object to the target game object.
-
-
-### Health Component
-
-A simple health component without any default behaviours.
-
-Fields:
-```cs
-bool isDead {get; set;}
-int health { get } // Get the current health of the component
-int maxHealth { get } // Get the maxHealth of the component   
-```
-
-Methods:
-```cs
-int Damage(IDamageEvent e) // Damage the component by a certain amount
-int Heal(IHealEvent e) // Heal the component by a certain amount
-void Kill() // Does A LOT of damage to the health component and kills it
-```
-
-Messages the component sends (also gets send in this order)
-```cs
-void OnDeath()
-void OnHealthChange(int changedHealth)
-void OnDamage(IDamageEvent damage)
-void OnHeal(IHealEvent health)
-
-//  Additionally, You can also listen to these events in an ordered manner
-
-void OnDamage(SimpleDamageEvent e) // <-- Only get fired when the parmeter is SimpleDamageEvent
-void OnDamage(IDamageEvent e) // <-- Gets fired on all IDamageEvent
-```
-
-**These classes are build in for damage events.**
-- SimpleDamageEvent
-- SimpleHealEvent
-
-
-## JUtils.Extensions
-
-This namespace contains extension methods.
-
-```cs
-
-//  AudioSource
-
-AudioSource audioSource;
-void audioSource.RandomPitch(float min, float max) // Sets the pitch to a random range between min and max
-
-//  Color
-
-Color color;
-bool color.Equals(Color other, float threshold) // Compares a color with a threshold
-bool color.Equals2(Color other, float threshold) // A different way to calculate the threshold.
-
-Color[] colors;
-bool colors.TContains(Color target, float threshold) // Check if a element in an Enumerable objects contains the color
-
-//  Component
-
-Component component;
-Ray  component.ForwardRay() // Shorthand for creating a way based on the transform of a component / Behaviour / Monobehaviour
-bool component.HasLayer(int layer) // Check if the component's gameobject has a layer
-
-//  Coroutines
-
-WaitForSeconds         Coroutines.WaitForSeconds(int amount) // Returns a cached version of the requested WaitForSeconds instance
-WaitForSecondsRealtime Coroutines.WaitForSecondsRealtime(int amount) // Returns a cached version of the requested WaitForSecondsRealtime instance
-WaitForFixedUpdate     Coroutines.WaitForFixedUpdate() // Returns a cached version of the WaitForFixedUpdate instance
-WaitForEndOfFrame      Coroutines.WaitForEndOfFrame() // Returns a cached version of the WaitForEndOfFrame instance
-CoroutineCatcher       Coroutines.Catcher(IEnumerator coroutine) // Returns a CoroutineCatcher that can catch errors happening in the coroutine
-
-// There are just little shorthands if you don't want to create a new coroutine for something simple
-void Coroutines.RunNextFrame(Action action) // Run an action in the next frame
-void Coroutines.RunAfter(Action action, float delay) // Run an action after a certain delay
-
-CoroutineCatcher catcher;
-bool catcher.HasThrown(out Exception exception) // Check if the coroutine has thrown an exception
-yield return catcher; //  Can be used like this to run the coroutine
-
-//  Enumerable
-
-IEnumerable<Any> enumerator; // Can also be array, list, pretty much everything that inherits IEnumerable<T>
-T enumerator.Random() // Returns a random element from the array based on UnityEngine.Random
-T enumerator.Random(System.Random randomizer) // Returns a random element based on System.Random
-int enumerator.IndexOf(t => t == "Value") // Get the index of the first matching the comparer 
-
-//  Vectors
-
-Vector2 vector2;
-Vector3 vector2.ToXZVector3() // Convert this Vector2 to Vector3 where X = X, Y = 0, Z = Y
-Vector2 vector2.With(float? x = null, float? y = null) // Set a specific value of the vector
-Vector2 vector2.ClampMagnitude(float maxForce) // Clamp the magnitude of the vector
-Vector2 vector2.Closest(Vector2 a, Vector2 b) // Get the closest vector from self
-Vector2 vector2.Round() // Rounds the position of the vector
-Vector2 vector2.Floor() // Floors the position of the vector
-Vector2 vector2.Multiply(Vector2 other) // Multiplies sx*ox and sy*oy
-Vector2 vector2.Positive(Vector2 other) // Returns the absolute vesion of the vector
-Vector2 vector2.Negative(Vector2 other) // Returns the negative version of the vector
-
-Vector3 vector3;
-Vector2 vector3.ToXZVector2() // Convert this Vector2 to Vector3 where X = X, Y = 0, Z = Y
-Vector3 vector3.With(float? x = null, float? y = null) // Set a specific value of the vector
-Vector3 vector3.ClampMagnitude(float maxForce) // Clamp the magnitude of the vector
-Vector3 vector3.Closest(Vector2 a, Vector2 b) // Get the closest vector from self
-Vector3 vector3.Round() // Rounds the position of the vector
-Vector3 vector3.Floor() // Floors the position of the vector
-Vector3 vector3.Multiply(Vector2 other) // Multiplies sx*ox and sy*oy
-Vector3 vector3.Positive(Vector2 other) // Returns the absolute vesion of the vector
-Vector3 vector3.Negative(Vector2 other) // Returns the negative version of the vector
-```
-
-### Range Enumerator
-
-Since 1.4.6, the Range operator also got extensions:
-
-Usages: <br>
-`A..B`  - Loops from A to B -- <br>
-`^A..B` - Loops from A to B-1 -- ^ at the start excludes the end number <br>
-`A..^B` - Loops from B-1 to A -- ^ before the second number makes it loop in reverse<br>
-`^A..^B` - Loops from A-1 to B -- Loops in reverse and excludes first number<br>
-
-```cs
-
-//  Syntax
-
-RangeEnumerator (..10).GetEnumerator();
-RangeEnumerator (10).GetEnumerator();
-
-//  Can be used as following:
-
-using JUtils.Extensions;
-
-foreach (int i in 10..) {
-    Debug.Log(i); // Logs 10 > 0
-}
-
-foreach (int i in ^10..^0) { // alias: ^10..
-    Debug.Log(i); // Logs 9 > 0
-}
-
-foreach (int i in ^0..10) {
-    Debug.Log(i); // Logs 0 > 9
-}
-
-foreach (int i in ..10) {
-    Debug.Log(i); // Logs 0 > 10
-}
-
-foreach (int i in 20..^10) {
-    Debug.Log(i); // Logs 20 > 10
-}
-
-foreach (int i in 10) {
-    Debug.Log(i); // Logs 0 > 9
-}
-
-```
-
-
-## JUtils.Singletons
-
-### ISingleton\<T>
-
-The singleton standard interface
-
-### SingleTonBehaviour\<T>
-
-Use this to create a new Singleton that also inherits Monobehaviour. The singleton reference also persists on hot reload
-
-### PersistentSingletonBehaviour\<T>
-
-This is a singleton that calls DontDestroyOnLoad(). It doesn't actually use this singleton, it creates a new instance and adds it to a auto generated DDOL singleton object. This means that you can just have all your managers on 1 game object without all of them getting send to the DDOL scene
+## What does JUtils include?
+
+- Many attributes for making things more clear in the inspector
+- Clickable buttons in the inspector with support for arguments & coroutines
+- Many data structures with custom property drawers
+- State machine with type-safe arguments
+- Handy common components
+- Object pools
+- Singletons with hot-reloading support
+- Many handy extensions for vectors, transforms, components & more
+- Coroutine helper functions
+- Some gizmos utilities for drawing forces & text
+
+## Liscence
+
+JUtils versions **1.9.1 and up** have been licensed under **GPL-3.0**
+
+JUtils versions < 1.9.0 have been licensed under MIT

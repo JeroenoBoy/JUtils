@@ -9,6 +9,9 @@ using UnityEngine.Serialization;
 
 namespace JUtils.Components
 {
+    /// <summary>
+    /// A simple implementation for an object pool
+    /// </summary>
     public sealed class ObjectPool : MonoBehaviour
     {
         [SerializeField] private PoolItem template;
@@ -19,15 +22,10 @@ namespace JUtils.Components
         [SerializeField] private int autoExpandAmount = 5;
         
         private PoolItem[] poolItems;
-        private Queue<PoolItem> freeItems;
+        private List<PoolItem> freeItems;
 
 
-        public PoolItem SpawnItem()
-        {
-            return SpawnItem(Vector3.zero, Quaternion.identity);
-        }
-
-
+        public PoolItem SpawnItem() => SpawnItem(Vector3.zero, Quaternion.identity);
         public PoolItem SpawnItem(Vector3 localPosition) => SpawnItem(localPosition, Quaternion.identity);
         public PoolItem SpawnItem(Vector3 localPosition, Transform parent) => SpawnItem(localPosition, Quaternion.identity, parent);
         public PoolItem SpawnItem(Transform parent) => SpawnItem(Vector3.zero, Quaternion.identity, parent);
@@ -46,20 +44,21 @@ namespace JUtils.Components
         
         public bool TryGetItem(out PoolItem item)
         {
-            if (freeItems.Count == 0 && (!autoExpand || AddItems() <= 0)) {
+            if (freeItems.Count == 0 && (!autoExpand || InstantiateNewItems() <= 0)) {
                 Debug.LogWarning("Tried to get item from empty pool");
                 item = null;
                 return false;
             }
 
-            item = freeItems.Dequeue();
+            item = freeItems[^1];
+            freeItems.Remove(item);
             item.Spawn();
 
             return true;
         }
         
         
-        public int AddItems(int amount = -1)
+        public int InstantiateNewItems(int amount = -1)
         {
             if (amount <= 0) amount = autoExpandAmount;
             int newSize = maxSize > 0 ? Mathf.Max(poolItems.Length, amount + poolItems.Length) : amount + poolItems.Length;
@@ -76,7 +75,7 @@ namespace JUtils.Components
                 item.ObjectPool = this;
                 item.gameObject.SetActive(false);
                 poolItems[newSize - amount - 1] = item;
-                freeItems.Enqueue(item);
+                freeItems.Add(item);
             }
             
             return amount;
@@ -96,7 +95,7 @@ namespace JUtils.Components
             transform.localPosition = Vector3.zero;
             transform.localRotation = Quaternion.identity;
             
-            freeItems.Enqueue(item);
+            freeItems.Add(item);
             return true;
         }
 
@@ -120,8 +119,8 @@ namespace JUtils.Components
             if (!template) return;
             
             poolItems = Array.Empty<PoolItem>();
-            freeItems = new Queue<PoolItem>();
-            AddItems(prefill);
+            freeItems = new List<PoolItem>();
+            InstantiateNewItems(prefill);
         }
     }
 }

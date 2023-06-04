@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace JUtils.Components
 {
+    /// <summary>
+    /// A simple yet versatile HealthComponent implementation that uses SendMessage to send its heal & damage events
+    /// </summary>
     public class HealthComponent : MonoBehaviour
     {
         [SerializeField] private int _health;
@@ -28,7 +31,7 @@ namespace JUtils.Components
 
 
         /// <summary>
-        /// Damage the component
+        /// Damage the component by a set amount, sends SimpleDamageEvent
         /// </summary>
         public int Damage(int amount)
         {
@@ -44,7 +47,7 @@ namespace JUtils.Components
 
 
         /// <summary>
-        /// Heal the component
+        /// Heal the component by a set amount, sends SimpleHealEvent
         /// </summary>
         public int Heal(int amount)
         {
@@ -60,7 +63,7 @@ namespace JUtils.Components
 
 
         /// <summary>
-        /// Damage the component
+        /// Damage the component using a damage event
         /// </summary>
         public int Damage(IDamageEvent @event)
         {
@@ -77,7 +80,7 @@ namespace JUtils.Components
 
 
         /// <summary>
-        /// Heal the component
+        /// Heal the component using a heal event
         /// </summary>
         public int Heal(IHealEvent @event)
         {
@@ -93,11 +96,6 @@ namespace JUtils.Components
         }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="amount"></param>
-        /// <returns>true when died, other param is the damage done</returns>
         private int ChangeHealth(int amount)
         {
             if (isDead) return 0;
