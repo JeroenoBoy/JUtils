@@ -21,7 +21,7 @@ namespace JUtils.Attributes
     ///         {
     ///             _timer += Time.deltaTime * Random.value
     ///         }
-    ///     }  
+    ///     }
     /// }
     /// </code></example>
     public class Uneditable : PropertyAttribute

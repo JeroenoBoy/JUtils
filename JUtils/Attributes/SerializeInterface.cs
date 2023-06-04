@@ -17,7 +17,7 @@ namespace JUtils.Attributes
     ///         [SerializeInterface(typeof(IProcessor))]
     ///         [SerializeField, Required] private Object _processor;
     ///         public IProcessor processor => _processor as IProcessor;
-    ///     }  
+    ///     }
     /// }
     /// </code></example>
     public class SerializeInterface : PropertyAttribute

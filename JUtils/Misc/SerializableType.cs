@@ -45,5 +45,8 @@ namespace JUtils
             else
                 type = JUtility.GetTypeFromCode(_typeCode, _assemblyCode);
         }
+        
+        
+        public static implicit operator Type(SerializableType serializableType) => serializableType.type;
     }
 }

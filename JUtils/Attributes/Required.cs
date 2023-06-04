@@ -14,7 +14,7 @@ namespace JUtils.Attributes
     ///     public class RequiredExample : MonoBehaviour
     ///     {
     ///         [SerializeField, Required] private GameObject _bulletPrefab;
-    ///     }  
+    ///     }
     /// }
     /// </code></example>
     public class Required : PropertyAttribute

@@ -19,7 +19,7 @@ namespace JUtils.Attributes
     /// 
     ///         [ShowWhen(nameof(_autoSet), false)]
     ///         [SerializeField, Required] private Settings _settings;
-    ///     }  
+    ///     }
     /// }
     /// </code></example>
     public class ShowWhen : PropertyAttribute

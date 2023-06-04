@@ -25,7 +25,7 @@ namespace JUtils.Attributes
     ///         public void SimpleButton() {
     ///             Debug.Log("The Simple button has been pressed");
     ///         }
-    ///     }  
+    ///     }
     /// }
     /// </code></example>
     [AttributeUsage(AttributeTargets.Method)]
