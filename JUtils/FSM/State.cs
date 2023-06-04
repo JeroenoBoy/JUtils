@@ -84,6 +84,7 @@ namespace JUtils.FSM
         }
 
 
+        // ReSharper restore Unity.ExpensiveCode
         /// <summary>
         /// Deactivate this state and make the state-machine continue its queue
         /// </summary>

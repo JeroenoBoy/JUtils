@@ -25,7 +25,7 @@ namespace JUtils.FSM
         
         protected virtual void Reset()
         {
-            autoActivate = !GetComponentInParent<StateMachine>();
+            autoActivate = !this.GetComponentInParentsDirect<StateMachine>();
         }
 
 
@@ -49,6 +49,7 @@ namespace JUtils.FSM
         }
         
         
+        // ReSharper disable Unity.PerformanceAnalysis
         /// <summary>
         /// Clears the StateQueue and goes to the given state
         /// </summary>
@@ -75,6 +76,7 @@ namespace JUtils.FSM
         }
 
 
+        // ReSharper disable Unity.PerformanceAnalysis
         /// <summary>
         /// Adds a new state to the queue
         /// </summary>
@@ -95,6 +97,7 @@ namespace JUtils.FSM
         }
         
 
+        // ReSharper disable Unity.PerformanceAnalysis
         /// <summary>
         /// Adds a new state to the queue
         /// </summary>
@@ -104,6 +107,7 @@ namespace JUtils.FSM
         }
         
         
+        // ReSharper disable Unity.PerformanceAnalysis
         /// <summary>
         /// Deactivate the current state and go to the next one
         /// </summary>
