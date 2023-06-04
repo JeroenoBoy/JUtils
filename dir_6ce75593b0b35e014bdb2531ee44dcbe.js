@@ -14,7 +14,9 @@ var dir_6ce75593b0b35e014bdb2531ee44dcbe =
       [ "Routines", "classJUtils_1_1Routines.html", "classJUtils_1_1Routines" ],
       [ "CoroutineCatcher", "classJUtils_1_1CoroutineCatcher.html", "classJUtils_1_1CoroutineCatcher" ]
     ] ],
-    [ "SceneReference.cs", "SceneReference_8cs.html", "SceneReference_8cs" ],
+    [ "SceneReference.cs", "SceneReference_8cs.html", [
+      [ "SceneReference", "structJUtils_1_1SceneReference.html", "structJUtils_1_1SceneReference" ]
+    ] ],
     [ "SerializableDictionary.cs", "SerializableDictionary_8cs.html", [
       [ "SerializableDictionary", "classJUtils_1_1SerializableDictionary.html", "classJUtils_1_1SerializableDictionary" ],
       [ "Pair", "structJUtils_1_1SerializableDictionary_1_1Pair.html", "structJUtils_1_1SerializableDictionary_1_1Pair" ]
