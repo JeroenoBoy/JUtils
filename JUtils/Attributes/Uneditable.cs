@@ -14,7 +14,7 @@ namespace JUtils.Attributes
     /// {
     ///     public class ReadOnlyExample : MonoBehaviour
     ///     {
-    ///         [SerializeField, ReadOnlyProperty] private float _timer;
+    ///         [SerializeField, Uneditable] private float _timer;
     ///
     ///
     ///         private void Update()
@@ -24,10 +24,10 @@ namespace JUtils.Attributes
     ///     }  
     /// }
     /// </code></example>
-    public class ReadOnlyProperty : PropertyAttribute
+    public class Uneditable : PropertyAttribute
     {
 #if UNITY_EDITOR
-        [CustomPropertyDrawer(typeof(ReadOnlyProperty))]
+        [CustomPropertyDrawer(typeof(Uneditable))]
         public class MyClass : PropertyDrawer
         {
             public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)

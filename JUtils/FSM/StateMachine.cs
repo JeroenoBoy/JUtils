@@ -7,18 +7,22 @@ using UnityEngine;
 
 namespace JUtils.FSM
 {
+    /// <summary>
+    /// A mono-behaviour state-machine that can also be used as a state
+    /// </summary>
     public abstract partial class StateMachine : State
     {
         [SerializeField] private bool showLogs;
         [SerializeField] private bool autoActivate;
         [SerializeField] private bool autoCreateStates = true;
 
-        public event Action<State> OnStateChanged; 
+        public event Action<State> OnStateChanged;
 
+        protected bool              HasActiveState => CurrentState != null;
         protected State             CurrentState;
         protected Queue<QueueEntry> StateQueue = new ();
 
-
+        
         protected virtual void Reset()
         {
             autoActivate = !GetComponentInParent<StateMachine>();
@@ -118,12 +122,11 @@ namespace JUtils.FSM
             if (StateQueue.TryDequeue(out QueueEntry entry)) {
                 State state = entry.State;
 
-                state.Data         = entry.Data;
                 state.StateMachine = this;
                 CurrentState       = state;
                 
                 Log($"Activate state '{state.GetType().Name}'");
-                state.ActivateState();
+                state.ActivateState(entry.Data);
                 OnStateChanged?.Invoke(state);
             }
             else {
@@ -164,18 +167,29 @@ namespace JUtils.FSM
             state = obj.AddComponent<T>();
             return true;
         }
-
-
-        protected override void OnActivate()
+        
+        
+        /// <summary>
+        /// Internal function of activating the state
+        /// </summary>
+        internal override bool ActivateState(StateData data)
         {
-            ContinueQueue();
+            if (!base.ActivateState(data)) return false;
+            if (!HasActiveState) {
+                ContinueQueue();
+            }
+            return true;
         }
 
 
-        protected override void OnDeactivate()
+        /// <summary>
+        /// Internal function for deactivating the state
+        /// </summary>
+        internal override void DeactivateState()
         {
+            base.DeactivateState();
             StateQueue.Clear();
-
+            
             if (!CurrentState) return;
             CurrentState.DeactivateState();
             CurrentState = null;
@@ -190,7 +204,7 @@ namespace JUtils.FSM
 
         protected virtual void Start()
         {
-            if (autoActivate) { ActivateState(); }
+            if (autoActivate) { ActivateState(new StateData()); }
         }
         
         
@@ -206,7 +220,10 @@ namespace JUtils.FSM
         }
 
 
-
+        
+        /// <summary>
+        /// Representation of the state and its data in the queue
+        /// </summary>
         public struct QueueEntry
         {
             public State     State;

@@ -4,11 +4,37 @@
 
 namespace JUtils.FSM
 {
+    /// <summary>
+    /// The data of a state
+    /// </summary>
+    /// <example><code>
+    /// namespace Example
+    /// {
+    ///     public class StateDataExample : State
+    ///     {
+    ///         private GameObject _target;
+    /// 
+    ///         public override void OnActivate()
+    ///         {
+    ///             _target = Data.Get&#60;GameObject>(0);
+    ///             if (Data.TryGet(1, out Transform optionalTransform))
+    ///                 optionalTransform.position = Vector3.zero;
+    ///         }
+    /// 
+    ///         public override void OnDeactivate()
+    ///         {
+    ///         }
+    ///     }
+    /// }
+    /// </code></example>
     public class StateData
     {
         public readonly object[] Arguments;
         
         
+        /// <summary>
+        /// Create a new StateData object with its arguments
+        /// </summary>
         public StateData(params object[] arguments)
         {
             Arguments = arguments;

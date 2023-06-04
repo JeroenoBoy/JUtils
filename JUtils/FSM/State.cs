@@ -7,6 +7,9 @@ using UnityEngine;
 
 namespace JUtils.FSM
 {
+    /// <summary>
+    /// A simple state that can be driven by <see cref="StateMachine"/>
+    /// </summary>
     public abstract class State : MonoBehaviour
     {
         [SerializeField] private bool setEnabledBasedOnActive = true;
@@ -14,42 +17,65 @@ namespace JUtils.FSM
         public event Action<State> OnStateActivate;
         public event Action<State> OnStateDeactivate;
 
-        public bool         IsActive            { get; private set; }
-        public float        TimeInState         => IsActive ? Time.time - _timeEnteredState : -1f;
-        public float        UnscaledTimeInState => IsActive ? Time.unscaledTime - _unscaledTimeEnteredState : -1f;
-        public StateMachine StateMachine        { get; internal set; }
-        public StateData    Data                { get; internal set; }
+        public bool         IsActive     { get; private set; }
+        public StateMachine StateMachine { get; internal set; }
+
+        /// <summary>
+        /// Get the amount of seconds that this state is active. Returns 0 if the state is not active
+        /// </summary>
+        public float TimeInState => IsActive ? Time.time - _timeEnteredState : -1f;
+
+        /// <summary>
+        /// Get the amount of unscaled seconds that this state is active. Returns 0 if the state is not active
+        /// </summary>
+        public float UnscaledTimeInState => IsActive ? Time.unscaledTime - _unscaledTimeEnteredState : -1f;
+        
+        protected StateData Data { get; private set; }
+        
 
         private float _timeEnteredState;
         private float _unscaledTimeEnteredState;
         
-        internal void ActivateState()
+       
+        /// <summary>
+        /// Internal function of activating the state
+        /// </summary>
+        internal virtual bool ActivateState(StateData data)
         {
             try {
                 _timeEnteredState         = Time.time;
                 _unscaledTimeEnteredState = Time.unscaledTime;
+
+                Data = data;
                 
                 gameObject.SetActive(true);
                 IsActive = true;
                 OnActivate();
                 OnStateActivate?.Invoke(this);
+                return true;
             }
             catch (Exception e) {
                 Debug.LogException(e);
                 Coroutines.RunNextFrame(Deactivate); // Run next frame to avoid stack overflow exceptions
+                return false;
             }
         }
 
 
-        internal void DeactivateState()
+        /// <summary>
+        /// Internal function for deactivating the state
+        /// </summary>
+        internal virtual void DeactivateState()
         {
             try {
+                OnDeactivate();
+                
                 if (setEnabledBasedOnActive) {
                     gameObject.SetActive(false);
                 }
                 
                 IsActive = false;
-                OnDeactivate();
+                Data = null;
                 OnStateDeactivate?.Invoke(this);
             }
             catch (Exception e) {
@@ -58,21 +84,39 @@ namespace JUtils.FSM
         }
 
 
+        /// <summary>
+        /// Deactivate this state and make the state-machine continue its queue
+        /// </summary>
         protected void Deactivate()
         {
             if (!IsActive) return;
             StateMachine.ContinueQueue();
         }
-        
-        
+
+        /// <summary>
+        /// Gets called when the state activates
+        /// </summary>
         protected abstract void OnActivate();
+        /// <summary>
+        /// Gets called when the sate deactivates
+        /// </summary>
         protected abstract void OnDeactivate();
 
 
+        /// <summary>
+        /// Used for making typed argument adding to states prettier
+        /// </summary>
+        /// <typeparam name="T">The type we want the ref from</typeparam>
+        /// <example><code>
+        /// StateMachine.AddToQueue(Ref&#60;TeleportState>, location);
+        /// </code></example>>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         protected StateRef<T> Ref<T>() where T : State => new ();
 
 
+        /// <summary>
+        /// Only runs the Update() function when the state is active
+        /// </summary>
         protected virtual void ActiveUpdate()
         {
         }
@@ -90,8 +134,11 @@ namespace JUtils.FSM
         }
     }
 
-
-
+    
+    
+    /// <summary>
+    /// State with 1 type-safe arguments
+    /// </summary>
     public abstract class State<T> : State
     {
         protected override void OnActivate()
@@ -106,6 +153,9 @@ namespace JUtils.FSM
 
 
 
+    /// <summary>
+    /// State with 2 type-safe arguments
+    /// </summary>
     public abstract class State<T1, T2> : State
     {
         protected override void OnActivate()
@@ -121,6 +171,9 @@ namespace JUtils.FSM
     
     
     
+    /// <summary>
+    /// State with 3 type-safe arguments
+    /// </summary>
     public abstract class State<T1, T2, T3> : State
     {
         protected override void OnActivate()

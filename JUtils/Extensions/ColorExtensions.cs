@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace JUtils.Extensions
 {
+    /// <summary>
+    /// Gives threshold comparing functions for Colors
+    /// </summary>
     public static class ColorExtensions
     {
         private static bool CompareThreshold(float a, float b, float threshold)
@@ -15,7 +18,7 @@ namespace JUtils.Extensions
 
 
         /// <summary>
-        /// Compare 2 colors with a threshold
+        /// Compare 2 colors with a threshold, checks the difference between all separate RGB values
         /// </summary>
         public static bool Equals(this Color self, Color other, float threshold)
         {
@@ -26,7 +29,7 @@ namespace JUtils.Extensions
 
 
         /// <summary>
-        /// Compare 2 colors with a threshold, probably worse but idk
+        /// Compare 2 colors with a threshold, combines the colors and compares
         /// </summary>
         public static bool Equals2(this Color self, Color other, float threshold)
         {
@@ -39,7 +42,7 @@ namespace JUtils.Extensions
 
 
         /// <summary>
-        /// Compare 2 colors with a threshold
+        /// Check if all colors in an enumerable matches the other color. Using <see cref="Equals"/>
         /// </summary>
         public static bool TContains(
             this IEnumerable<Color> self,

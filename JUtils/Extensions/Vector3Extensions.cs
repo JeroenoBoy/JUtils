@@ -55,16 +55,6 @@ namespace JUtils.Extensions
         /// Round the Vector3
         /// </summary>
         /// <returns>The rounded position</returns>
-        public static Quaternion Quat(this Vector3 self)
-        {
-            return Quaternion.Euler(self);
-        }
-
-        
-        /// <summary>
-        /// Round the Vector3
-        /// </summary>
-        /// <returns>The rounded position</returns>
         public static Vector3 Round(this Vector3 self)
         {
             return new Vector3(
