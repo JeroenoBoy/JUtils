@@ -7,7 +7,7 @@ using UnityEngine;
 namespace JUtils.Extensions
 {
     /// <summary>
-    ///  x
+    /// Some useful extensions to transforms
     /// </summary>
     public static class TransformExtensions
     {
@@ -25,7 +25,7 @@ namespace JUtils.Extensions
         /// <summary>
         /// Get the closest transform from self
         /// </summary>
-        /// <param name="a">The first target to check</param>">
+        /// <param name="a">The first target to check</param>
         /// <param name="b">The second target to check</param>
         /// <returns>The closest transform</returns>
         public static Transform Closest(this Transform self, Transform a, Transform b)

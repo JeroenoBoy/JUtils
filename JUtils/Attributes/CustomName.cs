@@ -15,7 +15,7 @@ namespace JUtils.Attributes
     ///     {
     ///         [Header("Spawn Settings")]
     ///         [SerializeField, CustomName("Interval")] private float _spawnInterval; // will display as "Interval" in the inspector
-    ///     }  
+    ///     }
     /// }
     /// </code></example>
     public class CustomName : PropertyAttribute

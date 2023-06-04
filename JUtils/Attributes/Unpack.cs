@@ -14,7 +14,7 @@ namespace JUtils.Attributes
     ///     public class UnpackExample : MonoBehaviour
     ///     {
     ///         [SerializeField, Unpack] private EnemyData _enemyData;
-    ///     }  
+    ///     }
     /// }
     /// </code></example>
     public class Unpack : PropertyAttribute
