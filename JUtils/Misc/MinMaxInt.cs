@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace JUtils
 {
+    /// <summary>
+    /// A struct with a custom editor which can be used to get a minimum and a maximum value, handy for random values & clamping 
+    /// </summary>
     [System.Serializable]
     public struct MinMaxInt
     {

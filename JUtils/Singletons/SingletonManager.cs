@@ -14,7 +14,7 @@ namespace JUtils.Singletons
     /// </summary>
     public class SingletonManager : MonoBehaviour
     {
-        public static SingletonManager Instance => JUtilsObject.Instance.SingletonManager;
+        public static SingletonManager instance => JUtilsObject.instance.singletonManager;
 
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace JUtils.Singletons
         /// </summary>
         public static T GetSingleton<T>() where T : MonoBehaviour, ISingleton<T>
         {
-            return Instance._singletons.FirstOrDefault(x => x is T) as T;
+            return instance._singletons.FirstOrDefault(x => x is T) as T;
         }
 
 
@@ -31,7 +31,7 @@ namespace JUtils.Singletons
         /// </summary>
         public static bool SetSingleton<T>(ISingleton<T> singleton) where T : MonoBehaviour, ISingleton<T>
         {
-           SingletonManager manager = Instance;
+           SingletonManager manager = instance;
 
            if (manager._singletons.Any(x => x is T)) {
                return false;
@@ -47,7 +47,7 @@ namespace JUtils.Singletons
         /// </summary>
         public static bool RemoveSingleton<T>(ISingleton<T> singleton) where T : MonoBehaviour, ISingleton<T>
         {
-           return Instance._singletons.Remove(singleton as MonoBehaviour);
+           return instance._singletons.Remove(singleton as MonoBehaviour);
         }
 
         //  Instance

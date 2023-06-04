@@ -29,7 +29,7 @@ namespace JUtils.FSM
     /// </code></example>
     public class StateData
     {
-        public readonly object[] Arguments;
+        public readonly object[] arguments;
         
         
         /// <summary>
@@ -37,7 +37,7 @@ namespace JUtils.FSM
         /// </summary>
         public StateData(params object[] arguments)
         {
-            Arguments = arguments;
+            this.arguments = arguments;
         }
         
        
@@ -49,7 +49,7 @@ namespace JUtils.FSM
             if (!Has(index))
                 throw new ArgumentOutOfRangeException();
 
-            object obj = Arguments[index];
+            object obj = arguments[index];
 
             if (obj is not T argument)
                 throw new ArgumentException($"Type '{obj.GetType().Name}' is not castable to '{typeof(T).Name}'");
@@ -66,7 +66,7 @@ namespace JUtils.FSM
             argument = default;
             if (!Has(index)) return false;
             
-            object obj = Arguments[index];
+            object obj = arguments[index];
             if (obj is not T obj1) return false;
             
             argument = obj1;
@@ -79,7 +79,7 @@ namespace JUtils.FSM
         /// </summary>
         public bool Has(int index)
         {
-            return index < Arguments.Length;
+            return index < arguments.Length;
         }
 
         
@@ -88,7 +88,7 @@ namespace JUtils.FSM
         /// </summary>
         public bool Has<T>(int index)
         {
-            return index < Arguments.Length && Arguments[index] is T;
+            return index < arguments.Length && arguments[index] is T;
         }
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine;
 namespace JUtils.FSM
 {
     /// <summary>
-    /// A simple state that can be driven by <see cref="StateMachine"/>
+    /// A simple state that can be driven by <see cref="stateMachine"/>
     /// </summary>
     public abstract class State : MonoBehaviour
     {
@@ -17,20 +17,20 @@ namespace JUtils.FSM
         public event Action<State> OnStateActivate;
         public event Action<State> OnStateDeactivate;
 
-        public bool         IsActive     { get; private set; }
-        public StateMachine StateMachine { get; internal set; }
+        public bool         isActive     { get; private set; }
+        public StateMachine stateMachine { get; internal set; }
 
         /// <summary>
         /// Get the amount of seconds that this state is active. Returns 0 if the state is not active
         /// </summary>
-        public float TimeInState => IsActive ? Time.time - _timeEnteredState : -1f;
+        public float timeInState => isActive ? Time.time - _timeEnteredState : -1f;
 
         /// <summary>
         /// Get the amount of unscaled seconds that this state is active. Returns 0 if the state is not active
         /// </summary>
-        public float UnscaledTimeInState => IsActive ? Time.unscaledTime - _unscaledTimeEnteredState : -1f;
+        public float unscaledTimeInState => isActive ? Time.unscaledTime - _unscaledTimeEnteredState : -1f;
         
-        protected StateData Data { get; private set; }
+        protected StateData data { get; private set; }
         
 
         private float _timeEnteredState;
@@ -46,10 +46,10 @@ namespace JUtils.FSM
                 _timeEnteredState         = Time.time;
                 _unscaledTimeEnteredState = Time.unscaledTime;
 
-                Data = data;
+                this.data = data;
                 
                 gameObject.SetActive(true);
-                IsActive = true;
+                isActive = true;
                 OnActivate();
                 OnStateActivate?.Invoke(this);
                 return true;
@@ -74,8 +74,8 @@ namespace JUtils.FSM
                     gameObject.SetActive(false);
                 }
                 
-                IsActive = false;
-                Data = null;
+                isActive = false;
+                data = null;
                 OnStateDeactivate?.Invoke(this);
             }
             catch (Exception e) {
@@ -89,8 +89,8 @@ namespace JUtils.FSM
         /// </summary>
         protected void Deactivate()
         {
-            if (!IsActive) return;
-            StateMachine.ContinueQueue();
+            if (!isActive) return;
+            stateMachine.ContinueQueue();
         }
 
         /// <summary>
@@ -124,13 +124,13 @@ namespace JUtils.FSM
 
         protected virtual void Awake()
         {
-            if (!IsActive && setEnabledBasedOnActive) gameObject.SetActive(false);
+            if (!isActive && setEnabledBasedOnActive) gameObject.SetActive(false);
         }
 
 
         protected virtual void Update()
         {
-            if (IsActive) ActiveUpdate();
+            if (isActive) ActiveUpdate();
         }
     }
 
@@ -143,7 +143,7 @@ namespace JUtils.FSM
     {
         protected override void OnActivate()
         {
-            T a = Data.Get<T>(0);
+            T a = data.Get<T>(0);
             OnActivate(a);
         }
 
@@ -160,8 +160,8 @@ namespace JUtils.FSM
     {
         protected override void OnActivate()
         {
-            T1 a = Data.Get<T1>(0);
-            T2 b = Data.Get<T2>(0);
+            T1 a = data.Get<T1>(0);
+            T2 b = data.Get<T2>(0);
             OnActivate(a, b);
         }
 
@@ -178,9 +178,9 @@ namespace JUtils.FSM
     {
         protected override void OnActivate()
         {
-            T1 a = Data.Get<T1>(0);
-            T2 b = Data.Get<T2>(0);
-            T3 c = Data.Get<T3>(0);
+            T1 a = data.Get<T1>(0);
+            T2 b = data.Get<T2>(0);
+            T3 c = data.Get<T3>(0);
             OnActivate(a, b, c);
         }
 

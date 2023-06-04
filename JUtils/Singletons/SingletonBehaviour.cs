@@ -10,7 +10,7 @@ namespace JUtils.Singletons
     public abstract class SingletonBehaviour<T> : MonoBehaviour, ISingleton<T> where T : MonoBehaviour, ISingleton<T>
     {
         private static T _instance;
-        public static  T Instance => _instance ??= SingletonManager.GetSingleton<T>();
+        public static  T instance => _instance ??= SingletonManager.GetSingleton<T>();
 
 
         protected virtual void Awake()
@@ -24,7 +24,9 @@ namespace JUtils.Singletons
 
         protected virtual void OnDestroy()
         {
-            SingletonManager.RemoveSingleton(this);
+            if (SingletonManager.RemoveSingleton(this)) {
+                _instance = null;
+            }
         }
     }
 }

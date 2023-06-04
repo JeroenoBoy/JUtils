@@ -9,12 +9,18 @@ using UnityEngine.UI;
 
 namespace JUtils
 {
+    /// <summary>
+    /// A interface that helps with weighted randomness <see cref="WeightedExtensions"/>
+    /// </summary>
     public interface IWeighted
     {
         public float weight { get; }
     }
     
     
+    /// <summary>
+    /// A struct that makes it easier to work with weighted randomness <seealso cref="WeightedExtensions"/>
+    /// </summary>
     [System.Serializable]
     public struct Weighted<T> : IWeighted
     {
@@ -101,6 +107,9 @@ namespace JUtils
     
     
     
+    /// <summary>
+    /// Contains helper functions for working with Weighted Randomness
+    /// </summary>
     public static class WeightedExtensions
     {
         /// <summary>

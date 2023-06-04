@@ -18,9 +18,9 @@ namespace JUtils.FSM
 
         public event Action<State> OnStateChanged;
 
-        protected bool              HasActiveState => CurrentState != null;
-        protected State             CurrentState;
-        protected Queue<QueueEntry> StateQueue = new ();
+        protected bool              hasActiveState => currentState != null;
+        protected State             currentState;
+        protected Queue<QueueEntry> stateQueue = new ();
 
         
         protected virtual void Reset()
@@ -44,7 +44,7 @@ namespace JUtils.FSM
         public void GoToNoState()
         {
             Log("Forcibly go to no state");
-            StateQueue.Clear();
+            stateQueue.Clear();
             ContinueQueue();
         }
         
@@ -60,7 +60,7 @@ namespace JUtils.FSM
             }
             
             Log($"Force go to state '{state.GetType().Name}'");
-            StateQueue.Clear();
+            stateQueue.Clear();
             if (!AddToQueue(state, data)) ContinueQueue();
         }
 
@@ -85,11 +85,11 @@ namespace JUtils.FSM
                 Log($"Tried to add Null state");
             }
             else {
-                StateQueue.Enqueue(new QueueEntry {State = state, Data = data ?? new StateData()});
+                stateQueue.Enqueue(new QueueEntry {state = state, data = data ?? new StateData()});
                 Log($"Add '{state.GetType().Name}' to the queue");
             }
             
-            if (CurrentState) return false;
+            if (currentState) return false;
             ContinueQueue();
             return true;
         }
@@ -109,29 +109,29 @@ namespace JUtils.FSM
         /// </summary>
         public void ContinueQueue()
         {
-            if (!IsActive) {
+            if (!isActive) {
                 Debug.LogWarning($"[{GetType().Name}] Tried to continue the state queue, but the this state machine is not active!");
                 return;
             }
 
-            if (CurrentState) {
-                Log($"Deactivate state '{CurrentState.GetType().Name}'");
-                CurrentState.DeactivateState();
+            if (currentState) {
+                Log($"Deactivate state '{currentState.GetType().Name}'");
+                currentState.DeactivateState();
             }
 
-            if (StateQueue.TryDequeue(out QueueEntry entry)) {
-                State state = entry.State;
+            if (stateQueue.TryDequeue(out QueueEntry entry)) {
+                State state = entry.state;
 
-                state.StateMachine = this;
-                CurrentState       = state;
+                state.stateMachine = this;
+                currentState       = state;
                 
                 Log($"Activate state '{state.GetType().Name}'");
-                state.ActivateState(entry.Data);
+                state.ActivateState(entry.data);
                 OnStateChanged?.Invoke(state);
             }
             else {
                 Log($"Firing function '{nameof(OnNoState)}'");
-                CurrentState = null;
+                currentState = null;
                 OnNoState();
             }
         }
@@ -175,7 +175,7 @@ namespace JUtils.FSM
         internal override bool ActivateState(StateData data)
         {
             if (!base.ActivateState(data)) return false;
-            if (!HasActiveState) {
+            if (!hasActiveState) {
                 ContinueQueue();
             }
             return true;
@@ -188,11 +188,11 @@ namespace JUtils.FSM
         internal override void DeactivateState()
         {
             base.DeactivateState();
-            StateQueue.Clear();
+            stateQueue.Clear();
             
-            if (!CurrentState) return;
-            CurrentState.DeactivateState();
-            CurrentState = null;
+            if (!currentState) return;
+            currentState.DeactivateState();
+            currentState = null;
         }
 
 
@@ -226,8 +226,8 @@ namespace JUtils.FSM
         /// </summary>
         public struct QueueEntry
         {
-            public State     State;
-            public StateData Data;
+            public State     state;
+            public StateData data;
         }
     }
 }

@@ -12,6 +12,24 @@ using Object = UnityEngine.Object;
 
 namespace JUtils
 {
+    /// <summary>
+    /// Reference a scene via its asset instead of its name. It can also give suggestions based on it being null / not in build
+    /// </summary>
+    /// <example><code lang="CSharp">
+    /// namespace Example
+    /// {
+    ///     public class Game : ScriptableObject
+    ///     {
+    ///         [SerializeField] private SceneReference _scene;
+    ///
+    ///         public IEnumerator LoadGameAsync(Game currentGame)
+    ///         {
+    ///             yield return currentGame._scene.UnloadSceneAsync();
+    ///             yield return _scene.LoadSceneAsync(LoadSceneMode.Additive);
+    ///         }
+    ///     }
+    /// }
+    /// </code></example>>
     [System.Serializable]
 #if UNITY_EDITOR
     public struct SceneReference : ISerializationCallbackReceiver
@@ -23,28 +41,28 @@ namespace JUtils
         [SerializeField] private string _sceneName;
         [SerializeField] private string _scenePath;
 
-        public string SceneName => _sceneName;
-        public string ScenePath => _scenePath;
+        public string sceneName => _sceneName;
+        public string scenePath => _scenePath;
 
-        public Scene Scene      => SceneManager.GetSceneByPath(_scenePath);
-        public int   BuildIndex => Scene.buildIndex;
+        public Scene scene      => SceneManager.GetSceneByPath(_scenePath);
+        public int   buildIndex => scene.buildIndex;
 
 
         public void LoadScene(LoadSceneMode mode = LoadSceneMode.Single)
         {
-            SceneManager.LoadScene(BuildIndex, mode);
+            SceneManager.LoadScene(buildIndex, mode);
         }
 
 
         public AsyncOperation LoadSceneAsync(LoadSceneMode mode = LoadSceneMode.Single)
         {
-            return SceneManager.LoadSceneAsync(BuildIndex, mode);
+            return SceneManager.LoadSceneAsync(buildIndex, mode);
         }
 
 
         public AsyncOperation UnloadSceneAsync()
         {
-            return SceneManager.UnloadSceneAsync(BuildIndex);
+            return SceneManager.UnloadSceneAsync(buildIndex);
         }
         
 #if UNITY_EDITOR

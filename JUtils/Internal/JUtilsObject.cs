@@ -6,6 +6,9 @@ using UnityEngine;
 
 namespace JUtils.Internal
 {
+    /// <summary>
+    /// Internal object used for <see cref="Coroutines"/> & <see cref="singletonManager"/>
+    /// </summary>
     internal class JUtilsObject : MonoBehaviour
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -17,28 +20,28 @@ namespace JUtils.Internal
         
         
         private static  JUtilsObject _instance;
-        internal static JUtilsObject Instance => _instance ??= FindObjectOfType<JUtilsObject>();
+        internal static JUtilsObject instance => _instance ??= FindObjectOfType<JUtilsObject>();
 
 
         internal static T Add<T>() where T : Component
         {
-            return Instance.gameObject.AddComponent<T>();
+            return instance.gameObject.AddComponent<T>();
         }
 
 
         internal static T Get<T>() where T : Component
         {
-            return Instance.GetComponent<T>();
+            return instance.GetComponent<T>();
         }
 
 
         internal static T GetOrAdd<T>() where T : Component
         {
-            return Instance.GetComponent<T>() ?? Add<T>();
+            return instance.GetComponent<T>() ?? Add<T>();
         }
 
 
         private SingletonManager _singletonManager;
-        public  SingletonManager SingletonManager => _singletonManager ??= GetOrAdd<SingletonManager>();
+        public  SingletonManager singletonManager => _singletonManager ??= GetOrAdd<SingletonManager>();
     }
 }
