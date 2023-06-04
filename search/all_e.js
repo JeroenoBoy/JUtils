@@ -19,7 +19,8 @@ var searchData=
   ['onvalidate_153',['OnValidate',['../classJUtils_1_1FSM_1_1StateMachine.html#acf05cbe778bf2500f25db01f86af7dde',1,'JUtils::FSM::StateMachine']]],
   ['operator_20bool_154',['operator bool',['../structJUtils_1_1Optional.html#a5dafb3f91f015cc4e61c9e52a39ea0dd',1,'JUtils::Optional']]],
   ['operator_20t_155',['operator T',['../structJUtils_1_1Optional.html#a51ae562d6cb780e8c4fe629b15156c3a',1,'JUtils::Optional']]],
-  ['optional_156',['Optional',['../structJUtils_1_1Optional.html',1,'JUtils.Optional&lt; T &gt;'],['../structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e',1,'JUtils.Optional.Optional()']]],
-  ['optional_2ecs_157',['Optional.cs',['../Optional_8cs.html',1,'']]],
-  ['or_158',['Or',['../classJUtils_1_1Attributes_1_1ShowWhen.html#a619ba962261caadb6070a0d211ac1a10a3a2d5fe857d8f9541136a124c2edec6c',1,'JUtils::Attributes::ShowWhen']]]
+  ['operator_20type_156',['operator Type',['../structJUtils_1_1SerializableType.html#a78315c02f44715569794248937a7ede8',1,'JUtils::SerializableType']]],
+  ['optional_157',['Optional',['../structJUtils_1_1Optional.html',1,'JUtils.Optional&lt; T &gt;'],['../structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e',1,'JUtils.Optional.Optional()']]],
+  ['optional_2ecs_158',['Optional.cs',['../Optional_8cs.html',1,'']]],
+  ['or_159',['Or',['../classJUtils_1_1Attributes_1_1ShowWhen.html#a619ba962261caadb6070a0d211ac1a10a3a2d5fe857d8f9541136a124c2edec6c',1,'JUtils::Attributes::ShowWhen']]]
 ];
