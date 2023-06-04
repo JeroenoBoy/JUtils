@@ -102,198 +102,198 @@ $(document).ready(function(){initNavTree('SceneReference_8cs_source.html',''); i
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceJUtils.html">JUtils</a></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    [System.Serializable]</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#if UNITY_EDITOR</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">public</span> <span class="keyword">struct </span>SceneReference : ISerializationCallbackReceiver</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html">   20</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">struct </span><a class="code" href="structJUtils_1_1SceneReference.html">SceneReference</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">string</span> _sceneName;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">string</span> _scenePath;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a27b72d4ac005fc59f4155d73284448ad">   26</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="structJUtils_1_1SceneReference.html#a27b72d4ac005fc59f4155d73284448ad">SceneName</a> =&gt; _sceneName;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#af47ab07baf36ca988ec22e32cc4112a9">   27</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="structJUtils_1_1SceneReference.html#af47ab07baf36ca988ec22e32cc4112a9">ScenePath</a> =&gt; _scenePath;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a74bb8548db3fc05ac1baa806a6be8f87">   29</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="structJUtils_1_1SceneReference.html#a74bb8548db3fc05ac1baa806a6be8f87">Scene</a> <a class="code" href="structJUtils_1_1SceneReference.html#a74bb8548db3fc05ac1baa806a6be8f87">Scene</a>      =&gt; SceneManager.GetSceneByPath(_scenePath);</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a8a933dda77661c6e3812d051f12a2b98">   30</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">int</span>   <a class="code" href="structJUtils_1_1SceneReference.html#a8a933dda77661c6e3812d051f12a2b98">BuildIndex</a> =&gt; <a class="code" href="structJUtils_1_1SceneReference.html#a74bb8548db3fc05ac1baa806a6be8f87">Scene</a>.buildIndex;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a937e28c0b517349d3c527d68678311ea">   33</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="structJUtils_1_1SceneReference.html#a937e28c0b517349d3c527d68678311ea">LoadScene</a>(LoadSceneMode mode = LoadSceneMode.Single)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            SceneManager.LoadScene(<a class="code" href="structJUtils_1_1SceneReference.html#a8a933dda77661c6e3812d051f12a2b98">BuildIndex</a>, mode);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a1b107d32d123d8f5ef7b51a28fd92d8b">   39</a></span>&#160;        <span class="keyword">public</span> AsyncOperation <a class="code" href="structJUtils_1_1SceneReference.html#a1b107d32d123d8f5ef7b51a28fd92d8b">LoadSceneAsync</a>(LoadSceneMode mode = LoadSceneMode.Single)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> SceneManager.LoadSceneAsync(<a class="code" href="structJUtils_1_1SceneReference.html#a8a933dda77661c6e3812d051f12a2b98">BuildIndex</a>, mode);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    [System.Serializable]</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#if UNITY_EDITOR</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">public</span> <span class="keyword">struct </span>SceneReference : ISerializationCallbackReceiver</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html">   38</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">struct </span><a class="code" href="structJUtils_1_1SceneReference.html">SceneReference</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">string</span> _sceneName;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">string</span> _scenePath;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a6578588aa81c96fbf7f1bb902d3376ec">   45</a></span>&#160;        <span class="keyword">public</span> AsyncOperation <a class="code" href="structJUtils_1_1SceneReference.html#a6578588aa81c96fbf7f1bb902d3376ec">UnloadSceneAsync</a>()</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> SceneManager.UnloadSceneAsync(<a class="code" href="structJUtils_1_1SceneReference.html#a8a933dda77661c6e3812d051f12a2b98">BuildIndex</a>);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#if UNITY_EDITOR</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        [SerializeField] <span class="keyword">private</span> SceneAsset _sceneAsset;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> OnBeforeSerialize()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">if</span> (_sceneAsset == <span class="keyword">null</span>) {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                _sceneName = <span class="keywordtype">string</span>.Empty;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                _scenePath = <span class="keywordtype">string</span>.Empty;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#ae20a7fc8fea6f8a9589ff7f8df2e9b0f">   44</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="structJUtils_1_1SceneReference.html#ae20a7fc8fea6f8a9589ff7f8df2e9b0f">sceneName</a> =&gt; _sceneName;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a5163367dd45aea89a70ae912dd5ce8cb">   45</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">string</span> <a class="code" href="structJUtils_1_1SceneReference.html#a5163367dd45aea89a70ae912dd5ce8cb">scenePath</a> =&gt; _scenePath;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a2407ba27ab6f542d74bfed3e72e99f1d">   47</a></span>&#160;        <span class="keyword">public</span> Scene <a class="code" href="structJUtils_1_1SceneReference.html#a2407ba27ab6f542d74bfed3e72e99f1d">scene</a>      =&gt; SceneManager.GetSceneByPath(_scenePath);</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a46dc01f7a35e223abac758b16a65cf40">   48</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">int</span>   <a class="code" href="structJUtils_1_1SceneReference.html#a46dc01f7a35e223abac758b16a65cf40">buildIndex</a> =&gt; <a class="code" href="structJUtils_1_1SceneReference.html#a2407ba27ab6f542d74bfed3e72e99f1d">scene</a>.buildIndex;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a937e28c0b517349d3c527d68678311ea">   51</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> <a class="code" href="structJUtils_1_1SceneReference.html#a937e28c0b517349d3c527d68678311ea">LoadScene</a>(LoadSceneMode mode = LoadSceneMode.Single)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            SceneManager.LoadScene(<a class="code" href="structJUtils_1_1SceneReference.html#a46dc01f7a35e223abac758b16a65cf40">buildIndex</a>, mode);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a1b107d32d123d8f5ef7b51a28fd92d8b">   57</a></span>&#160;        <span class="keyword">public</span> AsyncOperation <a class="code" href="structJUtils_1_1SceneReference.html#a1b107d32d123d8f5ef7b51a28fd92d8b">LoadSceneAsync</a>(LoadSceneMode mode = LoadSceneMode.Single)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">return</span> SceneManager.LoadSceneAsync(<a class="code" href="structJUtils_1_1SceneReference.html#a46dc01f7a35e223abac758b16a65cf40">buildIndex</a>, mode);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            _sceneName = _sceneAsset.name;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            _scenePath = AssetDatabase.GetAssetPath(_sceneAsset);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> OnAfterDeserialize()</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        [CustomPropertyDrawer(typeof(SceneReference))]</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">private</span> <span class="keyword">class </span>SceneReferenceEditor : PropertyDrawer</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keyword">public</span> <span class="keyword">enum</span> ErrorType { Success, Null, BuildIndexMissing, PathMissing }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keyword">private</span> GUIStyle _backgroundStyle;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">float</span> GetPropertyHeight(SerializedProperty property, GUIContent label)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                SerializedProperty sceneProperty = <span class="keyword">property</span>.FindPropertyRelative(nameof(_sceneAsset));</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordtype">float</span> height = EditorGUI.GetPropertyHeight(sceneProperty);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keywordflow">return</span> height + (HasError(sceneProperty.objectReferenceValue as SceneAsset, out _) ? height + 2 : 0 ) + 4;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structJUtils_1_1SceneReference.html#a6578588aa81c96fbf7f1bb902d3376ec">   63</a></span>&#160;        <span class="keyword">public</span> AsyncOperation <a class="code" href="structJUtils_1_1SceneReference.html#a6578588aa81c96fbf7f1bb902d3376ec">UnloadSceneAsync</a>()</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> SceneManager.UnloadSceneAsync(<a class="code" href="structJUtils_1_1SceneReference.html#a46dc01f7a35e223abac758b16a65cf40">buildIndex</a>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#if UNITY_EDITOR</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        [SerializeField] <span class="keyword">private</span> SceneAsset _sceneAsset;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> OnBeforeSerialize()</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">if</span> (_sceneAsset == <span class="keyword">null</span>) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                _sceneName = <span class="keywordtype">string</span>.Empty;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                _scenePath = <span class="keywordtype">string</span>.Empty;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            _sceneName = _sceneAsset.name;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            _scenePath = AssetDatabase.GetAssetPath(_sceneAsset);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keyword">public</span> <span class="keywordtype">void</span> OnAfterDeserialize()</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">void</span> OnGUI(Rect position, SerializedProperty property, GUIContent label)</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                GenerateStyles();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                GUI.Box(position, <span class="stringliteral">&quot;&quot;</span>, GUI.skin.box);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                position.width  -= 4;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                position.height -= 4;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                position.x      += 2;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                position.y      += 2;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;                HasError(property.FindPropertyRelative(nameof(_sceneAsset)).objectReferenceValue as SceneAsset, out ErrorType errorType);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                Draw(position, property, label, errorType);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            <span class="keyword">private</span> <span class="keywordtype">void</span> Draw(Rect position, SerializedProperty property, GUIContent label, ErrorType errorType)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                SerializedProperty sceneProperty = <span class="keyword">property</span>.FindPropertyRelative(nameof(_sceneAsset));</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                position.height = EditorGUI.GetPropertyHeight(sceneProperty);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                EditorGUI.PropertyField(position, sceneProperty, label);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                SceneAsset sceneAsset = sceneProperty.objectReferenceValue as SceneAsset;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <span class="keywordtype">string</span>     path       = sceneAsset is not <span class="keyword">null</span> ? AssetDatabase.GetAssetPath(sceneAsset) : <span class="keywordtype">string</span>.Empty;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keyword">property</span>.FindPropertyRelative(nameof(_sceneName)).stringValue = sceneAsset ? path : <span class="keywordtype">string</span>.Empty;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <span class="keyword">property</span>.FindPropertyRelative(nameof(_scenePath)).stringValue = path;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                position.y += position.height + 2;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <span class="keywordflow">switch</span> (errorType) {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                    <span class="keywordflow">case</span> ErrorType.Success: <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                    <span class="keywordflow">case</span> ErrorType.Null:</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                        EditorGUI.LabelField(position, <span class="stringliteral">&quot;Reference is not set&quot;</span>, _backgroundStyle);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    <span class="keywordflow">case</span> ErrorType.BuildIndexMissing:</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                        position.width -= 34;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                        EditorGUI.LabelField(position, <span class="stringliteral">&quot;Scene has no build index&quot;</span>, _backgroundStyle);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                        position.x     += position.width + 2;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                        position.width =  32;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                        Color prev = GUI.backgroundColor;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                        GUI.backgroundColor = Color.red;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                        <span class="keywordflow">if</span> (GUI.Button(position, <span class="stringliteral">&quot;Fix&quot;</span>)) {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                            EditorBuildSettings.scenes = EditorBuildSettings.scenes.Append(<span class="keyword">new</span> EditorBuildSettingsScene(path, <span class="keyword">true</span>)).ToArray();</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                        }</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                        GUI.backgroundColor = prev;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    <span class="keywordflow">case</span> ErrorType.PathMissing:</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                        EditorGUI.LabelField(position, <span class="stringliteral">&quot;Could not resolve the path to this scene&quot;</span>, _backgroundStyle);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                        <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                    <span class="keywordflow">default</span>:</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                        <span class="keywordflow">throw</span> <span class="keyword">new</span> NotImplementedException();</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                }</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            }</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        [CustomPropertyDrawer(typeof(SceneReference))]</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keyword">private</span> <span class="keyword">class </span>SceneReferenceEditor : PropertyDrawer</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keyword">public</span> <span class="keyword">enum</span> ErrorType { Success, Null, BuildIndexMissing, PathMissing }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keyword">private</span> GUIStyle _backgroundStyle;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">float</span> GetPropertyHeight(SerializedProperty property, GUIContent label)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                SerializedProperty sceneProperty = <span class="keyword">property</span>.FindPropertyRelative(nameof(_sceneAsset));</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                <span class="keywordtype">float</span> height = EditorGUI.GetPropertyHeight(sceneProperty);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordflow">return</span> height + (HasError(sceneProperty.objectReferenceValue as SceneAsset, out _) ? height + 2 : 0 ) + 4;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;            }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">void</span> OnGUI(Rect position, SerializedProperty property, GUIContent label)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                GenerateStyles();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                GUI.Box(position, <span class="stringliteral">&quot;&quot;</span>, GUI.skin.box);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                position.width  -= 4;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                position.height -= 4;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                position.x      += 2;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                position.y      += 2;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                HasError(property.FindPropertyRelative(nameof(_sceneAsset)).objectReferenceValue as SceneAsset, out ErrorType errorType);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                Draw(position, property, label, errorType);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keyword">private</span> <span class="keywordtype">void</span> Draw(Rect position, SerializedProperty property, GUIContent label, ErrorType errorType)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                SerializedProperty sceneProperty = <span class="keyword">property</span>.FindPropertyRelative(nameof(_sceneAsset));</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                position.height = EditorGUI.GetPropertyHeight(sceneProperty);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                EditorGUI.PropertyField(position, sceneProperty, label);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                SceneAsset sceneAsset = sceneProperty.objectReferenceValue as SceneAsset;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <span class="keywordtype">string</span>     path       = sceneAsset is not <span class="keyword">null</span> ? AssetDatabase.GetAssetPath(sceneAsset) : <span class="keywordtype">string</span>.Empty;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                <span class="keyword">property</span>.FindPropertyRelative(nameof(_sceneName)).stringValue = sceneAsset ? path : <span class="keywordtype">string</span>.Empty;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                <span class="keyword">property</span>.FindPropertyRelative(nameof(_scenePath)).stringValue = path;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                position.y += position.height + 2;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                <span class="keywordflow">switch</span> (errorType) {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                    <span class="keywordflow">case</span> ErrorType.Success: <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                    <span class="keywordflow">case</span> ErrorType.Null:</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                        EditorGUI.LabelField(position, <span class="stringliteral">&quot;Reference is not set&quot;</span>, _backgroundStyle);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                    <span class="keywordflow">case</span> ErrorType.BuildIndexMissing:</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                        position.width -= 34;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                        EditorGUI.LabelField(position, <span class="stringliteral">&quot;Scene has no build index&quot;</span>, _backgroundStyle);</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> HasError(SceneAsset sceneAsset, out ErrorType errorType)</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            {</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                <span class="keywordtype">string</span> path = sceneAsset is not <span class="keyword">null</span> ? AssetDatabase.GetAssetPath(sceneAsset) : <span class="keywordtype">string</span>.Empty;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                GUID guid = AssetDatabase.GUIDFromAssetPath(path);</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                <span class="keywordflow">if</span> (guid.Empty()) {</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                    errorType = ErrorType.Null;</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                <span class="keywordflow">if</span> (path == <span class="keywordtype">string</span>.Empty) {</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                    errorType = ErrorType.PathMissing;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                }</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                <span class="keywordtype">int</span> index = EditorBuildSettings.scenes.IndexOf(x =&gt; x.guid == guid);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="keywordflow">if</span> (index &lt; 0) {</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                    errorType = ErrorType.BuildIndexMissing;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                }</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                errorType = ErrorType.Success;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            }</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="keyword">private</span> <span class="keywordtype">void</span> GenerateStyles()</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                <span class="keywordflow">if</span> (_backgroundStyle != <span class="keyword">null</span>) {<span class="keywordflow">return</span>;}</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                Texture2D background = <span class="keyword">new</span> Texture2D(1,1,TextureFormat.RGBAFloat,<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                background.SetPixel(0,0, <span class="keyword">new</span> Color(.015f,.0f,.01f, .2f));</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                background.Apply();</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                Texture2D hover = <span class="keyword">new</span> Texture2D(1,1,TextureFormat.RGBAFloat, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                hover.SetPixel(0,0, <span class="keyword">new</span> Color(.03f,.0f,.02f, .2f));</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                hover.Apply();</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                _backgroundStyle = <span class="keyword">new</span> GUIStyle(GUI.skin.label)</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                {</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                    padding   = <span class="keyword">new</span> RectOffset(2, 2, 2, 2),</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                    margin    = <span class="keyword">new</span> RectOffset(2, 2, 2, 2),</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                    alignment = TextAnchor.MiddleCenter,</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                    normal    = {background = background, textColor = <span class="keyword">new</span> Color(1, .4f, .6f)}</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                };</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            }</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        }</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    }</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;}</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                        position.x     += position.width + 2;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                        position.width =  32;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                        Color prev = GUI.backgroundColor;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                        GUI.backgroundColor = Color.red;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                        <span class="keywordflow">if</span> (GUI.Button(position, <span class="stringliteral">&quot;Fix&quot;</span>)) {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                            EditorBuildSettings.scenes = EditorBuildSettings.scenes.Append(<span class="keyword">new</span> EditorBuildSettingsScene(path, <span class="keyword">true</span>)).ToArray();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                        }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                        GUI.backgroundColor = prev;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                    <span class="keywordflow">case</span> ErrorType.PathMissing:</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                        EditorGUI.LabelField(position, <span class="stringliteral">&quot;Could not resolve the path to this scene&quot;</span>, _backgroundStyle);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;                        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                    <span class="keywordflow">default</span>:</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                        <span class="keywordflow">throw</span> <span class="keyword">new</span> NotImplementedException();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            }</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">bool</span> HasError(SceneAsset sceneAsset, out ErrorType errorType)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            {</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                <span class="keywordtype">string</span> path = sceneAsset is not <span class="keyword">null</span> ? AssetDatabase.GetAssetPath(sceneAsset) : <span class="keywordtype">string</span>.Empty;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                GUID guid = AssetDatabase.GUIDFromAssetPath(path);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                <span class="keywordflow">if</span> (guid.Empty()) {</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                    errorType = ErrorType.Null;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                <span class="keywordflow">if</span> (path == <span class="keywordtype">string</span>.Empty) {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                    errorType = ErrorType.PathMissing;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                <span class="keywordtype">int</span> index = EditorBuildSettings.scenes.IndexOf(x =&gt; x.guid == guid);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                <span class="keywordflow">if</span> (index &lt; 0) {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;                    errorType = ErrorType.BuildIndexMissing;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                errorType = ErrorType.Success;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <span class="keyword">private</span> <span class="keywordtype">void</span> GenerateStyles()</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            {</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                <span class="keywordflow">if</span> (_backgroundStyle != <span class="keyword">null</span>) {<span class="keywordflow">return</span>;}</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                Texture2D background = <span class="keyword">new</span> Texture2D(1,1,TextureFormat.RGBAFloat,<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                background.SetPixel(0,0, <span class="keyword">new</span> Color(.015f,.0f,.01f, .2f));</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                background.Apply();</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                Texture2D hover = <span class="keyword">new</span> Texture2D(1,1,TextureFormat.RGBAFloat, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                hover.SetPixel(0,0, <span class="keyword">new</span> Color(.03f,.0f,.02f, .2f));</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                hover.Apply();</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;                _backgroundStyle = <span class="keyword">new</span> GUIStyle(GUI.skin.label)</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;                {</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                    padding   = <span class="keyword">new</span> RectOffset(2, 2, 2, 2),</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                    margin    = <span class="keyword">new</span> RectOffset(2, 2, 2, 2),</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                    alignment = TextAnchor.MiddleCenter,</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                    normal    = {background = background, textColor = <span class="keyword">new</span> Color(1, .4f, .6f)}</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                };</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
 <div class="ttc" id="aButton_8cs_html_aef19bab18b9814edeef255c43e4f6bbc"><div class="ttname"><a href="Button_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a></div><div class="ttdeci">UnityEngine.Object Object</div><div class="ttdef"><b>Definition:</b> <a href="Button_8cs_source.html#l00010">Button.cs:10</a></div></div>
 <div class="ttc" id="anamespaceJUtils_1_1Extensions_html"><div class="ttname"><a href="namespaceJUtils_1_1Extensions.html">JUtils.Extensions</a></div><div class="ttdef"><b>Definition:</b> <a href="AudioListenerExtensions_8cs_source.html#l00005">AudioListenerExtensions.cs:6</a></div></div>
 <div class="ttc" id="anamespaceJUtils_html"><div class="ttname"><a href="namespaceJUtils.html">JUtils</a></div><div class="ttdef"><b>Definition:</b> <a href="Button_8cs_source.html#l00014">Button.cs:15</a></div></div>
-<div class="ttc" id="astructJUtils_1_1SceneReference_html"><div class="ttname"><a href="structJUtils_1_1SceneReference.html">JUtils.SceneReference</a></div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00020">SceneReference.cs:21</a></div></div>
-<div class="ttc" id="astructJUtils_1_1SceneReference_html_a1b107d32d123d8f5ef7b51a28fd92d8b"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a1b107d32d123d8f5ef7b51a28fd92d8b">JUtils.SceneReference.LoadSceneAsync</a></div><div class="ttdeci">AsyncOperation LoadSceneAsync(LoadSceneMode mode=LoadSceneMode.Single)</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00039">SceneReference.cs:39</a></div></div>
-<div class="ttc" id="astructJUtils_1_1SceneReference_html_a27b72d4ac005fc59f4155d73284448ad"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a27b72d4ac005fc59f4155d73284448ad">JUtils.SceneReference.SceneName</a></div><div class="ttdeci">string SceneName</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00026">SceneReference.cs:26</a></div></div>
-<div class="ttc" id="astructJUtils_1_1SceneReference_html_a6578588aa81c96fbf7f1bb902d3376ec"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a6578588aa81c96fbf7f1bb902d3376ec">JUtils.SceneReference.UnloadSceneAsync</a></div><div class="ttdeci">AsyncOperation UnloadSceneAsync()</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00045">SceneReference.cs:45</a></div></div>
-<div class="ttc" id="astructJUtils_1_1SceneReference_html_a74bb8548db3fc05ac1baa806a6be8f87"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a74bb8548db3fc05ac1baa806a6be8f87">JUtils.SceneReference.Scene</a></div><div class="ttdeci">Scene Scene</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00029">SceneReference.cs:29</a></div></div>
-<div class="ttc" id="astructJUtils_1_1SceneReference_html_a8a933dda77661c6e3812d051f12a2b98"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a8a933dda77661c6e3812d051f12a2b98">JUtils.SceneReference.BuildIndex</a></div><div class="ttdeci">int BuildIndex</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00030">SceneReference.cs:30</a></div></div>
-<div class="ttc" id="astructJUtils_1_1SceneReference_html_a937e28c0b517349d3c527d68678311ea"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a937e28c0b517349d3c527d68678311ea">JUtils.SceneReference.LoadScene</a></div><div class="ttdeci">void LoadScene(LoadSceneMode mode=LoadSceneMode.Single)</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00033">SceneReference.cs:33</a></div></div>
-<div class="ttc" id="astructJUtils_1_1SceneReference_html_af47ab07baf36ca988ec22e32cc4112a9"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#af47ab07baf36ca988ec22e32cc4112a9">JUtils.SceneReference.ScenePath</a></div><div class="ttdeci">string ScenePath</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00027">SceneReference.cs:27</a></div></div>
+<div class="ttc" id="astructJUtils_1_1SceneReference_html"><div class="ttname"><a href="structJUtils_1_1SceneReference.html">JUtils.SceneReference</a></div><div class="ttdoc">Reference a scene via its asset instead of its name. It can also give suggestions based on it being n...</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00038">SceneReference.cs:39</a></div></div>
+<div class="ttc" id="astructJUtils_1_1SceneReference_html_a1b107d32d123d8f5ef7b51a28fd92d8b"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a1b107d32d123d8f5ef7b51a28fd92d8b">JUtils.SceneReference.LoadSceneAsync</a></div><div class="ttdeci">AsyncOperation LoadSceneAsync(LoadSceneMode mode=LoadSceneMode.Single)</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00057">SceneReference.cs:57</a></div></div>
+<div class="ttc" id="astructJUtils_1_1SceneReference_html_a2407ba27ab6f542d74bfed3e72e99f1d"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a2407ba27ab6f542d74bfed3e72e99f1d">JUtils.SceneReference.scene</a></div><div class="ttdeci">Scene scene</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00047">SceneReference.cs:47</a></div></div>
+<div class="ttc" id="astructJUtils_1_1SceneReference_html_a46dc01f7a35e223abac758b16a65cf40"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a46dc01f7a35e223abac758b16a65cf40">JUtils.SceneReference.buildIndex</a></div><div class="ttdeci">int buildIndex</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00048">SceneReference.cs:48</a></div></div>
+<div class="ttc" id="astructJUtils_1_1SceneReference_html_a5163367dd45aea89a70ae912dd5ce8cb"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a5163367dd45aea89a70ae912dd5ce8cb">JUtils.SceneReference.scenePath</a></div><div class="ttdeci">string scenePath</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00045">SceneReference.cs:45</a></div></div>
+<div class="ttc" id="astructJUtils_1_1SceneReference_html_a6578588aa81c96fbf7f1bb902d3376ec"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a6578588aa81c96fbf7f1bb902d3376ec">JUtils.SceneReference.UnloadSceneAsync</a></div><div class="ttdeci">AsyncOperation UnloadSceneAsync()</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00063">SceneReference.cs:63</a></div></div>
+<div class="ttc" id="astructJUtils_1_1SceneReference_html_a937e28c0b517349d3c527d68678311ea"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#a937e28c0b517349d3c527d68678311ea">JUtils.SceneReference.LoadScene</a></div><div class="ttdeci">void LoadScene(LoadSceneMode mode=LoadSceneMode.Single)</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00051">SceneReference.cs:51</a></div></div>
+<div class="ttc" id="astructJUtils_1_1SceneReference_html_ae20a7fc8fea6f8a9589ff7f8df2e9b0f"><div class="ttname"><a href="structJUtils_1_1SceneReference.html#ae20a7fc8fea6f8a9589ff7f8df2e9b0f">JUtils.SceneReference.sceneName</a></div><div class="ttdeci">string sceneName</div><div class="ttdef"><b>Definition:</b> <a href="SceneReference_8cs_source.html#l00044">SceneReference.cs:44</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -33,14 +33,13 @@ var classJUtils_1_1FSM_1_1StateMachine =
     [ "GoToState< T, T1, T2, T3 >", "classJUtils_1_1FSM_1_1StateMachine.html#a1d376ea9fc0b2967eb26078721de22cb", null ],
     [ "GoToState< T, T1, T2, T3 >", "classJUtils_1_1FSM_1_1StateMachine.html#a27d1323e5533865db8c4025313bbb021", null ],
     [ "GoToState< T, T1, T2, T3 >", "classJUtils_1_1FSM_1_1StateMachine.html#a20b2a300245fc6c499f3f8848b2a81cb", null ],
-    [ "OnActivate", "classJUtils_1_1FSM_1_1StateMachine.html#ad890ef1f1bbf951c972d4eadce2cc4f4", null ],
-    [ "OnDeactivate", "classJUtils_1_1FSM_1_1StateMachine.html#ad64d37ab9145a5d74b49bf1a57bf5b4f", null ],
     [ "OnNoState", "classJUtils_1_1FSM_1_1StateMachine.html#afd2db7b644c05eb5e5846c17c7297fbb", null ],
     [ "OnValidate", "classJUtils_1_1FSM_1_1StateMachine.html#acf05cbe778bf2500f25db01f86af7dde", null ],
     [ "Reset", "classJUtils_1_1FSM_1_1StateMachine.html#a36fc9dbacf88a3f2874e4e660fea6835", null ],
     [ "Start", "classJUtils_1_1FSM_1_1StateMachine.html#a5de071744b1fe652826f9078ab878928", null ],
     [ "TryFindState< T >", "classJUtils_1_1FSM_1_1StateMachine.html#a7e94b8041ca7e470775775a940b23672", null ],
-    [ "CurrentState", "classJUtils_1_1FSM_1_1StateMachine.html#a89ebaa94908ff3503029bfb966f97a32", null ],
-    [ "StateQueue", "classJUtils_1_1FSM_1_1StateMachine.html#af90290ac00a99ce598fc737b46227ebb", null ],
+    [ "currentState", "classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6", null ],
+    [ "stateQueue", "classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf", null ],
+    [ "hasActiveState", "classJUtils_1_1FSM_1_1StateMachine.html#ac9f2d58f67f3c9bc41f8b7efa98e1e75", null ],
     [ "OnStateChanged", "classJUtils_1_1FSM_1_1StateMachine.html#a1651deb1f8e7f82f9028415f9877128f", null ]
 ];

@@ -1,4 +1,4 @@
 <map id="JUtils.FSM.State.OnActivate" name="JUtils.FSM.State.OnActivate">
-<area shape="rect" id="node1" title=" " alt="" coords="255,5,456,32"/>
+<area shape="rect" id="node1" title="Gets called when the state activates" alt="" coords="255,5,456,32"/>
 <area shape="rect" id="node2" href="$classJUtils_1_1FSM_1_1State.html#a93a099e33d2347550147204a8c3b9cbf" title=" " alt="" coords="5,5,207,32"/>
 </map>

@@ -1,6 +1,6 @@
 var classJUtils_1_1Components_1_1ObjectPool =
 [
-    [ "AddItems", "classJUtils_1_1Components_1_1ObjectPool.html#af89f89a1919738c5c3b9e9d24e259ed4", null ],
+    [ "InstantiateNewItems", "classJUtils_1_1Components_1_1ObjectPool.html#a772dc389d08b263f3e6735c98d2e18df", null ],
     [ "SpawnItem", "classJUtils_1_1Components_1_1ObjectPool.html#aea144484c7b14a990d442002cb2a73c6", null ],
     [ "SpawnItem", "classJUtils_1_1Components_1_1ObjectPool.html#a4bb878ad836a5be3cfa29aee0efa5852", null ],
     [ "SpawnItem", "classJUtils_1_1Components_1_1ObjectPool.html#a20a14ef1ab0670dffc681909627643cb", null ],

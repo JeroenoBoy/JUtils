@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('classJUtils_1_1Extensions_1_1RangeExte
 <div class="title">JUtils.Extensions.RangeExtensions Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Used to turn a range or int to a <a class="el" href="classJUtils_1_1Extensions_1_1RangeEnumerator.html" title="Allows for complex enumerations for Range types">RangeEnumerator</a> so it can be used in a Foreach loop  
+ <a href="classJUtils_1_1Extensions_1_1RangeExtensions.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -100,8 +103,25 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a19b50f680e1ccf16d37d3f082e8a1fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="RangeEnumerator_8cs_source.html#l00010">10</a> of file <a class="el" href="RangeEnumerator_8cs_source.html">RangeEnumerator.cs</a>.</p>
+<div class="textblock"><p>Used to turn a range or int to a <a class="el" href="classJUtils_1_1Extensions_1_1RangeEnumerator.html" title="Allows for complex enumerations for Range types">RangeEnumerator</a> so it can be used in a Foreach loop </p>
+<div class="fragment"><div class="line"><span class="keyword">namespace </span>Example</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">class </span>RangeExample : MonoBehaviour</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">private</span> <span class="keywordtype">void</span> Start()</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> 10) {} <span class="comment">// Loop from 0 &gt; 9</span></div>
+<div class="line">            <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> ..10) {} <span class="comment">// Loop from 0 &gt; 10</span></div>
+<div class="line">            <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> 10..) {} <span class="comment">// Loop from 10 &gt; 0</span></div>
+<div class="line">            <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> 20..^10) {} <span class="comment">// Loop from 20 &gt; 10</span></div>
+<div class="line">            <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> ^0..10) {} <span class="comment">// Loop from 0 &gt; 9</span></div>
+<div class="line">            <span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> ^10..^0) {} <span class="comment">// Loop from 9 &gt; 0</span></div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>&gt; </p>
+
+<p class="definition">Definition at line <a class="el" href="RangeEnumerator_8cs_source.html#l00030">30</a> of file <a class="el" href="RangeEnumerator_8cs_source.html">RangeEnumerator.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a19b50f680e1ccf16d37d3f082e8a1fc2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a19b50f680e1ccf16d37d3f082e8a1fc2">&#9670;&nbsp;</a></span>GetEnumerator() <span class="overload">[1/2]</span></h2>

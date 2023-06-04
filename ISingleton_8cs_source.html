@@ -88,17 +88,20 @@ $(document).ready(function(){initNavTree('ISingleton_8cs_source.html',''); initR
 <div class="title">ISingleton.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="ISingleton_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespaceJUtils_1_1Singletons.html">    1</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceJUtils_1_1Singletons.html">JUtils.Singletons</a></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;{</div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html">    3</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">interface </span><a class="code" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html">ISingleton</a>&lt;T&gt;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;        where T : <a class="code" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html">ISingleton</a>&lt;T&gt;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    {</div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html#a74e581ebe42200146c2e1e5ea8425c85">    6</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> T <a class="code" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html#a74e581ebe42200146c2e1e5ea8425c85">Instance</a> { <span class="keyword">get</span>; <span class="keyword">private</span> <span class="keyword">set</span>; }</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    }</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;}</div>
-<div class="ttc" id="ainterfaceJUtils_1_1Singletons_1_1ISingleton_html"><div class="ttname"><a href="interfaceJUtils_1_1Singletons_1_1ISingleton.html">JUtils.Singletons.ISingleton</a></div><div class="ttdef"><b>Definition:</b> <a href="ISingleton_8cs_source.html#l00003">ISingleton.cs:5</a></div></div>
-<div class="ttc" id="ainterfaceJUtils_1_1Singletons_1_1ISingleton_html_a74e581ebe42200146c2e1e5ea8425c85"><div class="ttname"><a href="interfaceJUtils_1_1Singletons_1_1ISingleton.html#a74e581ebe42200146c2e1e5ea8425c85">JUtils.Singletons.ISingleton.Instance</a></div><div class="ttdeci">static T Instance</div><div class="ttdef"><b>Definition:</b> <a href="ISingleton_8cs_source.html#l00006">ISingleton.cs:6</a></div></div>
-<div class="ttc" id="anamespaceJUtils_1_1Singletons_html"><div class="ttname"><a href="namespaceJUtils_1_1Singletons.html">JUtils.Singletons</a></div><div class="ttdef"><b>Definition:</b> <a href="ISingleton_8cs_source.html#l00001">ISingleton.cs:2</a></div></div>
+<a href="ISingleton_8cs.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="keyword">using</span> UnityEngine;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="namespaceJUtils_1_1Singletons.html">    5</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceJUtils_1_1Singletons.html">JUtils.Singletons</a></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">interface </span><a class="code" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html">ISingleton</a>&lt;T&gt;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        where T : <a class="code" href="Button_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a>, <a class="code" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html">ISingleton</a>&lt;T&gt;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;}</div>
+<div class="ttc" id="aButton_8cs_html_aef19bab18b9814edeef255c43e4f6bbc"><div class="ttname"><a href="Button_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a></div><div class="ttdeci">UnityEngine.Object Object</div><div class="ttdef"><b>Definition:</b> <a href="Button_8cs_source.html#l00010">Button.cs:10</a></div></div>
+<div class="ttc" id="ainterfaceJUtils_1_1Singletons_1_1ISingleton_html"><div class="ttname"><a href="interfaceJUtils_1_1Singletons_1_1ISingleton.html">JUtils.Singletons.ISingleton</a></div><div class="ttdoc">Simple interface for working with singletons</div><div class="ttdef"><b>Definition:</b> <a href="ISingleton_8cs_source.html#l00010">ISingleton.cs:12</a></div></div>
+<div class="ttc" id="anamespaceJUtils_1_1Singletons_html"><div class="ttname"><a href="namespaceJUtils_1_1Singletons.html">JUtils.Singletons</a></div><div class="ttdef"><b>Definition:</b> <a href="ISingleton_8cs_source.html#l00005">ISingleton.cs:6</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

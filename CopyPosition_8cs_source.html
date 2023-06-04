@@ -94,18 +94,18 @@ $(document).ready(function(){initNavTree('CopyPosition_8cs_source.html',''); ini
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceJUtils_1_1Components.html">JUtils.Components</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1CopyPosition.html">    7</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classJUtils_1_1Components_1_1CopyPosition.html">CopyPosition</a> : MonoBehaviour</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        [SerializeField] <span class="keyword">private</span> Transform _target;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        [SerializeField] <span class="keyword">private</span> Vector3   _offset;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> Update()</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            transform.position = _target.position + _offset;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        }</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1CopyPosition_html"><div class="ttname"><a href="classJUtils_1_1Components_1_1CopyPosition.html">JUtils.Components.CopyPosition</a></div><div class="ttdef"><b>Definition:</b> <a href="CopyPosition_8cs_source.html#l00007">CopyPosition.cs:8</a></div></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1CopyPosition.html">   10</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="classJUtils_1_1Components_1_1CopyPosition.html">CopyPosition</a> : MonoBehaviour</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        [SerializeField] <span class="keyword">private</span> Transform _target;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        [SerializeField] <span class="keyword">private</span> Vector3   _offset;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> LateUpdate()</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            transform.position = _target.position + _offset;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
+<div class="ttc" id="aclassJUtils_1_1Components_1_1CopyPosition_html"><div class="ttname"><a href="classJUtils_1_1Components_1_1CopyPosition.html">JUtils.Components.CopyPosition</a></div><div class="ttdoc">Copies this position to one of another object</div><div class="ttdef"><b>Definition:</b> <a href="CopyPosition_8cs_source.html#l00010">CopyPosition.cs:11</a></div></div>
 <div class="ttc" id="anamespaceJUtils_1_1Components_html"><div class="ttname"><a href="namespaceJUtils_1_1Components.html">JUtils.Components</a></div><div class="ttdef"><b>Definition:</b> <a href="BillboardCamera_8cs_source.html#l00007">BillboardCamera.cs:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

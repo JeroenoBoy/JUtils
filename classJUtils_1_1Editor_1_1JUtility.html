@@ -91,12 +91,17 @@ $(document).ready(function(){initNavTree('classJUtils_1_1Editor_1_1JUtility.html
 <div class="title">JUtils.Editor.JUtility Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Utilities class working with assemblies  
+ <a href="classJUtils_1_1Editor_1_1JUtility.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac43212a7358cab49275e06339ee49b80"><td class="memItemLeft" align="right" valign="top">static IEnumerable&lt; Type &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Editor_1_1JUtility.html#ac43212a7358cab49275e06339ee49b80">GetAllTypes</a> ()</td></tr>
 <tr class="memdesc:ac43212a7358cab49275e06339ee49b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all types in all assemblies  <a href="classJUtils_1_1Editor_1_1JUtility.html#ac43212a7358cab49275e06339ee49b80">More...</a><br /></td></tr>
 <tr class="separator:ac43212a7358cab49275e06339ee49b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9dd35574095365327d377e0f5a4a394"><td class="memItemLeft" align="right" valign="top">static Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Editor_1_1JUtility.html#aa9dd35574095365327d377e0f5a4a394">GetTypeFromCode</a> (int typeHashCode, int assemblyHashCode)</td></tr>
+<tr class="separator:aa9dd35574095365327d377e0f5a4a394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4c265ef5d71e2447a57ce7ae1423ce6"><td class="memItemLeft" align="right" valign="top">static Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Editor_1_1JUtility.html#ac4c265ef5d71e2447a57ce7ae1423ce6">GetType</a> (string typeName)</td></tr>
 <tr class="memdesc:ac4c265ef5d71e2447a57ce7ae1423ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the type from a name  <a href="classJUtils_1_1Editor_1_1JUtility.html#ac4c265ef5d71e2447a57ce7ae1423ce6">More...</a><br /></td></tr>
 <tr class="separator:ac4c265ef5d71e2447a57ce7ae1423ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,8 +110,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a1e9da69ebcf0ae292b625dc04cb4feea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00010">10</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
+<div class="textblock"><p>Utilities class working with assemblies </p>
+
+<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00013">13</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1e9da69ebcf0ae292b625dc04cb4feea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1e9da69ebcf0ae292b625dc04cb4feea">&#9670;&nbsp;</a></span>ExtendsClassOrInterface()</h2>
@@ -152,11 +158,11 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if current extends the target</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00042">42</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">if</span> (target.IsInterface) <span class="keywordflow">return</span> current.GetInterface(target.FullName) is not <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> current.IsSubclassOf(target);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00052">52</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">if</span> (target.IsInterface) <span class="keywordflow">return</span> current.GetInterface(target.FullName) is not <span class="keyword">null</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> current.IsSubclassOf(target);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -185,10 +191,10 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Get all types in all assemblies </p>
 
-<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00015">15</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordflow">return</span> AppDomain.CurrentDomain.GetAssemblies().SelectMany(assembly =&gt; assembly.GetTypes());</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00018">18</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">return</span> AppDomain.CurrentDomain.GetAssemblies().SelectMany(assembly =&gt; assembly.GetTypes());</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -225,15 +231,66 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The type</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00026">26</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordtype">string</span>[] splitted = typeName.Split(<span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordtype">string</span> assemblyName = splitted[0];</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordtype">string</span> name = splitted[^1];</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            <span class="keywordflow">return</span> Assembly.Load(assemblyName).GetType(name);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00036">36</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordtype">string</span>[] splitted = typeName.Split(<span class="charliteral">&#39; &#39;</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordtype">string</span> assemblyName = splitted[0];</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordtype">string</span> name = splitted[^1];</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">return</span> Assembly.Load(assemblyName).GetType(name);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="aa9dd35574095365327d377e0f5a4a394"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9dd35574095365327d377e0f5a4a394">&#9670;&nbsp;</a></span>GetTypeFromCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static Type JUtils.Editor.JUtility.GetTypeFromCode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>typeHashCode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>assemblyHashCode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00024">24</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x =&gt; x.GetHashCode() == assemblyHashCode);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">return</span> assembly == <span class="keyword">null</span> ? null : assembly.GetTypes().FirstOrDefault(x =&gt; x.GetHashCode() == typeHashCode);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
+</div><!-- fragment --><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classJUtils_1_1Editor_1_1JUtility_aa9dd35574095365327d377e0f5a4a394_icgraph.png" border="0" usemap="#aclassJUtils_1_1Editor_1_1JUtility_aa9dd35574095365327d377e0f5a4a394_icgraph" alt=""/></div>
+<map name="aclassJUtils_1_1Editor_1_1JUtility_aa9dd35574095365327d377e0f5a4a394_icgraph" id="aclassJUtils_1_1Editor_1_1JUtility_aa9dd35574095365327d377e0f5a4a394_icgraph">
+<area shape="rect" title=" " alt="" coords="224,5,395,47"/>
+<area shape="rect" href="structJUtils_1_1SerializableType.html#a6cd464b82949b3248762a07a481d4cda" title=" " alt="" coords="5,5,176,47"/>
+</map>
+</div>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

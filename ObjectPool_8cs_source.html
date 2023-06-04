@@ -99,132 +99,128 @@ $(document).ready(function(){initNavTree('ObjectPool_8cs_source.html',''); initR
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceJUtils_1_1Components.html">JUtils.Components</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html">   12</a></span>&#160;    <span class="keyword">public</span> sealed <span class="keyword">class </span><a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html">ObjectPool</a> : MonoBehaviour</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        [SerializeField] <span class="keyword">private</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <span class="keyword">template</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">int</span> prefill = 10;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">int</span> maxSize = -1;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">bool</span> autoExpand = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">int</span> autoExpandAmount = 5;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html">   15</a></span>&#160;    <span class="keyword">public</span> sealed <span class="keyword">class </span><a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html">ObjectPool</a> : MonoBehaviour</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        [SerializeField] <span class="keyword">private</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <span class="keyword">template</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">int</span> prefill = 10;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">int</span> maxSize = -1;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">private</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a>[] poolItems;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">private</span> Queue&lt;PoolItem&gt; freeItems;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#aea144484c7b14a990d442002cb2a73c6">   25</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#aea144484c7b14a990d442002cb2a73c6">SpawnItem</a>()</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#aea144484c7b14a990d442002cb2a73c6">SpawnItem</a>(Vector3.zero, Quaternion.identity);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a20a14ef1ab0670dffc681909627643cb">   31</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a20a14ef1ab0670dffc681909627643cb">SpawnItem</a>(Vector3 localPosition) =&gt; <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a20a14ef1ab0670dffc681909627643cb">SpawnItem</a>(localPosition, Quaternion.identity);</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a7bb5882edb9923271af3b35b2883ccf7">   32</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a7bb5882edb9923271af3b35b2883ccf7">SpawnItem</a>(Vector3 localPosition, Transform parent) =&gt; <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a7bb5882edb9923271af3b35b2883ccf7">SpawnItem</a>(localPosition, Quaternion.identity, parent);</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a4bb878ad836a5be3cfa29aee0efa5852">   33</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a4bb878ad836a5be3cfa29aee0efa5852">SpawnItem</a>(Transform parent) =&gt; <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a4bb878ad836a5be3cfa29aee0efa5852">SpawnItem</a>(Vector3.zero, Quaternion.identity, parent);</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a5b5a6829be1ea08b76b9e3c0b5ccf642">   34</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a5b5a6829be1ea08b76b9e3c0b5ccf642">SpawnItem</a>(Vector3 localPosition, Quaternion localRotation, Transform parent = <span class="keyword">null</span>)</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">TryGetItem</a>(out <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> item)) <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            Transform transform = item.transform;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            transform.parent        = parent;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            transform.localPosition = localPosition;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            transform.rotation      = localRotation;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">return</span> item;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        </div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">   47</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">TryGetItem</a>(out <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> item)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (freeItems.Count == 0 &amp;&amp; (!autoExpand || <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#af89f89a1919738c5c3b9e9d24e259ed4">AddItems</a>() &lt;= 0)) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                Debug.LogWarning(<span class="stringliteral">&quot;Tried to get item from empty pool&quot;</span>);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                item = <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            item = freeItems.Dequeue();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            item.Spawn();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">bool</span> autoExpand = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">int</span> autoExpandAmount = 5;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">private</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a>[] poolItems;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">private</span> List&lt;PoolItem&gt; freeItems;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#aea144484c7b14a990d442002cb2a73c6">   28</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#aea144484c7b14a990d442002cb2a73c6">SpawnItem</a>() =&gt; <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#aea144484c7b14a990d442002cb2a73c6">SpawnItem</a>(Vector3.zero, Quaternion.identity);</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a20a14ef1ab0670dffc681909627643cb">   29</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a20a14ef1ab0670dffc681909627643cb">SpawnItem</a>(Vector3 localPosition) =&gt; <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a20a14ef1ab0670dffc681909627643cb">SpawnItem</a>(localPosition, Quaternion.identity);</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a7bb5882edb9923271af3b35b2883ccf7">   30</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a7bb5882edb9923271af3b35b2883ccf7">SpawnItem</a>(Vector3 localPosition, Transform parent) =&gt; <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a7bb5882edb9923271af3b35b2883ccf7">SpawnItem</a>(localPosition, Quaternion.identity, parent);</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a4bb878ad836a5be3cfa29aee0efa5852">   31</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a4bb878ad836a5be3cfa29aee0efa5852">SpawnItem</a>(Transform parent) =&gt; <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a4bb878ad836a5be3cfa29aee0efa5852">SpawnItem</a>(Vector3.zero, Quaternion.identity, parent);</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a5b5a6829be1ea08b76b9e3c0b5ccf642">   32</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a5b5a6829be1ea08b76b9e3c0b5ccf642">SpawnItem</a>(Vector3 localPosition, Quaternion localRotation, Transform parent = <span class="keyword">null</span>)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">TryGetItem</a>(out <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> item)) <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            Transform transform = item.transform;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            transform.parent        = parent;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            transform.localPosition = localPosition;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            transform.rotation      = localRotation;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> item;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">   45</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">TryGetItem</a>(out <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> item)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (freeItems.Count == 0 &amp;&amp; (!autoExpand || <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a772dc389d08b263f3e6735c98d2e18df">InstantiateNewItems</a>() &lt;= 0)) {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                Debug.LogWarning(<span class="stringliteral">&quot;Tried to get item from empty pool&quot;</span>);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                item = <span class="keyword">null</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            item = freeItems[^1];</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            freeItems.Remove(item);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            item.Spawn();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#af89f89a1919738c5c3b9e9d24e259ed4">   62</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#af89f89a1919738c5c3b9e9d24e259ed4">AddItems</a>(<span class="keywordtype">int</span> amount = -1)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">if</span> (amount &lt;= 0) amount = autoExpandAmount;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordtype">int</span> newSize = maxSize &gt; 0 ? Mathf.Max(poolItems.Length, amount + poolItems.Length) : amount + poolItems.Length;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            amount = newSize - poolItems.Length;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">if</span> (newSize == poolItems.Length) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            Array.Resize(ref poolItems, newSize);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <span class="keywordflow">while</span> (amount --&gt; 0) {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> item = Instantiate(<span class="keyword">template</span>, Vector3.zero, Quaternion.identity, transform);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                item.<a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#ae47eebe3f5db12cbec7abf88cee04323">ObjectPool</a> = <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                item.gameObject.SetActive(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                poolItems[newSize - amount - 1] = item;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                freeItems.Enqueue(item);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">return</span> amount;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classJUtils_1_1Components_1_1ObjectPool.html#a772dc389d08b263f3e6735c98d2e18df">   61</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">int</span> <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a772dc389d08b263f3e6735c98d2e18df">InstantiateNewItems</a>(<span class="keywordtype">int</span> amount = -1)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">if</span> (amount &lt;= 0) amount = autoExpandAmount;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordtype">int</span> newSize = maxSize &gt; 0 ? Mathf.Max(poolItems.Length, amount + poolItems.Length) : amount + poolItems.Length;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            amount = newSize - poolItems.Length;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span> (newSize == poolItems.Length) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            Array.Resize(ref poolItems, newSize);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">while</span> (amount --&gt; 0) {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> item = Instantiate(<span class="keyword">template</span>, Vector3.zero, Quaternion.identity, transform);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                item.<a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#ae47eebe3f5db12cbec7abf88cee04323">ObjectPool</a> = <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                item.gameObject.SetActive(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                poolItems[newSize - amount - 1] = item;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                freeItems.Add(item);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">return</span> amount;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">internal</span> <span class="keywordtype">bool</span> ReturnItem(<a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> item)</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">if</span> (!poolItems.Contains(item) || freeItems.Contains(item)) {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            item.Despawn();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            Transform transform = item.transform;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            transform.parent        = this.transform;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            transform.localPosition = Vector3.zero;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            transform.localRotation = Quaternion.identity;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            freeItems.Enqueue(item);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keyword">internal</span> <span class="keywordtype">bool</span> ReturnItem(<a class="code" href="classJUtils_1_1Components_1_1PoolItem.html">PoolItem</a> item)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">if</span> (!poolItems.Contains(item) || freeItems.Contains(item)) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            item.Despawn();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            Transform transform = item.transform;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            transform.parent        = this.transform;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            transform.localPosition = Vector3.zero;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            transform.localRotation = Quaternion.identity;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            freeItems.Add(item);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> Awake()</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">template</span> == <span class="keyword">null</span>) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                Debug.LogError(<span class="stringliteral">&quot;No template has been set!&quot;</span>, <span class="keyword">this</span>);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">template</span>.transform.parent != transform) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            </div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keyword">template</span>.gameObject.SetActive(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keyword">template</span>.<a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#ae47eebe3f5db12cbec7abf88cee04323">ObjectPool</a> = <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> Start()</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">if</span> (!<span class="keyword">template</span>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            poolItems = Array.Empty&lt;PoolItem&gt;();</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            freeItems = <span class="keyword">new</span> Queue&lt;PoolItem&gt;();</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#af89f89a1919738c5c3b9e9d24e259ed4">AddItems</a>(prefill);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html">JUtils.Components.ObjectPool</a></div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00012">ObjectPool.cs:13</a></div></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> Awake()</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">template</span> == <span class="keyword">null</span>) {</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                Debug.LogError(<span class="stringliteral">&quot;No template has been set!&quot;</span>, <span class="keyword">this</span>);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">if</span> (<span class="keyword">template</span>.transform.parent != transform) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keyword">template</span>.gameObject.SetActive(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            <span class="keyword">template</span>.<a class="code" href="classJUtils_1_1Components_1_1PoolItem.html#ae47eebe3f5db12cbec7abf88cee04323">ObjectPool</a> = <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> Start()</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            <span class="keywordflow">if</span> (!<span class="keyword">template</span>) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            poolItems = Array.Empty&lt;PoolItem&gt;();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            freeItems = <span class="keyword">new</span> List&lt;PoolItem&gt;();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a772dc389d08b263f3e6735c98d2e18df">InstantiateNewItems</a>(prefill);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;}</div>
+<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html">JUtils.Components.ObjectPool</a></div><div class="ttdoc">A simple implementation for an object pool</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00015">ObjectPool.cs:16</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_a20a14ef1ab0670dffc681909627643cb"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#a20a14ef1ab0670dffc681909627643cb">JUtils.Components.ObjectPool.SpawnItem</a></div><div class="ttdeci">PoolItem SpawnItem(Vector3 localPosition)</div></div>
 <div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_a4bb878ad836a5be3cfa29aee0efa5852"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#a4bb878ad836a5be3cfa29aee0efa5852">JUtils.Components.ObjectPool.SpawnItem</a></div><div class="ttdeci">PoolItem SpawnItem(Transform parent)</div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_a5b5a6829be1ea08b76b9e3c0b5ccf642"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#a5b5a6829be1ea08b76b9e3c0b5ccf642">JUtils.Components.ObjectPool.SpawnItem</a></div><div class="ttdeci">PoolItem SpawnItem(Vector3 localPosition, Quaternion localRotation, Transform parent=null)</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00034">ObjectPool.cs:34</a></div></div>
+<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_a5b5a6829be1ea08b76b9e3c0b5ccf642"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#a5b5a6829be1ea08b76b9e3c0b5ccf642">JUtils.Components.ObjectPool.SpawnItem</a></div><div class="ttdeci">PoolItem SpawnItem(Vector3 localPosition, Quaternion localRotation, Transform parent=null)</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00032">ObjectPool.cs:32</a></div></div>
+<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_a772dc389d08b263f3e6735c98d2e18df"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#a772dc389d08b263f3e6735c98d2e18df">JUtils.Components.ObjectPool.InstantiateNewItems</a></div><div class="ttdeci">int InstantiateNewItems(int amount=-1)</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00061">ObjectPool.cs:61</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_a7bb5882edb9923271af3b35b2883ccf7"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#a7bb5882edb9923271af3b35b2883ccf7">JUtils.Components.ObjectPool.SpawnItem</a></div><div class="ttdeci">PoolItem SpawnItem(Vector3 localPosition, Transform parent)</div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_a9f05cdac9ce95a153b5a8667779dc480"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">JUtils.Components.ObjectPool.TryGetItem</a></div><div class="ttdeci">bool TryGetItem(out PoolItem item)</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00047">ObjectPool.cs:47</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_aea144484c7b14a990d442002cb2a73c6"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#aea144484c7b14a990d442002cb2a73c6">JUtils.Components.ObjectPool.SpawnItem</a></div><div class="ttdeci">PoolItem SpawnItem()</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00025">ObjectPool.cs:25</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_af89f89a1919738c5c3b9e9d24e259ed4"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#af89f89a1919738c5c3b9e9d24e259ed4">JUtils.Components.ObjectPool.AddItems</a></div><div class="ttdeci">int AddItems(int amount=-1)</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00062">ObjectPool.cs:62</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html">JUtils.Components.PoolItem</a></div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00008">PoolItem.cs:9</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html_ae47eebe3f5db12cbec7abf88cee04323"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html#ae47eebe3f5db12cbec7abf88cee04323">JUtils.Components.PoolItem.ObjectPool</a></div><div class="ttdeci">ObjectPool ObjectPool</div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00010">PoolItem.cs:10</a></div></div>
+<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_a9f05cdac9ce95a153b5a8667779dc480"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">JUtils.Components.ObjectPool.TryGetItem</a></div><div class="ttdeci">bool TryGetItem(out PoolItem item)</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00045">ObjectPool.cs:45</a></div></div>
+<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_aea144484c7b14a990d442002cb2a73c6"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#aea144484c7b14a990d442002cb2a73c6">JUtils.Components.ObjectPool.SpawnItem</a></div><div class="ttdeci">PoolItem SpawnItem()</div></div>
+<div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html">JUtils.Components.PoolItem</a></div><div class="ttdoc">A behaviour that is used with the ObjectPool. Other behaviours can listen to the events this class se...</div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00011">PoolItem.cs:12</a></div></div>
+<div class="ttc" id="aclassJUtils_1_1Components_1_1PoolItem_html_ae47eebe3f5db12cbec7abf88cee04323"><div class="ttname"><a href="classJUtils_1_1Components_1_1PoolItem.html#ae47eebe3f5db12cbec7abf88cee04323">JUtils.Components.PoolItem.ObjectPool</a></div><div class="ttdeci">ObjectPool ObjectPool</div><div class="ttdef"><b>Definition:</b> <a href="PoolItem_8cs_source.html#l00013">PoolItem.cs:13</a></div></div>
 <div class="ttc" id="anamespaceJUtils_1_1Components_html"><div class="ttname"><a href="namespaceJUtils_1_1Components.html">JUtils.Components</a></div><div class="ttdef"><b>Definition:</b> <a href="BillboardCamera_8cs_source.html#l00007">BillboardCamera.cs:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,4 +1,4 @@
 <map id="JUtils.Attributes.TypeSelector" name="JUtils.Attributes.TypeSelector">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,216,107"/>
+<area shape="rect" id="node1" title="Show a dropdown for all classes that extend the field&#39;s type. Requires SerializeReference attribute t..." alt="" coords="5,80,216,107"/>
 <area shape="rect" id="node2" title=" " alt="" coords="43,5,178,32"/>
 </map>

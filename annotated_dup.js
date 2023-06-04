@@ -4,11 +4,11 @@ var annotated_dup =
       [ "Attributes", "namespaceJUtils_1_1Attributes.html", [
         [ "Button", "classJUtils_1_1Attributes_1_1Button.html", "classJUtils_1_1Attributes_1_1Button" ],
         [ "CustomName", "classJUtils_1_1Attributes_1_1CustomName.html", "classJUtils_1_1Attributes_1_1CustomName" ],
-        [ "ReadOnly", "classJUtils_1_1Attributes_1_1ReadOnly.html", null ],
         [ "Required", "classJUtils_1_1Attributes_1_1Required.html", null ],
         [ "SerializeInterface", "classJUtils_1_1Attributes_1_1SerializeInterface.html", "classJUtils_1_1Attributes_1_1SerializeInterface" ],
         [ "ShowWhen", "classJUtils_1_1Attributes_1_1ShowWhen.html", "classJUtils_1_1Attributes_1_1ShowWhen" ],
         [ "TypeSelector", "classJUtils_1_1Attributes_1_1TypeSelector.html", null ],
+        [ "Uneditable", "classJUtils_1_1Attributes_1_1Uneditable.html", null ],
         [ "Unpack", "classJUtils_1_1Attributes_1_1Unpack.html", null ]
       ] ],
       [ "Components", "namespaceJUtils_1_1Components.html", [
@@ -44,19 +44,22 @@ var annotated_dup =
         [ "StateRef", "structJUtils_1_1FSM_1_1StateRef.html", null ]
       ] ],
       [ "Singletons", "namespaceJUtils_1_1Singletons.html", [
-        [ "ISingleton", "interfaceJUtils_1_1Singletons_1_1ISingleton.html", "interfaceJUtils_1_1Singletons_1_1ISingleton" ],
+        [ "ISingleton", "interfaceJUtils_1_1Singletons_1_1ISingleton.html", null ],
+        [ "ScriptableObjectSingleton", "classJUtils_1_1Singletons_1_1ScriptableObjectSingleton.html", "classJUtils_1_1Singletons_1_1ScriptableObjectSingleton" ],
         [ "SingletonBehaviour", "classJUtils_1_1Singletons_1_1SingletonBehaviour.html", "classJUtils_1_1Singletons_1_1SingletonBehaviour" ],
-        [ "SingletonManager", "classJUtils_1_1Singletons_1_1SingletonManager.html", "classJUtils_1_1Singletons_1_1SingletonManager" ]
+        [ "SingletonManager", "classJUtils_1_1Singletons_1_1SingletonManager.html", "classJUtils_1_1Singletons_1_1SingletonManager" ],
+        [ "StaticListBehaviour", "classJUtils_1_1Singletons_1_1StaticListBehaviour.html", "classJUtils_1_1Singletons_1_1StaticListBehaviour" ]
       ] ],
       [ "GizmoUtils", "classJUtils_1_1GizmoUtils.html", "classJUtils_1_1GizmoUtils" ],
       [ "Coroutines", "classJUtils_1_1Coroutines.html", "classJUtils_1_1Coroutines" ],
-      [ "CoroutineCatcher", "classJUtils_1_1CoroutineCatcher.html", "classJUtils_1_1CoroutineCatcher" ],
       [ "MinMax", "structJUtils_1_1MinMax.html", "structJUtils_1_1MinMax" ],
       [ "MinMaxInt", "structJUtils_1_1MinMaxInt.html", "structJUtils_1_1MinMaxInt" ],
       [ "Optional", "structJUtils_1_1Optional.html", "structJUtils_1_1Optional" ],
       [ "Routines", "classJUtils_1_1Routines.html", "classJUtils_1_1Routines" ],
+      [ "CoroutineCatcher", "classJUtils_1_1CoroutineCatcher.html", "classJUtils_1_1CoroutineCatcher" ],
       [ "SceneReference", "structJUtils_1_1SceneReference.html", "structJUtils_1_1SceneReference" ],
       [ "SerializableDictionary", "classJUtils_1_1SerializableDictionary.html", "classJUtils_1_1SerializableDictionary" ],
+      [ "SerializableType", "structJUtils_1_1SerializableType.html", "structJUtils_1_1SerializableType" ],
       [ "IWeighted", "interfaceJUtils_1_1IWeighted.html", "interfaceJUtils_1_1IWeighted" ],
       [ "Weighted", "structJUtils_1_1Weighted.html", "structJUtils_1_1Weighted" ],
       [ "WeightedExtensions", "classJUtils_1_1WeightedExtensions.html", "classJUtils_1_1WeightedExtensions" ]

@@ -1,6 +1,5 @@
 var classJUtils_1_1Components_1_1BillboardCamera =
 [
-    [ "BillBoardSettings", "classJUtils_1_1Components_1_1BillboardCamera_1_1BillBoardSettings.html", "classJUtils_1_1Components_1_1BillboardCamera_1_1BillBoardSettings" ],
     [ "Anchor", "classJUtils_1_1Components_1_1BillboardCamera.html#af804698e6cd04feb1b6c834e83727f28", [
       [ "Top", "classJUtils_1_1Components_1_1BillboardCamera.html#af804698e6cd04feb1b6c834e83727f28aa4ffdcf0dc1f31b9acaf295d75b51d00", null ],
       [ "Bottom", "classJUtils_1_1Components_1_1BillboardCamera.html#af804698e6cd04feb1b6c834e83727f28a2ad9d63b69c4a10a5cc9cad923133bc4", null ],

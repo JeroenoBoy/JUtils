@@ -86,17 +86,28 @@ $(document).ready(function(){initNavTree('structJUtils_1_1Optional.html',''); in
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
 <a href="structJUtils_1_1Optional-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">JUtils.Optional&lt; T &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A struct useful for showing in the inspector if the value is optional, and does not have to be set. Also allows for quicker checks if the value is set  
+ <a href="structJUtils_1_1Optional.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afa9fe53276132abcca547ea7fd14361e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">Optional</a> (T initialValue)</td></tr>
 <tr class="separator:afa9fe53276132abcca547ea7fd14361e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a5dafb3f91f015cc4e61c9e52a39ea0dd"><td class="memItemLeft" align="right" valign="top">static implicit&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJUtils_1_1Optional.html#a5dafb3f91f015cc4e61c9e52a39ea0dd">operator bool</a> (<a class="el" href="structJUtils_1_1Optional.html">Optional</a>&lt; T &gt; optional)</td></tr>
+<tr class="separator:a5dafb3f91f015cc4e61c9e52a39ea0dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ae562d6cb780e8c4fe629b15156c3a"><td class="memItemLeft" align="right" valign="top">static implicit&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJUtils_1_1Optional.html#a51ae562d6cb780e8c4fe629b15156c3a">operator T</a> (<a class="el" href="structJUtils_1_1Optional.html">Optional</a>&lt; T &gt; optional)</td></tr>
+<tr class="separator:a51ae562d6cb780e8c4fe629b15156c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -106,8 +117,23 @@ Properties</h2></td></tr>
 <tr class="separator:a74c21e369953bfddf5562ed814aaa5bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Optional_8cs_source.html#l00008">8</a> of file <a class="el" href="Optional_8cs_source.html">Optional.cs</a>.</p>
+<div class="textblock"><p>A struct useful for showing in the inspector if the value is optional, and does not have to be set. Also allows for quicker checks if the value is set </p>
+<div class="fragment"><div class="line"><span class="keyword">namespace </span>Example</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">class </span>OptionalExample : MonoBehaviour</div>
+<div class="line">    {</div>
+<div class="line">        [SerializeField] <span class="keyword">private</span> <a class="code" href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">Optional</a>&amp;#60;HealthComponent&gt; _healthComponent;</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">private</span> <span class="keywordtype">void</span> Start()</div>
+<div class="line">        {</div>
+<div class="line">            HealthComponent hc = _healthComponent ? _healthComponent : GetComponent&amp;#60;HealthComponent&gt;();</div>
+<div class="line">            hc.Damage(10);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="astructJUtils_1_1Optional_html_afa9fe53276132abcca547ea7fd14361e"><div class="ttname"><a href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">JUtils.Optional.Optional</a></div><div class="ttdeci">Optional(T initialValue)</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00035">Optional.cs:35</a></div></div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="Optional_8cs_source.html#l00026">26</a> of file <a class="el" href="Optional_8cs_source.html">Optional.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="afa9fe53276132abcca547ea7fd14361e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa9fe53276132abcca547ea7fd14361e">&#9670;&nbsp;</a></span>Optional()</h2>
@@ -133,12 +159,65 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Optional_8cs_source.html#l00017">17</a> of file <a class="el" href="Optional_8cs_source.html">Optional.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            _enabled = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            _value = initialValue;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="Optional_8cs_source.html#l00035">35</a> of file <a class="el" href="Optional_8cs_source.html">Optional.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            _enabled = initialValue is not <span class="keyword">null</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            _value   = initialValue;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
 </div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5dafb3f91f015cc4e61c9e52a39ea0dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dafb3f91f015cc4e61c9e52a39ea0dd">&#9670;&nbsp;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static implicit <a class="el" href="structJUtils_1_1Optional.html">JUtils.Optional</a>&lt; T &gt;.operator bool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structJUtils_1_1Optional.html">Optional</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>optional</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51ae562d6cb780e8c4fe629b15156c3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51ae562d6cb780e8c4fe629b15156c3a">&#9670;&nbsp;</a></span>operator T()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static implicit <a class="el" href="structJUtils_1_1Optional.html">JUtils.Optional</a>&lt; T &gt;.operator T </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structJUtils_1_1Optional.html">Optional</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>optional</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
@@ -162,7 +241,7 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Optional_8cs_source.html#l00013">13</a> of file <a class="el" href="Optional_8cs_source.html">Optional.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Optional_8cs_source.html#l00031">31</a> of file <a class="el" href="Optional_8cs_source.html">Optional.cs</a>.</p>
 
 </div>
 </div>
@@ -186,7 +265,7 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Optional_8cs_source.html#l00014">14</a> of file <a class="el" href="Optional_8cs_source.html">Optional.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Optional_8cs_source.html#l00032">32</a> of file <a class="el" href="Optional_8cs_source.html">Optional.cs</a>.</p>
 
 </div>
 </div>

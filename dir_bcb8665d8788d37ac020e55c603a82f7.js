@@ -2,8 +2,7 @@ var dir_bcb8665d8788d37ac020e55c603a82f7 =
 [
     [ "HealthComponent", "dir_04fc29875b0df936167804ad1f193a04.html", "dir_04fc29875b0df936167804ad1f193a04" ],
     [ "BillboardCamera.cs", "BillboardCamera_8cs.html", [
-      [ "BillboardCamera", "classJUtils_1_1Components_1_1BillboardCamera.html", "classJUtils_1_1Components_1_1BillboardCamera" ],
-      [ "BillBoardSettings", "classJUtils_1_1Components_1_1BillboardCamera_1_1BillBoardSettings.html", "classJUtils_1_1Components_1_1BillboardCamera_1_1BillBoardSettings" ]
+      [ "BillboardCamera", "classJUtils_1_1Components_1_1BillboardCamera.html", "classJUtils_1_1Components_1_1BillboardCamera" ]
     ] ],
     [ "CopyPosition.cs", "CopyPosition_8cs.html", [
       [ "CopyPosition", "classJUtils_1_1Components_1_1CopyPosition.html", null ]

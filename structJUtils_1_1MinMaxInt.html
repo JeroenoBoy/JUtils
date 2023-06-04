@@ -92,11 +92,14 @@ $(document).ready(function(){initNavTree('structJUtils_1_1MinMaxInt.html',''); i
 <div class="title">JUtils.MinMaxInt Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A struct with a custom editor which can be used to get a minimum and a maximum value, handy for random values &amp; clamping  
+ <a href="structJUtils_1_1MinMaxInt.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8417c3a0f567dea951f84c7c515ab4d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJUtils_1_1MinMaxInt.html#a8417c3a0f567dea951f84c7c515ab4d3">MinMaxInt</a> (int <a class="el" href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">min</a>, int <a class="el" href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">max</a>)</td></tr>
-<tr class="memdesc:a8417c3a0f567dea951f84c7c515ab4d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="structJUtils_1_1MinMax.html">MinMax</a> instance  <a href="structJUtils_1_1MinMaxInt.html#a8417c3a0f567dea951f84c7c515ab4d3">More...</a><br /></td></tr>
+<tr class="memdesc:a8417c3a0f567dea951f84c7c515ab4d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="structJUtils_1_1MinMax.html" title="A struct with a custom editor which can be used to get a minimum and a maximum value,...">MinMax</a> instance  <a href="structJUtils_1_1MinMaxInt.html#a8417c3a0f567dea951f84c7c515ab4d3">More...</a><br /></td></tr>
 <tr class="separator:a8417c3a0f567dea951f84c7c515ab4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a445205dba33e62b5486f02203950aebd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJUtils_1_1MinMaxInt.html#a445205dba33e62b5486f02203950aebd">Random</a> ()</td></tr>
 <tr class="memdesc:a445205dba33e62b5486f02203950aebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random value from min to max using UnityEngine.Random  <a href="structJUtils_1_1MinMaxInt.html#a445205dba33e62b5486f02203950aebd">More...</a><br /></td></tr>
@@ -121,8 +124,9 @@ Properties</h2></td></tr>
 <tr class="separator:a0c5ab41f4dd15815fc657eb257f9865f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00009">9</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
+<div class="textblock"><p>A struct with a custom editor which can be used to get a minimum and a maximum value, handy for random values &amp; clamping </p>
+
+<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00012">12</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8417c3a0f567dea951f84c7c515ab4d3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8417c3a0f567dea951f84c7c515ab4d3">&#9670;&nbsp;</a></span>MinMaxInt()</h2>
@@ -158,7 +162,7 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Create a new <a class="el" href="structJUtils_1_1MinMax.html">MinMax</a> instance </p>
+<p>Create a new <a class="el" href="structJUtils_1_1MinMax.html" title="A struct with a custom editor which can be used to get a minimum and a maximum value,...">MinMax</a> instance </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">min</td><td></td></tr>
@@ -167,13 +171,13 @@ Properties</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00030">30</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            _min = <a class="code" href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">min</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            _max = <a class="code" href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">max</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
-<div class="ttc" id="astructJUtils_1_1MinMaxInt_html_a0c5ab41f4dd15815fc657eb257f9865f"><div class="ttname"><a href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">JUtils.MinMaxInt.max</a></div><div class="ttdeci">int max</div><div class="ttdoc">Get the max value</div><div class="ttdef"><b>Definition:</b> <a href="MinMaxInt_8cs_source.html#l00022">MinMaxInt.cs:22</a></div></div>
-<div class="ttc" id="astructJUtils_1_1MinMaxInt_html_a1133aaff27863e9e8cef6b77adcbc980"><div class="ttname"><a href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">JUtils.MinMaxInt.min</a></div><div class="ttdeci">int min</div><div class="ttdoc">Get the min value</div><div class="ttdef"><b>Definition:</b> <a href="MinMaxInt_8cs_source.html#l00017">MinMaxInt.cs:17</a></div></div>
+<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00033">33</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            _min = <a class="code" href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">min</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            _max = <a class="code" href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">max</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+<div class="ttc" id="astructJUtils_1_1MinMaxInt_html_a0c5ab41f4dd15815fc657eb257f9865f"><div class="ttname"><a href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">JUtils.MinMaxInt.max</a></div><div class="ttdeci">int max</div><div class="ttdoc">Get the max value</div><div class="ttdef"><b>Definition:</b> <a href="MinMaxInt_8cs_source.html#l00025">MinMaxInt.cs:25</a></div></div>
+<div class="ttc" id="astructJUtils_1_1MinMaxInt_html_a1133aaff27863e9e8cef6b77adcbc980"><div class="ttname"><a href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">JUtils.MinMaxInt.min</a></div><div class="ttdeci">int min</div><div class="ttdoc">Get the min value</div><div class="ttdef"><b>Definition:</b> <a href="MinMaxInt_8cs_source.html#l00020">MinMaxInt.cs:20</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">JUtils.MinMaxInt.max</a>, and <a class="el" href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">JUtils.MinMaxInt.min</a>.</p>
 
@@ -213,10 +217,10 @@ Properties</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00070">70</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">return</span> Mathf.Clamp(value, <a class="code" href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">min</a>, <a class="code" href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">max</a>);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00073">73</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">return</span> Mathf.Clamp(value, <a class="code" href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">min</a>, <a class="code" href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">max</a>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">JUtils.MinMaxInt.max</a>, and <a class="el" href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">JUtils.MinMaxInt.min</a>.</p>
 
@@ -248,10 +252,10 @@ Properties</h2></td></tr>
 
 <p>Check if the value is contained between min and max </p>
 
-<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00059">59</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> value &gt; <a class="code" href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">min</a> &amp;&amp; value &lt; <a class="code" href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">max</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00062">62</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">return</span> value &gt; <a class="code" href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">min</a> &amp;&amp; value &lt; <a class="code" href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">max</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f">JUtils.MinMaxInt.max</a>, and <a class="el" href="structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980">JUtils.MinMaxInt.min</a>.</p>
 
@@ -283,10 +287,10 @@ Properties</h2></td></tr>
 <p>Get a random value from min to max using UnityEngine.Random </p>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00041">41</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">return</span> UnityEngine.Random.Range(_min, _max);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00044">44</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">return</span> UnityEngine.Random.Range(_min, _max);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -316,10 +320,10 @@ Properties</h2></td></tr>
 
 <p>Get a ranbdom value from min to max using System.Random </p>
 
-<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00050">50</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> (<span class="keywordtype">int</span>)(random.NextDouble() * (_max - _min) + _min);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00053">53</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> (<span class="keywordtype">int</span>)(random.NextDouble() * (_max - _min) + _min);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -346,7 +350,7 @@ Properties</h2></td></tr>
 
 <p>Get the max value </p>
 
-<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00022">22</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00025">25</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
 
 </div>
 </div>
@@ -372,7 +376,7 @@ Properties</h2></td></tr>
 
 <p>Get the min value </p>
 
-<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00017">17</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="MinMaxInt_8cs_source.html#l00020">20</a> of file <a class="el" href="MinMaxInt_8cs_source.html">MinMaxInt.cs</a>.</p>
 
 </div>
 </div>

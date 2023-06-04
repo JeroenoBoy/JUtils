@@ -1,0 +1,4 @@
+<map id="JUtils.Routines.DelayRoutine" name="JUtils.Routines.DelayRoutine">
+<area shape="rect" id="node1" title="A routine that runs the action after the given timespan" alt="" coords="5,5,215,32"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1Routines.html#a6d3862bea1d23ef6d13bc7ddede64e07" title="Faster alternative to WaitForSeconds, caches the object. This will permanently cache the instance unl..." alt="" coords="263,5,487,32"/>
+</map>

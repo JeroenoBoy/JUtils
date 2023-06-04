@@ -88,309 +88,74 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="title"><a class="el" href="namespaceJUtils.html">JUtils</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a> An library purely aimed to make development in unity easier</p>
-<h1>Legenda</h1>
-<ul>
-<li><a href="#jutilsattributes">Attributes</a></li>
-<li><a href="#jutilscomponents">Components</a></li>
-<li><a href="#jutilsextensions">Extensions</a></li>
-<li><a href="#jutilssingletons">Singletons</a></li>
-</ul>
-<h1><a class="el" href="namespaceJUtils_1_1Attributes.html">JUtils.Attributes</a></h1>
-<h2>Button</h2>
-<p>The button attribute allows for easy setup of clickable buttons in the unity inspector. These buttons can be applied to functions and run them.</p>
-<p>Usage: </p><div class="fragment"><div class="line">[Button]</div>
-<div class="line"><span class="keyword">private</span> <span class="keywordtype">void</span> KillPlayer()</div>
+<div class="textblock"><p><a class="anchor" id="md_README"></a>A unity utilities library, this contains many handy extensions, components and data structures with custom editors</p>
+<p>Documentation: <a href="https://jeroenoboy.github.io/JUtils/">https://jeroenoboy.github.io/JUtils/</a></p>
+<h1>What is <a class="el" href="namespaceJUtils.html">JUtils</a>?</h1>
+<p><a class="el" href="namespaceJUtils.html">JUtils</a> adds handy extensions, classes and components which makes writing code faster and easier.</p>
+<p>Here is an example script written with <a class="el" href="namespaceJUtils.html">JUtils</a> extensions</p>
+<div class="fragment"><div class="line">namespace Example</div>
 <div class="line">{</div>
-<div class="line">    <span class="comment">//  Do something</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">[Button(<span class="stringliteral">&quot;Heal Player&quot;</span>)]</div>
-<div class="line"><span class="keyword">private</span> <span class="keywordtype">void</span> WeirdName()</div>
-<div class="line">{</div>
-<div class="line">    <span class="comment">//  Do something</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">[Button(clickableInEditor: <span class="keyword">true</span>)]</div>
-<div class="line"><span class="keyword">private</span> <span class="keywordtype">void</span> AccessibleInEditor()</div>
-<div class="line">{</div>
-<div class="line">    <span class="comment">//  Do something</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//  Added in 1.4.0 </span></div>
-<div class="line"> </div>
-<div class="line">[Button]</div>
-<div class="line"><span class="keyword">private</span> <span class="keywordtype">void</span> Damage(<span class="keywordtype">int</span> amount)</div>
-<div class="line">{</div>
-<div class="line">    <span class="comment">//  Do something</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">[Button]</div>
-<div class="line"><span class="keyword">private</span> IEnumerator Coroutine()</div>
-<div class="line">{</div>
-<div class="line">    <span class="comment">//  Some coroutine, this is only clickable in playmode</span></div>
-<div class="line">}</div>
-</div><!-- fragment --><h2>CustomName</h2>
-<p>This allows you to assign a custom name to a property in the inspector.</p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>Generator : Monobehaviour</div>
-<div class="line">{</div>
-<div class="line">    [Header(<span class="stringliteral">&quot;Terrain&quot;</span>)]</div>
-<div class="line">    [CustomName(<span class="stringliteral">&quot;Enabled&quot;</span>)]</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> <span class="keywordtype">bool</span> _terrainEnabled;</div>
-<div class="line">    [CustomName(<span class="stringliteral">&quot;Octaves&quot;</span>)]</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> Octave[] _terrainOctaves;</div>
-<div class="line">    </div>
-<div class="line">    [Header(<span class="stringliteral">&quot;Caves&quot;</span>)]</div>
-<div class="line">    [CustomName(<span class="stringliteral">&quot;Enabled&quot;</span>)]</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> <span class="keywordtype">bool</span> _cavesEnabled;</div>
-<div class="line">    [CustomName(<span class="stringliteral">&quot;octaves&quot;</span>)]</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> Octave[] _caveOctaves;</div>
-<div class="line">}</div>
-</div><!-- fragment --><h1>Optional</h1>
-<p>This isn't actually an attribute, but I still think it belongs in this list. This attribute allows you to clearly define optional variable types using the Optional struct</p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>BillBoard : Monobehaviour</div>
-<div class="line">{    </div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> Optional&lt;Transform&gt; _target; </div>
-<div class="line">    </div>
-<div class="line">    <span class="keyword">private</span> <span class="keywordtype">void</span> Update()</div>
+<div class="line">    public class EnemySpawner : Monobehaviour</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">if</span> (_target.enabled) transform.rotation = _target.rotation;</div>
+<div class="line">        [SerializeField, Required] private ObjectPool _objectPool;    // Shows an error in the inspector when the field is not assigned</div>
+<div class="line">        [SerializeField] private Optinal&lt;Transform&gt; _optionalParent; //  Mark this variable as not being required, has a toggle in the inspector to make it more clear</div>
+<div class="line">        </div>
+<div class="line">        [Header(&quot;Spawn Settings&quot;)]</div>
+<div class="line">        [SerializeField, CustomName(&quot;Interval&quot;)] private MinMax _spawnInterval;</div>
+<div class="line">        [SerializeField, CustomName(&quot;Amount&quot;)] private MinMaxInt _spawnAmount;</div>
+<div class="line">        [SerializeField, CustomName(&quot;Radius&quot;)] private float _spawnRadius;</div>
+<div class="line">        [SerializeField] private Weighted&lt;EnemyData&gt;[] _randomEnemyData; // A helper struct for doing easy weighted randomness</div>
+<div class="line">        </div>
+<div class="line">        private Transform _parent;</div>
+<div class="line">        private float _nextSpawn;</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        private void Awake()</div>
+<div class="line">        {</div>
+<div class="line">            _parent = _optionalParent.enabled ? _optionalParent.value : transform; // More efficient than checking object for null</div>
+<div class="line">            _lastSpawnd = Time.time + _spawnInterval.Random()</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        private void Update()</div>
+<div class="line">        {</div>
+<div class="line">            if (Time.time &lt; _nextSpawn) return;</div>
+<div class="line">            _nextSpawn = Time.time + _spawnInterval.Random();</div>
+<div class="line">            </div>
+<div class="line">            SpawnBatch(_spawnAmount.Random());</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        [Button]</div>
+<div class="line">        private void SpawnBatch(int spawnAmount)</div>
+<div class="line">        {</div>
+<div class="line">            for (int i = spawnAmount; i --&gt; 0;) {</div>
+<div class="line">                PoolItem item = _objectPool.SpawnItem(Random.insideUnitCircle.With(y: 0) * _spawnRadius, _parent);</div>
+<div class="line">                </div>
+<div class="line">                Enemy enemy = item.GetComponent&lt;Enemy&gt;();</div>
+<div class="line">                enemy.EnemyData = _randomEnemyData.Random();</div>
+<div class="line">                </div>
+<div class="line">                StartCoroutine(Routines.Delay(i * .5f, () =&gt; enemy.WakeUp())) // You can use this instead of creating a new routine in the script</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
 <div class="line">    }</div>
-<div class="line">}</div>
-</div><!-- fragment --><h2>ReadOnly</h2>
-<p>Fields with this attribute cannot be edited via the inspector, they can still be edited by the script.</p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>DoNotTouch : Monobehaviour</div>
-<div class="line">{</div>
-<div class="line">    [ReadOnly]</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> <span class="keywordtype">float</span> _currentForce;</div>
-<div class="line">}</div>
-</div><!-- fragment --><h2>Required</h2>
-<p>This attribute add a notification in the inspecotr when it is not filled in.</p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>PlayerMovement : Monobehaviour</div>
-<div class="line">{</div>
-<div class="line">    [Required]</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> Animator _animator;</div>
-<div class="line">    [Required]</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> CameraController _camera;</div>
-<div class="line">}</div>
-</div><!-- fragment --><h2>SerializeInterface</h2>
-<p>This attribute allows you to restrict an UnityEngine.Object to be of a certain interface type</p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>InterfaceSerializer : MonoBehaviour</div>
-<div class="line">{</div>
-<div class="line">    [SerializeInterface(typeof IProcessor)]</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> <a class="code" href="Button_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a> _processor;</div>
-<div class="line">    <span class="keyword">public</span> IProcessor processor =&gt; _processor as IProcessor;</div>
-<div class="line">}</div>
-<div class="ttc" id="aButton_8cs_html_aef19bab18b9814edeef255c43e4f6bbc"><div class="ttname"><a href="Button_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a></div><div class="ttdeci">UnityEngine.Object Object</div><div class="ttdef"><b>Definition:</b> <a href="Button_8cs_source.html#l00010">Button.cs:10</a></div></div>
-</div><!-- fragment --><h2>ShowWhen</h2>
-<p>This attribute hides the current field if a certain variable doesn't match a condition.</p>
-<p>Conditions can only be of type bool, string, float, int (also works with enums)</p>
-<p><b>Constructors</b> </p><div class="fragment"><div class="line"><span class="keyword">public</span> ShowWhen(<span class="keywordtype">string</span> variable, <span class="keywordtype">string</span> value, <span class="keywordtype">bool</span> showAsObject = <span class="keyword">true</span>)</div>
-<div class="line">public ShowWhen(<span class="keywordtype">string</span> variable, <span class="keywordtype">bool</span> value, <span class="keywordtype">bool</span> showAsObject = true)</div>
-<div class="line">public ShowWhen(<span class="keywordtype">string</span> variable, <span class="keywordtype">int</span> value, Comparer comparer = Comparer.Equals)</div>
-<div class="line">public ShowWhen(<span class="keywordtype">string</span> variable, <span class="keywordtype">int</span> value, <span class="keywordtype">bool</span> showAsObject, Comparer comparer = Comparer.Equals)</div>
-<div class="line">public ShowWhen(<span class="keywordtype">string</span> variable, <span class="keywordtype">float</span> value, Comparer comparer = Comparer.Equals)</div>
-<div class="line">public ShowWhen(<span class="keywordtype">string</span> variable, <span class="keywordtype">float</span> value, <span class="keywordtype">bool</span> showAsObject, Comparer comparer = Comparer.Equals)</div>
-</div><!-- fragment --><p><b>Comparer enum</b> {Equals, Greater, Smaller, Or}</p>
-<p>Usage: </p><div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>BillboardCamera : MonoBehaviour</div>
-<div class="line">{</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> Camera _camera;</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> <span class="keywordtype">bool</span>   _scaleWithDistance = <span class="keyword">true</span>;</div>
-<div class="line">    </div>
-<div class="line">    [ShowWhen(nameof(_scaleWithDistance), <span class="keyword">true</span>, <span class="keyword">false</span>)]</div>
-<div class="line">    [SerializeField] <span class="keyword">private</span> BillBoardSettings _settings;</div>
-<div class="line">}</div>
-</div><!-- fragment --><h2>TypeSelector</h2>
-<p>Select SerializeReference types, useful for strategy patterns.</p>
-<p>Usage:</p>
-<div class="fragment"><div class="line"><span class="keyword">public</span> <span class="keyword">class </span>TypeSelectorTest : MonoBehaviour</div>
-<div class="line">{</div>
-<div class="line">    [SerializeReference, TypeSelector] <span class="keyword">public</span> IAnimal _animal;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">public</span> <span class="keyword">interface </span>IAnimal {</div>
-<div class="line">    <span class="keywordtype">string</span> name { <span class="keyword">get</span>; }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>Dog : IAnimal</div>
-<div class="line">{</div>
-<div class="line">    [field: SerializeField]</div>
-<div class="line">    <span class="keyword">public</span> <span class="keywordtype">string</span> name { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line">    </div>
-<div class="line">    [field: SerializeField]</div>
-<div class="line">    <span class="keyword">public</span> <span class="keywordtype">string</span> bark { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>Cat : IAnimal</div>
-<div class="line">{</div>
-<div class="line">    [field: SerializeField]</div>
-<div class="line">    <span class="keyword">public</span> <span class="keywordtype">string</span> name { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line">    </div>
-<div class="line">    [field: SerializeField]</div>
-<div class="line">    <span class="keyword">public</span> <span class="keywordtype">string</span> meow { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line">}</div>
-</div><!-- fragment --><h2>Unpack</h2>
-<p>This attribute can be used to unpack a serializable object in the inspector so it looks nicer.</p>
-<p>Usage: </p><div class="fragment"><div class="line">[Serializable]</div>
-<div class="line"><span class="keyword">public</span> <span class="keyword">struct </span>PlayerMovement : IComponent</div>
-<div class="line">{</div>
-<div class="line">    <span class="keyword">public</span> <span class="keywordtype">float</span> speed;</div>
-<div class="line">    <span class="keyword">public</span> <span class="keywordtype">float</span> jumpHeight;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>PlayerMovementAuthoring : Monobehaviour</div>
-<div class="line">{</div>
-<div class="line">    [SerializeField, Unpack] <span class="keyword">private</span> PlayerMovement _data</div>
-<div class="line">    </div>
-<div class="line">    <span class="comment">//  Baker</span></div>
-<div class="line">}</div>
-</div><!-- fragment --><h1><a class="el" href="namespaceJUtils_1_1Components.html">JUtils.Components</a></h1>
-<h2>Billboard Camera</h2>
-<p>This component is a simple bill boarding script with a handful of features</p><ul>
-<li>Can scale over distance</li>
-<li>Can have a specific anchor position</li>
+<div class="line">)</div>
+</div><!-- fragment --><h1>What does <a class="el" href="namespaceJUtils.html">JUtils</a> include?</h1>
+<ul>
+<li>Many attributes for making things more clear in the inspector</li>
+<li>Clickable buttons in the inspector with support for arguments &amp; coroutines</li>
+<li>Many data structures with custom property drawers</li>
+<li>State machine with type-safe arguments</li>
+<li>Handy common components</li>
+<li>Object pools</li>
+<li>Singletons with hot-reloading support</li>
+<li>Many handy extensions for vectors, transforms, components &amp; more</li>
+<li>Coroutine helper functions</li>
+<li>Some gizmos utilities for drawing forces &amp; text</li>
 </ul>
-<h2>Copy Position</h2>
-<p>This component sets the position of the game object to the target game object.</p>
-<h2>Health Component</h2>
-<p>A simple health component without any default behaviours.</p>
-<p>Fields: </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> isDead {<span class="keyword">get</span>; <span class="keyword">set</span>;}</div>
-<div class="line"><span class="keywordtype">int</span> health { <span class="keyword">get</span> } <span class="comment">// Get the current health of the component</span></div>
-<div class="line"><span class="keywordtype">int</span> maxHealth { <span class="keyword">get</span> } <span class="comment">// Get the maxHealth of the component   </span></div>
-</div><!-- fragment --><p>Methods: </p><div class="fragment"><div class="line"><span class="keywordtype">int</span> Damage(IDamageEvent e) <span class="comment">// Damage the component by a certain amount</span></div>
-<div class="line"><span class="keywordtype">int</span> Heal(IHealEvent e) <span class="comment">// Heal the component by a certain amount</span></div>
-<div class="line"><span class="keywordtype">void</span> Kill() <span class="comment">// Does A LOT of damage to the health component and kills it</span></div>
-</div><!-- fragment --><p>Messages the component sends (also gets send in this order) </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> OnDeath()</div>
-<div class="line">void OnHealthChange(<span class="keywordtype">int</span> changedHealth)</div>
-<div class="line"><span class="keywordtype">void</span> OnDamage(IDamageEvent damage)</div>
-<div class="line"><span class="keywordtype">void</span> OnHeal(IHealEvent health)</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//  Additionally, You can also listen to these events in an ordered manner</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> OnDamage(SimpleDamageEvent e) <span class="comment">// &lt;-- Only get fired when the parmeter is SimpleDamageEvent</span></div>
-<div class="line"><span class="keywordtype">void</span> OnDamage(IDamageEvent e) <span class="comment">// &lt;-- Gets fired on all IDamageEvent</span></div>
-</div><!-- fragment --><p><b>These classes are build in for damage events.</b></p><ul>
-<li>SimpleDamageEvent</li>
-<li>SimpleHealEvent</li>
-</ul>
-<h1><a class="el" href="namespaceJUtils_1_1Extensions.html">JUtils.Extensions</a></h1>
-<p>This namespace contains extension methods.</p>
-<div class="fragment"><div class="line"><span class="comment">//  AudioSource</span></div>
-<div class="line"> </div>
-<div class="line">AudioSource audioSource;</div>
-<div class="line"><span class="keywordtype">void</span> audioSource.RandomPitch(<span class="keywordtype">float</span> min, <span class="keywordtype">float</span> max) <span class="comment">// Sets the pitch to a random range between min and max</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//  Color</span></div>
-<div class="line"> </div>
-<div class="line">Color color;</div>
-<div class="line"><span class="keywordtype">bool</span> color.Equals(Color other, <span class="keywordtype">float</span> threshold) <span class="comment">// Compares a color with a threshold</span></div>
-<div class="line"><span class="keywordtype">bool</span> color.Equals2(Color other, <span class="keywordtype">float</span> threshold) <span class="comment">// A different way to calculate the threshold.</span></div>
-<div class="line"> </div>
-<div class="line">Color[] colors;</div>
-<div class="line"><span class="keywordtype">bool</span> colors.TContains(Color target, <span class="keywordtype">float</span> threshold) <span class="comment">// Check if a element in an Enumerable objects contains the color</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//  Component</span></div>
-<div class="line"> </div>
-<div class="line">Component component;</div>
-<div class="line">Ray  component.ForwardRay() <span class="comment">// Shorthand for creating a way based on the transform of a component / Behaviour / Monobehaviour</span></div>
-<div class="line"><span class="keywordtype">bool</span> component.HasLayer(<span class="keywordtype">int</span> layer) <span class="comment">// Check if the component&#39;s gameobject has a layer</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//  Coroutines</span></div>
-<div class="line"> </div>
-<div class="line">WaitForSeconds         Coroutines.WaitForSeconds(<span class="keywordtype">int</span> amount) <span class="comment">// Returns a cached version of the requested WaitForSeconds instance</span></div>
-<div class="line">WaitForSecondsRealtime Coroutines.WaitForSecondsRealtime(<span class="keywordtype">int</span> amount) <span class="comment">// Returns a cached version of the requested WaitForSecondsRealtime instance</span></div>
-<div class="line">WaitForFixedUpdate     Coroutines.WaitForFixedUpdate() <span class="comment">// Returns a cached version of the WaitForFixedUpdate instance</span></div>
-<div class="line">WaitForEndOfFrame      Coroutines.WaitForEndOfFrame() <span class="comment">// Returns a cached version of the WaitForEndOfFrame instance</span></div>
-<div class="line">CoroutineCatcher       Coroutines.Catcher(IEnumerator coroutine) <span class="comment">// Returns a CoroutineCatcher that can catch errors happening in the coroutine</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// There are just little shorthands if you don&#39;t want to create a new coroutine for something simple</span></div>
-<div class="line"><span class="keywordtype">void</span> Coroutines.RunNextFrame(Action action) <span class="comment">// Run an action in the next frame</span></div>
-<div class="line"><span class="keywordtype">void</span> Coroutines.RunAfter(Action action, <span class="keywordtype">float</span> delay) <span class="comment">// Run an action after a certain delay</span></div>
-<div class="line"> </div>
-<div class="line">CoroutineCatcher catcher;</div>
-<div class="line"><span class="keywordtype">bool</span> catcher.HasThrown(out Exception exception) <span class="comment">// Check if the coroutine has thrown an exception</span></div>
-<div class="line">yield <span class="keywordflow">return</span> catcher; <span class="comment">//  Can be used like this to run the coroutine</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//  Enumerable</span></div>
-<div class="line"> </div>
-<div class="line">IEnumerable&lt;Any&gt; enumerator; <span class="comment">// Can also be array, list, pretty much everything that inherits IEnumerable&lt;T&gt;</span></div>
-<div class="line">T enumerator.Random() <span class="comment">// Returns a random element from the array based on UnityEngine.Random</span></div>
-<div class="line">T enumerator.Random(System.Random randomizer) <span class="comment">// Returns a random element based on System.Random</span></div>
-<div class="line"><span class="keywordtype">int</span> enumerator.IndexOf(t =&gt; t == <span class="stringliteral">&quot;Value&quot;</span>) <span class="comment">// Get the index of the first matching the comparer </span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//  Vectors</span></div>
-<div class="line"> </div>
-<div class="line">Vector2 vector2;</div>
-<div class="line">Vector3 vector2.ToXZVector3() <span class="comment">// Convert this Vector2 to Vector3 where X = X, Y = 0, Z = Y</span></div>
-<div class="line">Vector2 vector2.With(<span class="keywordtype">float</span>? x = <span class="keyword">null</span>, <span class="keywordtype">float</span>? y = <span class="keyword">null</span>) <span class="comment">// Set a specific value of the vector</span></div>
-<div class="line">Vector2 vector2.ClampMagnitude(<span class="keywordtype">float</span> maxForce) <span class="comment">// Clamp the magnitude of the vector</span></div>
-<div class="line">Vector2 vector2.Closest(Vector2 a, Vector2 b) <span class="comment">// Get the closest vector from self</span></div>
-<div class="line">Vector2 vector2.Round() <span class="comment">// Rounds the position of the vector</span></div>
-<div class="line">Vector2 vector2.Floor() <span class="comment">// Floors the position of the vector</span></div>
-<div class="line">Vector2 vector2.Multiply(Vector2 other) <span class="comment">// Multiplies sx*ox and sy*oy</span></div>
-<div class="line">Vector2 vector2.Positive(Vector2 other) <span class="comment">// Returns the absolute vesion of the vector</span></div>
-<div class="line">Vector2 vector2.Negative(Vector2 other) <span class="comment">// Returns the negative version of the vector</span></div>
-<div class="line"> </div>
-<div class="line">Vector3 vector3;</div>
-<div class="line">Vector2 vector3.ToXZVector2() <span class="comment">// Convert this Vector2 to Vector3 where X = X, Y = 0, Z = Y</span></div>
-<div class="line">Vector3 vector3.With(<span class="keywordtype">float</span>? x = <span class="keyword">null</span>, <span class="keywordtype">float</span>? y = <span class="keyword">null</span>) <span class="comment">// Set a specific value of the vector</span></div>
-<div class="line">Vector3 vector3.ClampMagnitude(<span class="keywordtype">float</span> maxForce) <span class="comment">// Clamp the magnitude of the vector</span></div>
-<div class="line">Vector3 vector3.Closest(Vector2 a, Vector2 b) <span class="comment">// Get the closest vector from self</span></div>
-<div class="line">Vector3 vector3.Round() <span class="comment">// Rounds the position of the vector</span></div>
-<div class="line">Vector3 vector3.Floor() <span class="comment">// Floors the position of the vector</span></div>
-<div class="line">Vector3 vector3.Multiply(Vector2 other) <span class="comment">// Multiplies sx*ox and sy*oy</span></div>
-<div class="line">Vector3 vector3.Positive(Vector2 other) <span class="comment">// Returns the absolute vesion of the vector</span></div>
-<div class="line">Vector3 vector3.Negative(Vector2 other) <span class="comment">// Returns the negative version of the vector</span></div>
-</div><!-- fragment --><h2>Range Enumerator</h2>
-<p>Since 1.4.6, the Range operator also got extensions:</p>
-<p>Usages: <br  />
- <code>A..B</code> - Loops from A to B &ndash; <br  />
- <code>^A..B</code> - Loops from A to B-1 &ndash; ^ at the start excludes the end number <br  />
- <code>A..^B</code> - Loops from B-1 to A &ndash; ^ before the second number makes it loop in reverse<br  />
- <code>^A..^B</code> - Loops from A-1 to B &ndash; Loops in reverse and excludes first number<br  />
-</p>
-<div class="fragment"><div class="line"><span class="comment">//  Syntax</span></div>
-<div class="line"> </div>
-<div class="line">RangeEnumerator (..10).GetEnumerator();</div>
-<div class="line">RangeEnumerator (10).GetEnumerator();</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">//  Can be used as following:</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using</span> <a class="code" href="namespaceJUtils.html">JUtils</a>.<a class="code" href="namespaceJUtils_1_1Extensions.html">Extensions</a>;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> 10..) {</div>
-<div class="line">    Debug.Log(i); <span class="comment">// Logs 10 &gt; 0</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> ^10..^0) { <span class="comment">// alias: ^10..</span></div>
-<div class="line">    Debug.Log(i); <span class="comment">// Logs 9 &gt; 0</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> ^0..10) {</div>
-<div class="line">    Debug.Log(i); <span class="comment">// Logs 0 &gt; 9</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> ..10) {</div>
-<div class="line">    Debug.Log(i); <span class="comment">// Logs 0 &gt; 10</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> 20..^10) {</div>
-<div class="line">    Debug.Log(i); <span class="comment">// Logs 20 &gt; 10</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">foreach</span> (<span class="keywordtype">int</span> i <span class="keywordflow">in</span> 10) {</div>
-<div class="line">    Debug.Log(i); <span class="comment">// Logs 0 &gt; 9</span></div>
-<div class="line">}</div>
-<div class="ttc" id="anamespaceJUtils_1_1Extensions_html"><div class="ttname"><a href="namespaceJUtils_1_1Extensions.html">JUtils.Extensions</a></div><div class="ttdef"><b>Definition:</b> <a href="AudioListenerExtensions_8cs_source.html#l00005">AudioListenerExtensions.cs:6</a></div></div>
-<div class="ttc" id="anamespaceJUtils_html"><div class="ttname"><a href="namespaceJUtils.html">JUtils</a></div><div class="ttdef"><b>Definition:</b> <a href="Button_8cs_source.html#l00014">Button.cs:15</a></div></div>
-</div><!-- fragment --><h1><a class="el" href="namespaceJUtils_1_1Singletons.html">JUtils.Singletons</a></h1>
-<h2>ISingleton&lt;T&gt;</h2>
-<p>The singleton standard interface</p>
-<h2>SingleTonBehaviour&lt;T&gt;</h2>
-<p>Use this to create a new Singleton that also inherits Monobehaviour. The singleton reference also persists on hot reload</p>
-<h2>PersistentSingletonBehaviour&lt;T&gt;</h2>
-<p>This is a singleton that calls DontDestroyOnLoad(). It doesn't actually use this singleton, it creates a new instance and adds it to a auto generated DDOL singleton object. This means that you can just have all your managers on 1 game object without all of them getting send to the DDOL scene </p>
+<h1>Liscence</h1>
+<p><a class="el" href="namespaceJUtils.html">JUtils</a> versions <b>1.9.1 and up</b> have been licensed under <b>GPL-3.0</b></p>
+<p><a class="el" href="namespaceJUtils.html">JUtils</a> versions &lt; 1.9.0 have been licensed under MIT </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

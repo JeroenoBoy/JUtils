@@ -1,4 +1,4 @@
 <map id="JUtils.Attributes.Button" name="JUtils.Attributes.Button">
-<area shape="rect" id="node1" title=" " alt="" coords="5,80,176,107"/>
+<area shape="rect" id="node1" title="Attach this button to a method to make it clickable in the inspector. This attribute will also draw p..." alt="" coords="5,80,176,107"/>
 <area shape="rect" id="node2" title=" " alt="" coords="51,5,130,32"/>
 </map>

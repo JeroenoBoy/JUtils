@@ -94,82 +94,86 @@ $(document).ready(function(){initNavTree('Optional_8cs_source.html',''); initRes
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceJUtils.html">JUtils</a></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    [System.Serializable]</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html">    8</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">struct </span><a class="code" href="structJUtils_1_1Optional.html">Optional</a>&lt;T&gt;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">bool</span> _enabled;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        [SerializeField] <span class="keyword">private</span> T _value;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">   13</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code" href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">enabled</a> =&gt; _enabled;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">   14</a></span>&#160;        <span class="keyword">public</span> T    <a class="code" href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">value</a>   =&gt; _value;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">   17</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">Optional</a>(T initialValue)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            _enabled = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            _value = initialValue;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#if UNITY_EDITOR</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        [CustomPropertyDrawer(typeof(Optional&lt;&gt;))]</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">public</span> <span class="keyword">class </span>OptionalEditor : PropertyDrawer</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">float</span> GetPropertyHeight(SerializedProperty property, GUIContent label)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                SerializedProperty valueProperty = <span class="keyword">property</span>.FindPropertyRelative(<span class="stringliteral">&quot;_value&quot;</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                <span class="keywordflow">return</span> EditorGUI.GetPropertyHeight(valueProperty);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">void</span> OnGUI(Rect position, SerializedProperty property, GUIContent label)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                GUIContent ogLabel = <span class="keyword">new</span> (label.text, label.image, label.tooltip);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    [System.Serializable]</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html">   26</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">struct </span><a class="code" href="structJUtils_1_1Optional.html">Optional</a>&lt;T&gt;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        [SerializeField] <span class="keyword">private</span> <span class="keywordtype">bool</span> _enabled;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        [SerializeField] <span class="keyword">private</span> T _value;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">   31</a></span>&#160;        <span class="keyword">public</span> <span class="keywordtype">bool</span> <a class="code" href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">enabled</a> =&gt; _enabled &amp;&amp; _value is not <span class="keyword">null</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">   32</a></span>&#160;        <span class="keyword">public</span> T    <a class="code" href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">value</a>   =&gt; _value;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">   35</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">Optional</a>(T initialValue)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            _enabled = initialValue is not <span class="keyword">null</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            _value   = initialValue;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="comment">//  Getting properties</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                SerializedProperty enabledProperty = <span class="keyword">property</span>.FindPropertyRelative(<span class="stringliteral">&quot;_enabled&quot;</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                SerializedProperty valueProperty   = <span class="keyword">property</span>.FindPropertyRelative(<span class="stringliteral">&quot;_value&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordtype">float</span> enabledHeight = EditorGUI.GetPropertyHeight(enabledProperty);</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a5dafb3f91f015cc4e61c9e52a39ea0dd">   42</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> implicit <span class="keyword">operator</span> bool(<a class="code" href="structJUtils_1_1Optional.html">Optional&lt;T&gt;</a> optional) =&gt; optional.enabled;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structJUtils_1_1Optional.html#a51ae562d6cb780e8c4fe629b15156c3a">   43</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> implicit <span class="keyword">operator</span> T   (<a class="code" href="structJUtils_1_1Optional.html">Optional&lt;T&gt;</a> optional) =&gt; optional._value;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#if UNITY_EDITOR</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="comment">//  Creating rects</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                Rect valueRect = <span class="keyword">new</span> ()</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    x = position.x,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    y = position.y,</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                    width = position.width - 20,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                    height = position.height</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                };</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        [CustomPropertyDrawer(typeof(<a class="code" href="structJUtils_1_1Optional.html">Optional&lt;&gt;</a>))]</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keyword">public</span> <span class="keyword">class </span>OptionalEditor : PropertyDrawer</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">float</span> GetPropertyHeight(SerializedProperty property, GUIContent label)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                SerializedProperty valueProperty = <span class="keyword">property</span>.FindPropertyRelative(<span class="stringliteral">&quot;_value&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                <span class="keywordflow">return</span> EditorGUI.GetPropertyHeight(valueProperty);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                Rect toggleRect = <span class="keyword">new</span> ()</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                    x = position.x + 2 + valueRect.width - (<span class="keyword">property</span>.depth &gt;= 1 ? 14 : 0),</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                    y = position.y,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                    width = enabledHeight,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    height = enabledHeight</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                };</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                <span class="comment">//  Drawing gui things</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                EditorGUI.BeginDisabledGroup(!enabledProperty.boolValue);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                EditorGUI.PropertyField(valueRect, valueProperty, ogLabel, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                EditorGUI.EndDisabledGroup();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                EditorGUI.PropertyField(toggleRect, enabledProperty, GUIContent.none);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">void</span> OnGUI(Rect position, SerializedProperty property, GUIContent label)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                GUIContent ogLabel = <span class="keyword">new</span> (label.text, label.image, label.tooltip);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="comment">//  Getting properties</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                SerializedProperty enabledProperty = <span class="keyword">property</span>.FindPropertyRelative(<span class="stringliteral">&quot;_enabled&quot;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                SerializedProperty valueProperty   = <span class="keyword">property</span>.FindPropertyRelative(<span class="stringliteral">&quot;_value&quot;</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordtype">float</span> enabledHeight = EditorGUI.GetPropertyHeight(enabledProperty);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                <span class="comment">//  Creating rects</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                Rect valueRect = <span class="keyword">new</span> ()</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    x = position.x,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    y = position.y,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    width = position.width - 20,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    height = position.height</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                };</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                Rect toggleRect = <span class="keyword">new</span> ()</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    x = position.x + 2 + valueRect.width - (<span class="keyword">property</span>.depth &gt;= 1 ? 14 : 0),</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                    y = position.y,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                    width = enabledHeight,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                    height = enabledHeight</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                };</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="comment">//  Drawing gui things</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                EditorGUI.BeginDisabledGroup(!enabledProperty.boolValue);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                EditorGUI.PropertyField(valueRect, valueProperty, ogLabel, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                EditorGUI.EndDisabledGroup();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                EditorGUI.PropertyField(toggleRect, enabledProperty, GUIContent.none);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
 <div class="ttc" id="anamespaceJUtils_html"><div class="ttname"><a href="namespaceJUtils.html">JUtils</a></div><div class="ttdef"><b>Definition:</b> <a href="Button_8cs_source.html#l00014">Button.cs:15</a></div></div>
-<div class="ttc" id="astructJUtils_1_1Optional_html"><div class="ttname"><a href="structJUtils_1_1Optional.html">JUtils.Optional</a></div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00008">Optional.cs:9</a></div></div>
-<div class="ttc" id="astructJUtils_1_1Optional_html_a00e4b08af9b4c759c45895875a1923b9"><div class="ttname"><a href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">JUtils.Optional.enabled</a></div><div class="ttdeci">bool enabled</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00013">Optional.cs:13</a></div></div>
-<div class="ttc" id="astructJUtils_1_1Optional_html_a74c21e369953bfddf5562ed814aaa5bc"><div class="ttname"><a href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">JUtils.Optional.value</a></div><div class="ttdeci">T value</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00014">Optional.cs:14</a></div></div>
-<div class="ttc" id="astructJUtils_1_1Optional_html_afa9fe53276132abcca547ea7fd14361e"><div class="ttname"><a href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">JUtils.Optional.Optional</a></div><div class="ttdeci">Optional(T initialValue)</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00017">Optional.cs:17</a></div></div>
+<div class="ttc" id="astructJUtils_1_1Optional_html"><div class="ttname"><a href="structJUtils_1_1Optional.html">JUtils.Optional</a></div><div class="ttdoc">A struct useful for showing in the inspector if the value is optional, and does not have to be set....</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00026">Optional.cs:27</a></div></div>
+<div class="ttc" id="astructJUtils_1_1Optional_html_a00e4b08af9b4c759c45895875a1923b9"><div class="ttname"><a href="structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9">JUtils.Optional.enabled</a></div><div class="ttdeci">bool enabled</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00031">Optional.cs:31</a></div></div>
+<div class="ttc" id="astructJUtils_1_1Optional_html_a74c21e369953bfddf5562ed814aaa5bc"><div class="ttname"><a href="structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc">JUtils.Optional.value</a></div><div class="ttdeci">T value</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00032">Optional.cs:32</a></div></div>
+<div class="ttc" id="astructJUtils_1_1Optional_html_afa9fe53276132abcca547ea7fd14361e"><div class="ttname"><a href="structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e">JUtils.Optional.Optional</a></div><div class="ttdeci">Optional(T initialValue)</div><div class="ttdef"><b>Definition:</b> <a href="Optional_8cs_source.html#l00035">Optional.cs:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

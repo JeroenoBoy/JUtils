@@ -1,7 +1,7 @@
 <map id="JUtils.FSM.StateMachine.QueueEntry" name="JUtils.FSM.StateMachine.QueueEntry">
-<area shape="rect" id="node1" title=" " alt="" coords="25,185,209,227"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1FSM_1_1StateData.html" title=" " alt="" coords="5,89,161,115"/>
-<area shape="rect" id="node3" href="$classJUtils_1_1FSM_1_1State.html" title=" " alt="" coords="186,81,346,123"/>
+<area shape="rect" id="node1" title="Representation of the state and its data in the queue" alt="" coords="23,185,207,227"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1FSM_1_1StateData.html" title="The data of a state" alt="" coords="5,89,161,115"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1FSM_1_1State.html" title="A simple state that can be driven by stateMachine" alt="" coords="186,81,346,123"/>
 <area shape="rect" id="node4" title=" " alt="" coords="89,5,213,32"/>
 <area shape="rect" id="node5" title=" " alt="" coords="238,5,294,32"/>
 </map>

@@ -88,12 +88,15 @@ $(document).ready(function(){initNavTree('classJUtils_1_1Attributes_1_1TypeSelec
 <div class="title">JUtils.Attributes.TypeSelector Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Show a dropdown for all classes that extend the field's type. Requires SerializeReference attribute to function correctly  
+ <a href="classJUtils_1_1Attributes_1_1TypeSelector.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for JUtils.Attributes.TypeSelector:</div>
 <div class="dyncontent">
 <div class="center"><img src="classJUtils_1_1Attributes_1_1TypeSelector__inherit__graph.png" border="0" usemap="#aJUtils_8Attributes_8TypeSelector_inherit__map" alt="Inheritance graph"/></div>
 <map name="aJUtils_8Attributes_8TypeSelector_inherit__map" id="aJUtils_8Attributes_8TypeSelector_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,216,107"/>
+<area shape="rect" title="Show a dropdown for all classes that extend the field&#39;s type. Requires SerializeReference attribute t..." alt="" coords="5,80,216,107"/>
 <area shape="rect" title=" " alt="" coords="43,5,178,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -102,13 +105,43 @@ Collaboration diagram for JUtils.Attributes.TypeSelector:</div>
 <div class="dyncontent">
 <div class="center"><img src="classJUtils_1_1Attributes_1_1TypeSelector__coll__graph.png" border="0" usemap="#aJUtils_8Attributes_8TypeSelector_coll__map" alt="Collaboration graph"/></div>
 <map name="aJUtils_8Attributes_8TypeSelector_coll__map" id="aJUtils_8Attributes_8TypeSelector_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,216,107"/>
+<area shape="rect" title="Show a dropdown for all classes that extend the field&#39;s type. Requires SerializeReference attribute t..." alt="" coords="5,80,216,107"/>
 <area shape="rect" title=" " alt="" coords="43,5,178,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="TypeSelector_8cs_source.html#l00018">18</a> of file <a class="el" href="TypeSelector_8cs_source.html">TypeSelector.cs</a>.</p>
+<div class="textblock"><p>Show a dropdown for all classes that extend the field's type. Requires SerializeReference attribute to function correctly </p>
+<div class="fragment"><div class="line"><span class="keyword">namespace </span>Example</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">class </span>TypeSelectorTest : MonoBehaviour</div>
+<div class="line">    {</div>
+<div class="line">        [SerializeReference, TypeSelector] <span class="keyword">public</span> IAnimal _animal;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">interface </span>IAnimal {</div>
+<div class="line">        <span class="keywordtype">string</span> name { <span class="keyword">get</span>; }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">class </span>Dog : IAnimal</div>
+<div class="line">    {</div>
+<div class="line">        [field: SerializeField]</div>
+<div class="line">        <span class="keyword">public</span> <span class="keywordtype">string</span> name { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"> </div>
+<div class="line">        [field: SerializeField]</div>
+<div class="line">        <span class="keyword">public</span> <span class="keywordtype">string</span> bark { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">class </span>Cat : IAnimal</div>
+<div class="line">    {</div>
+<div class="line">        [field: SerializeField]</div>
+<div class="line">        <span class="keyword">public</span> <span class="keywordtype">string</span> name { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"> </div>
+<div class="line">        [field: SerializeField]</div>
+<div class="line">        <span class="keyword">public</span> <span class="keywordtype">string</span> meow { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="TypeSelector_8cs_source.html#l00052">52</a> of file <a class="el" href="TypeSelector_8cs_source.html">TypeSelector.cs</a>.</p>
 </div><hr/>The documentation for this class was generated from the following file:<ul>
 <li>JUtils/Attributes/<a class="el" href="TypeSelector_8cs_source.html">TypeSelector.cs</a></li>
 </ul>

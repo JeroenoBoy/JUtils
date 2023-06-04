@@ -4,7 +4,6 @@ var hierarchy =
       [ "JUtils.Attributes.Button", "classJUtils_1_1Attributes_1_1Button.html", null ]
     ] ],
     [ "JUtils.Extensions.AudioListenerExtensions", "classJUtils_1_1Extensions_1_1AudioListenerExtensions.html", null ],
-    [ "JUtils.Components.BillboardCamera.BillBoardSettings", "classJUtils_1_1Components_1_1BillboardCamera_1_1BillBoardSettings.html", null ],
     [ "JUtils.Extensions.ColorExtensions", "classJUtils_1_1Extensions_1_1ColorExtensions.html", null ],
     [ "JUtils.Extensions.ComponentExtensions", "classJUtils_1_1Extensions_1_1ComponentExtensions.html", null ],
     [ "JUtils.Coroutines", "classJUtils_1_1Coroutines.html", null ],
@@ -24,9 +23,11 @@ var hierarchy =
       [ "JUtils.Components.SimpleHealEvent", "structJUtils_1_1Components_1_1SimpleHealEvent.html", null ]
     ] ],
     [ "ISerializationCallbackReceiver", null, [
-      [ "JUtils.SerializableDictionary< TKey, TValue >", "classJUtils_1_1SerializableDictionary.html", null ]
+      [ "JUtils.SerializableDictionary< TKey, TValue >", "classJUtils_1_1SerializableDictionary.html", null ],
+      [ "JUtils.SerializableType", "structJUtils_1_1SerializableType.html", null ]
     ] ],
     [ "JUtils.Singletons.ISingleton< T >", "interfaceJUtils_1_1Singletons_1_1ISingleton.html", [
+      [ "JUtils.Singletons.ScriptableObjectSingleton< T >", "classJUtils_1_1Singletons_1_1ScriptableObjectSingleton.html", null ],
       [ "JUtils.Singletons.SingletonBehaviour< T >", "classJUtils_1_1Singletons_1_1SingletonBehaviour.html", null ]
     ] ],
     [ "JUtils.IWeighted", "interfaceJUtils_1_1IWeighted.html", [
@@ -46,23 +47,28 @@ var hierarchy =
         [ "JUtils.FSM.StateMachine", "classJUtils_1_1FSM_1_1StateMachine.html", null ]
       ] ],
       [ "JUtils.Singletons.SingletonBehaviour< T >", "classJUtils_1_1Singletons_1_1SingletonBehaviour.html", null ],
-      [ "JUtils.Singletons.SingletonManager", "classJUtils_1_1Singletons_1_1SingletonManager.html", null ]
+      [ "JUtils.Singletons.SingletonManager", "classJUtils_1_1Singletons_1_1SingletonManager.html", null ],
+      [ "JUtils.Singletons.StaticListBehaviour< T >", "classJUtils_1_1Singletons_1_1StaticListBehaviour.html", null ]
     ] ],
     [ "JUtils.Optional< T >", "structJUtils_1_1Optional.html", null ],
     [ "JUtils.SerializableDictionary< TKey, TValue >.Pair", "structJUtils_1_1SerializableDictionary_1_1Pair.html", null ],
     [ "PropertyAttribute", null, [
       [ "JUtils.Attributes.CustomName", "classJUtils_1_1Attributes_1_1CustomName.html", null ],
-      [ "JUtils.Attributes.ReadOnly", "classJUtils_1_1Attributes_1_1ReadOnly.html", null ],
       [ "JUtils.Attributes.Required", "classJUtils_1_1Attributes_1_1Required.html", null ],
       [ "JUtils.Attributes.SerializeInterface", "classJUtils_1_1Attributes_1_1SerializeInterface.html", null ],
       [ "JUtils.Attributes.ShowWhen", "classJUtils_1_1Attributes_1_1ShowWhen.html", null ],
       [ "JUtils.Attributes.TypeSelector", "classJUtils_1_1Attributes_1_1TypeSelector.html", null ],
+      [ "JUtils.Attributes.Uneditable", "classJUtils_1_1Attributes_1_1Uneditable.html", null ],
       [ "JUtils.Attributes.Unpack", "classJUtils_1_1Attributes_1_1Unpack.html", null ]
     ] ],
     [ "JUtils.FSM.StateMachine.QueueEntry", "structJUtils_1_1FSM_1_1StateMachine_1_1QueueEntry.html", null ],
     [ "JUtils.Extensions.RangeExtensions", "classJUtils_1_1Extensions_1_1RangeExtensions.html", null ],
     [ "JUtils.Routines", "classJUtils_1_1Routines.html", null ],
     [ "JUtils.SceneReference", "structJUtils_1_1SceneReference.html", null ],
+    [ "ScriptableObject", null, [
+      [ "JUtils.Singletons.ScriptableObjectSingleton< T >", "classJUtils_1_1Singletons_1_1ScriptableObjectSingleton.html", null ]
+    ] ],
+    [ "JUtils.SerializableDictionary< JUtils.SerializableType, List< Object > >", "classJUtils_1_1SerializableDictionary.html", null ],
     [ "State", null, [
       [ "JUtils.FSM.State< T1, T2, T3 >", "classJUtils_1_1FSM_1_1State.html", null ],
       [ "JUtils.FSM.State< T1, T2, T3 >", "classJUtils_1_1FSM_1_1State.html", null ],

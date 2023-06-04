@@ -1,15 +1,19 @@
 var searchData=
 [
-  ['scenereference_2ecs_338',['SceneReference.cs',['../SceneReference_8cs.html',1,'']]],
-  ['serializabledictionary_2ecs_339',['SerializableDictionary.cs',['../SerializableDictionary_8cs.html',1,'']]],
-  ['serializeinterface_2ecs_340',['SerializeInterface.cs',['../SerializeInterface_8cs.html',1,'']]],
-  ['showwhen_2ecs_341',['ShowWhen.cs',['../ShowWhen_8cs.html',1,'']]],
-  ['simpleevent_2ecs_342',['SimpleEvent.cs',['../SimpleEvent_8cs.html',1,'']]],
-  ['singletonbehaviour_2ecs_343',['SingletonBehaviour.cs',['../SingletonBehaviour_8cs.html',1,'']]],
-  ['singletonmanager_2ecs_344',['SingletonManager.cs',['../SingletonManager_8cs.html',1,'']]],
-  ['state_2ecs_345',['State.cs',['../State_8cs.html',1,'']]],
-  ['statedata_2ecs_346',['StateData.cs',['../StateData_8cs.html',1,'']]],
-  ['statemachine_2ecs_347',['StateMachine.cs',['../StateMachine_8cs.html',1,'']]],
-  ['statemachine_2ehelpers_2ecs_348',['StateMachine.Helpers.cs',['../StateMachine_8Helpers_8cs.html',1,'']]],
-  ['stateref_2ecs_349',['StateRef.cs',['../StateRef_8cs.html',1,'']]]
+  ['scenereference_2ecs_355',['SceneReference.cs',['../SceneReference_8cs.html',1,'']]],
+  ['scriptableobjectsingleton_2ecs_356',['ScriptableObjectSingleton.cs',['../ScriptableObjectSingleton_8cs.html',1,'']]],
+  ['serializabledictionary_2ecs_357',['SerializableDictionary.cs',['../SerializableDictionary_8cs.html',1,'']]],
+  ['serializabletype_2ecs_358',['SerializableType.cs',['../SerializableType_8cs.html',1,'']]],
+  ['serializeinterface_2ecs_359',['SerializeInterface.cs',['../SerializeInterface_8cs.html',1,'']]],
+  ['showwhen_2ecs_360',['ShowWhen.cs',['../ShowWhen_8cs.html',1,'']]],
+  ['simpleevent_2ecs_361',['SimpleEvent.cs',['../SimpleEvent_8cs.html',1,'']]],
+  ['singletonbehaviour_2ecs_362',['SingletonBehaviour.cs',['../SingletonBehaviour_8cs.html',1,'']]],
+  ['singletonmanager_2ecs_363',['SingletonManager.cs',['../SingletonManager_8cs.html',1,'']]],
+  ['state_2ecs_364',['State.cs',['../State_8cs.html',1,'']]],
+  ['statedata_2ecs_365',['StateData.cs',['../StateData_8cs.html',1,'']]],
+  ['statemachine_2ecs_366',['StateMachine.cs',['../StateMachine_8cs.html',1,'']]],
+  ['statemachine_2ehelpers_2ecs_367',['StateMachine.Helpers.cs',['../StateMachine_8Helpers_8cs.html',1,'']]],
+  ['stateref_2ecs_368',['StateRef.cs',['../StateRef_8cs.html',1,'']]],
+  ['staticlistbackingcomponent_2ecs_369',['StaticListBackingComponent.cs',['../StaticListBackingComponent_8cs.html',1,'']]],
+  ['staticlistbehaviour_2ecs_370',['StaticListBehaviour.cs',['../StaticListBehaviour_8cs.html',1,'']]]
 ];

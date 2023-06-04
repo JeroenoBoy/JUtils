@@ -92,10 +92,14 @@ $(document).ready(function(){initNavTree('classJUtils_1_1FSM_1_1StateData.html',
 <div class="title">JUtils.FSM.StateData Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The data of a state  
+ <a href="classJUtils_1_1FSM_1_1StateData.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7a54b9c464394409f5ed6ce95053c289"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a7a54b9c464394409f5ed6ce95053c289">StateData</a> (params object[] arguments)</td></tr>
+<tr class="memitem:a7a54b9c464394409f5ed6ce95053c289"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a7a54b9c464394409f5ed6ce95053c289">StateData</a> (params object[] <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">arguments</a>)</td></tr>
+<tr class="memdesc:a7a54b9c464394409f5ed6ce95053c289"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="classJUtils_1_1FSM_1_1StateData.html" title="The data of a state">StateData</a> object with its arguments  <a href="classJUtils_1_1FSM_1_1StateData.html#a7a54b9c464394409f5ed6ce95053c289">More...</a><br /></td></tr>
 <tr class="separator:a7a54b9c464394409f5ed6ce95053c289"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a548d01c46fcf283b67ab69b7acc3f7"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a9a548d01c46fcf283b67ab69b7acc3f7">Get&lt; T &gt;</a> (int index)</td></tr>
 <tr class="memdesc:a9a548d01c46fcf283b67ab69b7acc3f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get an argument at an index  <a href="classJUtils_1_1FSM_1_1StateData.html#a9a548d01c46fcf283b67ab69b7acc3f7">More...</a><br /></td></tr>
@@ -112,12 +116,31 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a034d45d172231b96786eb8e25bb3d001"><td class="memItemLeft" align="right" valign="top">readonly object[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">Arguments</a></td></tr>
-<tr class="separator:a034d45d172231b96786eb8e25bb3d001"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73df76e4fca14a4f8d32d2d686b02452"><td class="memItemLeft" align="right" valign="top">readonly object[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">arguments</a></td></tr>
+<tr class="separator:a73df76e4fca14a4f8d32d2d686b02452"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00007">7</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
+<div class="textblock"><p>The data of a state </p>
+<div class="fragment"><div class="line"><span class="keyword">namespace </span>Example</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">public</span> <span class="keyword">class </span>StateDataExample : State</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">private</span> GameObject _target;</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">void</span> OnActivate()</div>
+<div class="line">        {</div>
+<div class="line">            _target = Data.Get&amp;#60;GameObject&gt;(0);</div>
+<div class="line">            <span class="keywordflow">if</span> (Data.TryGet(1, out Transform optionalTransform))</div>
+<div class="line">                optionalTransform.position = Vector3.zero;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">void</span> OnDeactivate()</div>
+<div class="line">        {</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00030">30</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7a54b9c464394409f5ed6ce95053c289"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7a54b9c464394409f5ed6ce95053c289">&#9670;&nbsp;</a></span>StateData()</h2>
@@ -143,13 +166,15 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00012">12</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;            <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">Arguments</a> = arguments;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateData_html_a034d45d172231b96786eb8e25bb3d001"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">JUtils.FSM.StateData.Arguments</a></div><div class="ttdeci">readonly object[] Arguments</div><div class="ttdef"><b>Definition:</b> <a href="StateData_8cs_source.html#l00009">StateData.cs:9</a></div></div>
+<p>Create a new <a class="el" href="classJUtils_1_1FSM_1_1StateData.html" title="The data of a state">StateData</a> object with its arguments </p>
+
+<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00038">38</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            this.<a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">arguments</a> = <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">arguments</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateData_html_a73df76e4fca14a4f8d32d2d686b02452"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">JUtils.FSM.StateData.arguments</a></div><div class="ttdeci">readonly object[] arguments</div><div class="ttdef"><b>Definition:</b> <a href="StateData_8cs_source.html#l00032">StateData.cs:32</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">JUtils.FSM.StateData.Arguments</a>.</p>
+<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">JUtils.FSM.StateData.arguments</a>.</p>
 
 </div>
 </div>
@@ -180,21 +205,21 @@ Public Attributes</h2></td></tr>
 
 <p>Get an argument at an index </p>
 
-<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00021">21</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e">Has</a>(index))</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentOutOfRangeException();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordtype">object</span> obj = <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">Arguments</a>[index];</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">if</span> (obj is not T argument)</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException($<span class="stringliteral">&quot;Type &#39;{obj.GetType().Name}&#39; is not castable to &#39;{typeof(T).Name}&#39;&quot;</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">return</span> argument;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateData_html_a907068510d4335d178b4d9c00b503f1e"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e">JUtils.FSM.StateData.Has</a></div><div class="ttdeci">bool Has(int index)</div><div class="ttdoc">See if the index exists</div><div class="ttdef"><b>Definition:</b> <a href="StateData_8cs_source.html#l00054">StateData.cs:54</a></div></div>
+<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00047">47</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e">Has</a>(index))</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentOutOfRangeException();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordtype">object</span> obj = <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">arguments</a>[index];</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">if</span> (obj is not T argument)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException($<span class="stringliteral">&quot;Type &#39;{obj.GetType().Name}&#39; is not castable to &#39;{typeof(T).Name}&#39;&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> argument;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateData_html_a907068510d4335d178b4d9c00b503f1e"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e">JUtils.FSM.StateData.Has</a></div><div class="ttdeci">bool Has(int index)</div><div class="ttdoc">See if the index exists</div><div class="ttdef"><b>Definition:</b> <a href="StateData_8cs_source.html#l00080">StateData.cs:80</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">JUtils.FSM.StateData.Arguments</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e">JUtils.FSM.StateData.Has()</a>.</p>
+<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">JUtils.FSM.StateData.arguments</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e">JUtils.FSM.StateData.Has()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -233,12 +258,12 @@ Here is the call graph for this function:</div>
 
 <p>See if the index exists </p>
 
-<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00054">54</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordflow">return</span> index &lt; <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">Arguments</a>.Length;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00080">80</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordflow">return</span> index &lt; <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">arguments</a>.Length;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">JUtils.FSM.StateData.Arguments</a>.</p>
+<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">JUtils.FSM.StateData.arguments</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -278,12 +303,12 @@ Here is the caller graph for this function:</div>
 
 <p>See if the index exists, and if its of the same type </p>
 
-<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00063">63</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> index &lt; <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">Arguments</a>.Length &amp;&amp; <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">Arguments</a>[index] is T;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00089">89</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordflow">return</span> index &lt; <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">arguments</a>.Length &amp;&amp; <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">arguments</a>[index] is T;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">JUtils.FSM.StateData.Arguments</a>.</p>
+<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">JUtils.FSM.StateData.arguments</a>.</p>
 
 </div>
 </div>
@@ -323,19 +348,19 @@ Here is the caller graph for this function:</div>
 
 <p>Try get the argument at an index </p>
 
-<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00038">38</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            argument = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e">Has</a>(index)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordtype">object</span> obj = <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">Arguments</a>[index];</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">if</span> (obj is not T obj1) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            argument = obj1;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00064">64</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            argument = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e">Has</a>(index)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordtype">object</span> obj = <a class="code" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">arguments</a>[index];</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">if</span> (obj is not T obj1) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            argument = obj1;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a034d45d172231b96786eb8e25bb3d001">JUtils.FSM.StateData.Arguments</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e">JUtils.FSM.StateData.Has()</a>.</p>
+<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a73df76e4fca14a4f8d32d2d686b02452">JUtils.FSM.StateData.arguments</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateData.html#a907068510d4335d178b4d9c00b503f1e">JUtils.FSM.StateData.Has()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -349,19 +374,19 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a034d45d172231b96786eb8e25bb3d001"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a034d45d172231b96786eb8e25bb3d001">&#9670;&nbsp;</a></span>Arguments</h2>
+<a id="a73df76e4fca14a4f8d32d2d686b02452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73df76e4fca14a4f8d32d2d686b02452">&#9670;&nbsp;</a></span>arguments</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">readonly object [] JUtils.FSM.StateData.Arguments</td>
+          <td class="memname">readonly object [] JUtils.FSM.StateData.arguments</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00009">9</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="StateData_8cs_source.html#l00032">32</a> of file <a class="el" href="StateData_8cs_source.html">StateData.cs</a>.</p>
 
 </div>
 </div>

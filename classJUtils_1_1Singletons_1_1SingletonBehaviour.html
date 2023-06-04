@@ -102,7 +102,7 @@ Inheritance diagram for JUtils.Singletons.SingletonBehaviour&lt; T &gt;:</div>
 <map name="aJUtils_8Singletons_8SingletonBehaviour_3_01T_01_4_inherit__map" id="aJUtils_8Singletons_8SingletonBehaviour_3_01T_01_4_inherit__map">
 <area shape="rect" title="Your simple and everyday singleton class" alt="" coords="45,80,239,121"/>
 <area shape="rect" title=" " alt="" coords="5,5,129,32"/>
-<area shape="rect" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html" title=" " alt="" coords="154,5,279,32"/>
+<area shape="rect" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html" title="Simple interface for working with singletons" alt="" coords="154,5,279,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -112,7 +112,7 @@ Collaboration diagram for JUtils.Singletons.SingletonBehaviour&lt; T &gt;:</div>
 <map name="aJUtils_8Singletons_8SingletonBehaviour_3_01T_01_4_coll__map" id="aJUtils_8Singletons_8SingletonBehaviour_3_01T_01_4_coll__map">
 <area shape="rect" title="Your simple and everyday singleton class" alt="" coords="45,80,239,121"/>
 <area shape="rect" title=" " alt="" coords="5,5,129,32"/>
-<area shape="rect" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html" title=" " alt="" coords="154,5,279,32"/>
+<area shape="rect" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html" title="Simple interface for working with singletons" alt="" coords="154,5,279,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -125,11 +125,10 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:a68949dc3c7436551904d0ada071991dd"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Singletons_1_1SingletonBehaviour.html#a68949dc3c7436551904d0ada071991dd">Instance</a><code> [get]</code></td></tr>
-<tr class="separator:a68949dc3c7436551904d0ada071991dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header properties_interfaceJUtils_1_1Singletons_1_1ISingleton"><td colspan="2" onclick="javascript:toggleInherit('properties_interfaceJUtils_1_1Singletons_1_1ISingleton')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html">JUtils.Singletons.ISingleton&lt; T &gt;</a></td></tr>
-<tr class="memitem:a74e581ebe42200146c2e1e5ea8425c85 inherit properties_interfaceJUtils_1_1Singletons_1_1ISingleton"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interfaceJUtils_1_1Singletons_1_1ISingleton.html#a74e581ebe42200146c2e1e5ea8425c85">Instance</a><code> [get]</code></td></tr>
-<tr class="separator:a74e581ebe42200146c2e1e5ea8425c85 inherit properties_interfaceJUtils_1_1Singletons_1_1ISingleton"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70e1cf70a82fe6198151ab3d5d9b5df8"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Singletons_1_1SingletonBehaviour.html#a70e1cf70a82fe6198151ab3d5d9b5df8">instance</a><code> [get]</code></td></tr>
+<tr class="separator:a70e1cf70a82fe6198151ab3d5d9b5df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68ea1a7f56e782cb65b4d5e44f221abd"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Singletons_1_1SingletonBehaviour.html#a68ea1a7f56e782cb65b4d5e44f221abd">exists</a><code> [get]</code></td></tr>
+<tr class="separator:a68ea1a7f56e782cb65b4d5e44f221abd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Your simple and everyday singleton class </p>
@@ -168,13 +167,13 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SingletonBehaviour_8cs_source.html#l00016">16</a> of file <a class="el" href="SingletonBehaviour_8cs_source.html">SingletonBehaviour.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">if</span> (SingletonManager.SetSingleton(<span class="keyword">this</span>)) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            Destroy(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            Debug.LogWarning(<span class="stringliteral">&quot;Instance already exists!&quot;</span>);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="SingletonBehaviour_8cs_source.html#l00017">17</a> of file <a class="el" href="SingletonBehaviour_8cs_source.html">SingletonBehaviour.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordflow">if</span> (SingletonManager.SetSingleton(<span class="keyword">this</span>)) <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            Destroy(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            Debug.LogWarning(<span class="stringliteral">&quot;Instance already exists!&quot;</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -201,16 +200,18 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SingletonBehaviour_8cs_source.html#l00025">25</a> of file <a class="el" href="SingletonBehaviour_8cs_source.html">SingletonBehaviour.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            SingletonManager.RemoveSingleton(<span class="keyword">this</span>);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="SingletonBehaviour_8cs_source.html#l00026">26</a> of file <a class="el" href="SingletonBehaviour_8cs_source.html">SingletonBehaviour.cs</a>.</p>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">if</span> (SingletonManager.RemoveSingleton(<span class="keyword">this</span>)) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                _instance = <span class="keyword">null</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
-<a id="a68949dc3c7436551904d0ada071991dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68949dc3c7436551904d0ada071991dd">&#9670;&nbsp;</a></span>Instance</h2>
+<a id="a68ea1a7f56e782cb65b4d5e44f221abd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68ea1a7f56e782cb65b4d5e44f221abd">&#9670;&nbsp;</a></span>exists</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,7 +220,31 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="classJUtils_1_1Singletons_1_1SingletonBehaviour.html">JUtils.Singletons.SingletonBehaviour</a>&lt; T &gt;.Instance</td>
+          <td class="memname">bool <a class="el" href="classJUtils_1_1Singletons_1_1SingletonBehaviour.html">JUtils.Singletons.SingletonBehaviour</a>&lt; T &gt;.exists</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="SingletonBehaviour_8cs_source.html#l00014">14</a> of file <a class="el" href="SingletonBehaviour_8cs_source.html">SingletonBehaviour.cs</a>.</p>
+
+</div>
+</div>
+<a id="a70e1cf70a82fe6198151ab3d5d9b5df8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70e1cf70a82fe6198151ab3d5d9b5df8">&#9670;&nbsp;</a></span>instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="classJUtils_1_1Singletons_1_1SingletonBehaviour.html">JUtils.Singletons.SingletonBehaviour</a>&lt; T &gt;.instance</td>
         </tr>
       </table>
   </td>

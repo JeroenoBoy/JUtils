@@ -98,10 +98,10 @@ $(document).ready(function(){initNavTree('GizmoUtils_8cs_source.html',''); initR
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classJUtils_1_1GizmoUtils.html">    9</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class </span><a class="code" href="classJUtils_1_1GizmoUtils.html">GizmoUtils</a></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classJUtils_1_1GizmoUtils.html#aa3d1a776563f1fd3f8dd5921a4a4e9b5">   14</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classJUtils_1_1GizmoUtils.html#aa3d1a776563f1fd3f8dd5921a4a4e9b5">DrawVector</a>(Vector3 position, Vector3 Vector, Color color)</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classJUtils_1_1GizmoUtils.html#a109fcfcb82cb001773cd933f9c94f5e1">   14</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classJUtils_1_1GizmoUtils.html#a109fcfcb82cb001773cd933f9c94f5e1">DrawVector</a>(Vector3 position, Vector3 vector, Color color)</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#if UNITY_EDITOR</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            Vector3 target = position + Vector;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            Vector3 target = position + vector;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            Handles.color = color;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            Handles.DrawLine(position, target);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            Handles.DrawSolidDisc(target, Vector3.up, 0.3f);</div>
@@ -122,15 +122,18 @@ $(document).ready(function(){initNavTree('GizmoUtils_8cs_source.html',''); initR
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                GUI.Label(<span class="keyword">new</span> Rect(screenPos.x - size.x / 2, -screenPos.y + view.position.height + 4, size.x, size.y), text);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">catch</span> (Exception _) { }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            Handles.EndGUI();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">catch</span> (Exception _1) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                _ = _1;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            Handles.EndGUI();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
 <div class="ttc" id="aclassJUtils_1_1GizmoUtils_html"><div class="ttname"><a href="classJUtils_1_1GizmoUtils.html">JUtils.GizmoUtils</a></div><div class="ttdef"><b>Definition:</b> <a href="GizmoUtils_8cs_source.html#l00009">GizmoUtils.cs:10</a></div></div>
+<div class="ttc" id="aclassJUtils_1_1GizmoUtils_html_a109fcfcb82cb001773cd933f9c94f5e1"><div class="ttname"><a href="classJUtils_1_1GizmoUtils.html#a109fcfcb82cb001773cd933f9c94f5e1">JUtils.GizmoUtils.DrawVector</a></div><div class="ttdeci">static void DrawVector(Vector3 position, Vector3 vector, Color color)</div><div class="ttdoc">Draws a ray with a disc relative to the position and the input ray</div><div class="ttdef"><b>Definition:</b> <a href="GizmoUtils_8cs_source.html#l00014">GizmoUtils.cs:14</a></div></div>
 <div class="ttc" id="aclassJUtils_1_1GizmoUtils_html_a5570e363d6f0c80955628cd1de4f6db0"><div class="ttname"><a href="classJUtils_1_1GizmoUtils.html#a5570e363d6f0c80955628cd1de4f6db0">JUtils.GizmoUtils.DrawString</a></div><div class="ttdeci">static void DrawString(string text, Vector3 worldPos, Color? colour=null)</div><div class="ttdoc">Draw text at a point in the world</div><div class="ttdef"><b>Definition:</b> <a href="GizmoUtils_8cs_source.html#l00032">GizmoUtils.cs:32</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1GizmoUtils_html_aa3d1a776563f1fd3f8dd5921a4a4e9b5"><div class="ttname"><a href="classJUtils_1_1GizmoUtils.html#aa3d1a776563f1fd3f8dd5921a4a4e9b5">JUtils.GizmoUtils.DrawVector</a></div><div class="ttdeci">static void DrawVector(Vector3 position, Vector3 Vector, Color color)</div><div class="ttdoc">Draws a ray with a disc relative to the position and the input ray</div><div class="ttdef"><b>Definition:</b> <a href="GizmoUtils_8cs_source.html#l00014">GizmoUtils.cs:14</a></div></div>
 <div class="ttc" id="anamespaceJUtils_html"><div class="ttname"><a href="namespaceJUtils.html">JUtils</a></div><div class="ttdef"><b>Definition:</b> <a href="Button_8cs_source.html#l00014">Button.cs:15</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

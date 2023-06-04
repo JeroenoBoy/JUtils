@@ -1,15 +1,18 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$interfaceJUtils_1_1Singletons_1_1ISingleton.html" title=" " alt="" coords="5,13,240,39"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1Singletons_1_1SingletonBehaviour.html" title="Your simple and everyday singleton class" alt="" coords="307,5,500,47"/>
-<area shape="rect" id="node3" title=" " alt="" coords="61,261,185,287"/>
-<area shape="rect" id="node4" href="$classJUtils_1_1Components_1_1BillboardCamera.html" title=" " alt="" coords="301,71,505,112"/>
-<area shape="rect" id="node5" href="$classJUtils_1_1Components_1_1CopyPosition.html" title=" " alt="" coords="288,137,519,163"/>
-<area shape="rect" id="node6" href="$classJUtils_1_1Components_1_1DontDestroyOnLoad.html" title=" " alt="" coords="289,188,517,229"/>
-<area shape="rect" id="node7" href="$classJUtils_1_1Components_1_1HealthComponent.html" title=" " alt="" coords="309,253,498,295"/>
-<area shape="rect" id="node8" href="$classJUtils_1_1Components_1_1ObjectPool.html" title=" " alt="" coords="295,319,511,346"/>
-<area shape="rect" id="node9" href="$classJUtils_1_1Components_1_1PoolItem.html" title=" " alt="" coords="301,370,505,397"/>
-<area shape="rect" id="node10" href="$classJUtils_1_1FSM_1_1State.html" title=" " alt="" coords="323,487,483,528"/>
-<area shape="rect" id="node12" href="$classJUtils_1_1Singletons_1_1SingletonManager.html" title="Centralized singleton to fix reference &amp; hot reload issues issues" alt="" coords="307,421,500,463"/>
-<area shape="rect" id="node11" href="$classJUtils_1_1FSM_1_1StateMachine.html" title=" " alt="" coords="567,494,747,521"/>
-<area shape="rect" id="node13" title=" " alt="" coords="95,494,151,521"/>
+<area shape="rect" id="node1" href="$interfaceJUtils_1_1Singletons_1_1ISingleton.html" title="Simple interface for working with singletons" alt="" coords="5,71,240,98"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1Singletons_1_1ScriptableObjectSingleton.html" title="A ScriptableObject version of a singleton" alt="" coords="305,5,502,47"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1Singletons_1_1SingletonBehaviour.html" title="Your simple and everyday singleton class" alt="" coords="307,71,500,112"/>
+<area shape="rect" id="node4" title=" " alt="" coords="61,355,185,382"/>
+<area shape="rect" id="node5" href="$classJUtils_1_1Components_1_1BillboardCamera.html" title="Bill&#45;boarding component which allows for advanced anchoring and other behaviours" alt="" coords="301,136,505,177"/>
+<area shape="rect" id="node6" href="$classJUtils_1_1Components_1_1CopyPosition.html" title="Copies this position to one of another object" alt="" coords="288,202,519,229"/>
+<area shape="rect" id="node7" href="$classJUtils_1_1Components_1_1DontDestroyOnLoad.html" title="Runs the DDOL function on this gameobject, this is a more declerative way to mark an object for DDOL" alt="" coords="289,253,517,295"/>
+<area shape="rect" id="node8" href="$classJUtils_1_1Components_1_1HealthComponent.html" title="A simple yet versatile HealthComponent implementation that uses SendMessage to send its heal &amp; damage..." alt="" coords="309,319,498,360"/>
+<area shape="rect" id="node9" href="$classJUtils_1_1Components_1_1ObjectPool.html" title="A simple implementation for an object pool" alt="" coords="295,385,511,411"/>
+<area shape="rect" id="node10" href="$classJUtils_1_1Components_1_1PoolItem.html" title="A behaviour that is used with the ObjectPool. Other behaviours can listen to the events this class se..." alt="" coords="301,435,505,462"/>
+<area shape="rect" id="node11" href="$classJUtils_1_1FSM_1_1State.html" title="A simple state that can be driven by stateMachine" alt="" coords="323,617,483,659"/>
+<area shape="rect" id="node13" href="$classJUtils_1_1Singletons_1_1SingletonManager.html" title="Centralized singleton to fix reference &amp; hot reload issues issues" alt="" coords="307,487,500,528"/>
+<area shape="rect" id="node14" href="$classJUtils_1_1Singletons_1_1StaticListBehaviour.html" title="A MonoBehaviour where you can easily access all of its instances" alt="" coords="319,552,488,593"/>
+<area shape="rect" id="node12" href="$classJUtils_1_1FSM_1_1StateMachine.html" title="A mono&#45;behaviour state&#45;machine that can also be used as a state" alt="" coords="567,625,747,651"/>
+<area shape="rect" id="node15" title=" " alt="" coords="58,13,187,39"/>
+<area shape="rect" id="node16" title=" " alt="" coords="95,625,151,651"/>
 </map>
