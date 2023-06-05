@@ -67,14 +67,7 @@ namespace JUtils.UI
             uiDocument.enabled = true;
             rootElement        = uiDocument.rootVisualElement;
 
-            try {
-                OnActivate();
-            }
-            catch (Exception e) {
-                Debug.LogWarning($"Error happened while activating {GetType()}, deactivating", this);
-                Debug.LogException(e);
-                Deactivate();
-            }
+            OnActivate();
         }
 
 
@@ -86,17 +79,12 @@ namespace JUtils.UI
             if (!active) return;
             active = false;
 
+            OnDeactivate();
+
             if (enabledBasedOnActive) gameObject.SetActive(false);
-
+            
             uiDocument.enabled = false;
-
-            try {
-                OnDeactivate();
-            }
-            catch (Exception e) {
-                Debug.LogWarning($"Error happened while deactivating {GetType()}", this);
-                Debug.LogException(e);
-            }
+            rootElement        = null;
         }
         
 
