@@ -19,7 +19,7 @@ namespace JUtils.Singletons
             if (SingletonManager.SetSingleton(this)) return;
             
             Destroy(this);
-            Debug.LogWarning("Instance already exists!");
+            Debug.LogError("Instance already exists!");
         }
 
 

@@ -13,27 +13,32 @@ namespace JUtils.UI
         [SerializeField] private UIListElement<T> _listElement;
 
         public List<UIListElement<T>>        elements       { get; } = new ();
-        public IEnumerable<UIListElement<T>> activeElements => elements.Where(x => x.isActive);
+        public IEnumerable<UIListElement<T>> activeElements => elements.Where(x => x.active);
 
         public T[] data { get; private set; } = Array.Empty<T>();
+
+
+        protected override bool autoFindChildren   => false;
+        protected override bool autoEnableElements => false;
 
 
         public void Expand(int count)
         {
             for (int i = count; i --> 0;) {
                 elements.Add(Instantiate(_listElement.gameObject, Vector3.zero, Quaternion.identity, transform).GetComponent<UIListElement<T>>());
+                AddChild(elements[^1], false);
             }
         }
         
         
         public void SetData(IEnumerable<T> data)
         {
-            if (!isActive) {
+            if (!active) {
                 Debug.LogError("Please activate this UIElement before setting the data!", this);
                 return;
             }
             
-            T[] arrayData = data.ToArray();
+            T[] arrayData = data is T[] tArr ? tArr : data.ToArray();
             OnDataChanged(arrayData);
             this.data = arrayData;
         }
@@ -57,7 +62,7 @@ namespace JUtils.UI
 
         public void Activate(ListView element, IEnumerable<T> data)
         {
-            if (isActive) { return; }
+            if (active) { return; }
             Activate(element);
             SetData(data);
         }
@@ -65,7 +70,7 @@ namespace JUtils.UI
 
         public override void Deactivate()
         {
-            if (!isActive) { return; }
+            if (!active) { return; }
             SetData(Array.Empty<T>());
             base.Deactivate();
         }

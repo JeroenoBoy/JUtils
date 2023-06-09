@@ -11,94 +11,53 @@ namespace JUtils.UI
     /// Base component for creating UI with JUtils, this should be the entry point fot a UIWindow
     /// </summary>
     [RequireComponent(typeof(UIDocument))]
-    public abstract class UIWindow<T> : SingletonBehaviour<T> where T : UIWindow<T>
+    public abstract class UIWindow<T> : UIElement, ISingleton<T> where T : UIWindow<T>
     {
-        [SerializeField] private bool enabledBasedOnActive = true;
+        private static T _instance;
+        public static  T instance => _instance ??= SingletonManager.GetSingleton<T>();
 
-        public    bool          active        { get; private set; }
-        protected UIDocument    uiDocument    { get; private set; }
-        protected VisualElement rootElement   { get; private set; }
-        protected bool          isInitialized { get; private set; }
+        public UIDocument    uiDocument  { get; private set; }
 
 
-        /// <summary>
-        /// Start initializing this UIWindow
-        /// </summary>
-        /// <returns>True if the window has been initialized</returns>
-        public bool Initialize()
-        {
-            if (isInitialized) return true;
-
-            try {
-                OnInitialize();
-                isInitialized = true;
-            }
-            catch (Exception e) {
-                Debug.LogWarning($"Error happened while initializing {GetType()}", this);
-                Debug.LogException(e);
-            }
-
-            return isInitialized;
-        }
-
-
-        /// <summary>
-        /// Set the window active based on the active parameter
-        /// </summary>
         public void SetActive(bool active)
         {
             if (active) Activate();
             else Deactivate();
         }
-        
 
-        /// <summary>
-        /// Activate this UIWindow
-        /// </summary>
+
         public void Activate()
-        {
-            if (active) return;
-            if (!Initialize()) return;
-
-            active = true;
-
-            if (enabledBasedOnActive) gameObject.SetActive(true);
-
-            uiDocument.enabled = true;
-            rootElement        = uiDocument.rootVisualElement;
-
-            OnActivate();
+        { 
+            if (active) { return; }
+            
+            gameObject.SetActive(true);
+            base.Activate(uiDocument.rootVisualElement);
         }
 
 
         /// <summary>
-        /// Deactivate this UIWindow
+        /// element param will not get used!!
         /// </summary>
-        public void Deactivate()
-        {
-            if (!active) return;
-            active = false;
-
-            OnDeactivate();
-
-            if (enabledBasedOnActive) gameObject.SetActive(false);
-            
-            uiDocument.enabled = false;
-            rootElement        = null;
-        }
-        
-
-        protected abstract void OnInitialize();
-        protected abstract void OnActivate();
-        protected abstract void OnDeactivate();
+        [Obsolete("Use Activate() instead")]
+        public override void Activate(VisualElement element) => Activate();
 
 
         protected override void Awake()
         {
+            if (this is not T) {
+                throw new Exception($"{GetType()} does not match typeof {nameof(T)} ({typeof(T)})");
+            }
+            
+            if (!SingletonManager.SetSingleton(this)) {
+                Destroy(this); 
+                Debug.LogError("Instance already exists!");
+                return;
+            }
+            
+            _instance = this as T;
+            
+            uiDocument = GetComponent<UIDocument>();
             base.Awake();
-            uiDocument  = GetComponent<UIDocument>();
-            uiDocument.enabled = false;
-            if (enabledBasedOnActive) gameObject.SetActive(false);
         }
     }
 }

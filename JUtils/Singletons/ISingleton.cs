@@ -10,5 +10,6 @@ namespace JUtils.Singletons
     public interface ISingleton<T>
         where T : Object, ISingleton<T>
     {
+        public static T instance;
     }
 }

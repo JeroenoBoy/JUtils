@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System;
+using System.Collections.Generic;
 using JUtils.FSM;
 using UnityEngine;
 
@@ -74,6 +75,20 @@ namespace JUtils.Extensions
         {
             component = self.GetComponentInDirectChildren<T>();
             return component;
+        }
+
+
+        public static List<T> GetComponentsInDirectChildren<T>(this Component self)
+        {
+            List<T> list = new (self.transform.childCount / 2);
+
+            foreach (Transform child in self.transform) {
+                if (child.TryGetComponent(out T component)) {
+                    list.Add(component);
+                }
+            }
+
+            return list;
         }
 
 
