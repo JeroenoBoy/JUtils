@@ -22,8 +22,6 @@ namespace JUtils.UI
         /// Prefer using <see cref="AddChild(UIElement, bool)"/> and <see cref="RemoveChild"/> to add / remove children from this UIElement
         /// </summary>
         public List<UIElementChildData> children { get; private set; } = new ();
-
-
         
         
         #region Options
@@ -48,6 +46,9 @@ namespace JUtils.UI
         #endregion
 
 
+        private bool _didActivateOnce;
+
+
         public void TryInitialize()
         {
             if (isInitialized) return;
@@ -62,6 +63,7 @@ namespace JUtils.UI
         public virtual void Activate(VisualElement element)
         {
             if(active) return;
+            _didActivateOnce = true;
             if (setGoBasedOnActive) gameObject.SetActive(true);
             
             TryInitialize();
@@ -269,7 +271,7 @@ namespace JUtils.UI
 
         protected virtual void Awake()
         {
-            if (!active && setGoBasedOnActive) {
+            if (!_didActivateOnce && setGoBasedOnActive) {
                 gameObject.SetActive(false);
             } 
         }

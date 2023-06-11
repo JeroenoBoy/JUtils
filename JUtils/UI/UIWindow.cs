@@ -38,7 +38,6 @@ namespace JUtils.UI
         /// <summary>
         /// element param will not get used!!
         /// </summary>
-        [Obsolete("Use Activate() instead")]
         public override void Activate(VisualElement element) => Activate();
 
 

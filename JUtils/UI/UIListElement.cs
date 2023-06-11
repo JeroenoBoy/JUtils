@@ -17,6 +17,8 @@ namespace JUtils.UI
 
         public void Activate(VisualElement parent, TData data)
         {
+            if (active) return;
+            
             this.data = data;
             VisualElement newElement = _visualElementAsset.CloneTree().contentContainer;
             parent.Add(newElement);
