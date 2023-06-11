@@ -11,7 +11,7 @@ namespace JUtils.Singletons
     {
         private static T    _instance;
         public static  T    instance => _instance ??= SingletonManager.GetSingleton<T>();
-        public static  bool exists   => instance != null; 
+        public static  bool exists   => instance != null;
 
 
         protected virtual void Awake()
