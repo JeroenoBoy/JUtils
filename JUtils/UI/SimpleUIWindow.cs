@@ -109,7 +109,7 @@ namespace JUtils.UI
         /// </summary>
         internal sealed class UIWindowStore : SingletonBehaviour<UIWindowStore>
         {
-            public static SerializableDictionary<string, SimpleUIWindow> GetOrCreate()
+            internal static SerializableDictionary<string, SimpleUIWindow> GetOrCreate()
             {
                 return !exists ? JUtilsObject.Add<UIWindowStore>().windowsStore : instance.windowsStore;
             }
