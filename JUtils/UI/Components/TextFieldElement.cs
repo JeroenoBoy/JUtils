@@ -22,7 +22,7 @@ namespace JUtils.UI
     /// </code></example>
     public abstract class TextFieldElement : UIElement<TextField>
     {
-        public override void Activate(VisualElement element)
+        protected override void OnActivate()
         {
             if (active) return;
             base.Activate(element);

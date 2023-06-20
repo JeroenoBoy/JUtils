@@ -22,15 +22,11 @@ namespace JUtils.UI
     /// </code></example>
     public abstract class ButtonElement : UIElement<Button>
     {
-        public override void Activate(VisualElement element)
+        protected override void OnActivate()
         {
-            if (active) return;
-            base.Activate(element);
-
-            Button button = this.element;
-            button.RegisterCallback<ClickEvent>(OnClick);
-            button.RegisterCallback<FocusInEvent>(OnFocusIn);
-            button.RegisterCallback<FocusOutEvent>(OnFocusOut);
+            element.RegisterCallback<ClickEvent>(OnClick);
+            element.RegisterCallback<FocusInEvent>(OnFocusIn);
+            element.RegisterCallback<FocusOutEvent>(OnFocusOut);
         }
 
 
