@@ -18,6 +18,7 @@ namespace JUtils.UI
         protected bool          isInitialized { get; private set; }
         public    bool          active      { get; internal set; }
         public    UIElement     parent        { get; private set; }
+        
         /// <summary>
         /// Prefer using <see cref="AddChild(UIElement, bool)"/> and <see cref="RemoveChild"/> to add / remove children from this UIElement
         /// </summary>
@@ -60,6 +61,10 @@ namespace JUtils.UI
         }
 
 
+        /// <summary>
+        /// Activate this UIElement and its children
+        /// </summary>
+        /// <param name="element">The root visual element of this UIElement</param>
         public virtual void Activate(VisualElement element)
         {
             if(active) return;
@@ -75,6 +80,9 @@ namespace JUtils.UI
         }
         
 
+        /// <summary>
+        /// Deactivates this UIElement and its children
+        /// </summary>
         public virtual void Deactivate()
         {
             if (!active) return;
@@ -84,6 +92,19 @@ namespace JUtils.UI
             
             OnDeactivate();
             active = false;
+        }
+
+
+        /// <summary>
+        /// Create a new GameObject and add the component of type T to it
+        /// </summary>
+        public T AddUIElement<T>(string name = null) where T : UIElement
+        {
+            GameObject newObj = new GameObject(name ?? nameof(T));
+            T uiElement = newObj.AddComponent<T>();
+            newObj.transform.parent = transform;
+            AddChild(uiElement);
+            return uiElement;
         }
 
 
