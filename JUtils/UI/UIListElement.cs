@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 
@@ -9,9 +10,12 @@ namespace JUtils.UI
     {
         [SerializeField] private VisualTreeAsset _visualElementAsset;
         
-        
         public TData data { get; set; }
+
+        protected virtual FindMethod method            { get; set; }
+        protected virtual bool       autoFindTreeAsset => true;
         
+            
         protected abstract void OnActivate(TData data);
 
 
@@ -20,7 +24,7 @@ namespace JUtils.UI
             if (active) return;
             
             this.data = data;
-            VisualElement newElement = _visualElementAsset.CloneTree().contentContainer;
+            VisualElement newElement = CreateElement(parent);
             parent.Add(newElement);
             Activate(newElement);
         }
@@ -32,10 +36,62 @@ namespace JUtils.UI
         }
 
 
-        public override void Deactivate()
+        protected override void OnDeactivate()
         {
-            base.Deactivate();
             data = default;
+        }
+
+
+        protected override void Awake()
+        {
+            base.Awake();
+
+            if (autoFindTreeAsset && _visualElementAsset != null) {
+                method = FindMethod.Field;
+            }
+            else {
+                method = FindMethod.Unknown;
+            }
+        }
+
+
+        public VisualElement CreateElement(VisualElement parent)
+        {
+            if ((autoFindTreeAsset && method == FindMethod.Unknown) || (method == FindMethod.Hierarchy && _visualElementAsset == null)) {
+                _visualElementAsset = FindAsset(parent);
+                if (_visualElementAsset != null) method = FindMethod.Hierarchy;
+            }
+
+            return method switch
+            {
+                FindMethod.Field     => _visualElementAsset.CloneTree(),
+                FindMethod.Hierarchy => _visualElementAsset.CloneTree(),
+                _                    => throw new ArgumentOutOfRangeException()
+            };
+        }
+
+
+        private VisualTreeAsset FindAsset(VisualElement parent)
+        {
+            for (int i = 0; i < parent.childCount; i++) {
+                VisualElement targetParent = parent.ElementAt(i);
+                VisualElement target = targetParent.ElementAt(0);
+                if (target == null || !target.visualTreeAssetSource) continue;
+                
+                targetParent.SetDisplay(false);
+                return target.visualTreeAssetSource;
+            }
+
+            return null;
+        }
+
+
+
+        public enum FindMethod
+        {
+            Unknown,
+            Field,
+            Hierarchy
         }
     }
 

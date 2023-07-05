@@ -68,11 +68,9 @@ namespace JUtils.UI
         }
 
 
-        public override void Deactivate()
+        protected override void OnDeactivate()
         {
-            if (!active) { return; }
             SetData(Array.Empty<T>());
-            base.Deactivate();
         }
     }
 }

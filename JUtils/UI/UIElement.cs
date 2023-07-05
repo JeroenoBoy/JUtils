@@ -316,6 +316,10 @@ namespace JUtils.UI
 
         public override void Activate(VisualElement element)
         {
+            if (element is null) {
+                throw new Exception("VisualElement is null!");
+            }
+            
             if (element is not T castedElement) {
                 throw new Exception($"VisualElement was not of type {typeof(T)}");
             }
