@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using JUtils.Internal;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.Serialization;
 using Object = UnityEngine.Object;
 
 
@@ -19,7 +17,7 @@ namespace JUtils.Singletons
 
 
         /// <summary>
-        /// Get a singleton from this class
+        /// Get a singleton stored in the manager
         /// </summary>
         public static T GetSingleton<T>() where T : Object, ISingleton<T>
         {
@@ -27,6 +25,9 @@ namespace JUtils.Singletons
         }
 
 
+        /// <summary>
+        /// Try get a singleton stored in the manager
+        /// </summary>
         public static bool TryGetSingleton<T>(out T singleton) where T : Object, ISingleton<T>
         {
             singleton = GetSingleton<T>();

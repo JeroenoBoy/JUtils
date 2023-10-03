@@ -74,6 +74,5 @@ namespace Example
 
 ## Liscence
 
-JUtils versions **1.9.1 and up** have been licensed under **GPL-3.0**
-
+JUtils versions **1.9.3 and up** have been licensed under **LGPL-3.0**
 JUtils versions < 1.9.0 have been licensed under MIT
