@@ -109,8 +109,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Gives threshold comparing functions for Colors </p>
-
-<p class="definition">Definition at line <a class="el" href="ColorExtensions_8cs_source.html#l00012">12</a> of file <a class="el" href="ColorExtensions_8cs_source.html">ColorExtensions.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aaaa06b77cbd6ccb6185833c258120163"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaaa06b77cbd6ccb6185833c258120163">&#9670;&nbsp;</a></span>Equals()</h2>
@@ -154,13 +152,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Compare 2 colors with a threshold, checks the difference between all separate RGB values </p>
 
-<p class="definition">Definition at line <a class="el" href="ColorExtensions_8cs_source.html#l00023">23</a> of file <a class="el" href="ColorExtensions_8cs_source.html">ColorExtensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">return</span> CompareThreshold(<span class="keyword">self</span>.r, other.r, threshold) &amp;&amp;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                   CompareThreshold(<span class="keyword">self</span>.g, other.g, threshold) &amp;&amp;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                   CompareThreshold(<span class="keyword">self</span>.b, other.b, threshold);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a9caa46df648a875171da78c23cd94b58"></a>
@@ -205,15 +196,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Compare 2 colors with a threshold, combines the colors and compares </p>
 
-<p class="definition">Definition at line <a class="el" href="ColorExtensions_8cs_source.html#l00034">34</a> of file <a class="el" href="ColorExtensions_8cs_source.html">ColorExtensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">return</span> CompareThreshold(</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="keyword">self</span>.r + <span class="keyword">self</span>.g + <span class="keyword">self</span>.b,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                other.r + other.g + other.b,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                threshold</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            );</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="ac239e351a7cdace933dcacd29e6bf31b"></a>
@@ -258,15 +240,10 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Check if all colors in an enumerable matches the other color. Using <a class="el" href="classJUtils_1_1Extensions_1_1ColorExtensions.html#aaaa06b77cbd6ccb6185833c258120163" title="Compare 2 colors with a threshold, checks the difference between all separate RGB values">Equals</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="ColorExtensions_8cs_source.html#l00047">47</a> of file <a class="el" href="ColorExtensions_8cs_source.html">ColorExtensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">self</span>.Any(color =&gt; color.Equals(other, threshold));</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Extensions/<a class="el" href="ColorExtensions_8cs_source.html">ColorExtensions.cs</a></li>
+<li><a class="el" href="ColorExtensions_8cs.html">ColorExtensions.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

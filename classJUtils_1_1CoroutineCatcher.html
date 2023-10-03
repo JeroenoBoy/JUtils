@@ -150,10 +150,8 @@ Properties</h2></td></tr>
 <div class="line"> </div>
 <div class="line">    playerMovement.UnFreeze();</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassJUtils_1_1CoroutineCatcher_html_af2713887011d66dc7bd6163c124eb6e0"><div class="ttname"><a href="classJUtils_1_1CoroutineCatcher.html#af2713887011d66dc7bd6163c124eb6e0">JUtils.CoroutineCatcher.CoroutineCatcher</a></div><div class="ttdeci">CoroutineCatcher(IEnumerator coroutine)</div><div class="ttdoc">This allows you to catch errors in enumerators</div><div class="ttdef"><b>Definition:</b> <a href="Routines_8cs_source.html#l00128">Routines.cs:128</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00119">119</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="ttc" id="aclassJUtils_1_1CoroutineCatcher_html_af2713887011d66dc7bd6163c124eb6e0"><div class="ttname"><a href="classJUtils_1_1CoroutineCatcher.html#af2713887011d66dc7bd6163c124eb6e0">JUtils.CoroutineCatcher.CoroutineCatcher</a></div><div class="ttdeci">CoroutineCatcher(IEnumerator coroutine)</div><div class="ttdoc">This allows you to catch errors in enumerators</div><div class="ttdef"><b>Definition:</b> Routines.cs:128</div></div>
+</div><!-- fragment --></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af2713887011d66dc7bd6163c124eb6e0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2713887011d66dc7bd6163c124eb6e0">&#9670;&nbsp;</a></span>CoroutineCatcher()</h2>
 
@@ -180,11 +178,6 @@ Properties</h2></td></tr>
 
 <p>This allows you to catch errors in enumerators </p>
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00128">128</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        {</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            _enumerator = coroutine;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -214,12 +207,6 @@ Properties</h2></td></tr>
 
 <p>Check if the coroutine has thrown an exception </p>
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00137">137</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        {</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            exception = _threwException;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="keywordflow">return</span> exception != <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a0acfa1d5f7bc07b66bc6718603792d80"></a>
@@ -247,21 +234,6 @@ Properties</h2></td></tr>
 
 <p>Move to the next element in the enumerator </p>
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00147">147</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">if</span> (_threwException != <span class="keyword">null</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="keywordtype">bool</span> canContinue = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                canContinue = _enumerator.MoveNext();</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <span class="keywordflow">catch</span>(Exception e) {</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                _threwException = e;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            }</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">return</span> _threwException == <span class="keyword">null</span> &amp;&amp; canContinue;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a417e8b75161303da5849fa5ede31bce6"></a>
@@ -289,11 +261,6 @@ Properties</h2></td></tr>
 
 <p>Reset the enumerator </p>
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00166">166</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            _enumerator.Reset();</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
@@ -319,12 +286,10 @@ Properties</h2></td></tr>
 
 <p>Get the current value of the enumerator </p>
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00175">175</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Misc/<a class="el" href="Routines_8cs_source.html">Routines.cs</a></li>
+<li><a class="el" href="Routines_8cs.html">Routines.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -133,8 +133,6 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A dictionary of which the values do not get lost on serialization </p>
-
-<p class="definition">Definition at line <a class="el" href="SerializableDictionary_8cs_source.html#l00014">14</a> of file <a class="el" href="SerializableDictionary_8cs_source.html">SerializableDictionary.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a306238a9962c7b0573943683c0594a4b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a306238a9962c7b0573943683c0594a4b">&#9670;&nbsp;</a></span>OnAfterDeserialize()</h2>
@@ -161,21 +159,6 @@ Public Member Functions</h2></td></tr>
 
 <p>Do not manually call </p>
 
-<p class="definition">Definition at line <a class="el" href="SerializableDictionary_8cs_source.html#l00038">38</a> of file <a class="el" href="SerializableDictionary_8cs_source.html">SerializableDictionary.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            Clear();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = _pairs.Length; i --&gt; 0;) {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                <span class="keywordflow">if</span> (_pairs[i].key == <span class="keyword">null</span>) {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    Debug.LogError($<span class="stringliteral">&quot;Key is null! -- {typeof(TKey)} might not be serializable&quot;</span>);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (_pairs[i].value == <span class="keyword">null</span>) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    Debug.LogError($<span class="stringliteral">&quot;Value is null! -- {typeof(TValue)} might not be serializable&quot;</span>);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                    Add(_pairs[i].key, _pairs[i].value);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="addebef6920c9a899173a47f7d51ee580"></a>
@@ -203,22 +186,10 @@ Public Member Functions</h2></td></tr>
 
 <p>Do not manually call </p>
 
-<p class="definition">Definition at line <a class="el" href="SerializableDictionary_8cs_source.html#l00022">22</a> of file <a class="el" href="SerializableDictionary_8cs_source.html">SerializableDictionary.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            TKey[] keys = Keys.ToArray();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            TValue[] values = Values.ToArray();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            _pairs = <span class="keyword">new</span> Pair[keys.Length];</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = _pairs.Length; i --&gt; 0;) {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                _pairs[i] = <span class="keyword">new</span> Pair(keys[i], values[i]);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Misc/<a class="el" href="SerializableDictionary_8cs_source.html">SerializableDictionary.cs</a></li>
+<li><a class="el" href="SerializableDictionary_8cs.html">SerializableDictionary.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

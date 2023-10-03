@@ -113,9 +113,7 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Make coroutines run on the JUtilsObject </p>
 <div class="fragment"><div class="line">Coroutines.RunDelay(2f, () =&gt; Debug.Log(<span class="stringliteral">&quot;Delay triggered&quot;</span>))</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="Coroutines_8cs_source.html#l00017">17</a> of file <a class="el" href="Coroutines_8cs_source.html">Coroutines.cs</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><!-- fragment --></div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="acace795f1438304d2e315b8432ec57b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acace795f1438304d2e315b8432ec57b5">&#9670;&nbsp;</a></span>Run()</h2>
 
@@ -142,11 +140,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Run a routine on the <a class="el" href="namespaceJUtils.html">JUtils</a> Object &ndash; You should always use StartCoroutine instead of the <a class="el" href="classJUtils_1_1Coroutines.html" title="Make coroutines run on the JUtilsObject">Coroutines</a>, but this can be more useful. </p>
 
-<p class="definition">Definition at line <a class="el" href="Coroutines_8cs_source.html#l00052">52</a> of file <a class="el" href="Coroutines_8cs_source.html">Coroutines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> JUtilsObject.instance.StartCoroutine(routine);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="ab385f3ac1e56dffd0c00c99febd2f36a"></a>
@@ -185,11 +178,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Run a action after a certain amount of seconds; &ndash; You should always use StartCoroutine instead of the <a class="el" href="classJUtils_1_1Coroutines.html" title="Make coroutines run on the JUtilsObject">Coroutines</a>, but this can be more useful. </p>
 
-<p class="definition">Definition at line <a class="el" href="Coroutines_8cs_source.html#l00032">32</a> of file <a class="el" href="Coroutines_8cs_source.html">Coroutines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">return</span> JUtilsObject.instance.StartCoroutine(Routines.DelayRoutine(delay, action));</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Routines.html#afb170605c87d1ff4c41716066ad76046">JUtils.Routines.DelayRoutine()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -240,11 +228,6 @@ Here is the call graph for this function:</div>
 
 <p>Run a action after a certain amount of seconds &ndash; You should always use StartCoroutine instead of the <a class="el" href="classJUtils_1_1Coroutines.html" title="Make coroutines run on the JUtilsObject">Coroutines</a>, but this can be more useful. </p>
 
-<p class="definition">Definition at line <a class="el" href="Coroutines_8cs_source.html#l00042">42</a> of file <a class="el" href="Coroutines_8cs_source.html">Coroutines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> JUtilsObject.instance.StartCoroutine(Routines.DelayRoutine(delay, action));</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Routines.html#afb170605c87d1ff4c41716066ad76046">JUtils.Routines.DelayRoutine()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -285,11 +268,6 @@ Here is the call graph for this function:</div>
 
 <p>Run a action in the next frame </p>
 
-<p class="definition">Definition at line <a class="el" href="Coroutines_8cs_source.html#l00022">22</a> of file <a class="el" href="Coroutines_8cs_source.html">Coroutines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">return</span> JUtilsObject.instance.StartCoroutine(Routines.NextFrameRoutine(action));</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Routines.html#aeb93e703f82c0bb1fe26a7713b68ed6c">JUtils.Routines.NextFrameRoutine()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -304,7 +282,7 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Misc/<a class="el" href="Coroutines_8cs_source.html">Coroutines.cs</a></li>
+<li><a class="el" href="Coroutines_8cs.html">Coroutines.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

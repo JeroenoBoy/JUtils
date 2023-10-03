@@ -122,10 +122,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:af033cd299c42709d20da7a6f279c2a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the vector with negative values  <a href="classJUtils_1_1Extensions_1_1Vector2Extensions.html#af033cd299c42709d20da7a6f279c2a77">More...</a><br /></td></tr>
 <tr class="separator:af033cd299c42709d20da7a6f279c2a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Vector2Extensions_8cs_source.html#l00007">7</a> of file <a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a46660334818a3e6ea05b3a22aab2a8ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a46660334818a3e6ea05b3a22aab2a8ec">&#9670;&nbsp;</a></span>ClampMagnitude()</h2>
 
@@ -162,11 +159,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Clamp the magnitude of the vector </p>
 
-<p class="definition">Definition at line <a class="el" href="Vector2Extensions_8cs_source.html#l00032">32</a> of file <a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">return</span> Vector2.ClampMagnitude(<span class="keyword">self</span>, maxForce);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a2457cb2f16a063fa56d3d8e414caf3cc"></a>
@@ -220,13 +212,6 @@ Static Public Member Functions</h2></td></tr>
 &lt;param name="b"&gt;The second target to check</p>
 <dl class="section return"><dt>Returns</dt><dd>The closest vector</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Vector2Extensions_8cs_source.html#l00044">44</a> of file <a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordtype">float</span> d1 = (a - <span class="keyword">self</span>).sqrMagnitude;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordtype">float</span> d2 = (b - <span class="keyword">self</span>).sqrMagnitude;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> d1 &lt; d2 ? a : b;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a92f22f7098315dd0ef8375b083c89540"></a>
@@ -256,14 +241,6 @@ Static Public Member Functions</h2></td></tr>
 <p>Floor the Vector3 </p>
 <dl class="section return"><dt>Returns</dt><dd>The rounded position</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Vector2Extensions_8cs_source.html#l00069">69</a> of file <a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> Vector2(</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                Mathf.Floor(<span class="keyword">self</span>.x),</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                Mathf.Floor(<span class="keyword">self</span>.y)</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            );</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a2ce06e8e05d1bad0fffdcbef9e10590e"></a>
@@ -302,14 +279,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Multiply the Vector3 by a scalar </p>
 
-<p class="definition">Definition at line <a class="el" href="Vector2Extensions_8cs_source.html#l00081">81</a> of file <a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        {</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> Vector2(</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keyword">self</span>.x * other.x,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                <span class="keyword">self</span>.y * other.y</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            );</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="af033cd299c42709d20da7a6f279c2a77"></a>
@@ -339,14 +308,6 @@ Static Public Member Functions</h2></td></tr>
 <p>Return the vector with negative values </p>
 <dl class="section return"><dt>Returns</dt><dd>The negative position</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Vector2Extensions_8cs_source.html#l00107">107</a> of file <a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> Vector2(</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                -Mathf.Abs(<span class="keyword">self</span>.x),</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;                -Mathf.Abs(<span class="keyword">self</span>.y)</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            );</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a1b8669fa1f5448ac02bf1a3646fe5769"></a>
@@ -376,14 +337,6 @@ Static Public Member Functions</h2></td></tr>
 <p>Return the vector with absolute values </p>
 <dl class="section return"><dt>Returns</dt><dd>The absolute position</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Vector2Extensions_8cs_source.html#l00094">94</a> of file <a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> Vector2(</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                Mathf.Abs(<span class="keyword">self</span>.x),</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                Mathf.Abs(<span class="keyword">self</span>.y)</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            );</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a4d7a249d1e892156a35ef94433f23910"></a>
@@ -413,14 +366,6 @@ Static Public Member Functions</h2></td></tr>
 <p>Round the Vector3 </p>
 <dl class="section return"><dt>Returns</dt><dd>The rounded position</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Vector2Extensions_8cs_source.html#l00056">56</a> of file <a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> Vector2(</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                Mathf.Round(<span class="keyword">self</span>.x),</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                Mathf.Round(<span class="keyword">self</span>.y)</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            );</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="abc3892ce20212cb3ba75f263e5400b6e"></a>
@@ -450,11 +395,6 @@ Static Public Member Functions</h2></td></tr>
 <p>Convert this Vector2 to Vector3 where X = X, Y = 0, Z = Y </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector3 where X = X, Y = 0, Z = Y</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Vector2Extensions_8cs_source.html#l00014">14</a> of file <a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> Vector3(<span class="keyword">self</span>.x, 0, <span class="keyword">self</span>.y);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a3c91107d2df82f853fd028c9a0f5e34d"></a>
@@ -499,15 +439,10 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Set a specific value of the vector </p>
 
-<p class="definition">Definition at line <a class="el" href="Vector2Extensions_8cs_source.html#l00023">23</a> of file <a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> Vector2(x ?? <span class="keyword">self</span>.x, y ?? <span class="keyword">self</span>.y);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Extensions/<a class="el" href="Vector2Extensions_8cs_source.html">Vector2Extensions.cs</a></li>
+<li><a class="el" href="Vector2Extensions_8cs.html">Vector2Extensions.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

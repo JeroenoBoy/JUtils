@@ -135,8 +135,6 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Centralized singleton to fix reference &amp; hot reload issues issues </p>
-
-<p class="definition">Definition at line <a class="el" href="SingletonManager_8cs_source.html#l00016">16</a> of file <a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa7ede66e6c0637e6a456d56627d38837"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7ede66e6c0637e6a456d56627d38837">&#9670;&nbsp;</a></span>GetSingleton&lt; T &gt;()</h2>
@@ -172,14 +170,6 @@ Properties</h2></td></tr>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="SingletonManager_8cs_source.html#l00024">24</a> of file <a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                  : <a class="code" href="SingletonManager_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a>, ISingleton&lt;T&gt;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#ab12587c092549139453abe6bc0bec4db">instance</a>._singletons.FirstOrDefault(x =&gt; x is T) as T;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
-<div class="ttc" id="aSingletonManager_8cs_html_aef19bab18b9814edeef255c43e4f6bbc"><div class="ttname"><a href="SingletonManager_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a></div><div class="ttdeci">UnityEngine.Object Object</div><div class="ttdef"><b>Definition:</b> <a href="SingletonManager_8cs_source.html#l00007">SingletonManager.cs:7</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Singletons_1_1SingletonManager_html_ab12587c092549139453abe6bc0bec4db"><div class="ttname"><a href="classJUtils_1_1Singletons_1_1SingletonManager.html#ab12587c092549139453abe6bc0bec4db">JUtils.Singletons.SingletonManager.instance</a></div><div class="ttdeci">static SingletonManager instance</div><div class="ttdef"><b>Definition:</b> <a href="SingletonManager_8cs_source.html#l00018">SingletonManager.cs:18</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#ab12587c092549139453abe6bc0bec4db">JUtils.Singletons.SingletonManager.instance</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -228,13 +218,6 @@ Here is the caller graph for this function:</div>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="SingletonManager_8cs_source.html#l00056">56</a> of file <a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                                                               : <a class="code" href="SingletonManager_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a>, ISingleton&lt;T&gt;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;           <span class="keywordflow">return</span> <a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#ab12587c092549139453abe6bc0bec4db">instance</a>._singletons.Remove(singleton as <a class="code" href="Button_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a>);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
-<div class="ttc" id="aButton_8cs_html_aef19bab18b9814edeef255c43e4f6bbc"><div class="ttname"><a href="Button_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a></div><div class="ttdeci">UnityEngine.Object Object</div><div class="ttdef"><b>Definition:</b> <a href="Button_8cs_source.html#l00010">Button.cs:10</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#ab12587c092549139453abe6bc0bec4db">JUtils.Singletons.SingletonManager.instance</a>.</p>
 
 </div>
@@ -274,19 +257,6 @@ Here is the caller graph for this function:</div>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="SingletonManager_8cs_source.html#l00040">40</a> of file <a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                                                            : <a class="code" href="SingletonManager_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a>, ISingleton&lt;T&gt;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;           SingletonManager manager = <a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#ab12587c092549139453abe6bc0bec4db">instance</a>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;           <span class="keywordflow">if</span> (manager._singletons.Any(x =&gt; x is T)) {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;               <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;           }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;           </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;           manager._singletons.Add(singleton as <a class="code" href="Button_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;           <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        }</div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#ab12587c092549139453abe6bc0bec4db">JUtils.Singletons.SingletonManager.instance</a>.</p>
 
 </div>
@@ -324,14 +294,6 @@ Here is the caller graph for this function:</div>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="SingletonManager_8cs_source.html#l00030">30</a> of file <a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                                                                       : <a class="code" href="SingletonManager_8cs.html#aef19bab18b9814edeef255c43e4f6bbc">Object</a>, ISingleton&lt;T&gt;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            singleton = <a class="code" href="classJUtils_1_1Singletons_1_1SingletonManager.html#aa7ede66e6c0637e6a456d56627d38837">GetSingleton&lt;T&gt;</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">return</span> singleton != <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1Singletons_1_1SingletonManager_html_aa7ede66e6c0637e6a456d56627d38837"><div class="ttname"><a href="classJUtils_1_1Singletons_1_1SingletonManager.html#aa7ede66e6c0637e6a456d56627d38837">JUtils.Singletons.SingletonManager.GetSingleton&lt; T &gt;</a></div><div class="ttdeci">static T GetSingleton&lt; T &gt;()</div><div class="ttdoc">Get a singleton from this class</div><div class="ttdef"><b>Definition:</b> <a href="SingletonManager_8cs_source.html#l00024">SingletonManager.cs:24</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Singletons_1_1SingletonManager.html#aa7ede66e6c0637e6a456d56627d38837">JUtils.Singletons.SingletonManager.GetSingleton&lt; T &gt;()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -366,12 +328,10 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="SingletonManager_8cs_source.html#l00018">18</a> of file <a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Singletons/<a class="el" href="SingletonManager_8cs_source.html">SingletonManager.cs</a></li>
+<li><a class="el" href="SingletonManager_8cs.html">SingletonManager.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

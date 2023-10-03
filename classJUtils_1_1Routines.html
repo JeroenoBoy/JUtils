@@ -132,8 +132,6 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A static class that contains methods for easily creating routines &amp; avoid object allocations </p>
-
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00013">13</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1430c9dd1fa000d443aea8689a51876d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1430c9dd1fa000d443aea8689a51876d">&#9670;&nbsp;</a></span>Catcher()</h2>
@@ -199,13 +197,6 @@ Properties</h2></td></tr>
 
 <p>A routine that runs the action at the given delay </p>
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00082">82</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            yield <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classJUtils_1_1Routines.html#a6d3862bea1d23ef6d13bc7ddede64e07">WaitForSeconds</a>(seconds);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            action.Invoke();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1Routines_html_a6d3862bea1d23ef6d13bc7ddede64e07"><div class="ttname"><a href="classJUtils_1_1Routines.html#a6d3862bea1d23ef6d13bc7ddede64e07">JUtils.Routines.WaitForSeconds</a></div><div class="ttdeci">static WaitForSeconds WaitForSeconds(float seconds)</div><div class="ttdoc">Faster alternative to WaitForSeconds, caches the object. This will permanently cache the instance unl...</div><div class="ttdef"><b>Definition:</b> <a href="Routines_8cs_source.html#l00031">Routines.cs:31</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Routines.html#a6d3862bea1d23ef6d13bc7ddede64e07">JUtils.Routines.WaitForSeconds()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -264,12 +255,6 @@ Here is the caller graph for this function:</div>
 
 <p>A routine that runs the action after the given timespan </p>
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00092">92</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            yield <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classJUtils_1_1Routines.html#a6d3862bea1d23ef6d13bc7ddede64e07">WaitForSeconds</a>(timeSpan.Seconds);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            action.Invoke();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Routines.html#a6d3862bea1d23ef6d13bc7ddede64e07">JUtils.Routines.WaitForSeconds()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -308,13 +293,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>A routine that runs the action in the next frame </p>
-
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00072">72</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            yield <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            action.Invoke();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
-</div><!-- fragment --><div class="dynheader">
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classJUtils_1_1Routines_aeb93e703f82c0bb1fe26a7713b68ed6c_icgraph.png" border="0" usemap="#aclassJUtils_1_1Routines_aeb93e703f82c0bb1fe26a7713b68ed6c_icgraph" alt=""/></div>
@@ -406,14 +385,6 @@ Here is the caller graph for this function:</div>
 
 <p>Faster alternative to WaitForSeconds, caches the object. This will permanently cache the instance unless removed with Coroutines.wfsDictionary </p>
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00031">31</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            Dictionary&lt;float, WaitForSeconds&gt; dict = <a class="code" href="classJUtils_1_1Routines.html#a414f9bfb89e37fde183558fd663d1641">wfsDictionary</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classJUtils_1_1Routines.html#a414f9bfb89e37fde183558fd663d1641">wfsDictionary</a>.ContainsKey(seconds)) <span class="keywordflow">return</span> dict[seconds];</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">return</span> dict[seconds] = <span class="keyword">new</span> <a class="code" href="classJUtils_1_1Routines.html#a6d3862bea1d23ef6d13bc7ddede64e07">WaitForSeconds</a>(seconds);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1Routines_html_a414f9bfb89e37fde183558fd663d1641"><div class="ttname"><a href="classJUtils_1_1Routines.html#a414f9bfb89e37fde183558fd663d1641">JUtils.Routines.wfsDictionary</a></div><div class="ttdeci">static Dictionary&lt; float, WaitForSeconds &gt; wfsDictionary</div><div class="ttdef"><b>Definition:</b> <a href="Routines_8cs_source.html#l00016">Routines.cs:16</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Routines.html#a414f9bfb89e37fde183558fd663d1641">JUtils.Routines.wfsDictionary</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -454,15 +425,6 @@ Here is the caller graph for this function:</div>
 
 <p>Faster alternative to creating a new WaitForSecondsRealtime, caches the object. This will permanently cache the instance unless removed with Coroutines.wfsRtDictionary </p>
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00043">43</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            Dictionary&lt;float, WaitForSecondsRealtime&gt; dict = <a class="code" href="classJUtils_1_1Routines.html#ace1ff2777515aa9d1ea85489a4aa1f02">wfsRtDictionary</a>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classJUtils_1_1Routines.html#a414f9bfb89e37fde183558fd663d1641">wfsDictionary</a>.ContainsKey(seconds)) <span class="keywordflow">return</span> dict[seconds];</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> dict[seconds] = <span class="keyword">new</span> <a class="code" href="classJUtils_1_1Routines.html#a44b865a7b4b633861dbd06e3c9b3586a">WaitForSecondsRealtime</a>(seconds);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1Routines_html_a44b865a7b4b633861dbd06e3c9b3586a"><div class="ttname"><a href="classJUtils_1_1Routines.html#a44b865a7b4b633861dbd06e3c9b3586a">JUtils.Routines.WaitForSecondsRealtime</a></div><div class="ttdeci">static WaitForSecondsRealtime WaitForSecondsRealtime(float seconds)</div><div class="ttdoc">Faster alternative to creating a new WaitForSecondsRealtime, caches the object. This will permanently...</div><div class="ttdef"><b>Definition:</b> <a href="Routines_8cs_source.html#l00043">Routines.cs:43</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1Routines_html_ace1ff2777515aa9d1ea85489a4aa1f02"><div class="ttname"><a href="classJUtils_1_1Routines.html#ace1ff2777515aa9d1ea85489a4aa1f02">JUtils.Routines.wfsRtDictionary</a></div><div class="ttdeci">static Dictionary&lt; float, WaitForSecondsRealtime &gt; wfsRtDictionary</div><div class="ttdef"><b>Definition:</b> <a href="Routines_8cs_source.html#l00020">Routines.cs:20</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Routines.html#a414f9bfb89e37fde183558fd663d1641">JUtils.Routines.wfsDictionary</a>, and <a class="el" href="classJUtils_1_1Routines.html#ace1ff2777515aa9d1ea85489a4aa1f02">JUtils.Routines.wfsRtDictionary</a>.</p>
 
 </div>
@@ -488,8 +450,6 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00016">16</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-
 </div>
 </div>
 <a id="ace1ff2777515aa9d1ea85489a4aa1f02"></a>
@@ -512,12 +472,10 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Routines_8cs_source.html#l00020">20</a> of file <a class="el" href="Routines_8cs_source.html">Routines.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Misc/<a class="el" href="Routines_8cs_source.html">Routines.cs</a></li>
+<li><a class="el" href="Routines_8cs.html">Routines.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

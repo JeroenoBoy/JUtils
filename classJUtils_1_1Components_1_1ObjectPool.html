@@ -132,8 +132,6 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A simple implementation for an object pool </p>
-
-<p class="definition">Definition at line <a class="el" href="ObjectPool_8cs_source.html#l00015">15</a> of file <a class="el" href="ObjectPool_8cs_source.html">ObjectPool.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a772dc389d08b263f3e6735c98d2e18df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a772dc389d08b263f3e6735c98d2e18df">&#9670;&nbsp;</a></span>InstantiateNewItems()</h2>
@@ -159,29 +157,6 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ObjectPool_8cs_source.html#l00061">61</a> of file <a class="el" href="ObjectPool_8cs_source.html">ObjectPool.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <span class="keywordflow">if</span> (amount &lt;= 0) amount = autoExpandAmount;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordtype">int</span> newSize = maxSize &gt; 0 ? Mathf.Max(poolItems.Length, amount + poolItems.Length) : amount + poolItems.Length;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            amount = newSize - poolItems.Length;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span> (newSize == poolItems.Length) {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            Array.Resize(ref poolItems, newSize);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">while</span> (amount --&gt; 0) {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                PoolItem item = Instantiate(<span class="keyword">template</span>, Vector3.zero, Quaternion.identity, transform);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                item.ObjectPool = <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                item.gameObject.SetActive(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                poolItems[newSize - amount - 1] = item;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                freeItems.Add(item);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">return</span> amount;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        }</div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Components_1_1PoolItem.html#ae47eebe3f5db12cbec7abf88cee04323">JUtils.Components.PoolItem.ObjectPool</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -289,19 +264,6 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ObjectPool_8cs_source.html#l00032">32</a> of file <a class="el" href="ObjectPool_8cs_source.html">ObjectPool.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">TryGetItem</a>(out PoolItem item)) <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            Transform transform = item.transform;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            transform.parent        = parent;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            transform.localPosition = localPosition;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            transform.rotation      = localRotation;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> item;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_a9f05cdac9ce95a153b5a8667779dc480"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">JUtils.Components.ObjectPool.TryGetItem</a></div><div class="ttdeci">bool TryGetItem(out PoolItem item)</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00045">ObjectPool.cs:45</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Components_1_1ObjectPool.html#a9f05cdac9ce95a153b5a8667779dc480">JUtils.Components.ObjectPool.TryGetItem()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -368,22 +330,6 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="ObjectPool_8cs_source.html#l00045">45</a> of file <a class="el" href="ObjectPool_8cs_source.html">ObjectPool.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">if</span> (freeItems.Count == 0 &amp;&amp; (!autoExpand || <a class="code" href="classJUtils_1_1Components_1_1ObjectPool.html#a772dc389d08b263f3e6735c98d2e18df">InstantiateNewItems</a>() &lt;= 0)) {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                Debug.LogWarning(<span class="stringliteral">&quot;Tried to get item from empty pool&quot;</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                item = <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            item = freeItems[^1];</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            freeItems.Remove(item);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            item.Spawn();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1ObjectPool_html_a772dc389d08b263f3e6735c98d2e18df"><div class="ttname"><a href="classJUtils_1_1Components_1_1ObjectPool.html#a772dc389d08b263f3e6735c98d2e18df">JUtils.Components.ObjectPool.InstantiateNewItems</a></div><div class="ttdeci">int InstantiateNewItems(int amount=-1)</div><div class="ttdef"><b>Definition:</b> <a href="ObjectPool_8cs_source.html#l00061">ObjectPool.cs:61</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Components_1_1ObjectPool.html#a772dc389d08b263f3e6735c98d2e18df">JUtils.Components.ObjectPool.InstantiateNewItems()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -407,7 +353,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Components/<a class="el" href="ObjectPool_8cs_source.html">ObjectPool.cs</a></li>
+<li><a class="el" href="ObjectPool_8cs.html">ObjectPool.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

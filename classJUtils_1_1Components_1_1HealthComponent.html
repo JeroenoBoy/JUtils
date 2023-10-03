@@ -146,8 +146,6 @@ Properties</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A simple yet versatile <a class="el" href="classJUtils_1_1Components_1_1HealthComponent.html" title="A simple yet versatile HealthComponent implementation that uses SendMessage to send its heal &amp; damage...">HealthComponent</a> implementation that uses SendMessage to send its heal &amp; damage events </p>
-
-<p class="definition">Definition at line <a class="el" href="HealthComponent_8cs_source.html#l00012">12</a> of file <a class="el" href="HealthComponent_8cs_source.html">HealthComponent.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ace397b58df566162178293167bada7c7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ace397b58df566162178293167bada7c7">&#9670;&nbsp;</a></span>Damage() <span class="overload">[1/2]</span></h2>
@@ -175,19 +173,6 @@ Properties</h2></td></tr>
 
 <p>Damage the component using a damage event </p>
 
-<p class="definition">Definition at line <a class="el" href="HealthComponent_8cs_source.html#l00068">68</a> of file <a class="el" href="HealthComponent_8cs_source.html">HealthComponent.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordtype">int</span> amount = @<span class="keyword">event</span>.damage;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">if</span> (amount &lt; 0) <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;Amount must not be lower than one&quot;</span>);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordtype">int</span> changed = -ChangeHealth(-amount);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            @<span class="keyword">event</span>.damage = changed;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">if</span> (changed &gt; 0) SendMessage(<span class="stringliteral">&quot;OnDamage&quot;</span>, @event, SendMessageOptions.DontRequireReceiver);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">return</span> changed;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a4096744851b1c1c6e82eb54a78deb24c"></a>
@@ -216,18 +201,6 @@ Properties</h2></td></tr>
 
 <p>Damage the component by a set amount, sends <a class="el" href="structJUtils_1_1Components_1_1SimpleDamageEvent.html" title="Light simple implementation for the IDamageEvent">SimpleDamageEvent</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="HealthComponent_8cs_source.html#l00036">36</a> of file <a class="el" href="HealthComponent_8cs_source.html">HealthComponent.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">if</span> (amount &lt; 0) <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;Amount must not be lower than one&quot;</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordtype">int</span> changed = -ChangeHealth(-amount);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            IDamageEvent evt = <span class="keyword">new</span> SimpleDamageEvent() { damage = changed};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            <span class="keywordflow">if</span> (changed &gt; 0) SendMessage(<span class="stringliteral">&quot;OnDamage&quot;</span>, evt, SendMessageOptions.DontRequireReceiver);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> changed;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a6eba98d648d3570dabf24558d1405ea0"></a>
@@ -256,19 +229,6 @@ Properties</h2></td></tr>
 
 <p>Heal the component using a heal event </p>
 
-<p class="definition">Definition at line <a class="el" href="HealthComponent_8cs_source.html#l00085">85</a> of file <a class="el" href="HealthComponent_8cs_source.html">HealthComponent.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordtype">int</span> amount = @<span class="keyword">event</span>.amount;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            <span class="keywordflow">if</span> (amount &lt; 1) <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;Amount must not be lower than one&quot;</span>);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordtype">int</span> changed = ChangeHealth(amount);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            @<span class="keyword">event</span>.amount = changed;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <span class="keywordflow">if</span> (changed &gt; 0) SendMessage(<span class="stringliteral">&quot;OnHeal&quot;</span>, @event, SendMessageOptions.DontRequireReceiver);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <span class="keywordflow">return</span> changed;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a4af91acf7cec981ef4eb45adadd62a15"></a>
@@ -297,18 +257,6 @@ Properties</h2></td></tr>
 
 <p>Heal the component by a set amount, sends <a class="el" href="structJUtils_1_1Components_1_1SimpleHealEvent.html" title="Light simple implementation for the IHealEvent">SimpleHealEvent</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="HealthComponent_8cs_source.html#l00052">52</a> of file <a class="el" href="HealthComponent_8cs_source.html">HealthComponent.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">if</span> (amount &lt; 1) <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;Amount must not be lower than one&quot;</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keywordtype">int</span> changed = ChangeHealth(amount);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            IHealEvent evt = <span class="keyword">new</span> SimpleHealEvent() { amount = changed};</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">if</span> (changed &gt; 0) SendMessage(<span class="stringliteral">&quot;OnHeal&quot;</span>, evt, SendMessageOptions.DontRequireReceiver);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keywordflow">return</span> changed;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="aee07f067c9675ea831f085d6f277d54d"></a>
@@ -335,13 +283,6 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 <p>Kill the unit </p>
 
-<p class="definition">Definition at line <a class="el" href="HealthComponent_8cs_source.html#l00130">130</a> of file <a class="el" href="HealthComponent_8cs_source.html">HealthComponent.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        {</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classJUtils_1_1Components_1_1HealthComponent.html#af1199cd35c0c4086e622a549a09bcf73">isDead</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            ChangeHealth(-_maxHealth * 10000);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1Components_1_1HealthComponent_html_af1199cd35c0c4086e622a549a09bcf73"><div class="ttname"><a href="classJUtils_1_1Components_1_1HealthComponent.html#af1199cd35c0c4086e622a549a09bcf73">JUtils.Components.HealthComponent.isDead</a></div><div class="ttdeci">bool isDead</div><div class="ttdef"><b>Definition:</b> <a href="HealthComponent_8cs_source.html#l00017">HealthComponent.cs:17</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1Components_1_1HealthComponent.html#af1199cd35c0c4086e622a549a09bcf73">JUtils.Components.HealthComponent.isDead</a>.</p>
 
 </div>
@@ -358,8 +299,6 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="HealthComponent_8cs_source.html#l00017">17</a> of file <a class="el" href="HealthComponent_8cs_source.html">HealthComponent.cs</a>.</p>
 
 </div>
 </div>
@@ -384,8 +323,6 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HealthComponent_8cs_source.html#l00020">20</a> of file <a class="el" href="HealthComponent_8cs_source.html">HealthComponent.cs</a>.</p>
-
 </div>
 </div>
 <a id="a1aa75cb42f345f12d671eaf79ec08117"></a>
@@ -408,12 +345,10 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="HealthComponent_8cs_source.html#l00019">19</a> of file <a class="el" href="HealthComponent_8cs_source.html">HealthComponent.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Components/HealthComponent/<a class="el" href="HealthComponent_8cs_source.html">HealthComponent.cs</a></li>
+<li><a class="el" href="HealthComponent_8cs.html">HealthComponent.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

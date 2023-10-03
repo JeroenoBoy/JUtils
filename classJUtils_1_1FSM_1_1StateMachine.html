@@ -306,8 +306,6 @@ Events</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A mono-behaviour state-machine that can also be used as a state </p>
-
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00013">13</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a973a898bff0de3af19a0607a9e2363da"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a973a898bff0de3af19a0607a9e2363da">&#9670;&nbsp;</a></span>AddToQueue()</h2>
@@ -346,25 +344,6 @@ Events</h2></td></tr>
 <p>Adds a new state to the queue </p>
 <dl class="section return"><dt>Returns</dt><dd>True if the added state has been set as the current state</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00082">82</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">if</span> (!state) {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                Log($<span class="stringliteral">&quot;Tried to add Null state&quot;</span>);</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">stateQueue</a>.Enqueue(<span class="keyword">new</span> QueueEntry {state = state, <a class="code" href="classJUtils_1_1FSM_1_1State.html#a64d01b911365313a29544f68c1f9862c">data</a> = <a class="code" href="classJUtils_1_1FSM_1_1State.html#a64d01b911365313a29544f68c1f9862c">data</a> ?? <span class="keyword">new</span> StateData()});</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                Log($<span class="stringliteral">&quot;Add &#39;{state.GetType().Name}&#39; to the queue&quot;</span>);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6">currentState</a>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707">ContinueQueue</a>();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateMachine_html_a17c6347db466646d1ee9abe504fc7db6"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6">JUtils.FSM.StateMachine.currentState</a></div><div class="ttdeci">State currentState</div><div class="ttdef"><b>Definition:</b> <a href="StateMachine_8cs_source.html#l00022">StateMachine.cs:22</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateMachine_html_a7c2979f8f5597db1948acfbac46ea707"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707">JUtils.FSM.StateMachine.ContinueQueue</a></div><div class="ttdeci">void ContinueQueue()</div><div class="ttdoc">Deactivate the current state and go to the next one</div><div class="ttdef"><b>Definition:</b> <a href="StateMachine_8cs_source.html#l00110">StateMachine.cs:110</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateMachine_html_af59e9b1d13f9e4b91fc661229ed40bcf"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">JUtils.FSM.StateMachine.stateQueue</a></div><div class="ttdeci">Queue&lt; QueueEntry &gt; stateQueue</div><div class="ttdef"><b>Definition:</b> <a href="StateMachine_8cs_source.html#l00023">StateMachine.cs:23</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1State_html_a64d01b911365313a29544f68c1f9862c"><div class="ttname"><a href="classJUtils_1_1FSM_1_1State.html#a64d01b911365313a29544f68c1f9862c">JUtils.FSM.State.data</a></div><div class="ttdeci">StateData data</div><div class="ttdef"><b>Definition:</b> <a href="State_8cs_source.html#l00033">State.cs:33</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707">JUtils.FSM.StateMachine.ContinueQueue()</a>, <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6">JUtils.FSM.StateMachine.currentState</a>, <a class="el" href="classJUtils_1_1FSM_1_1State.html#a64d01b911365313a29544f68c1f9862c">JUtils.FSM.State&lt; T1, T2, T3 &gt;.data</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">JUtils.FSM.StateMachine.stateQueue</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -454,13 +433,6 @@ Here is the caller graph for this function:</div>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00101">101</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                                                          : State</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordflow">if</span> (TryFindState(out T state)) <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a973a898bff0de3af19a0607a9e2363da">AddToQueue</a>(state, <a class="code" href="classJUtils_1_1FSM_1_1State.html#a64d01b911365313a29544f68c1f9862c">data</a>);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateMachine_html_a973a898bff0de3af19a0607a9e2363da"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateMachine.html#a973a898bff0de3af19a0607a9e2363da">JUtils.FSM.StateMachine.AddToQueue</a></div><div class="ttdeci">bool AddToQueue(State state, StateData data)</div><div class="ttdoc">Adds a new state to the queue</div><div class="ttdef"><b>Definition:</b> <a href="StateMachine_8cs_source.html#l00082">StateMachine.cs:82</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a973a898bff0de3af19a0607a9e2363da">JUtils.FSM.StateMachine.AddToQueue()</a>, and <a class="el" href="classJUtils_1_1FSM_1_1State.html#a64d01b911365313a29544f68c1f9862c">JUtils.FSM.State&lt; T1, T2, T3 &gt;.data</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -999,11 +971,6 @@ Here is the call graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="classJUtils_1_1FSM_1_1State.html#a7b6233e9679d879c4702b0a1e3d8aded">JUtils.FSM.State&lt; T1, T2, T3 &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00199">199</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        {</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <span class="keywordflow">if</span> (!autoActivate) base.Awake();</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a7c2979f8f5597db1948acfbac46ea707"></a>
@@ -1031,38 +998,6 @@ Here is the call graph for this function:</div>
 
 <p>Deactivate the current state and go to the next one </p>
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00110">110</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        {</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classJUtils_1_1FSM_1_1State.html#afc9229ed996ff0362d25bc6c97d6653e">isActive</a>) {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                Debug.LogWarning($<span class="stringliteral">&quot;[{GetType().Name}] Tried to continue the state queue, but the this state machine is not active!&quot;</span>);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            }</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6">currentState</a>) {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                Log($<span class="stringliteral">&quot;Deactivate state &#39;{currentState.GetType().Name}&#39;&quot;</span>);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6">currentState</a>.DeactivateState();</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            }</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">stateQueue</a>.TryDequeue(out QueueEntry entry)) {</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                State state = entry.state;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                state.stateMachine = <span class="keyword">this</span>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6">currentState</a>       = state;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;                </div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                Log($<span class="stringliteral">&quot;Activate state &#39;{state.GetType().Name}&#39;&quot;</span>);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                state.ActivateState(entry.data);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a1651deb1f8e7f82f9028415f9877128f">OnStateChanged</a>?.Invoke(state);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            }</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                Log($<span class="stringliteral">&quot;Firing function &#39;{nameof(OnNoState)}&#39;&quot;</span>);</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;                <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6">currentState</a> = <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#afd2db7b644c05eb5e5846c17c7297fbb">OnNoState</a>();</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            }</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateMachine_html_a1651deb1f8e7f82f9028415f9877128f"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateMachine.html#a1651deb1f8e7f82f9028415f9877128f">JUtils.FSM.StateMachine.OnStateChanged</a></div><div class="ttdeci">Action&lt; State &gt; OnStateChanged</div><div class="ttdef"><b>Definition:</b> <a href="StateMachine_8cs_source.html#l00019">StateMachine.cs:19</a></div></div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateMachine_html_afd2db7b644c05eb5e5846c17c7297fbb"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateMachine.html#afd2db7b644c05eb5e5846c17c7297fbb">JUtils.FSM.StateMachine.OnNoState</a></div><div class="ttdeci">abstract void OnNoState()</div></div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1State_html_afc9229ed996ff0362d25bc6c97d6653e"><div class="ttname"><a href="classJUtils_1_1FSM_1_1State.html#afc9229ed996ff0362d25bc6c97d6653e">JUtils.FSM.State.isActive</a></div><div class="ttdeci">bool isActive</div><div class="ttdef"><b>Definition:</b> <a href="State_8cs_source.html#l00020">State.cs:20</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6">JUtils.FSM.StateMachine.currentState</a>, <a class="el" href="classJUtils_1_1FSM_1_1State.html#afc9229ed996ff0362d25bc6c97d6653e">JUtils.FSM.State&lt; T1, T2, T3 &gt;.isActive</a>, <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#afd2db7b644c05eb5e5846c17c7297fbb">JUtils.FSM.StateMachine.OnNoState()</a>, <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a1651deb1f8e7f82f9028415f9877128f">JUtils.FSM.StateMachine.OnStateChanged</a>, <a class="el" href="classJUtils_1_1FSM_1_1State.html#af52a82e5595ed5d737251bd9dc09253d">JUtils.FSM.State&lt; T1, T2, T3 &gt;.stateMachine</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">JUtils.FSM.StateMachine.stateQueue</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1123,13 +1058,6 @@ Here is the caller graph for this function:</div>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00143">143</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                                        : State</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        {</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;            TryFindState(out T state);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keywordflow">return</span> state;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a93e950d633bd3a76bbbaf51558626b94"></a>
@@ -1157,13 +1085,6 @@ Here is the caller graph for this function:</div>
 
 <p>Clears the queue and triggers <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#afd2db7b644c05eb5e5846c17c7297fbb">OnNoState</a>&gt; </p>
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00044">44</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            Log(<span class="stringliteral">&quot;Forcibly go to no state&quot;</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">stateQueue</a>.Clear();</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707">ContinueQueue</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707">JUtils.FSM.StateMachine.ContinueQueue()</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">JUtils.FSM.StateMachine.stateQueue</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1244,19 +1165,6 @@ Here is the caller graph for this function:</div>
 
 <p>Clears the StateQueue and goes to the given state </p>
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00055">55</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">if</span> (!state) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a93e950d633bd3a76bbbaf51558626b94">GoToNoState</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            Log($<span class="stringliteral">&quot;Force go to state &#39;{state.GetType().Name}&#39;&quot;</span>);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">stateQueue</a>.Clear();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a973a898bff0de3af19a0607a9e2363da">AddToQueue</a>(state, <a class="code" href="classJUtils_1_1FSM_1_1State.html#a64d01b911365313a29544f68c1f9862c">data</a>)) <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707">ContinueQueue</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateMachine_html_a93e950d633bd3a76bbbaf51558626b94"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateMachine.html#a93e950d633bd3a76bbbaf51558626b94">JUtils.FSM.StateMachine.GoToNoState</a></div><div class="ttdeci">void GoToNoState()</div><div class="ttdoc">Clears the queue and triggers OnNoState&gt;</div><div class="ttdef"><b>Definition:</b> <a href="StateMachine_8cs_source.html#l00044">StateMachine.cs:44</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a973a898bff0de3af19a0607a9e2363da">JUtils.FSM.StateMachine.AddToQueue()</a>, <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707">JUtils.FSM.StateMachine.ContinueQueue()</a>, <a class="el" href="classJUtils_1_1FSM_1_1State.html#a64d01b911365313a29544f68c1f9862c">JUtils.FSM.State&lt; T1, T2, T3 &gt;.data</a>, <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a93e950d633bd3a76bbbaf51558626b94">JUtils.FSM.StateMachine.GoToNoState()</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">JUtils.FSM.StateMachine.stateQueue</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1346,14 +1254,6 @@ Here is the caller graph for this function:</div>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00071">71</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                                                         : State</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        {</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">if</span> (!TryFindState(out T state)) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            <a class="code" href="classJUtils_1_1FSM_1_1StateMachine.html#a191804e54a49176eaa81d06e864bfb35">GoToState</a>(state, <a class="code" href="classJUtils_1_1FSM_1_1State.html#a64d01b911365313a29544f68c1f9862c">data</a>);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
-<div class="ttc" id="aclassJUtils_1_1FSM_1_1StateMachine_html_a191804e54a49176eaa81d06e864bfb35"><div class="ttname"><a href="classJUtils_1_1FSM_1_1StateMachine.html#a191804e54a49176eaa81d06e864bfb35">JUtils.FSM.StateMachine.GoToState</a></div><div class="ttdeci">void GoToState(State state, StateData data)</div><div class="ttdoc">Clears the StateQueue and goes to the given state</div><div class="ttdef"><b>Definition:</b> <a href="StateMachine_8cs_source.html#l00055">StateMachine.cs:55</a></div></div>
-</div><!-- fragment -->
 <p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1State.html#a64d01b911365313a29544f68c1f9862c">JUtils.FSM.State&lt; T1, T2, T3 &gt;.data</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a191804e54a49176eaa81d06e864bfb35">JUtils.FSM.StateMachine.GoToState()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1900,14 +1800,6 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00032">32</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">if</span> (!autoActivate || !this.GetComponentInParentsDirect&lt;StateMachine&gt;()) <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            autoActivate = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            Debug.LogWarning($<span class="stringliteral">&quot;[{GetType().Name}] : {nameof(autoActivate)} cannot be enabled when this is a sub-statemachine&quot;</span>);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a36fc9dbacf88a3f2874e4e660fea6835"></a>
@@ -1933,11 +1825,6 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00026">26</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            autoActivate = !GetComponentInParent&lt;StateMachine&gt;();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a5de071744b1fe652826f9078ab878928"></a>
@@ -1963,11 +1850,6 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00205">205</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        {</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="keywordflow">if</span> (autoActivate) { ActivateState(<span class="keyword">new</span> StateData()); }</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a7e94b8041ca7e470775775a940b23672"></a>
@@ -2004,25 +1886,6 @@ Here is the caller graph for this function:</div>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00153">153</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                                                         : State</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        {</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <span class="keywordflow">if</span> (this.TryGetComponentInDirectChildren(out state)) </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="keywordflow">if</span> (!autoCreateStates) {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                Debug.LogError($<span class="stringliteral">&quot;[{GetType().Name}] : Tried to load state &#39;{typeof(T).Name}&#39; but it does not exist&quot;</span>);</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            }</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            Log($<span class="stringliteral">&quot;Created new state &#39;{typeof(T).Name}&#39;&quot;</span>);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            GameObject obj = <span class="keyword">new</span> (typeof(T).Name);</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            obj.transform.parent = transform;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            state = obj.AddComponent&lt;T&gt;();</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -2046,8 +1909,6 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00022">22</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-
 </div>
 </div>
 <a id="af59e9b1d13f9e4b91fc661229ed40bcf"></a>
@@ -2069,8 +1930,6 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00023">23</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
 
 </div>
 </div>
@@ -2095,8 +1954,6 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00021">21</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Event Documentation</h2>
@@ -2112,13 +1969,11 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="StateMachine_8cs_source.html#l00019">19</a> of file <a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a>.</p>
-
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>JUtils/FSM/<a class="el" href="StateMachine_8cs_source.html">StateMachine.cs</a></li>
-<li>JUtils/FSM/<a class="el" href="StateMachine_8Helpers_8cs_source.html">StateMachine.Helpers.cs</a></li>
+<li><a class="el" href="StateMachine_8cs.html">StateMachine.cs</a></li>
+<li><a class="el" href="StateMachine_8Helpers_8cs.html">StateMachine.Helpers.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

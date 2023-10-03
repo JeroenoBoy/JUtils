@@ -109,8 +109,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="namespaceJUtils_1_1Extensions.html">Extensions</a> for Enumerates </p>
-
-<p class="definition">Definition at line <a class="el" href="Enumerable_8cs_source.html#l00012">12</a> of file <a class="el" href="Enumerable_8cs_source.html">Enumerable.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a584316e96e62df6f414a95d5cf169e5f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a584316e96e62df6f414a95d5cf169e5f">&#9670;&nbsp;</a></span>IndexOf&lt; T &gt;()</h2>
@@ -148,17 +146,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Get the index of an element which matches the comparer </p>
 
-<p class="definition">Definition at line <a class="el" href="Enumerable_8cs_source.html#l00045">45</a> of file <a class="el" href="Enumerable_8cs_source.html">Enumerable.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordtype">int</span> i = 0;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">foreach</span> (T x <span class="keywordflow">in</span> <span class="keyword">self</span>) {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <span class="keywordflow">if</span> (comparer(x)) <span class="keywordflow">return</span> i;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                i++;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a9851ee1f0cdc8758ff23fcc26109760c"></a>
@@ -187,16 +174,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Get a random element from the enumerable </p>
 
-<p class="definition">Definition at line <a class="el" href="Enumerable_8cs_source.html#l00017">17</a> of file <a class="el" href="Enumerable_8cs_source.html">Enumerable.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            T[] enumerable = <span class="keyword">self</span> as T[] ?? <span class="keyword">self</span>.ToArray();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordtype">int</span> size       = enumerable.Length;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">return</span> size == 0</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                ? default</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                : enumerable.ElementAt(UnityEngine.Random.Range(0, size));</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a90c1c3a34cd116a7e27bb46fb15820ee"></a>
@@ -235,20 +212,10 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Get a random element from the enumerable using System.Random </p>
 
-<p class="definition">Definition at line <a class="el" href="Enumerable_8cs_source.html#l00031">31</a> of file <a class="el" href="Enumerable_8cs_source.html">Enumerable.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            T[] enumerable = <span class="keyword">self</span> as T[] ?? <span class="keyword">self</span>.ToArray();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordtype">int</span> size       = enumerable.Length;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">return</span> size == 0</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                ? default</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                : enumerable.ElementAt(random.Next(0, size));</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Extensions/<a class="el" href="Enumerable_8cs_source.html">Enumerable.cs</a></li>
+<li><a class="el" href="Enumerable_8cs.html">Enumerable.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

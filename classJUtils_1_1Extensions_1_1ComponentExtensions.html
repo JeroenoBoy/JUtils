@@ -127,8 +127,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Useful extensions for working with components </p>
-
-<p class="definition">Definition at line <a class="el" href="Component_8cs_source.html#l00013">13</a> of file <a class="el" href="Component_8cs_source.html">Component.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a58f1d59771e64a4ea1e63d3bfe848076"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a58f1d59771e64a4ea1e63d3bfe848076">&#9670;&nbsp;</a></span>ForwardRay()</h2>
@@ -156,12 +154,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Returns a Ray struct with the position and forward of this component's transform </p>
 
-<p class="definition">Definition at line <a class="el" href="Component_8cs_source.html#l00018">18</a> of file <a class="el" href="Component_8cs_source.html">Component.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            Transform transform = <span class="keyword">self</span>.transform;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> Ray(transform.position, transform.forward);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="aa01d102f56f119581d55a18ee2066cb2"></a>
@@ -198,16 +190,6 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="Component_8cs_source.html#l00060">60</a> of file <a class="el" href="Component_8cs_source.html">Component.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                                                                     : Component</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <span class="keywordflow">foreach</span> (Transform t <span class="keywordflow">in</span> <span class="keyword">self</span>.transform) {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                <span class="keywordflow">if</span> (t.TryGetComponent(out T component))</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    <span class="keywordflow">return</span> component;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="ae51834e3abfdfc5e6779f3aedde05109"></a>
@@ -244,12 +226,6 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="Component_8cs_source.html#l00083">83</a> of file <a class="el" href="Component_8cs_source.html">Component.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                                                                    : Component</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">self</span>.transform.parent ? <span class="keyword">self</span>.transform.parent.GetComponentInParent&lt;T&gt;() : <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="abbfb6310b06e3163a251d8e14c39619d"></a>
@@ -296,28 +272,6 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="Component_8cs_source.html#l00093">93</a> of file <a class="el" href="Component_8cs_source.html">Component.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                                                                           : Component</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        {</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            Type type = comp.GetType();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">if</span> (type != other.GetType()) <span class="keywordflow">return</span> <span class="keyword">null</span>; <span class="comment">// type mis-match</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Default | BindingFlags.DeclaredOnly;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            PropertyInfo[] pinfos = type.GetProperties(flags);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <span class="keywordflow">foreach</span> (var pinfo <span class="keywordflow">in</span> pinfos) {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                <span class="keywordflow">if</span> (pinfo.CanWrite) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    <span class="keywordflow">try</span> {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                        pinfo.SetValue(comp, pinfo.GetValue(other, <span class="keyword">null</span>), <span class="keyword">null</span>);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    <span class="keywordflow">catch</span> { } <span class="comment">// In case of NotImplementedException being thrown. For some reason specifying that exception didn&#39;t seem to catch it, so I didn&#39;t catch anything specific.</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            FieldInfo[] finfos = type.GetFields(flags);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">foreach</span> (var finfo <span class="keywordflow">in</span> finfos) {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                finfo.SetValue(comp, finfo.GetValue(other));</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">return</span> comp as T;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="abc63e6c70f1e52153d50c6947c77b567"></a>
@@ -422,12 +376,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Compare if a gameObject has a layer </p>
 
-<p class="definition">Definition at line <a class="el" href="Component_8cs_source.html#l00028">28</a> of file <a class="el" href="Component_8cs_source.html">Component.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            GameObject gameObject = comp.gameObject;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">return</span> ((1 &lt;&lt; gameObject.layer) &amp; layer) != 0 || layer == gameObject.layer;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="acc0d8b28f674769ffa86801eec0b04d4"></a>
@@ -474,13 +422,6 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="Component_8cs_source.html#l00050">50</a> of file <a class="el" href="Component_8cs_source.html">Component.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                                                                                      : Component</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        {</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            component = <span class="keyword">self</span>.GetComponentInChildren&lt;T&gt;();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> component;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a375f9f19622183d44180981f8409d980"></a>
@@ -527,17 +468,10 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 </div>
 
-<p class="definition">Definition at line <a class="el" href="Component_8cs_source.html#l00073">73</a> of file <a class="el" href="Component_8cs_source.html">Component.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                                                                                                            : Component</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            component = <span class="keyword">self</span>.GetComponentInDirectChildren&lt;T&gt;();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            <span class="keywordflow">return</span> component;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Extensions/<a class="el" href="Component_8cs_source.html">Component.cs</a></li>
+<li><a class="el" href="Component_8cs.html">Component.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

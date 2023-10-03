@@ -106,8 +106,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Some useful extensions to transforms </p>
-
-<p class="definition">Definition at line <a class="el" href="TransformExtensions_8cs_source.html#l00012">12</a> of file <a class="el" href="TransformExtensions_8cs_source.html">TransformExtensions.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="abe5fb20a88db8d7d770c440266f805b8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abe5fb20a88db8d7d770c440266f805b8">&#9670;&nbsp;</a></span>Closest()</h2>
@@ -159,16 +157,6 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The closest transform</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="TransformExtensions_8cs_source.html#l00031">31</a> of file <a class="el" href="TransformExtensions_8cs_source.html">TransformExtensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            Vector3 pos = <span class="keyword">self</span>.position;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordtype">float</span> d1 = (a.position - pos).sqrMagnitude;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordtype">float</span> d2 = (b.position - pos).sqrMagnitude;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">return</span> d1 &lt; d2 ? a : b;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="aafa758e024ec6efa93fe03939829d824"></a>
@@ -197,18 +185,10 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Enumerate thru all the children </p>
 
-<p class="definition">Definition at line <a class="el" href="TransformExtensions_8cs_source.html#l00017">17</a> of file <a class="el" href="TransformExtensions_8cs_source.html">TransformExtensions.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <span class="keyword">self</span>.childCount; i++)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                yield <span class="keywordflow">return</span> <span class="keyword">self</span>.GetChild(i);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Extensions/<a class="el" href="TransformExtensions_8cs_source.html">TransformExtensions.cs</a></li>
+<li><a class="el" href="TransformExtensions_8cs.html">TransformExtensions.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

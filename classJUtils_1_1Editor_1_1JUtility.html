@@ -111,8 +111,6 @@ Static Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utilities class working with assemblies </p>
-
-<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00013">13</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1e9da69ebcf0ae292b625dc04cb4feea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1e9da69ebcf0ae292b625dc04cb4feea">&#9670;&nbsp;</a></span>ExtendsClassOrInterface()</h2>
@@ -158,12 +156,6 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if current extends the target</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00052">52</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">if</span> (target.IsInterface) <span class="keywordflow">return</span> current.GetInterface(target.FullName) is not <span class="keyword">null</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> current.IsSubclassOf(target);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="ac43212a7358cab49275e06339ee49b80"></a>
@@ -191,11 +183,6 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Get all types in all assemblies </p>
 
-<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00018">18</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">return</span> AppDomain.CurrentDomain.GetAssemblies().SelectMany(assembly =&gt; assembly.GetTypes());</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="ac4c265ef5d71e2447a57ce7ae1423ce6"></a>
@@ -231,15 +218,6 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The type</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00036">36</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordtype">string</span>[] splitted = typeName.Split(<span class="charliteral">&#39; &#39;</span>);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordtype">string</span> assemblyName = splitted[0];</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordtype">string</span> name = splitted[^1];</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            <span class="keywordflow">return</span> Assembly.Load(assemblyName).GetType(name);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="aa9dd35574095365327d377e0f5a4a394"></a>
@@ -275,13 +253,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="JUtility_8cs_source.html#l00024">24</a> of file <a class="el" href="JUtility_8cs_source.html">JUtility.cs</a>.</p>
-<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            Assembly assembly = AppDomain.CurrentDomain.GetAssemblies().FirstOrDefault(x =&gt; x.GetHashCode() == assemblyHashCode);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">return</span> assembly == <span class="keyword">null</span> ? null : assembly.GetTypes().FirstOrDefault(x =&gt; x.GetHashCode() == typeHashCode);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
-</div><!-- fragment --><div class="dynheader">
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="classJUtils_1_1Editor_1_1JUtility_aa9dd35574095365327d377e0f5a4a394_icgraph.png" border="0" usemap="#aclassJUtils_1_1Editor_1_1JUtility_aa9dd35574095365327d377e0f5a4a394_icgraph" alt=""/></div>
@@ -294,7 +266,7 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>JUtils/Editor/<a class="el" href="JUtility_8cs_source.html">JUtility.cs</a></li>
+<li><a class="el" href="JUtility_8cs.html">JUtility.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
