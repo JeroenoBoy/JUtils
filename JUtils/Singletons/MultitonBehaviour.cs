@@ -9,7 +9,7 @@ namespace JUtils.Singletons
     /// <summary>
     /// A MonoBehaviour where you can easily access all of its instances
     /// </summary>
-    public abstract class StaticListBehaviour<T> : MonoBehaviour where T : StaticListBehaviour<T>
+    public abstract class MultitonBehaviour<T> : MonoBehaviour where T : MultitonBehaviour<T>
     {
         private static List<T> _list;
         

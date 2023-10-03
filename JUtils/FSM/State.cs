@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
-using JUtils.Extensions;
 using UnityEngine;
-
 
 
 namespace JUtils.FSM
@@ -12,10 +10,10 @@ namespace JUtils.FSM
     /// </summary>
     public abstract class State : MonoBehaviour
     {
-        [SerializeField] private bool setEnabledBasedOnActive = true;
+        [SerializeField] private bool _setEnabledBasedOnActive = true;
 
-        public event Action<State> OnStateActivate;
-        public event Action<State> OnStateDeactivate;
+        public event Action<State> onStateActivate;
+        public event Action<State> onStateDeactivate;
 
         public bool         isActive     { get; private set; }
         public StateMachine stateMachine { get; internal set; }
@@ -51,7 +49,7 @@ namespace JUtils.FSM
                 gameObject.SetActive(true);
                 isActive = true;
                 OnActivate();
-                OnStateActivate?.Invoke(this);
+                onStateActivate?.Invoke(this);
                 return true;
             }
             catch (Exception e) {
@@ -70,13 +68,13 @@ namespace JUtils.FSM
             try {
                 OnDeactivate();
                 
-                if (setEnabledBasedOnActive) {
+                if (_setEnabledBasedOnActive) {
                     gameObject.SetActive(false);
                 }
                 
                 isActive = false;
                 data = null;
-                OnStateDeactivate?.Invoke(this);
+                onStateDeactivate?.Invoke(this);
             }
             catch (Exception e) {
                 Debug.LogException(e);
@@ -124,7 +122,7 @@ namespace JUtils.FSM
 
         protected virtual void Awake()
         {
-            if (!isActive && setEnabledBasedOnActive) gameObject.SetActive(false);
+            if (!isActive && _setEnabledBasedOnActive) gameObject.SetActive(false);
         }
 
 
@@ -143,12 +141,12 @@ namespace JUtils.FSM
     {
         protected override void OnActivate()
         {
-            T a = data.Get<T>(0);
-            OnActivate(a);
+            T param = data.Get<T>(0);
+            OnActivate(param);
         }
 
 
-        protected abstract void OnActivate(T a);
+        protected abstract void OnActivate(T param);
     }
 
 
@@ -160,13 +158,13 @@ namespace JUtils.FSM
     {
         protected override void OnActivate()
         {
-            T1 a = data.Get<T1>(0);
-            T2 b = data.Get<T2>(0);
-            OnActivate(a, b);
+            T1 param1 = data.Get<T1>(0);
+            T2 param2 = data.Get<T2>(1);
+            OnActivate(param1, param2);
         }
 
 
-        protected abstract void OnActivate(T1 a, T2 b);
+        protected abstract void OnActivate(T1 param1, T2 param2);
     }
     
     
@@ -178,13 +176,13 @@ namespace JUtils.FSM
     {
         protected override void OnActivate()
         {
-            T1 a = data.Get<T1>(0);
-            T2 b = data.Get<T2>(0);
-            T3 c = data.Get<T3>(0);
-            OnActivate(a, b, c);
+            T1 param1 = data.Get<T1>(0);
+            T2 param2 = data.Get<T2>(1);
+            T3 param3 = data.Get<T3>(2);
+            OnActivate(param1, param2, param3);
         }
 
 
-        protected abstract void OnActivate(T1 a, T2 b, T3 c);
+        protected abstract void OnActivate(T1 param1, T2 param2, T3 param3);
     }
 }

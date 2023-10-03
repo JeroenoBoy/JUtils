@@ -38,12 +38,9 @@ namespace JUtils
 
         public void OnAfterDeserialize()
         {
-            if (_typeCode == -1)
-                type = null;
-            else if (_assemblyCode == -1)
-                type = null;
-            else
-                type = JUtility.GetTypeFromCode(_typeCode, _assemblyCode);
+            if (_typeCode == -1) type = null;
+            else if (_assemblyCode == -1) type = null;
+            else type = JUtility.GetTypeFromCode(_typeCode, _assemblyCode);
         }
         
         

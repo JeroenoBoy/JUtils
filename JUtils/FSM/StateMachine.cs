@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using JUtils.Extensions;
 using UnityEngine;
-
+using UnityEngine.Serialization;
 
 
 namespace JUtils.FSM
@@ -12,11 +12,11 @@ namespace JUtils.FSM
     /// </summary>
     public abstract partial class StateMachine : State
     {
-        [SerializeField] private bool showLogs;
-        [SerializeField] private bool autoActivate;
-        [SerializeField] private bool autoCreateStates = true;
+        [SerializeField] private bool _showLogs;
+        [SerializeField] private bool _autoActivate;
+        [SerializeField] private bool _autoCreateStates = true;
 
-        public event Action<State> OnStateChanged;
+        public event Action<State> onStateChanged;
 
         protected bool              hasActiveState => currentState != null;
         protected State             currentState;
@@ -25,16 +25,16 @@ namespace JUtils.FSM
         
         protected virtual void Reset()
         {
-            autoActivate = !GetComponentInParent<StateMachine>();
+            _autoActivate = !this.GetComponentInParentsDirect<StateMachine>();
         }
 
 
         protected virtual void OnValidate()
         {
-            if (!autoActivate || !this.GetComponentInParentsDirect<StateMachine>()) return;
+            if (!_autoActivate || !this.GetComponentInParentsDirect<StateMachine>()) return;
             
-            autoActivate = false;
-            Debug.LogWarning($"[{GetType().Name}] : {nameof(autoActivate)} cannot be enabled when this is a sub-statemachine");
+            _autoActivate = false;
+            Debug.LogWarning($"[{GetType().Name}] : {nameof(_autoActivate)} cannot be enabled when this is a sub-statemachine");
         }
 
 
@@ -82,9 +82,8 @@ namespace JUtils.FSM
         public bool AddToQueue(State state, StateData data)
         {
             if (!state) {
-                Log($"Tried to add Null state");
-            }
-            else {
+                Log("Tried to add Null state");
+            } else {
                 stateQueue.Enqueue(new QueueEntry {state = state, data = data ?? new StateData()});
                 Log($"Add '{state.GetType().Name}' to the queue");
             }
@@ -127,7 +126,7 @@ namespace JUtils.FSM
                 
                 Log($"Activate state '{state.GetType().Name}'");
                 state.ActivateState(entry.data);
-                OnStateChanged?.Invoke(state);
+                onStateChanged?.Invoke(state);
             }
             else {
                 Log($"Firing function '{nameof(OnNoState)}'");
@@ -138,7 +137,7 @@ namespace JUtils.FSM
         
 
         /// <summary>
-        /// Find a state within the child objects of this state-machine, if <see cref="autoCreateStates"/> is enabled, it will automatically instantiate the state
+        /// Find a state within the child objects of this state-machine, if <see cref="_autoCreateStates"/> is enabled, it will automatically instantiate the state
         /// </summary>
         public T FindState<T>() where T : State
         {
@@ -148,14 +147,14 @@ namespace JUtils.FSM
 
 
         /// <summary>
-        /// Try finding a state within the child objects of this state-machine, if <see cref="autoCreateStates"/> is enabled, it will automatically instantiate that state
+        /// Try finding a state within the child objects of this state-machine, if <see cref="_autoCreateStates"/> is enabled, it will automatically instantiate that state
         /// </summary>
         public bool TryFindState<T>(out T state) where T : State
         {
             if (this.TryGetComponentInDirectChildren(out state)) 
                 return true;
 
-            if (!autoCreateStates) {
+            if (!_autoCreateStates) {
                 Debug.LogError($"[{GetType().Name}] : Tried to load state '{typeof(T).Name}' but it does not exist");
                 return false;
             }
@@ -198,13 +197,13 @@ namespace JUtils.FSM
 
         protected override void Awake()
         {
-            if (!autoActivate) base.Awake();
+            if (!_autoActivate) base.Awake();
         }
 
 
         protected virtual void Start()
         {
-            if (autoActivate) { ActivateState(new StateData()); }
+            if (_autoActivate) { ActivateState(new StateData()); }
         }
         
         
@@ -214,7 +213,7 @@ namespace JUtils.FSM
 
         private void Log(object message)
         {
-            if (showLogs) {
+            if (_showLogs) {
                 Debug.Log($"[{GetType().Name}] : {message}", this);
             }
         }

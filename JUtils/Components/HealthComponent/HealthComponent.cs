@@ -13,11 +13,16 @@ namespace JUtils.Components
     {
         [SerializeField] private int _health;
         [SerializeField] private int _maxHealth;
-
-        public bool isDead;
-
+        [SerializeField] private bool _isDead;
+        
         public int maxHealth => _maxHealth;
         public int health    => _health;
+
+        public bool isDead
+        {
+            get => _isDead;
+            set => _isDead = value;
+        }
 
 
         /**

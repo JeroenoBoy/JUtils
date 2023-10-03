@@ -31,8 +31,8 @@ namespace JUtils.Attributes
     [AttributeUsage(AttributeTargets.Method)]
     public class Button : Attribute
     {
-        [CanBeNull] public readonly string Name;
-        public bool ClickableInEditor;
+        [CanBeNull] public readonly string name;
+        public bool clickableInEditor;
         
         
         /// <summary>
@@ -44,8 +44,8 @@ namespace JUtils.Attributes
             [CanBeNull] string name = null,
             bool clickableInEditor = false)
         {
-            Name = name;
-            ClickableInEditor = clickableInEditor;
+            this.name = name;
+            this.clickableInEditor = clickableInEditor;
         }
     }
 
@@ -57,29 +57,21 @@ namespace JUtils.Attributes
     {
         private InspectorButton[] _buttons;
         
-        // private bool _enabled;
-        
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
             MonoBehaviour behaviour = target as MonoBehaviour;
  
-            //  Get all methods with Button attribute
-            
             MemberInfo[] methods = behaviour.GetType()
                 .GetMembers(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                 .Where(o => Attribute.IsDefined(o, typeof (Button)))
                 .ToArray();
 
-            //  Draw buttons
-            
             if (methods.Length == 0) return;
             
             EditorGUILayout.Space();
             EditorGUILayout.Space();
             
-            //  Draw buttons
-
             _buttons ??= new InspectorButton[methods.Length];
             if (_buttons.Length != methods.Length) Array.Resize(ref _buttons, methods.Length);
             
@@ -104,15 +96,11 @@ namespace JUtils.Attributes
             public void Draw(MonoBehaviour behaviour, MethodInfo method)
             {
                 Button attribute  = method.GetCustomAttributes(typeof(Button), true).First() as Button;
-                string name       = attribute.Name ?? PrettifyName(method.Name);
-                
-                //  Checking if the button is a coroutine
+                string name       = attribute.name ?? PrettifyName(method.Name);
                 
                 bool isCoroutine = method.ReturnType == typeof(IEnumerator);
 
-                //  Checking if the button is playmode only
-                
-                if ((!attribute.ClickableInEditor || isCoroutine) && !Application.isPlaying)
+                if ((!attribute.clickableInEditor || isCoroutine) && !Application.isPlaying)
                 {
                     GUI.enabled = false;
                     bool pressed = DrawButtonInGui(method, name);
@@ -124,12 +112,8 @@ namespace JUtils.Attributes
                     return;
                 }
                 
-                //  Checking if the button was clicked
-                
                 if (!DrawButtonInGui(method, name)) return;
                 
-                //  Invoking method
-
                 if (isCoroutine) {
                     behaviour.StartCoroutine(CoroutineWrapper(method.Invoke(behaviour, _params) as IEnumerator));
                 }
@@ -145,30 +129,20 @@ namespace JUtils.Attributes
             private bool DrawButtonInGui(MethodInfo info, string name)
             {
                 ParameterInfo[] parameters = info.GetParameters();
-    
-                //  Without parameters
                 
-                if (parameters.Length == 0)
-                    return GUILayout.Button(name);
+                if (parameters.Length == 0) return GUILayout.Button(name);
                 
-                //  With parameters
-    
                 EditorGUILayout.BeginVertical(GUI.skin.box);
                 
                 bool pressed = GUILayout.Button(name);
-        
-                //  Handling parameters
     
                 _params ??= new object[parameters.Length];
                 
-                if (_params.Length != parameters.Length)
-                    Array.Resize(ref _params, parameters.Length);
+                if (_params.Length != parameters.Length) Array.Resize(ref _params, parameters.Length);
     
                 for (int i = 0; i < parameters.Length; i++) {
                     DrawParameter(i, parameters[i]);
                 }
-                
-                //  Returning
                 
                 EditorGUILayout.EndVertical();
                 return pressed;
@@ -217,7 +191,6 @@ namespace JUtils.Attributes
                     if (_params[i] is not Vector2) _params[i] = info.HasDefaultValue ? info.DefaultValue : Vector2.zero;
                     _params[i] = EditorGUILayout.Vector2Field(name, (Vector2)_params[i]);
                 }
-                
                 else if (type == typeof(Vector3)) {
                     if (_params[i] is not Vector3) _params[i] = info.HasDefaultValue ? info.DefaultValue : Vector3.zero;
                     _params[i] = EditorGUILayout.Vector3Field(name, (Vector3)_params[i]);
@@ -249,12 +222,10 @@ namespace JUtils.Attributes
                     if (_params[i] is not Bounds) _params[i] = info.HasDefaultValue ? info.DefaultValue : default(Bounds);
                     _params[i] = EditorGUILayout.BoundsField(name, (Bounds)_params[i]);
                 }
-                
                 else if (type == typeof(Color)) {
                     if (_params[i] is not Color) _params[i] = info.HasDefaultValue ? info.DefaultValue : Color.black;
                     _params[i] = EditorGUILayout.ColorField(name, (Color)_params[i]);
                 }
-                
                 else if (type == typeof(LayerMask)) {
                     if (_params[i] is not LayerMask) _params[i] = info.HasDefaultValue ? info.DefaultValue : default(LayerMask);
                     _params[i] = (LayerMask)EditorGUILayout.LayerField(name, (LayerMask)_params[i]);
@@ -263,9 +234,6 @@ namespace JUtils.Attributes
                 
                 
                 else {
-
-                    //  Getting Object type
-                    
                     Type baseType = type;
                     while (baseType != typeof(object)) {
                         if (baseType == typeof(Object)) {
@@ -276,9 +244,6 @@ namespace JUtils.Attributes
                         }
                         baseType = baseType.BaseType;
                     }
-                    
-                    //  Invalid
-                    
                     Debug.LogError($"Cannot process argument type {type}");
                 }
             }
@@ -289,8 +254,6 @@ namespace JUtils.Attributes
             /// </summary>
             private IEnumerator CoroutineWrapper(IEnumerator coroutine)
             {
-                //  Checking if its already running
-                
                 if (_inCoroutine) {
                     Debug.LogWarning("Coroutine is currently running!");
                     yield break;
@@ -298,13 +261,9 @@ namespace JUtils.Attributes
     
                 _inCoroutine = true;
                 
-                //  Running coroutine
-                
                 CoroutineCatcher catcher = Routines.Catcher(coroutine);
                 yield return catcher;
     
-                //  Ending
-                
                 _inCoroutine = false;
                 
                 if (catcher.HasThrown(out Exception exception)) {
@@ -316,10 +275,10 @@ namespace JUtils.Attributes
 
         
         
-        private static readonly Regex _regex = new ("([A-Z])");
+        private static readonly Regex Regex = new ("([A-Z])");
         private static string PrettifyName(string name)
         {
-            return char.ToUpper(name[0]) + _regex.Replace(name[1..], " $&").Trim();
+            return char.ToUpper(name[0]) + Regex.Replace(name[1..], " $&").Trim();
         }
     }
     
