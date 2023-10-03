@@ -17,7 +17,7 @@ namespace JUtils.FSM
     ///         public override void OnActivate()
     ///         {
     ///             _target = Data.Get&#60;GameObject>(0);
-    ///             if (Data.TryGet(1, out Transform optionalTransform))
+    ///             if (data.TryGet(1, out Transform optionalTransform))
     ///                 optionalTransform.position = Vector3.zero;
     ///         }
     /// 

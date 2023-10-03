@@ -26,10 +26,10 @@ namespace JUtils.Attributes
     {
         public enum Comparer { Equals, Or, Greater, Smaller }
         
-        private string   _variable;
-        private object   _value;
-        private Comparer _comparer;
-        private bool     _showAsObject = true;
+        private readonly string   _variable;
+        private readonly object   _value;
+        private readonly Comparer _comparer;
+        private readonly bool     _showAsObject;
         
         
         /// <summary>

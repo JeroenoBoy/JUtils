@@ -28,11 +28,9 @@ namespace JUtils.Attributes
             {
                 EditorGUI.PropertyField(position, property, label);
 
-                if (property.objectReferenceValue == null)
-                {
-                    EditorGUILayout.HelpBox($"Field \"{property.displayName}\" is required", MessageType.Error);
-                    EditorGUILayout.Space(4);
-                }
+                if (property.objectReferenceValue != null) return;
+                EditorGUILayout.HelpBox($"Field \"{property.displayName}\" is required", MessageType.Error);
+                EditorGUILayout.Space(4);
             }
         }
         

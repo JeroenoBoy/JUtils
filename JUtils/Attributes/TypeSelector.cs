@@ -66,7 +66,7 @@ namespace JUtils.Attributes
             /// </summary>
             private Context GetContext(string path, string targetType, string currentType)
             {
-                if (_map.ContainsKey(path)) return _map[path];
+                if (_map.TryGetValue(path, out Context context)) return context;
 
                 Type target  = JUtility.GetType(targetType);
                 Type current = currentType == "" ? null : JUtility.GetType(currentType);
@@ -82,9 +82,7 @@ namespace JUtils.Attributes
             
             public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
             {
-                
                 Context ctx = GetContext(property.propertyPath, property.managedReferenceFieldTypename, property.managedReferenceFullTypename);
-                
                 return ctx.dropDown.ItemIsNull() ? 18 : EditorGUI.GetPropertyHeight(property);
             }
 
@@ -106,8 +104,6 @@ namespace JUtils.Attributes
 
                 EditorGUI.BeginProperty(position, label, property);
                 
-                //  Getting dropdown height
-
                 Rect rect = new (position)
                 {
                     x = EditorGUIUtility.labelWidth + position.x + 1,
@@ -115,24 +111,17 @@ namespace JUtils.Attributes
                     width = position.width - EditorGUIUtility.labelWidth
                 };
                 
-                //  Drawing the dropdown
-
                 GUIContent ddLabel = new (ctx.dropDown.ItemName());
                 if (EditorGUI.DropdownButton(rect, ddLabel, FocusType.Keyboard)) {
                     ctx.dropDown.Show(new Rect(rect) {height = 0});
                 }
                 
-                //  Setting value
-
                 if (o is null || o.GetType() != ctx.dropDown.ItemType()) {
-                    if (ctx.dropDown.ItemIsNull())
-                        property.managedReferenceValue = null;
-                    else
-                        property.managedReferenceValue = Activator.CreateInstance(ctx.dropDown.ItemType());
+                    property.managedReferenceValue = !ctx.dropDown.ItemIsNull()
+                        ? Activator.CreateInstance(ctx.dropDown.ItemType())
+                        : null;
                 }
                 
-                //  Property
-
                 EditorGUI.PropertyField(position, property, label, true);
                 EditorGUI.EndProperty();
             }
@@ -148,7 +137,6 @@ namespace JUtils.Attributes
                 /// <summary>
                 /// Select all the types
                 /// </summary>
-                /// <param name="target">The base type to target</param>
                 public Context(Type target, Type currentType)
                 {
                     types = JUtility.GetAllTypes()
@@ -163,7 +151,7 @@ namespace JUtils.Attributes
             
             private class DropDown : AdvancedDropdown
             {
-                private Type[] _types;
+                private readonly Type[] _types;
                 private Type _selectedType;
                 
                 

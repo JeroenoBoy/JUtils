@@ -24,7 +24,10 @@ namespace JUtils.Components
 
         private void Start()
         {
-            if (!_camera) _camera = Camera.main;
+            if (_camera == null) _camera = Camera.main;
+            if (_camera == null) throw new Exception("Camera was not found");
+            
+            Transform transform = this.transform;
             _cameraTransform = _camera.transform;
             _localPosition = transform.localPosition;
             _scale = transform.localScale;
