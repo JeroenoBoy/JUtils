@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isdead_500',['isDead',['../classJUtils_1_1Components_1_1HealthComponent.html#af1199cd35c0c4086e622a549a09bcf73',1,'JUtils::Components::HealthComponent']]]
+  ['key_496',['key',['../structJUtils_1_1SerializableDictionary_1_1Pair.html#a45b4dfc3d3793461682414b7f2564786',1,'JUtils::SerializableDictionary::Pair']]]
 ];

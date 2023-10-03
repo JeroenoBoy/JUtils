@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['minmax_285',['MinMax',['../structJUtils_1_1MinMax.html',1,'JUtils']]],
-  ['minmaxint_286',['MinMaxInt',['../structJUtils_1_1MinMaxInt.html',1,'JUtils']]]
+  ['minmax_282',['MinMax',['../structJUtils_1_1MinMax.html',1,'JUtils']]],
+  ['minmaxint_283',['MinMaxInt',['../structJUtils_1_1MinMaxInt.html',1,'JUtils']]],
+  ['multitonbehaviour_284',['MultitonBehaviour',['../classJUtils_1_1Singletons_1_1MultitonBehaviour.html',1,'JUtils::Singletons']]]
 ];

@@ -13,9 +13,6 @@ var files_dup =
     [ "Component.cs", "Component_8cs.html", [
       [ "ComponentExtensions", "classJUtils_1_1Extensions_1_1ComponentExtensions.html", "classJUtils_1_1Extensions_1_1ComponentExtensions" ]
     ] ],
-    [ "CopyPosition.cs", "CopyPosition_8cs.html", [
-      [ "CopyPosition", "classJUtils_1_1Components_1_1CopyPosition.html", null ]
-    ] ],
     [ "Coroutines.cs", "Coroutines_8cs.html", [
       [ "Coroutines", "classJUtils_1_1Coroutines.html", "classJUtils_1_1Coroutines" ]
     ] ],
@@ -51,6 +48,9 @@ var files_dup =
     [ "MinMax.cs", "MinMax_8cs.html", "MinMax_8cs" ],
     [ "MinMaxInt.cs", "MinMaxInt_8cs.html", [
       [ "MinMaxInt", "structJUtils_1_1MinMaxInt.html", "structJUtils_1_1MinMaxInt" ]
+    ] ],
+    [ "MultitonBehaviour.cs", "MultitonBehaviour_8cs.html", [
+      [ "MultitonBehaviour", "classJUtils_1_1Singletons_1_1MultitonBehaviour.html", "classJUtils_1_1Singletons_1_1MultitonBehaviour" ]
     ] ],
     [ "ObjectPool.cs", "ObjectPool_8cs.html", [
       [ "ObjectPool", "classJUtils_1_1Components_1_1ObjectPool.html", "classJUtils_1_1Components_1_1ObjectPool" ]
@@ -116,9 +116,6 @@ var files_dup =
       [ "StateRef", "structJUtils_1_1FSM_1_1StateRef.html", null ]
     ] ],
     [ "StaticListBackingComponent.cs", "StaticListBackingComponent_8cs.html", "StaticListBackingComponent_8cs" ],
-    [ "StaticListBehaviour.cs", "StaticListBehaviour_8cs.html", [
-      [ "StaticListBehaviour", "classJUtils_1_1Singletons_1_1StaticListBehaviour.html", "classJUtils_1_1Singletons_1_1StaticListBehaviour" ]
-    ] ],
     [ "TransformExtensions.cs", "TransformExtensions_8cs.html", [
       [ "TransformExtensions", "classJUtils_1_1Extensions_1_1TransformExtensions.html", "classJUtils_1_1Extensions_1_1TransformExtensions" ]
     ] ],

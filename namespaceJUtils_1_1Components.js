@@ -1,7 +1,6 @@
 var namespaceJUtils_1_1Components =
 [
     [ "BillboardCamera", "classJUtils_1_1Components_1_1BillboardCamera.html", "classJUtils_1_1Components_1_1BillboardCamera" ],
-    [ "CopyPosition", "classJUtils_1_1Components_1_1CopyPosition.html", null ],
     [ "DontDestroyOnLoad", "classJUtils_1_1Components_1_1DontDestroyOnLoad.html", null ],
     [ "HealthComponent", "classJUtils_1_1Components_1_1HealthComponent.html", "classJUtils_1_1Components_1_1HealthComponent" ],
     [ "IDamageEvent", "interfaceJUtils_1_1Components_1_1IDamageEvent.html", "interfaceJUtils_1_1Components_1_1IDamageEvent" ],

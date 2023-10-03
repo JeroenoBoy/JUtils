@@ -130,7 +130,7 @@ Public Attributes</h2></td></tr>
 <div class="line">        <span class="keyword">public</span> <span class="keyword">override</span> <span class="keywordtype">void</span> OnActivate()</div>
 <div class="line">        {</div>
 <div class="line">            _target = Data.Get&amp;#60;GameObject&gt;(0);</div>
-<div class="line">            <span class="keywordflow">if</span> (Data.TryGet(1, out Transform optionalTransform))</div>
+<div class="line">            <span class="keywordflow">if</span> (data.TryGet(1, out Transform optionalTransform))</div>
 <div class="line">                optionalTransform.position = Vector3.zero;</div>
 <div class="line">        }</div>
 <div class="line"> </div>

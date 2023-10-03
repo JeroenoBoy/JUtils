@@ -1,4 +1,4 @@
 <map id="JUtils.Components.PoolItem" name="JUtils.Components.PoolItem">
-<area shape="rect" id="node1" title="A behaviour that is used with the ObjectPool. Other behaviours can listen to the events this class se..." alt="" coords="5,80,209,107"/>
+<area shape="rect" id="node1" title="A behaviour that is used with the objectPool. Other behaviours can listen to the events this class se..." alt="" coords="5,80,209,107"/>
 <area shape="rect" id="node2" title=" " alt="" coords="45,5,169,32"/>
 </map>

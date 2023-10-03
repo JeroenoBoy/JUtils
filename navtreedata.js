@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "JUtils", "index.html", [
-    [ "LICENSE", "md_LICENSE.html", null ],
+    [ "GNU LESSER GENERAL PUBLIC LICENSE", "md_LICENSE.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],
@@ -55,7 +55,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "AudioListenerExtensions_8cs.html",
-"classJUtils_1_1GizmoUtils.html"
+"classJUtils_1_1GizmoUtils.html#a5570e363d6f0c80955628cd1de4f6db0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -41,5 +41,5 @@ var classJUtils_1_1FSM_1_1StateMachine =
     [ "currentState", "classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6", null ],
     [ "stateQueue", "classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf", null ],
     [ "hasActiveState", "classJUtils_1_1FSM_1_1StateMachine.html#ac9f2d58f67f3c9bc41f8b7efa98e1e75", null ],
-    [ "OnStateChanged", "classJUtils_1_1FSM_1_1StateMachine.html#a1651deb1f8e7f82f9028415f9877128f", null ]
+    [ "onStateChanged", "classJUtils_1_1FSM_1_1StateMachine.html#a73d169f1ddc47f58d58d27eb5aee1ff8", null ]
 ];

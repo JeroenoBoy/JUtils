@@ -148,10 +148,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a7c2979f8f5597db1948acfbac46ea707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deactivate the current state and go to the next one  <a href="classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707">More...</a><br /></td></tr>
 <tr class="separator:a7c2979f8f5597db1948acfbac46ea707"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5630321df9c5b92bb9f70572cf45bf81"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a5630321df9c5b92bb9f70572cf45bf81">FindState&lt; T &gt;</a> ()</td></tr>
-<tr class="memdesc:a5630321df9c5b92bb9f70572cf45bf81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a state within the child objects of this state-machine, if autoCreateStates is enabled, it will automatically instantiate the state  <a href="classJUtils_1_1FSM_1_1StateMachine.html#a5630321df9c5b92bb9f70572cf45bf81">More...</a><br /></td></tr>
+<tr class="memdesc:a5630321df9c5b92bb9f70572cf45bf81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find a state within the child objects of this state-machine, if _autoCreateStates is enabled, it will automatically instantiate the state  <a href="classJUtils_1_1FSM_1_1StateMachine.html#a5630321df9c5b92bb9f70572cf45bf81">More...</a><br /></td></tr>
 <tr class="separator:a5630321df9c5b92bb9f70572cf45bf81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e94b8041ca7e470775775a940b23672"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a7e94b8041ca7e470775775a940b23672">TryFindState&lt; T &gt;</a> (out T state)</td></tr>
-<tr class="memdesc:a7e94b8041ca7e470775775a940b23672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try finding a state within the child objects of this state-machine, if autoCreateStates is enabled, it will automatically instantiate that state  <a href="classJUtils_1_1FSM_1_1StateMachine.html#a7e94b8041ca7e470775775a940b23672">More...</a><br /></td></tr>
+<tr class="memdesc:a7e94b8041ca7e470775775a940b23672"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try finding a state within the child objects of this state-machine, if _autoCreateStates is enabled, it will automatically instantiate that state  <a href="classJUtils_1_1FSM_1_1StateMachine.html#a7e94b8041ca7e470775775a940b23672">More...</a><br /></td></tr>
 <tr class="separator:a7e94b8041ca7e470775775a940b23672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27ea86057b1443470e3282d856cb1b9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a27ea86057b1443470e3282d856cb1b9d">GoToState</a> (<a class="el" href="classJUtils_1_1FSM_1_1State.html">State</a> state)</td></tr>
 <tr class="memdesc:a27ea86057b1443470e3282d856cb1b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the StateQueue and goes to the given state  <a href="classJUtils_1_1FSM_1_1StateMachine.html#a27ea86057b1443470e3282d856cb1b9d">More...</a><br /></td></tr>
@@ -258,16 +258,16 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:aeececc2c66855f926699e86759461b27 inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93a099e33d2347550147204a8c3b9cbf inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a93a099e33d2347550147204a8c3b9cbf">OnActivate</a> ()</td></tr>
 <tr class="separator:a93a099e33d2347550147204a8c3b9cbf inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97318aad043cc86e3b46948aeb3e9772 inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a97318aad043cc86e3b46948aeb3e9772">OnActivate</a> (T a)</td></tr>
-<tr class="separator:a97318aad043cc86e3b46948aeb3e9772 inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a43ba6b4f5ac167fe9ae0bc38db626a inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a5a43ba6b4f5ac167fe9ae0bc38db626a">OnActivate</a> (T param)</td></tr>
+<tr class="separator:a5a43ba6b4f5ac167fe9ae0bc38db626a inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93a099e33d2347550147204a8c3b9cbf inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a93a099e33d2347550147204a8c3b9cbf">OnActivate</a> ()</td></tr>
 <tr class="separator:a93a099e33d2347550147204a8c3b9cbf inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af481b18f9160404043c7e96e6685546c inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#af481b18f9160404043c7e96e6685546c">OnActivate</a> (T1 a, T2 b)</td></tr>
-<tr class="separator:af481b18f9160404043c7e96e6685546c inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3512b65d7f8a0627b3c006d076e8c7cd inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a3512b65d7f8a0627b3c006d076e8c7cd">OnActivate</a> (T1 param1, T2 param2)</td></tr>
+<tr class="separator:a3512b65d7f8a0627b3c006d076e8c7cd inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93a099e33d2347550147204a8c3b9cbf inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a93a099e33d2347550147204a8c3b9cbf">OnActivate</a> ()</td></tr>
 <tr class="separator:a93a099e33d2347550147204a8c3b9cbf inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41df2a9d1a826dc45a0dfd5fcb73b5b7 inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a41df2a9d1a826dc45a0dfd5fcb73b5b7">OnActivate</a> (T1 a, T2 b, T3 c)</td></tr>
-<tr class="separator:a41df2a9d1a826dc45a0dfd5fcb73b5b7 inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02cc91c154899d5328f2eb4fa06cdb72 inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a02cc91c154899d5328f2eb4fa06cdb72">OnActivate</a> (T1 param1, T2 param2, T3 param3)</td></tr>
+<tr class="separator:a02cc91c154899d5328f2eb4fa06cdb72 inherit pro_methods_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -296,13 +296,13 @@ Properties</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="events"></a>
 Events</h2></td></tr>
-<tr class="memitem:a1651deb1f8e7f82f9028415f9877128f"><td class="memItemLeft" align="right" valign="top">Action&lt; <a class="el" href="classJUtils_1_1FSM_1_1State.html">State</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a1651deb1f8e7f82f9028415f9877128f">OnStateChanged</a></td></tr>
-<tr class="separator:a1651deb1f8e7f82f9028415f9877128f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73d169f1ddc47f58d58d27eb5aee1ff8"><td class="memItemLeft" align="right" valign="top">Action&lt; <a class="el" href="classJUtils_1_1FSM_1_1State.html">State</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a73d169f1ddc47f58d58d27eb5aee1ff8">onStateChanged</a></td></tr>
+<tr class="separator:a73d169f1ddc47f58d58d27eb5aee1ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header events_classJUtils_1_1FSM_1_1State"><td colspan="2" onclick="javascript:toggleInherit('events_classJUtils_1_1FSM_1_1State')"><img src="closed.png" alt="-"/>&#160;Events inherited from <a class="el" href="classJUtils_1_1FSM_1_1State.html">JUtils.FSM.State&lt; T1, T2, T3 &gt;</a></td></tr>
-<tr class="memitem:a2ab902f5aec0d5cf32145ee3c05576f8 inherit events_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">Action&lt; <a class="el" href="classJUtils_1_1FSM_1_1State.html">State</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a2ab902f5aec0d5cf32145ee3c05576f8">OnStateActivate</a></td></tr>
-<tr class="separator:a2ab902f5aec0d5cf32145ee3c05576f8 inherit events_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1be4264f259a339c9ff7f4777b496033 inherit events_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">Action&lt; <a class="el" href="classJUtils_1_1FSM_1_1State.html">State</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a1be4264f259a339c9ff7f4777b496033">OnStateDeactivate</a></td></tr>
-<tr class="separator:a1be4264f259a339c9ff7f4777b496033 inherit events_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad42b8404a9e42f77498a5733bd81be3 inherit events_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">Action&lt; <a class="el" href="classJUtils_1_1FSM_1_1State.html">State</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#aad42b8404a9e42f77498a5733bd81be3">onStateActivate</a></td></tr>
+<tr class="separator:aad42b8404a9e42f77498a5733bd81be3 inherit events_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ec3a8e23ec827418cadbfe9847ae794 inherit events_classJUtils_1_1FSM_1_1State"><td class="memItemLeft" align="right" valign="top">Action&lt; <a class="el" href="classJUtils_1_1FSM_1_1State.html">State</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1FSM_1_1State.html#a7ec3a8e23ec827418cadbfe9847ae794">onStateDeactivate</a></td></tr>
+<tr class="separator:a7ec3a8e23ec827418cadbfe9847ae794 inherit events_classJUtils_1_1FSM_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A mono-behaviour state-machine that can also be used as a state </p>
@@ -998,7 +998,7 @@ Here is the call graph for this function:</div>
 
 <p>Deactivate the current state and go to the next one </p>
 
-<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6">JUtils.FSM.StateMachine.currentState</a>, <a class="el" href="classJUtils_1_1FSM_1_1State.html#afc9229ed996ff0362d25bc6c97d6653e">JUtils.FSM.State&lt; T1, T2, T3 &gt;.isActive</a>, <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#afd2db7b644c05eb5e5846c17c7297fbb">JUtils.FSM.StateMachine.OnNoState()</a>, <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a1651deb1f8e7f82f9028415f9877128f">JUtils.FSM.StateMachine.OnStateChanged</a>, <a class="el" href="classJUtils_1_1FSM_1_1State.html#af52a82e5595ed5d737251bd9dc09253d">JUtils.FSM.State&lt; T1, T2, T3 &gt;.stateMachine</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">JUtils.FSM.StateMachine.stateQueue</a>.</p>
+<p class="reference">References <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a17c6347db466646d1ee9abe504fc7db6">JUtils.FSM.StateMachine.currentState</a>, <a class="el" href="classJUtils_1_1FSM_1_1State.html#afc9229ed996ff0362d25bc6c97d6653e">JUtils.FSM.State&lt; T1, T2, T3 &gt;.isActive</a>, <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#afd2db7b644c05eb5e5846c17c7297fbb">JUtils.FSM.StateMachine.OnNoState()</a>, <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#a73d169f1ddc47f58d58d27eb5aee1ff8">JUtils.FSM.StateMachine.onStateChanged</a>, <a class="el" href="classJUtils_1_1FSM_1_1State.html#af52a82e5595ed5d737251bd9dc09253d">JUtils.FSM.State&lt; T1, T2, T3 &gt;.stateMachine</a>, and <a class="el" href="classJUtils_1_1FSM_1_1StateMachine.html#af59e9b1d13f9e4b91fc661229ed40bcf">JUtils.FSM.StateMachine.stateQueue</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1048,7 +1048,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Find a state within the child objects of this state-machine, if autoCreateStates is enabled, it will automatically instantiate the state </p>
+<p>Find a state within the child objects of this state-machine, if _autoCreateStates is enabled, it will automatically instantiate the state </p>
 <div class="typeconstraint">
 <dl><dt><b>Type Constraints</b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
@@ -1876,7 +1876,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Try finding a state within the child objects of this state-machine, if autoCreateStates is enabled, it will automatically instantiate that state </p>
+<p>Try finding a state within the child objects of this state-machine, if _autoCreateStates is enabled, it will automatically instantiate that state </p>
 <div class="typeconstraint">
 <dl><dt><b>Type Constraints</b></dt><dd>
 <table border="0" cellspacing="2" cellpadding="0">
@@ -1957,14 +1957,14 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Event Documentation</h2>
-<a id="a1651deb1f8e7f82f9028415f9877128f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1651deb1f8e7f82f9028415f9877128f">&#9670;&nbsp;</a></span>OnStateChanged</h2>
+<a id="a73d169f1ddc47f58d58d27eb5aee1ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d169f1ddc47f58d58d27eb5aee1ff8">&#9670;&nbsp;</a></span>onStateChanged</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Action&lt;<a class="el" href="classJUtils_1_1FSM_1_1State.html">State</a>&gt; JUtils.FSM.StateMachine.OnStateChanged</td>
+          <td class="memname">Action&lt;<a class="el" href="classJUtils_1_1FSM_1_1State.html">State</a>&gt; JUtils.FSM.StateMachine.onStateChanged</td>
         </tr>
       </table>
 </div><div class="memdoc">

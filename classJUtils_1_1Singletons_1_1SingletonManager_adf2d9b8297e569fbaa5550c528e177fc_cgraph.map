@@ -1,4 +1,4 @@
 <map id="JUtils.Singletons.SingletonManager.TryGetSingleton&lt; T &gt;" name="JUtils.Singletons.SingletonManager.TryGetSingleton&lt; T &gt;">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,228,47"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1Singletons_1_1SingletonManager.html#aa7ede66e6c0637e6a456d56627d38837" title="Get a singleton from this class" alt="" coords="276,5,480,47"/>
+<area shape="rect" id="node1" title="Try get a singleton stored in the manager" alt="" coords="5,5,228,47"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1Singletons_1_1SingletonManager.html#aa7ede66e6c0637e6a456d56627d38837" title="Get a singleton stored in the manager" alt="" coords="276,5,480,47"/>
 </map>

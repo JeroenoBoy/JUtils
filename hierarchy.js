@@ -38,7 +38,6 @@ var hierarchy =
     [ "JUtils.MinMaxInt", "structJUtils_1_1MinMaxInt.html", null ],
     [ "MonoBehaviour", null, [
       [ "JUtils.Components.BillboardCamera", "classJUtils_1_1Components_1_1BillboardCamera.html", null ],
-      [ "JUtils.Components.CopyPosition", "classJUtils_1_1Components_1_1CopyPosition.html", null ],
       [ "JUtils.Components.DontDestroyOnLoad", "classJUtils_1_1Components_1_1DontDestroyOnLoad.html", null ],
       [ "JUtils.Components.HealthComponent", "classJUtils_1_1Components_1_1HealthComponent.html", null ],
       [ "JUtils.Components.ObjectPool", "classJUtils_1_1Components_1_1ObjectPool.html", null ],
@@ -46,9 +45,9 @@ var hierarchy =
       [ "JUtils.FSM.State< T1, T2, T3 >", "classJUtils_1_1FSM_1_1State.html", [
         [ "JUtils.FSM.StateMachine", "classJUtils_1_1FSM_1_1StateMachine.html", null ]
       ] ],
+      [ "JUtils.Singletons.MultitonBehaviour< T >", "classJUtils_1_1Singletons_1_1MultitonBehaviour.html", null ],
       [ "JUtils.Singletons.SingletonBehaviour< T >", "classJUtils_1_1Singletons_1_1SingletonBehaviour.html", null ],
-      [ "JUtils.Singletons.SingletonManager", "classJUtils_1_1Singletons_1_1SingletonManager.html", null ],
-      [ "JUtils.Singletons.StaticListBehaviour< T >", "classJUtils_1_1Singletons_1_1StaticListBehaviour.html", null ]
+      [ "JUtils.Singletons.SingletonManager", "classJUtils_1_1Singletons_1_1SingletonManager.html", null ]
     ] ],
     [ "JUtils.Optional< T >", "structJUtils_1_1Optional.html", null ],
     [ "JUtils.SerializableDictionary< TKey, TValue >.Pair", "structJUtils_1_1SerializableDictionary_1_1Pair.html", null ],

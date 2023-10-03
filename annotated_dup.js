@@ -13,7 +13,6 @@ var annotated_dup =
       ] ],
       [ "Components", "namespaceJUtils_1_1Components.html", [
         [ "BillboardCamera", "classJUtils_1_1Components_1_1BillboardCamera.html", "classJUtils_1_1Components_1_1BillboardCamera" ],
-        [ "CopyPosition", "classJUtils_1_1Components_1_1CopyPosition.html", null ],
         [ "DontDestroyOnLoad", "classJUtils_1_1Components_1_1DontDestroyOnLoad.html", null ],
         [ "HealthComponent", "classJUtils_1_1Components_1_1HealthComponent.html", "classJUtils_1_1Components_1_1HealthComponent" ],
         [ "IDamageEvent", "interfaceJUtils_1_1Components_1_1IDamageEvent.html", "interfaceJUtils_1_1Components_1_1IDamageEvent" ],
@@ -45,13 +44,13 @@ var annotated_dup =
       ] ],
       [ "Singletons", "namespaceJUtils_1_1Singletons.html", [
         [ "ISingleton", "interfaceJUtils_1_1Singletons_1_1ISingleton.html", null ],
+        [ "MultitonBehaviour", "classJUtils_1_1Singletons_1_1MultitonBehaviour.html", "classJUtils_1_1Singletons_1_1MultitonBehaviour" ],
         [ "ScriptableObjectSingleton", "classJUtils_1_1Singletons_1_1ScriptableObjectSingleton.html", "classJUtils_1_1Singletons_1_1ScriptableObjectSingleton" ],
         [ "SingletonBehaviour", "classJUtils_1_1Singletons_1_1SingletonBehaviour.html", "classJUtils_1_1Singletons_1_1SingletonBehaviour" ],
-        [ "SingletonManager", "classJUtils_1_1Singletons_1_1SingletonManager.html", "classJUtils_1_1Singletons_1_1SingletonManager" ],
-        [ "StaticListBehaviour", "classJUtils_1_1Singletons_1_1StaticListBehaviour.html", "classJUtils_1_1Singletons_1_1StaticListBehaviour" ]
+        [ "SingletonManager", "classJUtils_1_1Singletons_1_1SingletonManager.html", "classJUtils_1_1Singletons_1_1SingletonManager" ]
       ] ],
-      [ "GizmoUtils", "classJUtils_1_1GizmoUtils.html", "classJUtils_1_1GizmoUtils" ],
       [ "Coroutines", "classJUtils_1_1Coroutines.html", "classJUtils_1_1Coroutines" ],
+      [ "GizmoUtils", "classJUtils_1_1GizmoUtils.html", "classJUtils_1_1GizmoUtils" ],
       [ "MinMax", "structJUtils_1_1MinMax.html", "structJUtils_1_1MinMax" ],
       [ "MinMaxInt", "structJUtils_1_1MinMaxInt.html", "structJUtils_1_1MinMaxInt" ],
       [ "Optional", "structJUtils_1_1Optional.html", "structJUtils_1_1Optional" ],
