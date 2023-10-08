@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 
@@ -10,7 +11,7 @@ namespace JUtils.UI
 {
     public abstract class UIList<T> : UIElement<VisualElement>
     {
-        [SerializeField] protected UIListElement<T> listElement;
+        [SerializeField] protected UIListElement<T> _listElement;
 
         public List<UIListElement<T>>        elements       { get; } = new ();
         public IEnumerable<UIListElement<T>> activeElements => elements.Where(x => x.active);
@@ -25,7 +26,7 @@ namespace JUtils.UI
         public void Expand(int count)
         {
             for (int i = count; i --> 0;) {
-                elements.Add(Instantiate(listElement.gameObject, Vector3.zero, Quaternion.identity, transform).GetComponent<UIListElement<T>>());
+                elements.Add(Instantiate(_listElement.gameObject, Vector3.zero, Quaternion.identity, transform).GetComponent<UIListElement<T>>());
                 AddChild(elements[^1], false);
             }
         }
