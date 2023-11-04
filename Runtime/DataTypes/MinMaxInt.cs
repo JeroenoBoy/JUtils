@@ -10,8 +10,8 @@ namespace JUtils
     [System.Serializable]
     public struct MinMaxInt
     {
-        [SerializeField] internal int _min;
-        [SerializeField] internal int _max;
+        [SerializeField] private int _min;
+        [SerializeField] private int _max;
 
         /// <summary>
         /// Get the min value

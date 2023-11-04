@@ -9,7 +9,7 @@ namespace JUtils.Editor
     /// <summary>
     /// A small debug window which allows for setting VSync, TimeScale and a FPS limit
     /// </summary>
-    public class DebugTools : EditorWindow
+    public class DebugToolsWindow : EditorWindow
     {
         private bool _isOverriding;
         private int  _fps;
@@ -25,7 +25,7 @@ namespace JUtils.Editor
         [MenuItem("Window/Debug")] 
         public static void Initialize()
         {
-            GetWindow<DebugTools>("Debug Tools");
+            GetWindow<DebugToolsWindow>("Debug Tools");
         }
 
 

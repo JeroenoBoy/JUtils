@@ -26,8 +26,8 @@ namespace JUtils
     [System.Serializable]
     public partial struct SceneReference
     {
-        [SerializeField] internal string _sceneName;
-        [SerializeField] internal string _scenePath;
+        [SerializeField] private string _sceneName;
+        [SerializeField] private string _scenePath;
 
         public string sceneName => _sceneName;
         public string scenePath => _scenePath;

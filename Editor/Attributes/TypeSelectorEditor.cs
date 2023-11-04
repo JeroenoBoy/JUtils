@@ -24,8 +24,8 @@ namespace JUtils.Editor
         {
             if (_map.TryGetValue(path, out Context context)) return context;
 
-            Type target  = JUtility.GetType(targetType);
-            Type current = currentType == "" ? null : JUtility.GetType(currentType);
+            Type target  = AssemblyJUtils.GetType(targetType);
+            Type current = currentType == "" ? null : AssemblyJUtils.GetType(currentType);
             
             Context ctx = new (target, current);
             _map[path] = ctx;
@@ -90,8 +90,8 @@ namespace JUtils.Editor
             /// </summary>
             public Context(Type target, Type currentType)
             {
-                types = JUtility.GetAllTypes()
-                    .Where(t => JUtility.ExtendsClassOrInterface(t, target) && !t.IsSubclassOf(typeof(Object)))
+                types = AssemblyJUtils.GetAllTypes()
+                    .Where(t => AssemblyJUtils.ExtendsClassOrInterface(t, target) && !t.IsSubclassOf(typeof(Object)))
                     .ToArray();
 
                 dropDown = new DropDown(types, currentType);

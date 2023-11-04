@@ -9,6 +9,11 @@ namespace JUtils.Editor
     [CustomPropertyDrawer(typeof(SceneReference))]
     public class SceneReferenceEditor : PropertyDrawer
     {
+        private const string PROPERTY_NAME_SCENEASSET = "_sceneAsset";
+        private const string PROPERTY_NAME_SCENENAME = "_sceneName";
+        private const string PROPERTY_NAME_SCENEPATH = "_scenePath";
+        
+        
         public enum ErrorType { Success, Null, BuildIndexMissing, PathMissing }
 
         private GUIStyle _backgroundStyle;
@@ -16,7 +21,7 @@ namespace JUtils.Editor
         
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            SerializedProperty sceneProperty = property.FindPropertyRelative(nameof(SceneReference._sceneAsset));
+            SerializedProperty sceneProperty = property.FindPropertyRelative(PROPERTY_NAME_SCENEASSET);
             float height = EditorGUI.GetPropertyHeight(sceneProperty);
             
             return height + (HasError(sceneProperty.objectReferenceValue as SceneAsset, out _) ? height + 2 : 0 ) + 4;
@@ -33,14 +38,14 @@ namespace JUtils.Editor
             position.x      += 2;
             position.y      += 2;
 
-            HasError(property.FindPropertyRelative(nameof(SceneReference._sceneAsset)).objectReferenceValue as SceneAsset, out ErrorType errorType);
+            HasError(property.FindPropertyRelative(PROPERTY_NAME_SCENEASSET).objectReferenceValue as SceneAsset, out ErrorType errorType);
             Draw(position, property, label, errorType);
         }
 
 
         private void Draw(Rect position, SerializedProperty property, GUIContent label, ErrorType errorType)
         {
-            SerializedProperty sceneProperty = property.FindPropertyRelative(nameof(SceneReference._sceneAsset));
+            SerializedProperty sceneProperty = property.FindPropertyRelative(PROPERTY_NAME_SCENEASSET);
 
             position.height = EditorGUI.GetPropertyHeight(sceneProperty);
             EditorGUI.PropertyField(position, sceneProperty, label);
@@ -48,8 +53,8 @@ namespace JUtils.Editor
             SceneAsset sceneAsset = sceneProperty.objectReferenceValue as SceneAsset;
             string     path       = sceneAsset is not null ? AssetDatabase.GetAssetPath(sceneAsset) : string.Empty;
 
-            property.FindPropertyRelative(nameof(SceneReference._sceneName)).stringValue = sceneAsset ? path : string.Empty;
-            property.FindPropertyRelative(nameof(SceneReference._scenePath)).stringValue = path;
+            property.FindPropertyRelative(PROPERTY_NAME_SCENENAME).stringValue = sceneAsset ? path : string.Empty;
+            property.FindPropertyRelative(PROPERTY_NAME_SCENEPATH).stringValue = path;
             
             position.y += position.height + 2;
 
@@ -60,7 +65,7 @@ namespace JUtils.Editor
                     break;
                 case ErrorType.BuildIndexMissing:
                     position.width -= 34;
-                    EditorGUI.LabelField(position, "Scene has no build index", _backgroundStyle);
+                    EditorGUI.LabelField(position, "Scene is not present in build settings", _backgroundStyle);
 
                     position.x     += position.width + 2;
                     position.width =  32;

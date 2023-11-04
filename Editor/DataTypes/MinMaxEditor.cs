@@ -15,8 +15,8 @@ namespace JUtils.Editor
         
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            SerializedProperty minField = property.FindPropertyRelative(nameof(MinMax._min));
-            SerializedProperty maxField = property.FindPropertyRelative(nameof(MinMax._max));
+            SerializedProperty minField = property.FindPropertyRelative("_min");
+            SerializedProperty maxField = property.FindPropertyRelative("_max");
 
             bool mode = EditorGUIUtility.wideMode;
             EditorGUIUtility.wideMode = false;
