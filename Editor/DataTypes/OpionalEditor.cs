@@ -1,0 +1,54 @@
+﻿using UnityEditor;
+using UnityEngine;
+
+namespace JUtils.Editor
+{
+    [CustomPropertyDrawer(typeof(Optional<>))]
+    public class OptionalEditor : PropertyDrawer
+    {
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        {
+            SerializedProperty valueProperty = property.FindPropertyRelative("_value");
+            return EditorGUI.GetPropertyHeight(valueProperty);
+        }
+
+
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            GUIContent ogLabel = new (label.text, label.image, label.tooltip);
+
+            //  Getting properties
+            
+            SerializedProperty enabledProperty = property.FindPropertyRelative("_enabled");
+            SerializedProperty valueProperty   = property.FindPropertyRelative("_value");
+
+            float enabledHeight = EditorGUI.GetPropertyHeight(enabledProperty);
+
+            //  Creating rects
+
+            Rect valueRect = new ()
+            {
+                x = position.x,
+                y = position.y,
+                width = position.width - 20,
+                height = position.height
+            };
+
+            Rect toggleRect = new ()
+            {
+                x = position.x + 2 + valueRect.width - (property.depth >= 1 ? 14 : 0),
+                y = position.y,
+                width = enabledHeight,
+                height = enabledHeight
+            };
+            
+            //  Drawing gui things
+            
+            EditorGUI.BeginDisabledGroup(!enabledProperty.boolValue);
+            EditorGUI.PropertyField(valueRect, valueProperty, ogLabel, true);
+            EditorGUI.EndDisabledGroup();
+            
+            EditorGUI.PropertyField(toggleRect, enabledProperty, GUIContent.none);
+        }
+    }
+}
