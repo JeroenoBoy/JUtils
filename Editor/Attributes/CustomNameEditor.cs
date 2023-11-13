@@ -1,15 +1,20 @@
 ﻿using UnityEditor;
-using UnityEngine;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
 namespace JUtils.Editor
 {
     [CustomPropertyDrawer(typeof(CustomNameAttribute))]
     public class CustomNameEditor : PropertyDrawer
     {
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        private new CustomNameAttribute attribute => base.attribute as CustomNameAttribute;
+        
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
-            label.text = ((CustomNameAttribute)attribute).name;
-            EditorGUI.PropertyField(position, property, label);
+            VisualElement root = new();
+            root.AddToClassList("panel");
+            root.Add(new PropertyField(property, attribute.name));
+            return root;
         }
     }
 }
