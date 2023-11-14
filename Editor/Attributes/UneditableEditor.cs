@@ -1,16 +1,17 @@
 ﻿using UnityEditor;
-using UnityEngine;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
 namespace JUtils.Editor
 {
     [CustomPropertyDrawer(typeof(UneditableAttribute))]
     public class UneditableEditor : PropertyDrawer
     {
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
-            GUI.enabled = false;
-            EditorGUI.PropertyField(position, property, label, true);
-            GUI.enabled = true;
+            PropertyField propertyField = new(property);
+            propertyField.SetEnabled(false);
+            return propertyField;
         }
     }
 }
