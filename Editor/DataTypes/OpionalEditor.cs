@@ -1,54 +1,38 @@
 ﻿using UnityEditor;
-using UnityEngine;
+using UnityEditor.UIElements;
+using UnityEngine.UIElements;
 
 namespace JUtils.Editor
 {
     [CustomPropertyDrawer(typeof(Optional<>))]
     public class OptionalEditor : PropertyDrawer
     {
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
-            SerializedProperty valueProperty = property.FindPropertyRelative("_value");
-            return EditorGUI.GetPropertyHeight(valueProperty);
-        }
-
-
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-        {
-            GUIContent ogLabel = new (label.text, label.image, label.tooltip);
-
-            //  Getting properties
-            
             SerializedProperty enabledProperty = property.FindPropertyRelative("_enabled");
             SerializedProperty valueProperty   = property.FindPropertyRelative("_value");
-
-            float enabledHeight = EditorGUI.GetPropertyHeight(enabledProperty);
-
-            //  Creating rects
-
-            Rect valueRect = new ()
-            {
-                x = position.x,
-                y = position.y,
-                width = position.width - 20,
-                height = position.height
-            };
-
-            Rect toggleRect = new ()
-            {
-                x = position.x + 2 + valueRect.width - (property.depth >= 1 ? 14 : 0),
-                y = position.y,
-                width = enabledHeight,
-                height = enabledHeight
-            };
             
-            //  Drawing gui things
+            VisualElement root = new();
             
-            EditorGUI.BeginDisabledGroup(!enabledProperty.boolValue);
-            EditorGUI.PropertyField(valueRect, valueProperty, ogLabel, true);
-            EditorGUI.EndDisabledGroup();
+            Toggle toggle = new();
+            PropertyField propertyField = new(valueProperty, property.name);
+
+            toggle.style.marginTop = 2;
+            toggle.style.marginLeft = 4;
+            toggle.style.maxHeight = 20;
             
-            EditorGUI.PropertyField(toggleRect, enabledProperty, GUIContent.none);
+            propertyField.style.flexGrow = 1;
+            propertyField.SetEnabled(enabledProperty.boolValue);
+            
+            toggle.BindProperty(enabledProperty);
+            toggle.RegisterValueChangedCallback(e => propertyField.SetEnabled(e.newValue));
+            
+            root.style.flexDirection = FlexDirection.Row;
+            
+            root.Add(propertyField);
+            root.Add(toggle);
+
+            return root;
         }
     }
 }
