@@ -15,7 +15,7 @@ namespace JUtils.Editor
         {
             if (property.type != "PPtr<$Object>") throw new Exception("Field must be of type Object");
 
-            ObjectField field = new(property.name) {
+            ObjectField field = new(property.displayName) {
                 objectType = attribute.type,
                 allowSceneObjects = true,
                 value = property.objectReferenceValue

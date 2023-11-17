@@ -24,9 +24,7 @@ namespace JUtils
         }
 
 
-        public void OnAfterDeserialize()
-        {
-        }
+        public void OnAfterDeserialize() { }
     }
 #endif
 }

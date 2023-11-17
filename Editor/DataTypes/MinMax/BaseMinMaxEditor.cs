@@ -14,7 +14,7 @@ namespace JUtils.Editor
             VisualElement root = new();
 
             float labelWidth = EditorGUIUtility.labelWidth;
-            Label label = new(property.name);
+            Label label = new(property.displayName);
             
             BindableElement minField = CreateElement("min");
             BindableElement maxField = CreateElement("max");

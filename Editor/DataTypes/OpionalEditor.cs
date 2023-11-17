@@ -15,7 +15,7 @@ namespace JUtils.Editor
             VisualElement root = new();
             
             Toggle toggle = new();
-            PropertyField propertyField = new(valueProperty, property.name);
+            PropertyField propertyField = new(valueProperty, property.displayName);
 
             toggle.style.marginTop = 2;
             toggle.style.marginLeft = 4;
