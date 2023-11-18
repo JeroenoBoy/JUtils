@@ -20,6 +20,11 @@ namespace JUtils.Editor
             toggle.style.marginTop = 2;
             toggle.style.marginLeft = 4;
             toggle.style.maxHeight = 20;
+
+            if (valueProperty.propertyType == SerializedPropertyType.Generic) {
+                toggle.style.position = Position.Absolute;
+                toggle.style.right = 0;
+            }
             
             propertyField.style.flexGrow = 1;
             propertyField.SetEnabled(enabledProperty.boolValue);
