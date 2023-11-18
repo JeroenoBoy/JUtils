@@ -14,7 +14,5 @@ namespace JUtils
     ///     }
     /// }
     /// </code></example>
-    public class UnpackAttribute : PropertyAttribute
-    {
-    }
+    public class UnpackAttribute : PropertyAttribute { }
 }

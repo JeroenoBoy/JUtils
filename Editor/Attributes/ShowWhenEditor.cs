@@ -1,64 +1,45 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
+using Unity.EditorCoroutines.Editor;
 using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Comparer = JUtils.ShowWhenAttribute.Comparer;
 
 namespace JUtils.Editor
 {
     [CustomPropertyDrawer(typeof(ShowWhenAttribute))]
-    public class SerializeWhenEditor : PropertyDrawer
+    public class ShowWhenEditor : PropertyDrawer
     {
         protected new ShowWhenAttribute attribute => (ShowWhenAttribute)base.attribute;
-        private bool _includeChildren = true;
         
         
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
-            return -2;
+            PropertyField propertyField = new(property);
+
+            EditorCoroutine routine = EditorCoroutineUtility.StartCoroutine(MatchRoutine(propertyField, property), property);
+            propertyField.RegisterCallback((DetachFromPanelEvent _) => EditorCoroutineUtility.StopCoroutine(routine));
+
+            return propertyField;
         }
 
-
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        
+        private IEnumerator MatchRoutine(VisualElement element, SerializedProperty property)
         {
-            if (!Matches(property)) return;
-
-            if (property.propertyType != SerializedPropertyType.Generic) {
-                EditorGUILayout.PropertyField(property, label);
-                return;
+            while (true) {
+                element.style.display = Matches(property) ? DisplayStyle.Flex : DisplayStyle.None;
+                yield return new WaitForSeconds(1);
             }
-            
-            //  Drawing the property
-            
-            bool asObject = attribute.showAsObject;
-
-            //  Skipping the property if we don't want to show it as an object
-            if (asObject) {
-                EditorGUILayout.BeginHorizontal();
-                _includeChildren = EditorGUILayout.Foldout(_includeChildren, label);
-                EditorGUILayout.EndHorizontal();
-
-                if (!_includeChildren) return;
-                EditorGUI.indentLevel++;
-            }
-            
-            //  Drawing the children
-            
-            property.NextVisible(true);
-            int depth = property.depth;
-
-            do EditorGUILayout.PropertyField(property);
-            while (property.NextVisible(false) && property.depth == depth);
-
-            //  Decreasing the indent level
-            if (asObject) EditorGUI.indentLevel--;
         }
 
 
         public bool Matches(SerializedProperty property)
         {
             string[] variables = attribute.variable.Split('.');
-            string nane       = variables.Last();
+            string nane = variables.Last();
             
             int backTrace = variables.Length;
 

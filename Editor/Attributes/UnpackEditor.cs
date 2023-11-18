@@ -1,36 +1,29 @@
 ﻿using UnityEditor;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace JUtils.Editor
 {
     [CustomPropertyDrawer(typeof(UnpackAttribute))]
     public class UnpackEditor : PropertyDrawer
     {
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
-            property.NextVisible(true);
-            float height = 0;
-            int depth = property.depth;
+            if (property.propertyType != SerializedPropertyType.Generic) {
+                Debug.LogError($"property ${property.propertyPath} must be generic!");
+                return new VisualElement();
+            }
 
+            VisualElement root = new();
+            SerializedProperty iterator = property.Copy();
+            iterator.NextVisible(true);
+            int depth = iterator.depth;
             do {
-                height += EditorGUI.GetPropertyHeight(property) + 2;
-            } while (property.NextVisible(false) && property.depth == depth);
-
-            return height;
-        }
-
-
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-        {
-            property.NextVisible(true);
-            int depth = property.depth;
-
-            do {
-                float height = position.height = EditorGUI.GetPropertyHeight(property);
-                EditorGUI.PropertyField(position, property, true);
-                position.y += height + 2;
-
-            } while (property.NextVisible(false) && property.depth == depth);
+                root.Add(new PropertyField(iterator));
+            } while (iterator.NextVisible(false) && iterator.depth == depth);
+            
+            return root;
         }
     }
 }

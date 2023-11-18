@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-
-
-namespace JUtils.Editor
+namespace JUtils
 {
     /// <summary>
     /// Utilities class working with assemblies
     /// </summary>
-    public static class JUtility
+    public static class AssemblyJUtils
     {
         /// <summary>
         /// Get all types in all assemblies

@@ -1,5 +1,4 @@
 ﻿using System;
-using JUtils.Editor;
 using UnityEngine;
 
 
@@ -39,7 +38,7 @@ namespace JUtils
         {
             if (_typeCode == -1) type = null;
             else if (_assemblyCode == -1) type = null;
-            else type = JUtility.GetTypeFromCode(_typeCode, _assemblyCode);
+            else type = AssemblyJUtils.GetTypeFromCode(_typeCode, _assemblyCode);
         }
         
         

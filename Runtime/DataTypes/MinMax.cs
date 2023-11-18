@@ -12,8 +12,8 @@ namespace JUtils
     [Serializable]
     public struct MinMax
     {
-        [SerializeField] internal float _min;
-        [SerializeField] internal float _max;
+        [SerializeField] private float _min;
+        [SerializeField] private float _max;
 
         /// <summary>
         /// Get the min value

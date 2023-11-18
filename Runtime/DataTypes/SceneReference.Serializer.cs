@@ -4,10 +4,11 @@ using UnityEngine;
 
 namespace JUtils
 {
+#if UNITY_EDITOR
     [StructLayout(LayoutKind.Auto)]
     public partial struct SceneReference
     {
-        [SerializeField] internal SceneAsset _sceneAsset;
+        [SerializeField] private SceneAsset _sceneAsset;
         
         
         public void OnBeforeSerialize()
@@ -23,8 +24,7 @@ namespace JUtils
         }
 
 
-        public void OnAfterDeserialize()
-        {
-        }
+        public void OnAfterDeserialize() { }
     }
+#endif
 }

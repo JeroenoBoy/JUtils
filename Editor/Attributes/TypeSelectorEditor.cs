@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.IMGUI.Controls;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
 
 namespace JUtils.Editor
@@ -11,144 +12,66 @@ namespace JUtils.Editor
     [CustomPropertyDrawer(typeof(TypeSelectorAttribute))]
     public class TypeSelectorEditor : PropertyDrawer
     {
-        private static readonly Dictionary<string, Context> _map = new ();
-        
+        private static readonly Dictionary<string, Type[]> _map = new ();
         
         public TypeSelectorAttribute target => attribute as TypeSelectorAttribute;
-        
+
+
+        public override VisualElement CreatePropertyGUI(SerializedProperty property)
+        {
+            Type[] availableTypes = GetAvailableTypes(property.managedReferenceFieldTypename);
+            VisualElement root = new();
+            PropertyField propertyField = new(property, property.displayName);
+            Label emptyLabel = new(property.displayName);
+            DropdownField dropdownField = new() {
+                style = { position = Position.Absolute, right = 0 },
+                value = string.IsNullOrEmpty(property.managedReferenceFullTypename) ? "Unset" : AssemblyJUtils.GetType(property.managedReferenceFullTypename).Name,
+                choices = availableTypes.Select(it => it.Name).Prepend("Unset").ToList()
+            };
+
+            dropdownField.RegisterValueChangedCallback(e => {
+                Type newType = availableTypes.FirstOrDefault(it => it.Name == e.newValue);
+                if (newType == null) {
+                    property.managedReferenceValue = null;
+                } else if (e.newValue != e.previousValue) {
+                    property.managedReferenceValue = Activator.CreateInstance(newType);
+                }
+
+                property.serializedObject.ApplyModifiedProperties();
+                ChangeEnabled();
+            });
+            
+            ChangeEnabled();
+            
+            root.Add(propertyField);
+            root.Add(emptyLabel);
+            root.Add(dropdownField);
+
+            void ChangeEnabled()
+            {
+                bool isNull = property.managedReferenceValue == null;
+                propertyField.style.display = isNull ? DisplayStyle.None : DisplayStyle.Flex;
+                emptyLabel.style.display = isNull ? DisplayStyle.Flex : DisplayStyle.None;
+                propertyField.BindProperty(property);
+            }
+            
+            return root;
+        }
+
 
         /// <summary>
         /// Gets the context of this property
         /// </summary>
-        private Context GetContext(string path, string targetType, string currentType)
+        private Type[] GetAvailableTypes(string typeName)
         {
-            if (_map.TryGetValue(path, out Context context)) return context;
+            if (_map.TryGetValue(typeName, out Type[] availableTypes)) return availableTypes;
 
-            Type target  = JUtility.GetType(targetType);
-            Type current = currentType == "" ? null : JUtility.GetType(currentType);
+            Type targetType = AssemblyJUtils.GetType(typeName);
+            _map[typeName] = AssemblyJUtils.GetAllTypes()
+                .Where(t => AssemblyJUtils.ExtendsClassOrInterface(t, targetType) && !t.IsSubclassOf(typeof(Object)))
+                .ToArray();
             
-            Context ctx = new (target, current);
-            _map[path] = ctx;
-            return ctx;
-        }
-
-        
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-        {
-            Context ctx = GetContext(property.propertyPath, property.managedReferenceFieldTypename, property.managedReferenceFullTypename);
-            return ctx.dropDown.ItemIsNull() ? 18 : EditorGUI.GetPropertyHeight(property);
-        }
-
-
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-        {
-            Context ctx = GetContext(property.propertyPath, property.managedReferenceFieldTypename, property.managedReferenceFullTypename);
-            
-            object o;
-            try {
-                o = property.managedReferenceValue;
-            }
-            catch {
-                Debug.LogError("IPopulator requires \"SerializeReference\" attribute");
-                return;
-            }
-
-            EditorGUI.BeginProperty(position, label, property);
-            
-            Rect rect = new (position)
-            {
-                x = EditorGUIUtility.labelWidth + position.x + 1,
-                height = 18,
-                width = position.width - EditorGUIUtility.labelWidth
-            };
-            
-            GUIContent ddLabel = new (ctx.dropDown.ItemName());
-            if (EditorGUI.DropdownButton(rect, ddLabel, FocusType.Keyboard)) {
-                ctx.dropDown.Show(new Rect(rect) {height = 0});
-            }
-            
-            if (o is null || o.GetType() != ctx.dropDown.ItemType()) {
-                property.managedReferenceValue = !ctx.dropDown.ItemIsNull()
-                    ? Activator.CreateInstance(ctx.dropDown.ItemType())
-                    : null;
-            }
-            
-            EditorGUI.PropertyField(position, property, label, true);
-            EditorGUI.EndProperty();
-        }
-        
-        
-        
-        private class Context
-        {
-            public readonly Type[] types;
-            public readonly DropDown dropDown;
-            
-            
-            /// <summary>
-            /// Select all the types
-            /// </summary>
-            public Context(Type target, Type currentType)
-            {
-                types = JUtility.GetAllTypes()
-                    .Where(t => JUtility.ExtendsClassOrInterface(t, target) && !t.IsSubclassOf(typeof(Object)))
-                    .ToArray();
-
-                dropDown = new DropDown(types, currentType);
-            }
-        }
-        
-        
-        
-        private class DropDown : AdvancedDropdown
-        {
-            private readonly Type[] _types;
-            private Type _selectedType;
-            
-            
-            public DropDown(Type[] types, Type selectedType) : base(new AdvancedDropdownState())
-            {
-                _selectedType = selectedType;
-                _types = types;
-            }
-
-
-            protected override AdvancedDropdownItem BuildRoot()
-            {
-                AdvancedDropdownItem root = new ("Scripts");
-                
-                root.AddChild(new AdvancedDropdownItem("Unset"));
-                
-                foreach (Type type in _types) {
-                    root.AddChild(new AdvancedDropdownItem(type.Name));
-                }
-
-                return root;
-            }
-
-
-            protected override void ItemSelected(AdvancedDropdownItem item)
-            {
-                _selectedType = item.name == "Unset" ? null : _types.First(t => t.Name == item.name);
-            }
-            
-            
-            public string ItemName()
-            {
-                return _selectedType == null ? "Unset" : _selectedType.Name;
-            }
-
-
-            public Type ItemType()
-            {
-                return _selectedType;
-            }
-
-
-            public bool ItemIsNull()
-            {
-                return _selectedType == null;
-            }
+            return _map[typeName];
         }
     }
 }

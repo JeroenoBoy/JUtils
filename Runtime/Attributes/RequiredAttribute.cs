@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace JUtils
 {
@@ -15,23 +14,5 @@ namespace JUtils
     ///     }
     /// }
     /// </code></example>
-    public class RequiredAttribute : PropertyAttribute
-    {
-#if UNITY_EDITOR
-
-        [CustomPropertyDrawer(typeof(RequiredAttribute))]
-        private class RequiredEditor : PropertyDrawer
-        {
-            public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-            {
-                EditorGUI.PropertyField(position, property, label);
-
-                if (property.objectReferenceValue != null) return;
-                EditorGUILayout.HelpBox($"Field \"{property.displayName}\" is required", MessageType.Error);
-                EditorGUILayout.Space(4);
-            }
-        }
-        
-#endif
-    }
+    public class RequiredAttribute : PropertyAttribute { }
 }
