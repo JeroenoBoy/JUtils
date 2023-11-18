@@ -10,7 +10,7 @@ namespace JUtils.Editor
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
             SerializedProperty enabledProperty = property.FindPropertyRelative("_enabled");
-            SerializedProperty valueProperty   = property.FindPropertyRelative("_value");
+            SerializedProperty valueProperty = property.FindPropertyRelative("_value");
             
             VisualElement root = new();
             

@@ -1,6 +1,5 @@
 ﻿using UnityEditor;
 using UnityEditor.UIElements;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace JUtils.Editor
@@ -11,7 +10,7 @@ namespace JUtils.Editor
         public override VisualElement CreatePropertyGUI(SerializedProperty property)
         {
             SerializedProperty weightField = property.FindPropertyRelative("_weight");
-            SerializedProperty valueField  = property.FindPropertyRelative("_value");
+            SerializedProperty valueField = property.FindPropertyRelative("_value");
 
             VisualElement root = new();
             
