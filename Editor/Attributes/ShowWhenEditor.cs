@@ -11,7 +11,7 @@ using Comparer = JUtils.ShowWhenAttribute.Comparer;
 namespace JUtils.Editor
 {
     [CustomPropertyDrawer(typeof(ShowWhenAttribute))]
-    public class SerializeWhenEditor : PropertyDrawer
+    public class ShowWhenEditor : PropertyDrawer
     {
         protected new ShowWhenAttribute attribute => (ShowWhenAttribute)base.attribute;
         
