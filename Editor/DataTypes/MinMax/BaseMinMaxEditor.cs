@@ -26,6 +26,8 @@ namespace JUtils.Editor
             minField.style.flexGrow = 1;
             maxField.style.paddingLeft = 10;
             maxField.style.flexGrow = 1;
+            minField.style.width = new Length(.5f, LengthUnit.Percent);
+            maxField.style.width = new Length(.5f, LengthUnit.Percent);
 
             Label minLabel = minField.Q<Label>();
             minLabel.style.width = 25;
