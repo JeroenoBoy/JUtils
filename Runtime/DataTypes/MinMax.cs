@@ -49,7 +49,7 @@ namespace JUtils
 
         
         /// <summary>
-        /// Get a ranbdom value from min to max using System.Random
+        /// Get a random value from min to max using System.Random
         /// </summary>
         public float Random(Random random)
         {

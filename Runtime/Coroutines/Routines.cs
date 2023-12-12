@@ -92,5 +92,34 @@ namespace JUtils
             yield return new WaitForSeconds(timeSpan.Seconds);
             action.Invoke();
         }
+
+
+        /// <summary>
+        /// Runs this routine flat -- It will not spawn new coroutines when doing <b>yield return SomeRoutine()</b>.
+        /// </summary>
+        public static IEnumerator RunFlat(IEnumerator routine)
+        {
+            Stack<IEnumerator> routineStack = new(4);
+            routineStack.Push(routine);
+            while (routineStack.Count > 0) {
+                IEnumerator topRoutine = routineStack.Peek();
+                if (!topRoutine.MoveNext()) {
+                    routineStack.Pop();
+                    continue;
+                }
+
+                switch (topRoutine.Current) {
+                    case YieldInstruction instruction:
+                        yield return instruction;
+                        break;
+                    case null:
+                        yield return null;
+                        break;
+                    case IEnumerator subRoutine:
+                        routineStack.Push(subRoutine);
+                        break;
+                }
+            }
+        }
     }
 }
