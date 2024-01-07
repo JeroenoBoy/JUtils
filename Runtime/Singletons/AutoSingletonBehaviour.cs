@@ -4,7 +4,7 @@ using UnityEngine;
 namespace JUtils
 {
     /// <summary>
-    /// Your simple and everyday singleton class
+    /// Your simple and everyday singleton class that automatically instantiates if there is no instance yet
     /// </summary>
     public abstract class AutoSingletonBehaviour<T> : MonoBehaviour, ISingleton<T> where T : AutoSingletonBehaviour<T>
     {
