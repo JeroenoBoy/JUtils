@@ -9,8 +9,12 @@ namespace JUtils.Events
     /// Event channels are scriptable objects that can dynamically be assigned
     /// </summary>
     /// <typeparam name="T"></typeparam>
+    [ResourcePlayModeChangeCallbackReceiver("")]
     public abstract class EventChannel<T> : ScriptableObject
     {
+        [SerializeField] private bool _clearEventsOnPlayModeExit = true;
+        [SerializeField] private bool _checkForLeaksOnPlayModeExit = true;
+
         private event Action<T> listeners;
 
 
@@ -40,5 +44,20 @@ namespace JUtils.Events
         {
             listeners?.Invoke(argument);
         }
+
+
+#if UNITY_EDITOR
+        public void OnPlayModeExit()
+        {
+            if (listeners == null) return;
+
+            if (_checkForLeaksOnPlayModeExit) {
+                int count = listeners.GetInvocationList().Length;
+                if (count > 0) Debug.LogWarning($"<color=red>Event Leak Detected!</color> '{name}' had {count} listeners after exiting play mode!", this);
+            }
+
+            if (_clearEventsOnPlayModeExit) listeners = null;
+        }
+#endif
     }
 }
