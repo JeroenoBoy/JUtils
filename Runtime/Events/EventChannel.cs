@@ -1,5 +1,4 @@
 ﻿using System;
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace JUtils.Events
@@ -12,24 +11,24 @@ namespace JUtils.Events
     /// <typeparam name="T"></typeparam>
     public abstract class EventChannel<T> : ScriptableObject
     {
-        private event Action<T> channel;
+        private event Action<T> listeners;
 
 
         /// <summary>
         /// Add a listener to this event channel
         /// </summary>
-        public void Register(Action<T> listener)
+        public void AddListener(Action<T> listener)
         {
-            channel += listener;
+            listeners += listener;
         }
 
 
         /// <summary>
         /// Remove a listener from this event channel
         /// </summary>
-        public void UnRegister(Action<T> listener)
+        public void RemoveListener(Action<T> listener)
         {
-            channel -= listener;
+            listeners -= listener;
         }
 
 
@@ -39,23 +38,7 @@ namespace JUtils.Events
         /// <param name="argument"></param>
         public void RaiseUnsafe(T argument)
         {
-            channel?.Invoke(argument);
-        }
-    }
-
-
-    public static class EventChannelExtensions
-    {
-        public static void Raise<T>([CanBeNull] this EventChannel<T> eventChannel, T argument)
-        {
-            if (eventChannel == null) return;
-            eventChannel.RaiseUnsafe(argument);
-        }
-
-        public static void Raise([CanBeNull] this EmptyEventChannel eventChannel)
-        {
-            if (eventChannel == null) return;
-            eventChannel.RaiseUnsafe(default);
+            listeners?.Invoke(argument);
         }
     }
 }

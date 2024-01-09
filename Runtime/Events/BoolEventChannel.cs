@@ -3,5 +3,5 @@
 namespace JUtils.Events
 {
     [CreateAssetMenu(menuName = "JUtils/Events/Bool Event Channel")]
-    public class BoolEventChannel : EventChannel<float> { }
+    public sealed class BoolEventChannel : EventChannel<bool> { }
 }

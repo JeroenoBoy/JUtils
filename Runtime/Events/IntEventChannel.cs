@@ -3,5 +3,5 @@
 namespace JUtils.Events
 {
     [CreateAssetMenu(menuName = "JUtils/Events/Int Event Channel")]
-    public class IntEventChannel : EventChannel<int> { }
+    public sealed class IntEventChannel : EventChannel<int> { }
 }
