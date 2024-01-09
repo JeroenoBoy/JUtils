@@ -27,8 +27,7 @@ namespace JUtils
         /// </summary>
         public float unscaledTimeInState => isActive ? Time.unscaledTime - _unscaledTimeEnteredState : -1f;
         
-        protected StateData data { get; private set; }
-        
+        protected StateData stateData { get; private set; }
 
         private float _timeEnteredState;
         private float _unscaledTimeEnteredState;
@@ -43,7 +42,7 @@ namespace JUtils
                 _timeEnteredState         = Time.time;
                 _unscaledTimeEnteredState = Time.unscaledTime;
 
-                this.data = data;
+                stateData = data;
                 
                 gameObject.SetActive(true);
                 isActive = true;
@@ -72,7 +71,7 @@ namespace JUtils
                 }
                 
                 isActive = false;
-                data = null;
+                stateData = null;
                 onStateDeactivate?.Invoke(this);
             }
             catch (Exception e) {
@@ -138,7 +137,7 @@ namespace JUtils
     {
         protected override void OnActivate()
         {
-            T param = data.Get<T>(0);
+            T param = stateData.Get<T>(0);
             OnActivate(param);
         }
 
@@ -155,8 +154,8 @@ namespace JUtils
     {
         protected override void OnActivate()
         {
-            T1 param1 = data.Get<T1>(0);
-            T2 param2 = data.Get<T2>(1);
+            T1 param1 = stateData.Get<T1>(0);
+            T2 param2 = stateData.Get<T2>(1);
             OnActivate(param1, param2);
         }
 
@@ -173,9 +172,9 @@ namespace JUtils
     {
         protected override void OnActivate()
         {
-            T1 param1 = data.Get<T1>(0);
-            T2 param2 = data.Get<T2>(1);
-            T3 param3 = data.Get<T3>(2);
+            T1 param1 = stateData.Get<T1>(0);
+            T2 param2 = stateData.Get<T2>(1);
+            T3 param3 = stateData.Get<T3>(2);
             OnActivate(param1, param2, param3);
         }
 
