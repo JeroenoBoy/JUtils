@@ -1,55 +1,42 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 
 namespace JUtils
 {
     /// <summary>
-    ///     A mono-behaviour state-machine that can also be used as a state
+    /// A mono behaviour state-machine that can also be used as a state
     /// </summary>
     public abstract partial class StateMachine : State
     {
         [SerializeField] private bool _showLogs;
         [SerializeField] private bool _autoActivate;
         [SerializeField] private bool _autoCreateStates = true;
-        
+
         public event Action<State> onStateChanged;
-        
+
         protected bool hasActiveState => currentState != null;
         protected bool isQueueFilled => stateQueue.Count > 0;
         protected bool isQueueEmpty => stateQueue.Count == 0;
-        
+
         protected State currentState;
         protected List<QueueEntry> stateQueue = new();
 
 
         /// <summary>
-        ///     Clears the queue and triggers <see cref="OnNoState" />>
-        /// </summary>
-        public void GoToNoState()
-        {
-            //  TODO: Make NoState Work
-            //  TODO: Add QueueNoState
-            Log("Forcibly go to no state");
-            ContinueQueue();
-        }
-
-
-        /// <summary>
-        ///     Clears the StateQueue and goes to the given state
+        /// Queues the current given state, then goes to it
         /// </summary>
         public void GoToState([NotNull] State state, [CanBeNull] StateData data)
         {
             Log($"Go to state '{state.GetType().Name}'");
-            AddToQueue(state, data, true);
+            AddToQueueInternal(state, data, true);
             ContinueQueue();
         }
 
 
         /// <summary>
-        ///     Clears the StateQueue and goes to the given state
+        /// Clears the StateQueue and goes to the given state
         /// </summary>
         public void GoToState<T>([CanBeNull] StateData data) where T : State
         {
@@ -59,22 +46,17 @@ namespace JUtils
 
 
         /// <summary>
-        ///     Adds a new state to the queue
+        /// Adds a new state to the queue
         /// </summary>
         public void AddToQueue([NotNull] State state, [CanBeNull] StateData data, bool queueFirst = false)
         {
-            if (queueFirst) {
-                stateQueue.Insert(0, new QueueEntry { state = state, data = data ?? new StateData() });
-                Log($"Inserted '{state.GetType().Name}' to the queue");
-            } else {
-                stateQueue.Add(new QueueEntry { state = state, data = data ?? new StateData() });
-                Log($"Add '{state.GetType().Name}' to the queue");
-            }
+            AddToQueueInternal(state, data, queueFirst);
+            Log(queueFirst ? $"Inserted '{state.GetType().Name}' to the queue" : $"Added '{state.GetType().Name}' to the queue");
         }
 
 
         /// <summary>
-        ///     Adds a new state to the queue
+        /// Adds a new state to the queue
         /// </summary>
         public void AddToQueue<T>([CanBeNull] StateData data, bool queueFirst = false) where T : State
         {
@@ -84,7 +66,16 @@ namespace JUtils
 
 
         /// <summary>
-        ///     Deactivate the current state and go to the next one
+        /// Clears all states in the queue
+        /// </summary>
+        public void ClearQueue()
+        {
+            stateQueue.Clear();
+        }
+
+
+        /// <summary>
+        /// Deactivate the current state and go to the next one
         /// </summary>
         public void ContinueQueue()
         {
@@ -105,14 +96,14 @@ namespace JUtils
             } else {
                 nextEntry = default;
             }
-            
+
             if (nextEntry.state == null) {
                 Log($"Running '{nameof(OnNoState)}'");
                 currentState = null;
                 OnNoState();
                 return;
             }
-            
+
             State state = nextEntry.state;
 
             state.stateMachine = this;
@@ -125,8 +116,8 @@ namespace JUtils
 
 
         /// <summary>
-        ///     Find a state within the child objects of this state-machine, if <see cref="_autoCreateStates" /> is enabled, it
-        ///     will automatically instantiate the state
+        /// Find a state within the child objects of this state-machine, if <see cref="_autoCreateStates" /> is enabled, it
+        /// will automatically instantiate the state
         /// </summary>
         public T FindState<T>() where T : State
         {
@@ -136,8 +127,8 @@ namespace JUtils
 
 
         /// <summary>
-        ///     Try finding a state within the child objects of this state-machine, if <see cref="_autoCreateStates" /> is enabled,
-        ///     it will automatically instantiate that state
+        /// Try finding a state within the child objects of this state-machine, if <see cref="_autoCreateStates" /> is enabled,
+        /// it will automatically instantiate that state
         /// </summary>
         public bool TryFindState<T>(out T state) where T : State
         {
@@ -154,7 +145,7 @@ namespace JUtils
 
 
         /// <summary>
-        ///     Internal function of activating the state
+        /// Internal function of activating the state
         /// </summary>
         internal override bool ActivateState([NotNull] StateData data)
         {
@@ -165,7 +156,7 @@ namespace JUtils
 
 
         /// <summary>
-        ///     Internal function for deactivating the state
+        /// Internal function for deactivating the state
         /// </summary>
         internal override void DeactivateState()
         {
@@ -178,6 +169,9 @@ namespace JUtils
         }
 
 
+        /// <summary>
+        /// Gets called when there is no next state in the queue
+        /// </summary>
         protected abstract void OnNoState();
 
 
@@ -209,20 +203,19 @@ namespace JUtils
         }
 
 
+        private void AddToQueueInternal(State state, StateData data, bool queueFirst)
+        {
+            if (queueFirst)
+                stateQueue.Insert(0, new QueueEntry { state = state, data = data ?? new StateData() });
+            else
+                stateQueue.Add(new QueueEntry { state = state, data = data ?? new StateData() });
+        }
+
+
         private void Log(object message)
         {
             if (!_showLogs) return;
             Debug.Log($"[{GetType().Name}] : {message}", this);
-        }
-
-
-        /// <summary>
-        ///     Representation of the state and its data in the queue
-        /// </summary>
-        public struct QueueEntry
-        {
-            public State state;
-            public StateData data;
         }
     }
 }
