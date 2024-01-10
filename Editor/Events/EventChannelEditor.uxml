@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/JUtils/Editor/Events/EventChannelEditor.uss?fileID=7433441132597879392&amp;guid=1ec83cd18fc49bd41989b16a44ae75dc&amp;type=3#EventChannelEditor" />
+    <ui:Toggle label="Clear listeners when exiting play mode" binding-path="_clearEventsOnPlayModeExit" name="clear" value="false" style="flex-direction: row;" />
+    <ui:Toggle label="Warn when listeners have leaked" binding-path="_checkForLeaksOnPlayModeExit" name="notify" style="flex-direction: row;" />
+    <ui:VisualElement name="Warning" style="padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(48, 48, 48);">
+        <ui:Label tabindex="-1" text="Warning! &#10;All events must be placed under &quot;Resources/Events&quot; for them to work correctly" parse-escape-sequences="true" display-tooltip-when-elided="true" style="white-space: normal; color: rgb(255, 0, 0); -unity-font-style: normal; font-size: 14px;" />
+    </ui:VisualElement>
+</ui:UXML>

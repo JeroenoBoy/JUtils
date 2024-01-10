@@ -9,7 +9,7 @@ namespace JUtils.Events
     /// Event channels are scriptable objects that can dynamically be assigned
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    [ResourcePlayModeChangeCallbackReceiver("")]
+    [ResourcePlayModeChangeCallbackReceiver("Events")]
     public abstract class EventChannel<T> : ScriptableObject
     {
         [SerializeField] private bool _clearEventsOnPlayModeExit = true;
