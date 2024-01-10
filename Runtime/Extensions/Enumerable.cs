@@ -12,43 +12,42 @@ namespace JUtils
         /// <summary>
         /// Get a random element from the enumerable
         /// </summary>
-        public static T Random<T>(this IEnumerable<T> self)
+        public static TType Random<T, TType>(this T self) where T : IEnumerable<TType>
         {
-            T[] enumerable = self as T[] ?? self.ToArray();
-            int size       = enumerable.Length;
-            
+            IList<TType> list = self as IList<TType> ?? self.ToArray();
+            int size = list.Count;
+
             return size == 0
                 ? default
-                : enumerable.ElementAt(UnityEngine.Random.Range(0, size));
+                : list[UnityEngine.Random.Range(0, size)];
         }
-        
-        
+
+
         /// <summary>
         /// Get a random element from the enumerable using System.Random
         /// </summary>
-        public static T Random<T>(this IEnumerable<T> self, Random random)
+        public static TType Random<T, TType>(this T self, Random random) where T : IEnumerable<TType>
         {
-            T[] enumerable = self as T[] ?? self.ToArray();
-            int size       = enumerable.Length;
-            
+            IList<TType> list = self as IList<TType> ?? self.ToArray();
+            int size = list.Count;
+
             return size == 0
                 ? default
-                : enumerable.ElementAt(random.Next(0, size));
+                : list[random.Next(0, size)];
         }
 
 
         /// <summary>
-        /// Get the index of an element which matches the comparer
+        /// Returns a <see cref="HashSet{T}"/> that only contains the unique elements within an enumerator
         /// </summary>
-        public static int IndexOf<T>(this IEnumerable<T> self, Func<T, bool> comparer)
+        public static HashSet<TType> Distinct<T, TType>(this T self, int preFill = 16) where T : IEnumerable<TType>
         {
-            int i = 0;
-            foreach (T x in self) {
-                if (comparer(x)) return i;
-                i++;
+            HashSet<TType> set = new(preFill);
+            foreach (TType type in self) {
+                set.Add(type);
             }
 
-            return -1;
+            return set;
         }
     }
 }
