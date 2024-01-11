@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
-
 
 namespace JUtils.Internal
 {
@@ -15,9 +13,9 @@ namespace JUtils.Internal
             _instance = new GameObject("[JUtilsObject]").AddComponent<JUtilsObject>();
             DontDestroyOnLoad(_instance.gameObject);
         }
-        
-        
-        private static  JUtilsObject _instance;
+
+
+        private static JUtilsObject _instance;
         internal static JUtilsObject instance => _instance ??= FindObjectOfType<JUtilsObject>();
 
 
@@ -39,10 +37,10 @@ namespace JUtils.Internal
         }
 
 
-        [SerializeField] private SingletonManager           _singletonManager;
-        [FormerlySerializedAs("_multitonBehavourManager")] [FormerlySerializedAs("_staticListBehaviourManager")] [SerializeField] private MultitonBehaviourManager _multitonBehaviourManager;
-        
-        public SingletonManager           singletonManager           => _singletonManager ??= GetOrAdd<SingletonManager>();
+        [SerializeField] private SingletonManager _singletonManager;
+        [SerializeField] private MultitonBehaviourManager _multitonBehaviourManager;
+
+        public SingletonManager singletonManager => _singletonManager ??= GetOrAdd<SingletonManager>();
         public MultitonBehaviourManager multitonBehaviourManager => _multitonBehaviourManager ??= GetOrAdd<MultitonBehaviourManager>();
     }
 }

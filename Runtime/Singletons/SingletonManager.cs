@@ -5,7 +5,6 @@ using UnityEngine;
 using Object = UnityEngine.Object;
 
 
-
 namespace JUtils
 {
     /// <summary>
@@ -40,14 +39,12 @@ namespace JUtils
         /// </summary>
         public static bool SetSingleton<T>(ISingleton<T> singleton) where T : Object, ISingleton<T>
         {
-           SingletonManager manager = instance;
+            SingletonManager manager = instance;
 
-           if (manager._singletons.Any(x => x is T)) {
-               return false;
-           }
-           
-           manager._singletons.Add(singleton as Object);
-           return true;
+            if (manager._singletons.Any(x => x is T)) return false;
+
+            manager._singletons.Add(singleton as Object);
+            return true;
         }
 
 
@@ -56,11 +53,11 @@ namespace JUtils
         /// </summary>
         public static bool RemoveSingleton<T>(ISingleton<T> singleton) where T : Object, ISingleton<T>
         {
-           return instance._singletons.Remove(singleton as Object);
+            return instance._singletons.Remove(singleton as Object);
         }
 
         //  Instance
 
-        [SerializeField] private List<Object> _singletons = new ();
-    } 
+        [SerializeField] private List<Object> _singletons = new();
+    }
 }
