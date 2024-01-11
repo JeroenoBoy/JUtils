@@ -13,13 +13,12 @@ namespace JUtils
         /// </summary>
         public static IEnumerable<Transform> GetChildren(this Transform self)
         {
-            for (int i = 0; i < self.childCount; i++)
-            {
+            for (int i = 0; i < self.childCount; i++) {
                 yield return self.GetChild(i);
             }
         }
 
-        
+
         /// <summary>
         /// Get the closest transform from self
         /// </summary>
@@ -29,11 +28,22 @@ namespace JUtils
         public static Transform Closest(this Transform self, Transform a, Transform b)
         {
             Vector3 pos = self.position;
-            
+
             float d1 = (a.position - pos).sqrMagnitude;
             float d2 = (b.position - pos).sqrMagnitude;
-            
+
             return d1 < d2 ? a : b;
+        }
+
+
+        /// <summary>
+        /// Resets the transform to the local identity
+        /// </summary>
+        /// <param name="self"></param>
+        public static void Reset(this Transform self)
+        {
+            self.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+            self.localScale = Vector3.one;
         }
     }
 }
