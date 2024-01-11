@@ -32,13 +32,19 @@ namespace JUtils
         /// <summary>
         /// Check if a component exists on the components game-object
         /// </summary>
-        public static bool HasComponent<T>(this Component self) => self.GetComponent<T>() != null;
+        public static bool HasComponent<T>(this Component self)
+        {
+            return self.GetComponent<T>() != null;
+        }
 
 
         /// <summary>
         /// Check if a component exists using the Type specification
         /// </summary>
-        public static bool HasComponent(this Component self, Type type) => self.GetComponent(type) != null;
+        public static bool HasComponent(this Component self, Type type)
+        {
+            return self.GetComponent(type) != null;
+        }
 
 
         /// <summary>
@@ -57,13 +63,13 @@ namespace JUtils
         public static T GetComponentInDirectChildren<T>(this Component self) where T : Component
         {
             foreach (Transform t in self.transform) {
-                if (t.TryGetComponent(out T component))
-                    return component;
+                if (t.TryGetComponent(out T component)) return component;
             }
+
             return null;
         }
-        
-        
+
+
         /// <summary>
         /// Try get a component in in the direct children of this component
         /// </summary>
@@ -87,25 +93,27 @@ namespace JUtils
         /// Copy one component to another
         /// Source: https://answers.unity.com/questions/530178/how-to-get-a-component-from-an-object-and-add-it-t.html
         /// </summary>
-        public static T GetCopyOf<T>(this Component comp, T other) where T : Component
+        public static bool CopyTo<T>(this T self, T target) where T : Component
         {
-            Type type = comp.GetType();
-            if (type != other.GetType()) return null; // type mis-match
-            BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Default | BindingFlags.DeclaredOnly;
-            PropertyInfo[] pinfos = type.GetProperties(flags);
-            foreach (var pinfo in pinfos)
-            {
-                if (!pinfo.CanWrite) continue;
+            Type type = self.GetType();
+            if (type != target.GetType()) return false;
+
+            const BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Default | BindingFlags.DeclaredOnly;
+
+            foreach (PropertyInfo propertyInfo in type.GetProperties(flags)) {
+                if (!propertyInfo.CanWrite) continue;
                 try {
-                    pinfo.SetValue(comp, pinfo.GetValue(other, null), null);
+                    propertyInfo.SetValue(target, propertyInfo.GetValue(self, null), null);
+                } catch {
+                    // In case of NotImplementedException being thrown. For some reason specifying that exception didn't seem to catch it, so I didn't catch anything specific.
                 }
-                catch { } // In case of NotImplementedException being thrown. For some reason specifying that exception didn't seem to catch it, so I didn't catch anything specific.
             }
-            FieldInfo[] finfos = type.GetFields(flags);
-            foreach (var finfo in finfos) {
-                finfo.SetValue(comp, finfo.GetValue(other));
+
+            foreach (FieldInfo fieldInfo in type.GetFields(flags)) {
+                fieldInfo.SetValue(target, fieldInfo.GetValue(self));
             }
-            return comp as T;
+
+            return true;
         }
     }
 }
