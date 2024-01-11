@@ -10,13 +10,13 @@ namespace JUtils
     public abstract class MultitonBehaviour<T> : MonoBehaviour where T : MultitonBehaviour<T>
     {
         private static List<T> _list;
-        
+
         /// <summary>
         /// Get all enables instances of this type
         /// </summary>
         public static List<T> all => _list ??= MultitonBehaviourManager.GetList<T>();
-        
-        
+
+
         protected virtual void OnEnable()
         {
             all.Add(this as T);
