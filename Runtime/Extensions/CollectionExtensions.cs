@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using Random = UnityEngine.Random;
 
 namespace JUtils
 {
@@ -55,13 +56,40 @@ namespace JUtils
         /// <summary>
         /// Shuffles an list or array without creating a new one
         /// </summary>
-        public static void Shuffle<T>(this IList<T> list)
+        public static void Shuffle<T>(this IList<T> self)
         {
-            int length = list.Count;
+            int length = self.Count;
             for (int i = length; i > -1; i--) {
-                int target = list.Count;
-                (list[target], list[i]) = (list[i], list[target]);
+                int target = self.Count;
+                (self[target], self[i]) = (self[i], self[target]);
             }
+        }
+
+
+        /// <summary>
+        /// Pop a random item from the list
+        /// </summary>
+        [CanBeNull]
+        public static T PopRandom<T>(this List<T> self)
+        {
+            return TryPopRandom(self, out T result) ? result : default;
+        }
+
+
+        /// <summary>
+        /// Pop a random item from the list
+        /// </summary>
+        public static bool TryPopRandom<T>(this List<T> self, out T result)
+        {
+            if (self.Count == 0) {
+                result = default;
+                return false;
+            }
+
+            int i = Random.Range(0, self.Count);
+            result = self[i];
+            self.RemoveAt(i);
+            return true;
         }
     }
 }
