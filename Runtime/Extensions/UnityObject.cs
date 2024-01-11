@@ -6,7 +6,7 @@ namespace JUtils
     public static class UnityObject
     {
         /// <summary>
-        /// Will return null if the object is null, or if it has been destroyed
+        /// Will return null if the object is null, or if it has been destroyed. Also prevents warning when using ?. or ??
         /// </summary>
         [CanBeNull]
         public static Object OrNull(this Object obj)

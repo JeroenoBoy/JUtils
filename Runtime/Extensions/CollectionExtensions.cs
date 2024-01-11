@@ -10,7 +10,7 @@ namespace JUtils
         /// <summary>
         /// Check if the collection is empty or null
         /// </summary>
-        public static bool IsEmptyOrNull<T, TType>(this T self) where T : ICollection<TType>
+        public static bool IsEmptyOrNull<T>(this ICollection<T> self)
         {
             return self == null || self.Count == 0;
         }
@@ -19,7 +19,7 @@ namespace JUtils
         /// <summary>
         /// Check if the collection is empty or null
         /// </summary>
-        public static bool IsNotEmptyOrNull<T, TType>(this T self) where T : ICollection<TType>
+        public static bool IsNotEmptyOrNull<T>(this ICollection<T> self)
         {
             return self != null && self.Count != 0;
         }
@@ -28,7 +28,7 @@ namespace JUtils
         /// <summary>
         /// Returns true if the collection is empty
         /// </summary>
-        public static bool IsEmpty<T, TType>(this T self) where T : ICollection<TType>
+        public static bool IsEmpty<T>(this ICollection<T> self)
         {
             return self.Count == 0;
         }
@@ -37,22 +37,16 @@ namespace JUtils
         /// <summary>
         /// Returns true if the collection is filled
         /// </summary>
-        public static bool IsNotEmpty<T, TType>(this T self) where T : ICollection<TType>
+        public static bool IsNotEmpty<T>(this ICollection<T> self)
         {
             return self.Count > 0;
-        }
-
-
-        public static T OrEmpty<T, TType>([CanBeNull] this T self) where T : ICollection<TType>
-        {
-            return self ?? Activator.CreateInstance<T>();
         }
 
 
         /// <summary>
         /// Try get the element at that index, else return the <see cref="defaultValue"/>
         /// </summary>
-        public static TType GetOrElse<T, TType>(this T self, int index, TType defaultValue) where T : ICollection<TType>
+        public static T GetOrElse<T>(this ICollection<T> self, int index, T defaultValue)
         {
             return self.Count > index ? self.ElementAt(index) : defaultValue;
         }
