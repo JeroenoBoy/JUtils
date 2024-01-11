@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
+using UnityEngine;
+using Random = System.Random;
 
 namespace JUtils
 {
@@ -50,6 +53,44 @@ namespace JUtils
             }
 
             return -1;
+        }
+
+
+        /// <summary>
+        /// Get the nearest object from a certain position
+        /// </summary>
+        [CanBeNull]
+        public static T Nearest<T>(this IEnumerable<T> self, Vector3 position) where T : Component
+        {
+            T nearestComponent = null;
+            float nearestSqrDistance = float.MaxValue;
+            foreach (T component in self) {
+                float sqrDistance = (component.transform.position - position).sqrMagnitude;
+                if (sqrDistance > nearestSqrDistance) continue;
+                nearestComponent = component;
+                nearestSqrDistance = sqrDistance;
+            }
+
+            return nearestComponent;
+        }
+
+
+        /// <summary>
+        /// Get the furthest object from a certain position
+        /// </summary>
+        [CanBeNull]
+        public static T Furthest<T>(this IEnumerable<T> self, Vector3 position) where T : Component
+        {
+            T nearestComponent = null;
+            float nearestSqrDistance = 0f;
+            foreach (T component in self) {
+                float sqrDistance = (component.transform.position - position).sqrMagnitude;
+                if (sqrDistance < nearestSqrDistance) continue;
+                nearestComponent = component;
+                nearestSqrDistance = sqrDistance;
+            }
+
+            return nearestComponent;
         }
     }
 }

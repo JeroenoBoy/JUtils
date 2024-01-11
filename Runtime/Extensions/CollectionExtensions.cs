@@ -50,5 +50,18 @@ namespace JUtils
         {
             return self.Count > index ? self.ElementAt(index) : defaultValue;
         }
+
+
+        /// <summary>
+        /// Shuffles an list or array without creating a new one
+        /// </summary>
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            int length = list.Count;
+            for (int i = length; i > -1; i--) {
+                int target = list.Count;
+                (list[target], list[i]) = (list[i], list[target]);
+            }
+        }
     }
 }
