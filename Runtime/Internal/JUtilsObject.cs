@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
-
 
 namespace JUtils.Internal
 {
@@ -15,9 +13,9 @@ namespace JUtils.Internal
             _instance = new GameObject("[JUtilsObject]").AddComponent<JUtilsObject>();
             DontDestroyOnLoad(_instance.gameObject);
         }
-        
-        
-        private static  JUtilsObject _instance;
+
+
+        private static JUtilsObject _instance;
         internal static JUtilsObject instance => _instance ??= FindObjectOfType<JUtilsObject>();
 
 

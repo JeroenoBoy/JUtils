@@ -1,8 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Object = UnityEngine.Object;
-
-
 
 namespace JUtils.Internal
 {
@@ -15,11 +12,9 @@ namespace JUtils.Internal
         {
             MultitonBehaviourManager manager = JUtilsObject.instance.multitonBehaviourManager;
 
-            if (manager._items.TryGetValue(SerializableType.Get<T>(), out List<Object> objects)) {
-                return objects as List<T>;
-            }
+            if (manager._items.TryGetValue(SerializableType.Get<T>(), out List<Object> objects)) return objects as List<T>;
 
-            List<T> newList = new ();
+            List<T> newList = new();
             manager._items.Add(SerializableType.Get<T>(), newList as List<Object>);
             return newList;
         }
@@ -30,8 +25,8 @@ namespace JUtils.Internal
             MultitonBehaviourManager manager = JUtilsObject.instance.multitonBehaviourManager;
             return manager._items.Remove(new SerializableType(typeof(List<T>)));
         }
-        
-        
+
+
         [SerializeField] private SerializableDictionary<SerializableType, List<Object>> _items;
 
 

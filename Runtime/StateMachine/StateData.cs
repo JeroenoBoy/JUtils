@@ -28,8 +28,8 @@ namespace JUtils
     public class StateData
     {
         public readonly object[] arguments;
-        
-        
+
+
         /// <summary>
         /// Create a new StateData object with its arguments
         /// </summary>
@@ -37,21 +37,17 @@ namespace JUtils
         {
             this.arguments = arguments;
         }
-        
-       
+
+
         /// <summary>
         /// Get an argument at an index
         /// </summary>
         public T Get<T>(int index)
         {
-            if (!Has(index))
-                throw new ArgumentOutOfRangeException();
+            if (!Has(index)) throw new ArgumentOutOfRangeException();
 
             object obj = arguments[index];
-
-            if (obj is not T argument)
-                throw new ArgumentException($"Type '{obj.GetType().Name}' is not castable to '{typeof(T).Name}'");
-            
+            if (obj is not T argument) throw new ArgumentException($"Type '{obj.GetType().Name}' is not castable to '{typeof(T).Name}'");
             return argument;
         }
 
@@ -63,10 +59,10 @@ namespace JUtils
         {
             argument = default;
             if (!Has(index)) return false;
-            
+
             object obj = arguments[index];
             if (obj is not T obj1) return false;
-            
+
             argument = obj1;
             return true;
         }
@@ -80,7 +76,7 @@ namespace JUtils
             return index < arguments.Length;
         }
 
-        
+
         /// <summary>
         /// See if the index exists, and if its of the same type
         /// </summary>

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace JUtils
@@ -9,12 +10,6 @@ namespace JUtils
     /// </summary>
     public static class ColorExtensions
     {
-        private static bool CompareThreshold(float a, float b, float threshold)
-        {
-            return Mathf.Abs(a - b) < threshold;
-        }
-
-
         /// <summary>
         /// Compare 2 colors with a threshold, checks the difference between all separate RGB values
         /// </summary>
@@ -29,7 +24,7 @@ namespace JUtils
         /// <summary>
         /// Compare 2 colors with a threshold, combines the colors and compares
         /// </summary>
-        public static bool Equals2(this Color self, Color other, float threshold)
+        public static bool EqualsCompareTogether(this Color self, Color other, float threshold)
         {
             return CompareThreshold(
                 self.r + self.g + self.b,
@@ -42,12 +37,16 @@ namespace JUtils
         /// <summary>
         /// Check if all colors in an enumerable matches the other color. Using <see cref="Equals"/>
         /// </summary>
-        public static bool TContains(
-            this IEnumerable<Color> self,
-            Color other,
-            float threshold)
+        public static bool Contains(this IEnumerable<Color> self, Color other, float threshold)
         {
             return self.Any(color => color.Equals(other, threshold));
+        }
+
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static bool CompareThreshold(float a, float b, float threshold)
+        {
+            return Mathf.Abs(a - b) < threshold;
         }
     }
 }
