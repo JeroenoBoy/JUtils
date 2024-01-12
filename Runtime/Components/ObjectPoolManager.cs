@@ -53,7 +53,7 @@ namespace JUtils
                 Debug.LogError("Cannot destroy object pool with filled items", template);
             }
 
-            Destroy(pool);
+            Destroy(pool.gameObject);
             _prefabPoolMap.Remove(template);
             return true;
         }
