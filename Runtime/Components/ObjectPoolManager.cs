@@ -6,15 +6,15 @@ namespace JUtils
     /// <summary>
     /// Makes it easier to work with object pools
     /// </summary>
-    public class ObjectPoolManager : AutoSingletonBehaviour<ObjectPoolManager>
+    public sealed class ObjectPoolManager : AutoSingletonBehaviour<ObjectPoolManager>
     {
-        private SerializableDictionary<PoolItem, ObjectPool> _prefabPoolMap = new();
+        private readonly SerializableDictionary<PoolItem, ObjectPool> _prefabPoolMap = new();
 
 
         /// <summary>
         /// Spawns a pooled item from the prefab
         /// </summary>
-        public PoolItem SpawnPoolItem(PoolItem template, Vector3? position = null, Quaternion? rotation = null, Vector3? localScale = null, Transform parent = null)
+        public static PoolItem SpawnPoolItem(PoolItem template, Vector3? position = null, Quaternion? rotation = null, Vector3? localScale = null, Transform parent = null)
         {
             PoolItem poolItem = GetObjectPool(template).SpawnItem();
             if (parent != null) poolItem.transform.parent = parent;
@@ -28,10 +28,10 @@ namespace JUtils
         /// <summary>
         /// Get or create an object pool for the given prefab
         /// </summary>
-        public ObjectPool GetObjectPool(PoolItem template)
+        public static ObjectPool GetObjectPool(PoolItem template)
         {
-            if (!_prefabPoolMap.TryGetValue(template, out ObjectPool pool)) {
-                pool = CreateObjectPool(template);
+            if (!instance._prefabPoolMap.TryGetValue(template, out ObjectPool pool)) {
+                pool = instance.CreateObjectPool(template);
             }
 
             return pool;
@@ -41,9 +41,9 @@ namespace JUtils
         /// <summary>
         /// Destroys the object pool assigned to the prefab
         /// </summary>
-        public bool DestroyObjectPool(PoolItem template, bool cleanObjects = true)
+        public static bool DestroyObjectPool(PoolItem template, bool cleanObjects = true)
         {
-            if (!_prefabPoolMap.TryGetValue(template, out ObjectPool pool)) return false;
+            if (!instance._prefabPoolMap.TryGetValue(template, out ObjectPool pool)) return false;
 
             if (cleanObjects) {
                 foreach (PoolItem poolItem in pool.activePoolItems) {
@@ -54,7 +54,7 @@ namespace JUtils
             }
 
             Destroy(pool.gameObject);
-            _prefabPoolMap.Remove(template);
+            instance._prefabPoolMap.Remove(template);
             return true;
         }
 

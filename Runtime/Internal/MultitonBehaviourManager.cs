@@ -6,7 +6,7 @@ namespace JUtils.Internal
     /// <summary>
     /// The class that keeps all references for StaticListBehaviour`1
     /// </summary>
-    internal class MultitonBehaviourManager : MonoBehaviour
+    internal sealed class MultitonBehaviourManager : MonoBehaviour
     {
         internal static List<T> GetList<T>() where T : Object
         {

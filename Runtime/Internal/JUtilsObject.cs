@@ -5,7 +5,7 @@ namespace JUtils.Internal
     /// <summary>
     /// Internal object used for <see cref="Coroutines"/> & <see cref="singletonManager"/>
     /// </summary>
-    internal class JUtilsObject : MonoBehaviour
+    internal sealed class JUtilsObject : MonoBehaviour
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void CreateInstance()

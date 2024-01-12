@@ -8,7 +8,7 @@ namespace JUtils
     /// <summary>
     /// Centralized singleton to fix reference & hot reload issues issues 
     /// </summary>
-    public class SingletonManager : MonoBehaviour
+    public sealed class SingletonManager : MonoBehaviour
     {
         public static SingletonManager instance => JUtilsObject.instance.singletonManager;
 
