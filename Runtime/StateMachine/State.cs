@@ -14,7 +14,7 @@ namespace JUtils
         public event Action<State> onStateActivate;
         public event Action<State> onStateDeactivate;
 
-        public bool         isActive     { get; private set; }
+        public bool isActive { get; private set; }
         public StateMachine stateMachine { get; internal set; }
 
         /// <summary>
@@ -26,31 +26,30 @@ namespace JUtils
         /// Get the amount of unscaled seconds that this state is active. Returns 0 if the state is not active
         /// </summary>
         public float unscaledTimeInState => isActive ? Time.unscaledTime - _unscaledTimeEnteredState : -1f;
-        
+
         protected StateData stateData { get; private set; }
 
         private float _timeEnteredState;
         private float _unscaledTimeEnteredState;
-        
-       
+
+
         /// <summary>
         /// Internal function of activating the state
         /// </summary>
         internal virtual bool ActivateState(StateData data)
         {
             try {
-                _timeEnteredState         = Time.time;
+                _timeEnteredState = Time.time;
                 _unscaledTimeEnteredState = Time.unscaledTime;
 
                 stateData = data;
-                
+
                 gameObject.SetActive(true);
                 isActive = true;
                 OnActivate();
                 onStateActivate?.Invoke(this);
                 return true;
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Debug.LogException(e);
                 Coroutines.RunNextFrame(Deactivate); // Run next frame to avoid stack overflow exceptions
                 return false;
@@ -65,16 +64,15 @@ namespace JUtils
         {
             try {
                 OnDeactivate();
-                
+
                 if (_setEnabledBasedOnActive) {
                     gameObject.SetActive(false);
                 }
-                
+
                 isActive = false;
                 stateData = null;
                 onStateDeactivate?.Invoke(this);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 Debug.LogException(e);
             }
         }
@@ -86,6 +84,7 @@ namespace JUtils
         protected void Deactivate()
         {
             if (!isActive) return;
+            if (stateMachine == null) return;
             stateMachine.ContinueQueue();
         }
 
@@ -93,6 +92,7 @@ namespace JUtils
         /// Gets called when the state activates
         /// </summary>
         protected abstract void OnActivate();
+
         /// <summary>
         /// Gets called when the sate deactivates
         /// </summary>
@@ -107,7 +107,10 @@ namespace JUtils
         /// StateMachine.AddToQueue(Ref&#60;TeleportState>, location);
         /// </code></example>>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        protected StateRef<T> Ref<T>() where T : State => new ();
+        protected StateRef<T> Ref<T>() where T : State
+        {
+            return new StateRef<T>();
+        }
 
 
         /// <summary>
@@ -128,8 +131,7 @@ namespace JUtils
         }
     }
 
-    
-    
+
     /// <summary>
     /// State with 1 type-safe arguments
     /// </summary>
@@ -144,7 +146,6 @@ namespace JUtils
 
         protected abstract void OnActivate(T param);
     }
-
 
 
     /// <summary>
@@ -162,9 +163,8 @@ namespace JUtils
 
         protected abstract void OnActivate(T1 param1, T2 param2);
     }
-    
-    
-    
+
+
     /// <summary>
     /// State with 3 type-safe arguments
     /// </summary>

@@ -57,6 +57,21 @@ namespace JUtils
 
 
         /// <summary>
+        /// Get the index of an element
+        /// </summary>
+        public static int IndexOf<T>(this IEnumerable<T> self, T element) where T : class
+        {
+            int i = 0;
+            foreach (T elementToTest in self) {
+                if (element == elementToTest) return i;
+                i++;
+            }
+
+            return -1;
+        }
+
+
+        /// <summary>
         /// Get the nearest object from a certain position
         /// </summary>
         [CanBeNull]

@@ -12,7 +12,7 @@ namespace JUtils
             get {
                 if (SingletonManager.TryGetSingleton(out T result)) return result;
 
-                GameObject go = new(nameof(T));
+                GameObject go = new(typeof(T).Name);
                 result = go.AddComponent<T>();
                 go.transform.parent = JUtilsObject.instance.transform;
                 SingletonManager.SetSingleton(result);

@@ -4,12 +4,12 @@ using UnityEngine;
 namespace JUtils
 {
     /// <summary>
-    /// A behaviour that is used with the <see cref="objectPool"/>. Other behaviours can listen to the events this class sends.
+    /// A behaviour that is used with the <see cref="ObjectPool"/>. Other behaviours can listen to the events this class sends.
     /// </summary>
-    public class PoolItem : MonoBehaviour
+    public sealed class PoolItem : MonoBehaviour
     {
         public ObjectPool objectPool { get; internal set; }
-        public bool       isActive   { get; private set; }
+        public bool isActive { get; private set; }
 
         public event Action onSpawn;
         public event Action onDespawn;
@@ -35,6 +35,12 @@ namespace JUtils
         {
             if (!isActive) return;
             objectPool.ReturnItem(this);
+        }
+
+        private void OnDestroy()
+        {
+            if (objectPool == null) return;
+            objectPool.PoolItemDestroyed(this);
         }
     }
 }

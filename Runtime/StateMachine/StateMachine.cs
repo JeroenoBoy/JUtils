@@ -145,27 +145,14 @@ namespace JUtils
 
 
         /// <summary>
-        /// Internal function of activating the state
-        /// </summary>
-        internal override bool ActivateState([NotNull] StateData data)
-        {
-            if (!base.ActivateState(data)) return false;
-            if (!hasActiveState) ContinueQueue();
-            return true;
-        }
-
-
-        /// <summary>
         /// Internal function for deactivating the state
         /// </summary>
         internal override void DeactivateState()
         {
             base.DeactivateState();
-            stateQueue.Clear();
-
-            if (!currentState) return;
-            currentState.DeactivateState();
-            currentState = null;
+            if (currentState) {
+                Debug.LogWarning($"[{GetType().Name}] : State machine has been deactivated, but state '{currentState.GetType().Name}' is still active!");
+            }
         }
 
 
