@@ -19,20 +19,38 @@ namespace JUtils
 
 
         /// <summary>
-        /// Get the instance of the given service
+        /// Check if a service exists
         /// </summary>
-        public static T GetService<T>() where T : class, IService
+        public static bool Exists<T>() where T : IService
         {
-            return GetService(typeof(T)) as T;
+            return instance._services.ContainsKey(typeof(T));
+        }
+
+
+        /// <summary>
+        /// Check if a service exists
+        /// </summary>
+        public static bool Exists(Type serviceType)
+        {
+            return instance._services.ContainsKey(serviceType);
         }
 
 
         /// <summary>
         /// Get the instance of the given service
         /// </summary>
-        public static IService GetService(Type type)
+        public static T Get<T>() where T : IService
         {
-            return instance._services[type];
+            return (T)Get(typeof(T));
+        }
+
+
+        /// <summary>
+        /// Get the instance of the given service
+        /// </summary>
+        public static IService Get(Type serviceType)
+        {
+            return instance._services[serviceType];
         }
 
 
@@ -41,6 +59,7 @@ namespace JUtils
         /// </summary>
         public static void Register(Type serviceType, IService service)
         {
+            if (!AssemblyJUtils.ExtendsClassOrInterface(service.GetType(), serviceType)) throw new InvalidOperationException("The service must extend the given type");
             instance._services.Add(serviceType, service);
             service.Init();
         }
@@ -49,18 +68,18 @@ namespace JUtils
         /// <summary>
         /// Remove an existing service and dispose it
         /// </summary>
-        public static void RemoveService<T>() where T : IService
+        public static void Remove<T>() where T : IService
         {
-            RemoveService(typeof(T));
+            Remove(typeof(T));
         }
 
 
         /// <summary>
         /// Remove an existing service and dispose it
         /// </summary>
-        public static void RemoveService(Type type)
+        public static void Remove(Type type)
         {
-            IService service = GetService(type);
+            IService service = Get(type);
             instance._services.Remove(type);
             service.Dispose();
         }
