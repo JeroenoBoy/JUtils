@@ -21,7 +21,7 @@ namespace JUtils
         protected bool isQueueEmpty => stateQueue.Count == 0;
 
         protected State currentState;
-        protected List<QueueEntry> stateQueue = new();
+        protected readonly List<QueueEntry> stateQueue = new();
 
 
         /// <summary>
@@ -190,12 +190,13 @@ namespace JUtils
         }
 
 
-        private void AddToQueueInternal(State state, StateData data, bool queueFirst)
+        private void AddToQueueInternal([CanBeNull] State state, [CanBeNull] StateData data, bool queueFirst)
         {
-            if (queueFirst)
+            if (queueFirst) {
                 stateQueue.Insert(0, new QueueEntry { state = state, data = data ?? new StateData() });
-            else
+            } else {
                 stateQueue.Add(new QueueEntry { state = state, data = data ?? new StateData() });
+            }
         }
 
 

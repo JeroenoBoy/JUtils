@@ -113,21 +113,9 @@ namespace JUtils
         }
 
 
-        /// <summary>
-        /// Only runs the Update() function when the state is active
-        /// </summary>
-        protected virtual void ActiveUpdate() { }
-
-
         protected virtual void Awake()
         {
             if (!isActive && _setEnabledBasedOnActive) gameObject.SetActive(false);
-        }
-
-
-        protected virtual void Update()
-        {
-            if (isActive) ActiveUpdate();
         }
     }
 
