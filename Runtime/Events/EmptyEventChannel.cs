@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace JUtils.Events
+namespace JUtils
 {
     [CreateAssetMenu(menuName = "JUtils/Events/Event Channel")]
     public sealed class EmptyEventChannel : EventChannel<EmptyEventChannel.Empty>

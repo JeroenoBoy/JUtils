@@ -1,7 +1,11 @@
-﻿using UnityEngine.UIElements;
+﻿using System;
+using UnityEngine.UIElements;
 
 namespace JUtils.UI
 {
+    /// <summary>
+    /// Interface that serves as the base UI screen for <see cref="UIScreenManager"/>
+    /// </summary>
     public interface IUIScreen
     {
         public string screenId { get; }
@@ -12,6 +16,9 @@ namespace JUtils.UI
     }
 
 
+    /// <summary>
+    /// <see cref="IUIScreen"/> singleton based implementation
+    /// </summary>
     public abstract class UIScreen<T> : SingletonBehaviour<T>, IUIScreen where T : UIScreen<T>
     {
         public bool isShowing { get; private set; }
@@ -25,6 +32,9 @@ namespace JUtils.UI
         protected VisualElement rootElement { get; private set; }
 
 
+        /// <summary>
+        /// Initialize the UI screen
+        /// </summary>
         public void Initialize(VisualElement newRootElement)
         {
             rootElement = newRootElement;
@@ -43,6 +53,9 @@ namespace JUtils.UI
         }
 
 
+        /// <summary>
+        /// Show the UI screen
+        /// </summary>
         public void Show()
         {
             if (isShowing) return;
@@ -57,6 +70,9 @@ namespace JUtils.UI
         }
 
 
+        /// <summary>
+        /// Hide the UI screen
+        /// </summary>
         public void Hide()
         {
             if (!isShowing) return;
@@ -69,10 +85,8 @@ namespace JUtils.UI
         }
 
 
-        /// <summary>
-        /// Get called when the screen either first shows or the <see cref="Initialize"/> has been called
-        /// </summary>
         protected abstract void OnInitialize();
+
 
         protected abstract void OnShow();
         protected abstract void OnHide();
@@ -89,6 +103,36 @@ namespace JUtils.UI
         protected override void OnDestroy()
         {
             uiScreenManager.Unregister(this);
+        }
+    }
+
+
+    /// <summary>
+    /// Show the UI screen with specific given data.
+    /// </summary>
+    public abstract class UIScreen<TScreen, TData> : UIScreen<TScreen> where TScreen : UIScreen<TScreen, TData>
+    {
+        public TData data { get; private set; }
+
+
+        /// <summary>
+        /// Marking as obselete because <see cref="Show(TData)"/> should be used
+        /// </summary>
+        [Obsolete("Use Show(TData) instead.")]
+        public new void Show()
+        {
+            base.Show();
+        }
+
+
+        /// <summary>
+        /// Shows the UI screen with the given data.
+        /// </summary>
+        public void Show(TData newData)
+        {
+            if (isShowing) return;
+            data = newData;
+            base.Show();
         }
     }
 }

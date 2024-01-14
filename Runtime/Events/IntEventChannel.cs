@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace JUtils.Events
+namespace JUtils
 {
     [CreateAssetMenu(menuName = "JUtils/Events/Int Event Channel")]
     public sealed class IntEventChannel : EventChannel<int> { }
