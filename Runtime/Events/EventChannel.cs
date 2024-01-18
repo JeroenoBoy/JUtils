@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 
 namespace JUtils
@@ -8,6 +8,7 @@ namespace JUtils
     /// 
     /// Event channels are scriptable objects that can dynamically be assigned
     /// </summary>
+    /// <remarks>When inheriting this class, it is recommended to leave the body empty</remarks>
     [ResourcePlayModeChangeCallbackReceiver("Events")]
     public abstract class EventChannel<T> : ScriptableObject
     {
@@ -39,14 +40,18 @@ namespace JUtils
         /// Unsafe version of the <see cref="EventChannelExtensions.Invoke"/> function. This is directly on the class, but it does not have check if the channel is null or not.
         /// </summary>
         /// <param name="argument"></param>
+<<<<<<< HEAD
         public void InvokeUnsafe(T argument)
+=======
+        public virtual void InvokeUnsafe(T argument)
+>>>>>>> develop
         {
             listeners?.Invoke(argument);
         }
 
 
 #if UNITY_EDITOR
-        public void OnPlayModeExit()
+        public virtual void OnPlayModeExit()
         {
             if (listeners == null) return;
 
