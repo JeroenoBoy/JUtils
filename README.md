@@ -7,6 +7,8 @@ Documentation: https://jeroenoboy.github.io/JUtils/
 
 JUtils adds handy extensions, classes and components which makes writing code faster and easier.
 
+Please not that when using some JUtils components, it might be better to use OnEnable and OnDisable insteaad of Awake and Destroy.
+
 Here is an example script written with JUtils extensions
 
 ```csharp
@@ -63,11 +65,11 @@ namespace Example
 
 - Many attributes for making things more clear in the inspector
 - Clickable buttons in the inspector with support for arguments & coroutines
-- Many data structures with custom property drawers
+- Many serializable data structures with custom property drawers
 - State machine with type-safe arguments
 - Handy common components
 - Object pools
-- Singletons with hot-reloading support
+- Singletons
 - Many handy extensions for vectors, transforms, components & more
 - Coroutine helper functions
 - Some gizmos utilities for drawing forces & text

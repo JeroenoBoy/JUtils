@@ -1,0 +1,11 @@
+.spacer {
+    height: 8px;
+}
+
+.unity-toggle > VisualElement > #unity-checkmark {
+    margin-left: auto;
+}
+
+.unity-toggle {
+    max-width: 256px;
+}
