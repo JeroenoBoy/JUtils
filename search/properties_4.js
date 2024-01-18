@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['enabled_521',['enabled',['../structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9',1,'JUtils::Optional']]],
-  ['exists_522',['exists',['../classJUtils_1_1Singletons_1_1ScriptableObjectSingleton.html#a14140a4976420359797f0789cf49d968',1,'JUtils.Singletons.ScriptableObjectSingleton.exists()'],['../classJUtils_1_1Singletons_1_1SingletonBehaviour.html#a68ea1a7f56e782cb65b4d5e44f221abd',1,'JUtils.Singletons.SingletonBehaviour.exists()']]]
+  ['enabled_848',['enabled',['../structJUtils_1_1Optional.html#a00e4b08af9b4c759c45895875a1923b9',1,'JUtils::Optional']]],
+  ['exists_849',['exists',['../classJUtils_1_1AutoSingletonBehaviour.html#ac2af1535929bc3a8d96b908b4846abed',1,'JUtils.AutoSingletonBehaviour.exists()'],['../classJUtils_1_1SingletonBehaviour.html#a52747131a2cea105bdb2d2d4379588c0',1,'JUtils.SingletonBehaviour.exists()']]]
 ];

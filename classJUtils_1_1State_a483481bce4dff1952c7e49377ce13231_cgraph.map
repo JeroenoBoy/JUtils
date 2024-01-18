@@ -1,0 +1,5 @@
+<map id="JUtils.State.Deactivate" name="JUtils.State.Deactivate">
+<area shape="rect" id="node1" title="Deactivate this state and make the state&#45;machine continue its queue" alt="" coords="5,13,175,39"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1StateMachine.html#af589331e3bd5ed37f82bc63f065ff276" title="Deactivate the current state and go to the next one" alt="" coords="223,5,433,47"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1StateMachine.html#a2ee10179e7db03db242af378fc9527f3" title="Gets called when there is no next state in the queue" alt="" coords="481,5,671,47"/>
+</map>

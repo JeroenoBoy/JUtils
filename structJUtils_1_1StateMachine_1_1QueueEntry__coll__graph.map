@@ -1,0 +1,7 @@
+<map id="JUtils.StateMachine.QueueEntry" name="JUtils.StateMachine.QueueEntry">
+<area shape="rect" id="node1" title="Representation of the state and its data in the queue" alt="" coords="5,185,200,227"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1StateData.html" title="The data of a state" alt="" coords="8,89,133,115"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1State.html" title="A simple state that can be driven by stateMachine" alt="" coords="158,81,311,123"/>
+<area shape="rect" id="node4" title=" " alt="" coords="58,5,182,32"/>
+<area shape="rect" id="node5" title=" " alt="" coords="207,5,263,32"/>
+</map>

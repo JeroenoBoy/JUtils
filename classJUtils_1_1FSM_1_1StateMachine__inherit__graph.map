@@ -1,5 +1,0 @@
-<map id="JUtils.FSM.StateMachine" name="JUtils.FSM.StateMachine">
-<area shape="rect" id="node1" title="A mono&#45;behaviour state&#45;machine that can also be used as a state" alt="" coords="5,155,185,181"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1FSM_1_1State.html" title="A simple state that can be driven by stateMachine" alt="" coords="67,80,123,107"/>
-<area shape="rect" id="node3" title=" " alt="" coords="33,5,157,32"/>
-</map>

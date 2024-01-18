@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['button_382',['Button',['../classJUtils_1_1Attributes_1_1Button.html#a350737d1f1c35562968e19ff7ce7113b',1,'JUtils::Attributes::Button']]]
+  ['buttonattribute_651',['ButtonAttribute',['../classJUtils_1_1ButtonAttribute.html#addb28bc07bef1e4f011f870141ba7a5f',1,'JUtils::ButtonAttribute']]]
 ];

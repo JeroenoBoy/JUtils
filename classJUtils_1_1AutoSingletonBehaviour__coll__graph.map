@@ -1,0 +1,5 @@
+<map id="JUtils.AutoSingletonBehaviour&lt; T &gt;" name="JUtils.AutoSingletonBehaviour&lt; T &gt;">
+<area shape="rect" id="node1" title="Your simple and everyday singleton class that automatically instantiates if there is no instance yet" alt="" coords="15,80,269,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,129,32"/>
+<area shape="rect" id="node3" href="$interfaceJUtils_1_1ISingleton.html" title="Simple interface for working with singletons" alt="" coords="154,5,279,32"/>
+</map>

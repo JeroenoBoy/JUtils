@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['loadscene_431',['LoadScene',['../structJUtils_1_1SceneReference.html#a937e28c0b517349d3c527d68678311ea',1,'JUtils::SceneReference']]],
-  ['loadsceneasync_432',['LoadSceneAsync',['../structJUtils_1_1SceneReference.html#a1b107d32d123d8f5ef7b51a28fd92d8b',1,'JUtils::SceneReference']]]
+  ['kill_721',['Kill',['../classJUtils_1_1HealthComponent.html#a632c7300c137589719b6c32680adf416',1,'JUtils::HealthComponent']]]
 ];

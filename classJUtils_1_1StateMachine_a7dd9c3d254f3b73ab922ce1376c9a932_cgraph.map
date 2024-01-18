@@ -1,0 +1,6 @@
+<map id="JUtils.StateMachine.GoToState&lt; T, T1 &gt;" name="JUtils.StateMachine.GoToState&lt; T, T1 &gt;">
+<area shape="rect" id="node1" title="Clears the StateQueue and goes to the given state" alt="" coords="5,5,191,47"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1StateMachine.html#afb6b683104f8a450fd575be34de7e235" title="Queues the current given state, then goes to it" alt="" coords="239,5,424,47"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1StateMachine.html#af589331e3bd5ed37f82bc63f065ff276" title="Deactivate the current state and go to the next one" alt="" coords="472,5,683,47"/>
+<area shape="rect" id="node4" href="$classJUtils_1_1StateMachine.html#a2ee10179e7db03db242af378fc9527f3" title="Gets called when there is no next state in the queue" alt="" coords="731,5,920,47"/>
+</map>

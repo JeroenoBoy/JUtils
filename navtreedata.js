@@ -35,7 +35,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Properties", "functions_prop.html", null ],
@@ -54,8 +54,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"AudioListenerExtensions_8cs.html",
-"classJUtils_1_1GizmoUtils.html#a5570e363d6f0c80955628cd1de4f6db0"
+"AssemblyJUtils_8cs.html",
+"classJUtils_1_1HealthComponent.html#a0c687e45418f3e80bad676028478807f",
+"functions_func_w.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,0 +1,4 @@
+<map id="JUtils.IService.Init" name="JUtils.IService.Init">
+<area shape="rect" id="node1" title=" " alt="" coords="276,5,413,32"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1ServiceManager.html#a0d9f5e319a922b852028efbb6fad5b7a" title="Register a new service and initialize it. Will throw if it already exists." alt="" coords="5,5,228,32"/>
+</map>

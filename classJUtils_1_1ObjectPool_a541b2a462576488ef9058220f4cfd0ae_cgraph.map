@@ -1,0 +1,5 @@
+<map id="JUtils.ObjectPool.SpawnItem" name="JUtils.ObjectPool.SpawnItem">
+<area shape="rect" id="node1" title="Spawn a pooled item" alt="" coords="5,13,212,39"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1ObjectPool.html#a12e5823b03acf6580d28075f88d2d289" title="Get an pooled item, returns false if the pool can&#39;t auto expand and if there are no items left" alt="" coords="260,13,467,39"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1ObjectPool.html#ab489577850b206213d40a7ab9bd053e4" title="Request X amount of items to be made" alt="" coords="515,5,719,47"/>
+</map>

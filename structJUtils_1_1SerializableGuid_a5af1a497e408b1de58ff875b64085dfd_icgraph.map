@@ -1,0 +1,4 @@
+<map id="JUtils.SerializableGuid.Parse" name="JUtils.SerializableGuid.Parse">
+<area shape="rect" id="node1" title="Parse a guid from the given string" alt="" coords="224,5,395,47"/>
+<area shape="rect" id="node2" href="$structJUtils_1_1SerializableGuid.html#a28e755904facee54269baa39b2028e54" title="Generate a new random guid" alt="" coords="5,5,176,47"/>
+</map>

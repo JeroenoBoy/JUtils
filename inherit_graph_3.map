@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$interfaceJUtils_1_1Components_1_1IHealEvent.html" title="Used to create more detailed heal events" alt="" coords="5,13,223,39"/>
-<area shape="rect" id="node2" href="$structJUtils_1_1Components_1_1SimpleHealEvent.html" title="Light simple implementation for the IHealEvent" alt="" coords="271,5,461,47"/>
+<area shape="rect" id="node1" href="$classJUtils_1_1AutoSingletonBehaviour.html" title=" " alt="" coords="5,5,223,47"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1ServiceManager.html" title="A simple service manager" alt="" coords="271,13,436,39"/>
 </map>

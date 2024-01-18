@@ -1,5 +1,0 @@
-<map id="JUtils.FSM.State.Deactivate" name="JUtils.FSM.State.Deactivate">
-<area shape="rect" id="node1" title="Deactivate this state and make the state&#45;machine continue its queue" alt="" coords="5,13,205,39"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1FSM_1_1StateMachine.html#a7c2979f8f5597db1948acfbac46ea707" title="Deactivate the current state and go to the next one" alt="" coords="253,5,437,47"/>
-<area shape="rect" id="node3" href="$classJUtils_1_1FSM_1_1StateMachine.html#afd2db7b644c05eb5e5846c17c7297fbb" title=" " alt="" coords="485,5,669,47"/>
-</map>

@@ -1,0 +1,5 @@
+<map id="JUtils.ObjectPool.SpawnItem" name="JUtils.ObjectPool.SpawnItem">
+<area shape="rect" id="node1" title="Spawn a pooled item" alt="" coords="260,35,467,61"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1ObjectPool.html#a93cee11ccbc7caecbd68a4d5c1d5b036" title="Spawn a pooled item" alt="" coords="5,5,212,32"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1ObjectPoolManager.html#a31b3b48cf9fe8255fdc4932f546340a9" title="Spawns a pooled item from the prefab" alt="" coords="13,57,204,98"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kill_430',['Kill',['../classJUtils_1_1Components_1_1HealthComponent.html#aee07f067c9675ea831f085d6f277d54d',1,'JUtils::Components::HealthComponent']]]
+  ['jutilsinspectorbutton_720',['JUtilsInspectorButton',['../classJUtils_1_1Editor_1_1JUtilsInspectorButton.html#afb79b00daea2bbc864300bdc7b7a112b',1,'JUtils::Editor::JUtilsInspectorButton']]]
 ];

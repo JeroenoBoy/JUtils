@@ -1,0 +1,7 @@
+<map id="JUtils.StateMachine.GoToState&lt; T &gt;" name="JUtils.StateMachine.GoToState&lt; T &gt;">
+<area shape="rect" id="node1" title="Adds a new state to the queue" alt="" coords="239,104,424,145"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1StateMachine.html#ae9ba934f4ca54676dd47bb082232be9a" title="Adds a new state to the queue" alt="" coords="5,5,191,47"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1StateMachine.html#a511a5fc3e0d9adc14d27b9a1d1a7de50" title="Clears the StateQueue and goes to the given state" alt="" coords="5,71,191,112"/>
+<area shape="rect" id="node4" href="$classJUtils_1_1StateMachine.html#ab48f03f6ba429bfcc116784a5ebb187e" title="Clears the StateQueue and goes to the given state" alt="" coords="5,136,191,177"/>
+<area shape="rect" id="node5" href="$classJUtils_1_1StateMachine.html#a4a33c10200f1b77ee73e94dc356045ab" title="Clears the StateQueue and goes to the given state" alt="" coords="5,201,191,243"/>
+</map>

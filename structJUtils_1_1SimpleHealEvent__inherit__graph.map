@@ -1,0 +1,4 @@
+<map id="JUtils.SimpleHealEvent" name="JUtils.SimpleHealEvent">
+<area shape="rect" id="node1" title="Light simple implementation for the IHealEvent" alt="" coords="5,80,177,107"/>
+<area shape="rect" id="node2" href="$interfaceJUtils_1_1IHealEvent.html" title="Used to create more detailed heal events" alt="" coords="45,5,138,32"/>
+</map>

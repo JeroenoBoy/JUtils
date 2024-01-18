@@ -1,0 +1,6 @@
+<map id="JUtils.ServiceManager.Get" name="JUtils.ServiceManager.Get">
+<area shape="rect" id="node1" title="Get the instance of the given service" alt="" coords="591,31,781,57"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1ServiceManager.html#ac2cb2c41342e9aeb4491bc8cb82f866d" title="Get the instance of the given service" alt="" coords="313,5,543,32"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1ServiceManager.html#a0b00929a5a86689bf7fdddbecd8cc765" title="Remove an existing service and dispose it" alt="" coords="317,56,539,83"/>
+<area shape="rect" id="node4" href="$classJUtils_1_1ServiceManager.html#a88e6201d93d05c3915520c9dd144aa3c" title="Remove an existing service and dispose it" alt="" coords="5,56,265,83"/>
+</map>

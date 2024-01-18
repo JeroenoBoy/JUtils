@@ -1,6 +1,0 @@
-<map id="JUtils.FSM.StateMachine.AddToQueue" name="JUtils.FSM.StateMachine.AddToQueue">
-<area shape="rect" id="node1" title="Adds a new state to the queue" alt="" coords="469,39,653,80"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1FSM_1_1StateMachine.html#abadd2f7a9ab4303192220f1ba4a1193a" title="Adds a new state to the queue" alt="" coords="237,5,421,47"/>
-<area shape="rect" id="node3" href="$classJUtils_1_1FSM_1_1StateMachine.html#a191804e54a49176eaa81d06e864bfb35" title="Clears the StateQueue and goes to the given state" alt="" coords="237,71,421,112"/>
-<area shape="rect" id="node4" href="$classJUtils_1_1FSM_1_1StateMachine.html#aabae18666371c0e1c40f8638096f9157" title="Clears the StateQueue and goes to the given state" alt="" coords="5,71,189,112"/>
-</map>

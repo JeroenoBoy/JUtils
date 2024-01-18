@@ -1,14 +1,22 @@
 var searchData=
 [
-  ['max_122',['max',['../structJUtils_1_1MinMax.html#ac483c66bd159e4c044d7f6a2537866be',1,'JUtils.MinMax.max()'],['../structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f',1,'JUtils.MinMaxInt.max()']]],
-  ['maxhealth_123',['maxHealth',['../classJUtils_1_1Components_1_1HealthComponent.html#a1aa75cb42f345f12d671eaf79ec08117',1,'JUtils::Components::HealthComponent']]],
-  ['min_124',['min',['../structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980',1,'JUtils.MinMaxInt.min()'],['../structJUtils_1_1MinMax.html#a76998df2801389efd7a2c3eba61b177e',1,'JUtils.MinMax.min()']]],
-  ['minmax_125',['MinMax',['../structJUtils_1_1MinMax.html',1,'JUtils.MinMax'],['../structJUtils_1_1MinMax.html#a9c0867406aa3c758be3273ae5c9bed6a',1,'JUtils.MinMax.MinMax()']]],
-  ['minmax_2ecs_126',['MinMax.cs',['../MinMax_8cs.html',1,'']]],
-  ['minmaxint_127',['MinMaxInt',['../structJUtils_1_1MinMaxInt.html',1,'JUtils.MinMaxInt'],['../structJUtils_1_1MinMaxInt.html#a8417c3a0f567dea951f84c7c515ab4d3',1,'JUtils.MinMaxInt.MinMaxInt()']]],
-  ['minmaxint_2ecs_128',['MinMaxInt.cs',['../MinMaxInt_8cs.html',1,'']]],
-  ['movenext_129',['MoveNext',['../classJUtils_1_1Extensions_1_1RangeEnumerator.html#a55e1b154f637afdcf8ce372676ffa42d',1,'JUtils.Extensions.RangeEnumerator.MoveNext()'],['../classJUtils_1_1CoroutineCatcher.html#a0acfa1d5f7bc07b66bc6718603792d80',1,'JUtils.CoroutineCatcher.MoveNext()']]],
-  ['multiply_130',['Multiply',['../classJUtils_1_1Extensions_1_1Vector2Extensions.html#a2ce06e8e05d1bad0fffdcbef9e10590e',1,'JUtils.Extensions.Vector2Extensions.Multiply()'],['../classJUtils_1_1Extensions_1_1Vector3Extensions.html#ae9aaca4d066fd9560ba985f30444a347',1,'JUtils.Extensions.Vector3Extensions.Multiply()']]],
-  ['multitonbehaviour_131',['MultitonBehaviour',['../classJUtils_1_1Singletons_1_1MultitonBehaviour.html',1,'JUtils::Singletons']]],
-  ['multitonbehaviour_2ecs_132',['MultitonBehaviour.cs',['../MultitonBehaviour_8cs.html',1,'']]]
+  ['matches_210',['Matches',['../classJUtils_1_1Editor_1_1ShowWhenEditor.html#ab844939ae40f82c7a6d010bb0aedf72e',1,'JUtils::Editor::ShowWhenEditor']]],
+  ['max_211',['max',['../structJUtils_1_1MinMaxInt.html#a0c5ab41f4dd15815fc657eb257f9865f',1,'JUtils.MinMaxInt.max()'],['../structJUtils_1_1MinMax.html#ac483c66bd159e4c044d7f6a2537866be',1,'JUtils.MinMax.max()']]],
+  ['maxhealth_212',['maxHealth',['../classJUtils_1_1HealthComponent.html#a6feec84ad181576b755c1bb0176c089c',1,'JUtils::HealthComponent']]],
+  ['min_213',['min',['../structJUtils_1_1MinMaxInt.html#a1133aaff27863e9e8cef6b77adcbc980',1,'JUtils.MinMaxInt.min()'],['../structJUtils_1_1MinMax.html#a76998df2801389efd7a2c3eba61b177e',1,'JUtils.MinMax.min()']]],
+  ['minmax_214',['MinMax',['../structJUtils_1_1MinMax.html',1,'JUtils.MinMax'],['../structJUtils_1_1MinMax.html#a9c0867406aa3c758be3273ae5c9bed6a',1,'JUtils.MinMax.MinMax()']]],
+  ['minmax_2ecs_215',['MinMax.cs',['../MinMax_8cs.html',1,'']]],
+  ['minmaxeditor_216',['MinMaxEditor',['../classJUtils_1_1Editor_1_1MinMaxEditor.html',1,'JUtils::Editor']]],
+  ['minmaxeditor_2ecs_217',['MinMaxEditor.cs',['../MinMaxEditor_8cs.html',1,'']]],
+  ['minmaxint_218',['MinMaxInt',['../structJUtils_1_1MinMaxInt.html',1,'JUtils.MinMaxInt'],['../structJUtils_1_1MinMaxInt.html#a8417c3a0f567dea951f84c7c515ab4d3',1,'JUtils.MinMaxInt.MinMaxInt()']]],
+  ['minmaxint_2ecs_219',['MinMaxInt.cs',['../MinMaxInt_8cs.html',1,'']]],
+  ['minmaxinteditor_220',['MinMaxIntEditor',['../classJUtils_1_1Editor_1_1MinMaxIntEditor.html',1,'JUtils::Editor']]],
+  ['minmaxinteditor_2ecs_221',['MinMaxIntEditor.cs',['../MinMaxIntEditor_8cs.html',1,'']]],
+  ['monobehavioureditor_222',['MonoBehaviourEditor',['../classJUtils_1_1Editor_1_1MonoBehaviourEditor.html',1,'JUtils::Editor']]],
+  ['monobehavioureditor_2ecs_223',['MonoBehaviourEditor.cs',['../MonoBehaviourEditor_8cs.html',1,'']]],
+  ['movenext_224',['MoveNext',['../classJUtils_1_1CoroutineCatcher.html#a0acfa1d5f7bc07b66bc6718603792d80',1,'JUtils.CoroutineCatcher.MoveNext()'],['../classJUtils_1_1RangeEnumerator.html#a7ca2ade69f51b55de156a6290b6d59b7',1,'JUtils.RangeEnumerator.MoveNext()']]],
+  ['multiply_225',['Multiply',['../classJUtils_1_1Vector2Extensions.html#a5bd8d43a1298f8c53f689eacf7a85a77',1,'JUtils.Vector2Extensions.Multiply()'],['../classJUtils_1_1Vector3Extensions.html#a2f0d8b5a5d243f7a321e368c41066831',1,'JUtils.Vector3Extensions.Multiply()']]],
+  ['multitonbehaviour_226',['MultitonBehaviour',['../classJUtils_1_1MultitonBehaviour.html',1,'JUtils']]],
+  ['multitonbehaviour_2ecs_227',['MultitonBehaviour.cs',['../MultitonBehaviour_8cs.html',1,'']]],
+  ['multitonbehaviourmanager_2ecs_228',['MultitonBehaviourManager.cs',['../MultitonBehaviourManager_8cs.html',1,'']]]
 ];

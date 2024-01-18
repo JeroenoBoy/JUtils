@@ -1,0 +1,5 @@
+<map id="JUtils.ServiceManager.Register" name="JUtils.ServiceManager.Register">
+<area shape="rect" id="node1" title="Register a new service and initialize it. Will throw if it already exists." alt="" coords="5,42,228,69"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1AssemblyJUtils.html#a2155fd4f65a6c276e0d135f5868d18b7" title="Check if the given type extends the target type" alt="" coords="276,5,491,47"/>
+<area shape="rect" id="node3" href="$interfaceJUtils_1_1IService.html#aaf405cbb50d9837ac79c09fe396d36f8" title=" " alt="" coords="315,71,452,98"/>
+</map>

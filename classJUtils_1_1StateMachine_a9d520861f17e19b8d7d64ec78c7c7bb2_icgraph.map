@@ -1,0 +1,11 @@
+<map id="JUtils.StateMachine.AddToQueue" name="JUtils.StateMachine.AddToQueue">
+<area shape="rect" id="node1" title="Adds a new state to the queue" alt="" coords="485,201,677,243"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1StateMachine.html#aa4166fc64c46bf99452446fbb2224ea0" title="Adds a new state to the queue" alt="" coords="245,103,437,144"/>
+<area shape="rect" id="node7" href="$classJUtils_1_1StateMachine.html#a0719bd02fa93eabf940c1956d47a61aa" title="Adds a new state to the queue" alt="" coords="245,168,437,209"/>
+<area shape="rect" id="node8" href="$classJUtils_1_1StateMachine.html#a6a6e5c576855a8f3da974e145d39b91b" title="Adds a new state to the queue" alt="" coords="245,233,437,275"/>
+<area shape="rect" id="node9" href="$classJUtils_1_1StateMachine.html#a4851a15f0afcac4a77771b20547b5538" title="Adds a new state to the queue" alt="" coords="245,299,437,340"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1StateMachine.html#a592dcc754c15fde86d6cba02ac7086e1" title="Adds a new state to the queue" alt="" coords="5,5,197,47"/>
+<area shape="rect" id="node4" href="$classJUtils_1_1StateMachine.html#ae24c8def0c3a923e78b0176cae666f9d" title="Adds a new state to the queue" alt="" coords="5,71,197,112"/>
+<area shape="rect" id="node5" href="$classJUtils_1_1StateMachine.html#ae2057c0d3a143c8f8667169e6e5d877a" title="Adds a new state to the queue" alt="" coords="5,136,197,177"/>
+<area shape="rect" id="node6" href="$classJUtils_1_1StateMachine.html#a6d5434b029fdc93b82b76789b898d241" title="Adds a new state to the queue" alt="" coords="5,201,197,243"/>
+</map>

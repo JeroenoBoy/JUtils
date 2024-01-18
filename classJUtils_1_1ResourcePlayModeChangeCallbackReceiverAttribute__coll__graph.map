@@ -1,0 +1,4 @@
+<map id="JUtils.ResourcePlayModeChangeCallbackReceiverAttribute" name="JUtils.ResourcePlayModeChangeCallbackReceiverAttribute">
+<area shape="rect" id="node1" title="Receive a call when the play mode has been changed in a resource. Can be used to reset some data of a..." alt="" coords="5,80,239,121"/>
+<area shape="rect" id="node2" title=" " alt="" coords="83,5,161,32"/>
+</map>

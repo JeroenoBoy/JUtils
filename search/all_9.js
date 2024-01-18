@@ -1,14 +1,10 @@
 var searchData=
 [
-  ['attributes_105',['Attributes',['../namespaceJUtils_1_1Attributes.html',1,'JUtils']]],
-  ['components_106',['Components',['../namespaceJUtils_1_1Components.html',1,'JUtils']]],
-  ['editor_107',['Editor',['../namespaceJUtils_1_1Editor.html',1,'JUtils']]],
-  ['extensions_108',['Extensions',['../namespaceJUtils_1_1Extensions.html',1,'JUtils']]],
-  ['fsm_109',['FSM',['../namespaceJUtils_1_1FSM.html',1,'JUtils']]],
-  ['internal_110',['Internal',['../namespaceJUtils_1_1Internal.html',1,'JUtils']]],
-  ['jutility_111',['JUtility',['../classJUtils_1_1Editor_1_1JUtility.html',1,'JUtils::Editor']]],
-  ['jutility_2ecs_112',['JUtility.cs',['../JUtility_8cs.html',1,'']]],
-  ['jutils_113',['JUtils',['../index.html',1,'(Global Namespace)'],['../namespaceJUtils.html',1,'JUtils']]],
-  ['jutilsobject_2ecs_114',['JUtilsObject.cs',['../JUtilsObject_8cs.html',1,'']]],
-  ['singletons_115',['Singletons',['../namespaceJUtils_1_1Singletons.html',1,'JUtils']]]
+  ['editor_193',['Editor',['../namespaceJUtils_1_1Editor.html',1,'JUtils']]],
+  ['events_194',['Events',['../namespaceJUtils_1_1Editor_1_1Events.html',1,'JUtils::Editor']]],
+  ['internal_195',['Internal',['../namespaceJUtils_1_1Internal.html',1,'JUtils']]],
+  ['jutils_196',['JUtils',['../index.html',1,'(Global Namespace)'],['../namespaceJUtils.html',1,'JUtils']]],
+  ['jutilsinspectorbutton_197',['JUtilsInspectorButton',['../classJUtils_1_1Editor_1_1JUtilsInspectorButton.html',1,'JUtils.Editor.JUtilsInspectorButton'],['../classJUtils_1_1Editor_1_1JUtilsInspectorButton.html#afb79b00daea2bbc864300bdc7b7a112b',1,'JUtils.Editor.JUtilsInspectorButton.JUtilsInspectorButton()']]],
+  ['jutilsinspectorbutton_2ecs_198',['JUtilsInspectorButton.cs',['../JUtilsInspectorButton_8cs.html',1,'']]],
+  ['jutilsobject_2ecs_199',['JUtilsObject.cs',['../JUtilsObject_8cs.html',1,'']]]
 ];

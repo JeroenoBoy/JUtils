@@ -1,4 +1,0 @@
-<map id="JUtils.Attributes.ShowWhen" name="JUtils.Attributes.ShowWhen">
-<area shape="rect" id="node1" title="Hide a field if the condition does not match, allows checks for bools, ints, floats &amp; strings" alt="" coords="5,80,205,107"/>
-<area shape="rect" id="node2" title=" " alt="" coords="38,5,173,32"/>
-</map>

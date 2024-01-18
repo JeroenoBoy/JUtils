@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_538',['value',['../structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc',1,'JUtils.Optional.value()'],['../structJUtils_1_1Weighted.html#adaef3b3e5e57b83803b55178d7fc20de',1,'JUtils.Weighted.value()']]]
+  ['unscaledtimeinstate_870',['unscaledTimeInState',['../classJUtils_1_1State.html#a6815ab433519263f67fa91042babe888',1,'JUtils::State']]]
 ];

@@ -1,5 +1,0 @@
-<map id="JUtils.Singletons.ISingleton&lt; T &gt;" name="JUtils.Singletons.ISingleton&lt; T &gt;">
-<area shape="rect" id="node1" title="Simple interface for working with singletons" alt="" coords="5,46,240,73"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1Singletons_1_1ScriptableObjectSingleton.html" title="A ScriptableObject version of a singleton" alt="" coords="288,5,485,47"/>
-<area shape="rect" id="node3" href="$classJUtils_1_1Singletons_1_1SingletonBehaviour.html" title="Your simple and everyday singleton class" alt="" coords="290,71,483,112"/>
-</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['comparer_505',['Comparer',['../classJUtils_1_1Attributes_1_1ShowWhen.html#a619ba962261caadb6070a0d211ac1a10',1,'JUtils::Attributes::ShowWhen']]]
+  ['comparer_824',['Comparer',['../classJUtils_1_1ShowWhenAttribute.html#ae064c569cb76a3583f21de42d550119b',1,'JUtils::ShowWhenAttribute']]]
 ];

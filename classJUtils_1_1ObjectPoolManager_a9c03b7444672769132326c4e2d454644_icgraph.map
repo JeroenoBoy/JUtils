@@ -1,0 +1,4 @@
+<map id="JUtils.ObjectPoolManager.GetObjectPool" name="JUtils.ObjectPoolManager.GetObjectPool">
+<area shape="rect" id="node1" title="Get or create an object pool for the given prefab" alt="" coords="244,5,435,47"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1ObjectPoolManager.html#a31b3b48cf9fe8255fdc4932f546340a9" title="Spawns a pooled item from the prefab" alt="" coords="5,5,196,47"/>
+</map>

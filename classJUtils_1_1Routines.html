@@ -122,6 +122,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f85bd85cc9315b3ef35594c4d7a5aa9"><td class="memItemLeft" align="right" valign="top">static IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Routines.html#a0f85bd85cc9315b3ef35594c4d7a5aa9">DelayRoutine</a> (TimeSpan timeSpan, Action action)</td></tr>
 <tr class="memdesc:a0f85bd85cc9315b3ef35594c4d7a5aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A routine that runs the action after the given timespan  <a href="classJUtils_1_1Routines.html#a0f85bd85cc9315b3ef35594c4d7a5aa9">More...</a><br /></td></tr>
 <tr class="separator:a0f85bd85cc9315b3ef35594c4d7a5aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75b026af7325021da15eeaef48961527"><td class="memItemLeft" align="right" valign="top">static IEnumerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Routines.html#a75b026af7325021da15eeaef48961527">RunFlat</a> (IEnumerator routine)</td></tr>
+<tr class="memdesc:a75b026af7325021da15eeaef48961527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs this routine flat &ndash; It will not spawn new coroutines when doing <b>yield return SomeRoutine()</b>.  <a href="classJUtils_1_1Routines.html#a75b026af7325021da15eeaef48961527">More...</a><br /></td></tr>
+<tr class="separator:a75b026af7325021da15eeaef48961527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -302,6 +305,34 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="classJUtils_1_1Coroutines.html#a268b4578e1ab1618a519f442aedcd067" title="Run a action in the next frame" alt="" coords="5,5,196,47"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a75b026af7325021da15eeaef48961527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75b026af7325021da15eeaef48961527">&#9670;&nbsp;</a></span>RunFlat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static IEnumerator JUtils.Routines.RunFlat </td>
+          <td>(</td>
+          <td class="paramtype">IEnumerator&#160;</td>
+          <td class="paramname"><em>routine</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Runs this routine flat &ndash; It will not spawn new coroutines when doing <b>yield return SomeRoutine()</b>. </p>
 
 </div>
 </div>

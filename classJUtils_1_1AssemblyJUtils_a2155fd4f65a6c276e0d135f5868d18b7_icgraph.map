@@ -1,0 +1,4 @@
+<map id="JUtils.AssemblyJUtils.ExtendsClassOrInterface" name="JUtils.AssemblyJUtils.ExtendsClassOrInterface">
+<area shape="rect" id="node1" title="Check if the given type extends the target type" alt="" coords="276,5,491,47"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1ServiceManager.html#a0d9f5e319a922b852028efbb6fad5b7a" title="Register a new service and initialize it. Will throw if it already exists." alt="" coords="5,13,228,39"/>
+</map>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['objectpool_285',['ObjectPool',['../classJUtils_1_1Components_1_1ObjectPool.html',1,'JUtils::Components']]],
-  ['optional_286',['Optional',['../structJUtils_1_1Optional.html',1,'JUtils']]]
+  ['longeventchannel_483',['LongEventChannel',['../classJUtils_1_1LongEventChannel.html',1,'JUtils']]],
+  ['longeventlistener_484',['LongEventListener',['../classJUtils_1_1LongEventListener.html',1,'JUtils']]]
 ];

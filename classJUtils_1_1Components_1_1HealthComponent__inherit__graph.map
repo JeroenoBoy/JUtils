@@ -1,4 +1,0 @@
-<map id="JUtils.Components.HealthComponent" name="JUtils.Components.HealthComponent">
-<area shape="rect" id="node1" title="A simple yet versatile HealthComponent implementation that uses SendMessage to send its heal &amp; damage..." alt="" coords="5,80,195,121"/>
-<area shape="rect" id="node2" title=" " alt="" coords="38,5,162,32"/>
-</map>

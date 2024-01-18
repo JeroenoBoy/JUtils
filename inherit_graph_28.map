@@ -1,17 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$interfaceJUtils_1_1Singletons_1_1ISingleton.html" title="Simple interface for working with singletons" alt="" coords="5,71,240,98"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1Singletons_1_1ScriptableObjectSingleton.html" title="A ScriptableObject version of a singleton" alt="" coords="303,5,501,47"/>
-<area shape="rect" id="node3" href="$classJUtils_1_1Singletons_1_1SingletonBehaviour.html" title="Your simple and everyday singleton class" alt="" coords="305,71,499,112"/>
-<area shape="rect" id="node4" title=" " alt="" coords="61,333,185,359"/>
-<area shape="rect" id="node5" href="$classJUtils_1_1Components_1_1BillboardCamera.html" title="Bill&#45;boarding component which allows for advanced anchoring and other behaviours" alt="" coords="300,136,504,177"/>
-<area shape="rect" id="node6" href="$classJUtils_1_1Components_1_1DontDestroyOnLoad.html" title="Runs the DDOL function on this gameobject, this is a more declerative way to mark an object for DDOL" alt="" coords="288,201,516,243"/>
-<area shape="rect" id="node7" href="$classJUtils_1_1Components_1_1HealthComponent.html" title="A simple yet versatile HealthComponent implementation that uses SendMessage to send its heal &amp; damage..." alt="" coords="307,267,497,308"/>
-<area shape="rect" id="node8" href="$classJUtils_1_1Components_1_1ObjectPool.html" title="A simple implementation for an object pool" alt="" coords="294,333,510,359"/>
-<area shape="rect" id="node9" href="$classJUtils_1_1Components_1_1PoolItem.html" title="A behaviour that is used with the objectPool. Other behaviours can listen to the events this class se..." alt="" coords="300,383,504,410"/>
-<area shape="rect" id="node10" href="$classJUtils_1_1FSM_1_1State.html" title="A simple state that can be driven by stateMachine" alt="" coords="322,565,482,607"/>
-<area shape="rect" id="node12" href="$classJUtils_1_1Singletons_1_1MultitonBehaviour.html" title="A MonoBehaviour where you can easily access all of its instances" alt="" coords="309,435,495,476"/>
-<area shape="rect" id="node13" href="$classJUtils_1_1Singletons_1_1SingletonManager.html" title="Centralized singleton to fix reference &amp; hot reload issues issues" alt="" coords="305,500,499,541"/>
-<area shape="rect" id="node11" href="$classJUtils_1_1FSM_1_1StateMachine.html" title="A mono&#45;behaviour state&#45;machine that can also be used as a state" alt="" coords="564,573,744,599"/>
-<area shape="rect" id="node14" title=" " alt="" coords="58,13,187,39"/>
-<area shape="rect" id="node15" title=" " alt="" coords="95,573,151,599"/>
+<area shape="rect" id="node1" href="$classJUtils_1_1EventListener.html" title=" " alt="" coords="5,5,189,47"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1IntEventListener.html" title=" " alt="" coords="237,13,404,39"/>
 </map>

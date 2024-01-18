@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['rangeenumerator_290',['RangeEnumerator',['../classJUtils_1_1Extensions_1_1RangeEnumerator.html',1,'JUtils::Extensions']]],
-  ['rangeextensions_291',['RangeExtensions',['../classJUtils_1_1Extensions_1_1RangeExtensions.html',1,'JUtils::Extensions']]],
-  ['required_292',['Required',['../classJUtils_1_1Attributes_1_1Required.html',1,'JUtils::Attributes']]],
-  ['routines_293',['Routines',['../classJUtils_1_1Routines.html',1,'JUtils']]]
+  ['pair_495',['Pair',['../structJUtils_1_1SerializableDictionary_1_1Pair.html',1,'JUtils::SerializableDictionary']]],
+  ['poolitem_496',['PoolItem',['../classJUtils_1_1PoolItem.html',1,'JUtils']]]
 ];
