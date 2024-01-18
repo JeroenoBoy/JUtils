@@ -8,6 +8,7 @@ namespace JUtils
     /// 
     /// Event channels are scriptable objects that can dynamically be assigned
     /// </summary>
+    /// <remarks>When inheriting this class, it is recommended to leave the body empty</remarks>
     [ResourcePlayModeChangeCallbackReceiver("Events")]
     public abstract class EventChannel<T> : ScriptableObject
     {

@@ -7,6 +7,7 @@ namespace JUtils
     /// <summary>
     /// The base class for event channel based listeners. Recommended for UI or if the GO only has one event listener, otherwise consider using the <see cref="EventChannel{T}"/> directly
     /// </summary>
+    /// <remarks>When inheriting this class, it is recommended to leave the body empty</remarks>
     public abstract class EventListener<TListener, TArgument> : MonoBehaviour where TListener : EventChannel<TArgument>
     {
         [SerializeField] private TListener _eventChannel;
