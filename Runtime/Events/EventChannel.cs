@@ -40,11 +40,7 @@ namespace JUtils
         /// Unsafe version of the <see cref="EventChannelExtensions.Invoke"/> function. This is directly on the class, but it does not have check if the channel is null or not.
         /// </summary>
         /// <param name="argument"></param>
-<<<<<<< HEAD
-        public void InvokeUnsafe(T argument)
-=======
         public virtual void InvokeUnsafe(T argument)
->>>>>>> develop
         {
             listeners?.Invoke(argument);
         }

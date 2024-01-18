@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-﻿namespace JUtils
-=======
 using System;
 
 namespace JUtils
->>>>>>> develop
 {
     public sealed class EmptyEventListener : EventListener<EmptyEventChannel, EmptyEventChannel.Empty>
     {
