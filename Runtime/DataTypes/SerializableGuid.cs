@@ -1,20 +1,32 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
-using UnityEditor;
 using UnityEngine;
 
 namespace JUtils
 {
+    /// <summary>
+    /// A lightweight guid class that can be serialized
+    /// </summary>
     [Serializable]
     public struct SerializableGuid
     {
         [SerializeField] private ulong _a;
         [SerializeField] private ulong _b;
 
+        /// <summary>
+        /// First half of the guid
+        /// </summary>
         public ulong a => _a;
+
+        /// <summary>
+        /// Second half of the guid
+        /// </summary>
         public ulong b => _b;
 
 
+        /// <summary>
+        /// Parse a guid from the given string
+        /// </summary>
         public static SerializableGuid Parse(string guid)
         {
             Guid systemGuid = new(guid);
@@ -34,6 +46,9 @@ namespace JUtils
         }
 
 
+        /// <summary>
+        /// Parse a guid from the given string
+        /// </summary>
         public static bool TryParse(string guid, out SerializableGuid output)
         {
             if (!Guid.TryParse(guid, out Guid systemGuid)) {
@@ -58,6 +73,15 @@ namespace JUtils
         }
 
 
+        /// <summary>
+        /// Generate a new random guid
+        /// </summary>
+        public static SerializableGuid Random()
+        {
+            return Parse(Guid.NewGuid().ToString());
+        }
+
+
         public SerializableGuid(ulong a, ulong b)
         {
             _a = a;
@@ -65,6 +89,9 @@ namespace JUtils
         }
 
 
+        /// <summary>
+        /// Get the byte ath the given index. Index must be between 0 and 15.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public byte GetByte(int index)
         {
@@ -73,6 +100,9 @@ namespace JUtils
         }
 
 
+        /// <summary>
+        /// Get the 4 bits at the given index. The index must be between 0 and 31
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public byte GetHexChar(int index)
         {
@@ -107,12 +137,6 @@ namespace JUtils
                 + $"{GetHexChar(12):X}{GetHexChar(13):X}{GetHexChar(14):X}{GetHexChar(15):X}-"
                 + $"{GetHexChar(16):X}{GetHexChar(17):X}{GetHexChar(18):X}{GetHexChar(19):X}-"
                 + $"{GetHexChar(20):X}{GetHexChar(21):X}{GetHexChar(22):X}{GetHexChar(23):X}{GetHexChar(24):X}{GetHexChar(25):X}{GetHexChar(26):X}{GetHexChar(27):X}{GetHexChar(28):X}{GetHexChar(29):X}{GetHexChar(30):X}{GetHexChar(31):X}";
-        }
-
-
-        public static SerializableGuid Random()
-        {
-            return Parse(GUID.Generate().ToString());
         }
 
 
