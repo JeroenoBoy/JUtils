@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace JUtils.Events
+namespace JUtils
 {
     [CreateAssetMenu(menuName = "JUtils/Events/Float Event Channel")]
     public sealed class FloatEventChannel : EventChannel<float> { }

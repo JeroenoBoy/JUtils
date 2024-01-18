@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using UnityEngine;
 
-namespace JUtils.Events
+namespace JUtils
 {
     /// <summary>
     /// The base class for an simple event channel
@@ -36,17 +36,17 @@ namespace JUtils.Events
 
 
         /// <summary>
-        /// Unsafe version of the <see cref="EventChannelExtensions.Raise"/> function. This is directly on the class, but it does not have check if the channel is null or not.
+        /// Unsafe version of the <see cref="EventChannelExtensions.Invoke"/> function. This is directly on the class, but it does not have check if the channel is null or not.
         /// </summary>
         /// <param name="argument"></param>
-        public void RaiseUnsafe(T argument)
+        public virtual void InvokeUnsafe(T argument)
         {
             listeners?.Invoke(argument);
         }
 
 
 #if UNITY_EDITOR
-        public void OnPlayModeExit()
+        public virtual void OnPlayModeExit()
         {
             if (listeners == null) return;
 

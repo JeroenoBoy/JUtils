@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace JUtils.Events
+namespace JUtils
 {
     [CreateAssetMenu(menuName = "JUtils/Events/Bool Event Channel")]
     public sealed class BoolEventChannel : EventChannel<bool> { }

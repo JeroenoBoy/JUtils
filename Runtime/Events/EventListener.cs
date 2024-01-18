@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace JUtils.Events
+namespace JUtils
 {
     /// <summary>
     /// The base class for event channel based listeners. Recommended for UI or if the GO only has one event listener, otherwise consider using the <see cref="EventChannel{T}"/> directly
