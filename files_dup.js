@@ -59,7 +59,7 @@ var files_dup =
       [ "EventChannel", "classJUtils_1_1EventChannel.html", "classJUtils_1_1EventChannel" ]
     ] ],
     [ "EventChannelEditor.cs", "EventChannelEditor_8cs.html", [
-      [ "EventChannelEditor", "classJUtils_1_1Editor_1_1Events_1_1EventChannelEditor.html", "classJUtils_1_1Editor_1_1Events_1_1EventChannelEditor" ]
+      [ "EventChannelEditor", "classJUtils_1_1Editor_1_1EventChannelEditor.html", "classJUtils_1_1Editor_1_1EventChannelEditor" ]
     ] ],
     [ "EventChannelExtensions.cs", "EventChannelExtensions_8cs.html", [
       [ "EventChannelExtensions", "classJUtils_1_1EventChannelExtensions.html", "classJUtils_1_1EventChannelExtensions" ]

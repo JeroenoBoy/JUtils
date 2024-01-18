@@ -20,7 +20,7 @@ var hierarchy =
       [ "JUtils.SerializableDictionary< TKey, TValue >", "classJUtils_1_1SerializableDictionary.html", null ]
     ] ],
     [ "UnityEditor.Editor", null, [
-      [ "JUtils.Editor.Events.EventChannelEditor", "classJUtils_1_1Editor_1_1Events_1_1EventChannelEditor.html", null ],
+      [ "JUtils.Editor.EventChannelEditor", "classJUtils_1_1Editor_1_1EventChannelEditor.html", null ],
       [ "JUtils.Editor.MonoBehaviourEditor", "classJUtils_1_1Editor_1_1MonoBehaviourEditor.html", null ]
     ] ],
     [ "JUtils.EmptyEventChannel.Empty", "structJUtils_1_1EmptyEventChannel_1_1Empty.html", null ],

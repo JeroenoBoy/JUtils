@@ -20,7 +20,7 @@ var searchData=
   ['eventchannel_3c_20long_20_3e_99',['EventChannel&lt; long &gt;',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
   ['eventchannel_3c_20uint_20_3e_100',['EventChannel&lt; uint &gt;',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
   ['eventchannel_3c_20ulong_20_3e_101',['EventChannel&lt; ulong &gt;',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
-  ['eventchanneleditor_102',['EventChannelEditor',['../classJUtils_1_1Editor_1_1Events_1_1EventChannelEditor.html',1,'JUtils::Editor::Events']]],
+  ['eventchanneleditor_102',['EventChannelEditor',['../classJUtils_1_1Editor_1_1EventChannelEditor.html',1,'JUtils::Editor']]],
   ['eventchanneleditor_2ecs_103',['EventChannelEditor.cs',['../EventChannelEditor_8cs.html',1,'']]],
   ['eventchannelextensions_104',['EventChannelExtensions',['../classJUtils_1_1EventChannelExtensions.html',1,'JUtils']]],
   ['eventchannelextensions_2ecs_105',['EventChannelExtensions.cs',['../EventChannelExtensions_8cs.html',1,'']]],

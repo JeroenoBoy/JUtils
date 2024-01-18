@@ -1,6 +1,5 @@
 var namespaceJUtils_1_1Editor =
 [
-    [ "Events", "namespaceJUtils_1_1Editor_1_1Events.html", "namespaceJUtils_1_1Editor_1_1Events" ],
     [ "CustomNameEditor", "classJUtils_1_1Editor_1_1CustomNameEditor.html", "classJUtils_1_1Editor_1_1CustomNameEditor" ],
     [ "RequiredEditor", "classJUtils_1_1Editor_1_1RequiredEditor.html", "classJUtils_1_1Editor_1_1RequiredEditor" ],
     [ "SerializeInterfaceEditor", "classJUtils_1_1Editor_1_1SerializeInterfaceEditor.html", "classJUtils_1_1Editor_1_1SerializeInterfaceEditor" ],
@@ -16,5 +15,6 @@ var namespaceJUtils_1_1Editor =
     [ "SerializableGuidEditor", "classJUtils_1_1Editor_1_1SerializableGuidEditor.html", "classJUtils_1_1Editor_1_1SerializableGuidEditor" ],
     [ "WeightedEditor", "classJUtils_1_1Editor_1_1WeightedEditor.html", "classJUtils_1_1Editor_1_1WeightedEditor" ],
     [ "JUtilsInspectorButton", "classJUtils_1_1Editor_1_1JUtilsInspectorButton.html", "classJUtils_1_1Editor_1_1JUtilsInspectorButton" ],
+    [ "EventChannelEditor", "classJUtils_1_1Editor_1_1EventChannelEditor.html", "classJUtils_1_1Editor_1_1EventChannelEditor" ],
     [ "MonoBehaviourEditor", "classJUtils_1_1Editor_1_1MonoBehaviourEditor.html", "classJUtils_1_1Editor_1_1MonoBehaviourEditor" ]
 ];

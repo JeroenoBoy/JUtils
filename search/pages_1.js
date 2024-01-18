@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jutils_881',['JUtils',['../index.html',1,'']]]
+  ['jutils_879',['JUtils',['../index.html',1,'']]]
 ];

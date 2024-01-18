@@ -41,7 +41,6 @@ var NAVTREEINDEX2 =
 "md_LICENSE.html":[0],
 "namespaceJUtils.html":[1,0,0],
 "namespaceJUtils_1_1Editor.html":[1,0,0,0],
-"namespaceJUtils_1_1Editor_1_1Events.html":[1,0,0,0,0],
 "namespaceJUtils_1_1Internal.html":[1,0,0,1],
 "namespaces.html":[1,0],
 "pages.html":[],
