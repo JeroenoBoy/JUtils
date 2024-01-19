@@ -6,9 +6,8 @@ namespace JUtils
     /// Receive a call when the play mode has been changed in a resource. Can be used to reset some data of a resource
     /// </summary>
     /// <example>
-    /// #if UNITY_EDITOR
     /// [ResourcePlayModeChangeCallbackReceiver(resourcesFolder = "Events")]
-    /// public partial class EventChannel : IResourcePlayModeChangeCallbackReceiver // You don't need to inherit from IResourcePlayModeChangeCallbackReceiver. It helps with getting the functions available
+    /// public partial class EventChannel : IResourcePlayModeChangeCallbackReceiver // You don't need to inherit from <see cref="IResourcePlayModeChangeCallbackReceiver"/>. It helps with getting the functions available
     /// {
     ///     // Must be public!
     ///     public void OnPlayModeEnter() { }
@@ -19,7 +18,6 @@ namespace JUtils
     ///         listeners = null;
     ///     }
     /// }
-    /// #endif
     /// </example>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
     public class ResourcePlayModeChangeCallbackReceiverAttribute : Attribute

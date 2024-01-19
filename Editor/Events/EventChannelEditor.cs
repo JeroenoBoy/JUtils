@@ -3,7 +3,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace JUtils.Editor.Events
+namespace JUtils.Editor
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(EventChannel<>), true)]
