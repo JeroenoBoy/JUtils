@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-
 
 namespace JUtils
 {
@@ -21,24 +21,31 @@ namespace JUtils
     ///     }
     /// }
     /// </code></example>
-    [System.Serializable]
+    [Serializable]
     public struct Optional<T>
     {
         [SerializeField] private bool _enabled;
         [SerializeField] private T _value;
 
         public bool enabled => _enabled && _value is not null;
-        public T    value   => _value;
+        public T value => enabled ? _value : throw new NullReferenceException();
 
 
         public Optional(T initialValue)
         {
             _enabled = initialValue is not null;
-            _value   = initialValue;
+            _value = initialValue;
         }
 
 
-        public static implicit operator bool(Optional<T> optional) => optional.enabled;
-        public static implicit operator T   (Optional<T> optional) => optional._value;
+        public static implicit operator bool(Optional<T> optional)
+        {
+            return optional.enabled;
+        }
+
+        public static implicit operator T(Optional<T> optional)
+        {
+            return optional._value;
+        }
     }
 }

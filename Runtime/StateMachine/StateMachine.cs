@@ -16,9 +16,9 @@ namespace JUtils
 
         public event Action<State> onStateChanged;
 
-        protected bool hasActiveState => currentState != null;
-        protected bool isQueueFilled => stateQueue.Count > 0;
-        protected bool isQueueEmpty => stateQueue.Count == 0;
+        public bool hasActiveState => currentState != null;
+        public bool isQueueFilled => stateQueue.Count > 0;
+        public bool isQueueEmpty => stateQueue.Count == 0;
 
         protected State currentState;
         protected readonly List<QueueEntry> stateQueue = new();
