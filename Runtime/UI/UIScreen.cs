@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using UnityEngine.UIElements;
 
 namespace JUtils.UI
@@ -24,12 +25,25 @@ namespace JUtils.UI
         public bool isShowing { get; private set; }
         public abstract string screenId { get; }
 
+        /// <summary>
+        /// This token gets cancelled when the screen starts hiding
+        /// </summary>
+        public CancellationToken showCancellationToken => _showCancellationToken.Token;
+
+        /// <summary>
+        /// This token gets cancelled when the screen starts showing
+        /// </summary>
+        public CancellationToken hideCancellationToken => _hideCancellationToken.Token;
+
         protected virtual bool hideOnInitialize => true;
         protected virtual bool setActiveBasedOnShowStatus => true;
 
         protected UIDocument uiDocument => uiScreenManager.uiDocument;
         protected UIScreenManager uiScreenManager { get; private set; }
         protected VisualElement rootElement { get; private set; }
+
+        private CancellationTokenSource _showCancellationToken;
+        private CancellationTokenSource _hideCancellationToken;
 
 
         /// <summary>
@@ -59,13 +73,14 @@ namespace JUtils.UI
         public void Show()
         {
             if (isShowing) return;
-
+            _hideCancellationToken?.Cancel();
             isShowing = true;
 
             if (setActiveBasedOnShowStatus) {
                 gameObject.SetActive(true);
             }
 
+            _showCancellationToken = new CancellationTokenSource();
             OnShow();
         }
 
@@ -76,6 +91,8 @@ namespace JUtils.UI
         public void Hide()
         {
             if (!isShowing) return;
+            _showCancellationToken?.Cancel();
+            _hideCancellationToken = new CancellationTokenSource();
             OnHide();
             isShowing = false;
 
@@ -103,6 +120,8 @@ namespace JUtils.UI
         protected override void OnDestroy()
         {
             uiScreenManager.Unregister(this);
+            _showCancellationToken?.Dispose();
+            _hideCancellationToken?.Dispose();
         }
     }
 
