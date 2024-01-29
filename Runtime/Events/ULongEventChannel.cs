@@ -3,5 +3,5 @@
 namespace JUtils
 {
     [CreateAssetMenu(menuName = "JUtils/Events/ULong Event Channel")]
-    public sealed class ULongEventChannel : EventChannel<ulong> { }
+    public sealed class ULongEventChannel : BaseEventChannel<ulong> { }
 }

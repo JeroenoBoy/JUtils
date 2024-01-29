@@ -1,4 +1,4 @@
 ﻿namespace JUtils
 {
-    public sealed class UIntEventListener : EventListener<UIntEventChannel, uint> { }
+    public sealed class UIntEventListener : BaseEventListener<UIntEventChannel, uint> { }
 }
