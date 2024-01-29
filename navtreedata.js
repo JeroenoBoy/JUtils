@@ -56,7 +56,7 @@ var NAVTREEINDEX =
 [
 "AssemblyJUtils_8cs.html",
 "classJUtils_1_1HealthComponent.html#a0c687e45418f3e80bad676028478807f",
-"functions_func_w.html"
+"functions_func_t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -153,6 +153,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3fd74afa44be453e90079b698cbd1ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1StateMachine.html#ae3fd74afa44be453e90079b698cbd1ef">TryFindState&lt; T &gt;</a> (out T state)</td></tr>
 <tr class="memdesc:ae3fd74afa44be453e90079b698cbd1ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try finding a state within the child objects of this state-machine, if _autoCreateStates is enabled, it will automatically instantiate that state  <a href="classJUtils_1_1StateMachine.html#ae3fd74afa44be453e90079b698cbd1ef">More...</a><br /></td></tr>
 <tr class="separator:ae3fd74afa44be453e90079b698cbd1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f8049ed914ff95627c6fc60f43cc56f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1StateMachine.html#a6f8049ed914ff95627c6fc60f43cc56f">Activate</a> ([CanBeNull] <a class="el" href="classJUtils_1_1StateData.html">StateData</a> data=null)</td></tr>
+<tr class="memdesc:a6f8049ed914ff95627c6fc60f43cc56f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the state machine  <a href="classJUtils_1_1StateMachine.html#a6f8049ed914ff95627c6fc60f43cc56f">More...</a><br /></td></tr>
+<tr class="separator:a6f8049ed914ff95627c6fc60f43cc56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a142576cfa5976e90cb9af8e4ee8ded3c"><td class="memItemLeft" align="right" valign="top">new void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1StateMachine.html#a142576cfa5976e90cb9af8e4ee8ded3c">Deactivate</a> ()</td></tr>
+<tr class="memdesc:a142576cfa5976e90cb9af8e4ee8ded3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Continues the queue in the state machine, or deactivates the state if it is the root state machine  <a href="classJUtils_1_1StateMachine.html#a142576cfa5976e90cb9af8e4ee8ded3c">More...</a><br /></td></tr>
+<tr class="separator:a142576cfa5976e90cb9af8e4ee8ded3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2aec18daec987fa2534e00a3feae21c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1StateMachine.html#ac2aec18daec987fa2534e00a3feae21c">GoToState</a> (<a class="el" href="classJUtils_1_1State.html">State</a> state)</td></tr>
 <tr class="memdesc:ac2aec18daec987fa2534e00a3feae21c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the StateQueue and goes to the given state  <a href="classJUtils_1_1StateMachine.html#ac2aec18daec987fa2534e00a3feae21c">More...</a><br /></td></tr>
 <tr class="separator:ac2aec18daec987fa2534e00a3feae21c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -312,6 +318,36 @@ Events</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A mono behaviour state-machine that can also be used as a state </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6f8049ed914ff95627c6fc60f43cc56f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f8049ed914ff95627c6fc60f43cc56f">&#9670;&nbsp;</a></span>Activate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JUtils.StateMachine.Activate </td>
+          <td>(</td>
+          <td class="paramtype">[CanBeNull] <a class="el" href="classJUtils_1_1StateData.html">StateData</a>&#160;</td>
+          <td class="paramname"><em>data</em> = <code>null</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Activates the state machine </p>
+
+<p class="reference">References <a class="el" href="classJUtils_1_1State.html#a91733376a4491a3ffae3a461819ed4b6">JUtils.State&lt; T1, T2, T3 &gt;.isActive</a>.</p>
+
+</div>
+</div>
 <a id="a9d520861f17e19b8d7d64ec78c7c7bb2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9d520861f17e19b8d7d64ec78c7c7bb2">&#9670;&nbsp;</a></span>AddToQueue()</h2>
 
@@ -1337,6 +1373,35 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a142576cfa5976e90cb9af8e4ee8ded3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a142576cfa5976e90cb9af8e4ee8ded3c">&#9670;&nbsp;</a></span>Deactivate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">new void JUtils.StateMachine.Deactivate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Continues the queue in the state machine, or deactivates the state if it is the root state machine </p>
+
+<p class="reference">References <a class="el" href="classJUtils_1_1State.html#a91733376a4491a3ffae3a461819ed4b6">JUtils.State&lt; T1, T2, T3 &gt;.isActive</a>, and <a class="el" href="classJUtils_1_1State.html#ae7497b3b78e36608980a07aa4c998467">JUtils.State&lt; T1, T2, T3 &gt;.stateMachine</a>.</p>
+
+</div>
+</div>
 <a id="a9cfa3f6a6c37107c8891c24cccc6f3ed"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9cfa3f6a6c37107c8891c24cccc6f3ed">&#9670;&nbsp;</a></span>FindState&lt; T &gt;()</h2>
 
@@ -2300,6 +2365,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="reference">References <a class="el" href="classJUtils_1_1State.html#a91733376a4491a3ffae3a461819ed4b6">JUtils.State&lt; T1, T2, T3 &gt;.isActive</a>.</p>
 
 </div>
 </div>

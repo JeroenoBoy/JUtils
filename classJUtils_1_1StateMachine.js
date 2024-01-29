@@ -1,6 +1,7 @@
 var classJUtils_1_1StateMachine =
 [
     [ "QueueEntry", "structJUtils_1_1StateMachine_1_1QueueEntry.html", "structJUtils_1_1StateMachine_1_1QueueEntry" ],
+    [ "Activate", "classJUtils_1_1StateMachine.html#a6f8049ed914ff95627c6fc60f43cc56f", null ],
     [ "AddToQueue", "classJUtils_1_1StateMachine.html#a9d520861f17e19b8d7d64ec78c7c7bb2", null ],
     [ "AddToQueue< T >", "classJUtils_1_1StateMachine.html#aa4166fc64c46bf99452446fbb2224ea0", null ],
     [ "AddToQueue< T >", "classJUtils_1_1StateMachine.html#a592dcc754c15fde86d6cba02ac7086e1", null ],
@@ -18,6 +19,7 @@ var classJUtils_1_1StateMachine =
     [ "Awake", "classJUtils_1_1StateMachine.html#af012e82934e458002884f9ea867118df", null ],
     [ "ClearQueue", "classJUtils_1_1StateMachine.html#a80cacf137402ec68267e21e84785085e", null ],
     [ "ContinueQueue", "classJUtils_1_1StateMachine.html#af589331e3bd5ed37f82bc63f065ff276", null ],
+    [ "Deactivate", "classJUtils_1_1StateMachine.html#a142576cfa5976e90cb9af8e4ee8ded3c", null ],
     [ "FindState< T >", "classJUtils_1_1StateMachine.html#a9cfa3f6a6c37107c8891c24cccc6f3ed", null ],
     [ "GoToState", "classJUtils_1_1StateMachine.html#afb6b683104f8a450fd575be34de7e235", null ],
     [ "GoToState", "classJUtils_1_1StateMachine.html#ac2aec18daec987fa2534e00a3feae21c", null ],
