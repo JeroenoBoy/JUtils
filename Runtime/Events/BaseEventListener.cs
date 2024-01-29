@@ -5,7 +5,7 @@ using UnityEngine.Events;
 namespace JUtils
 {
     /// <summary>
-    /// The base class for event channel based listeners. Recommended for UI or if the GO only has one event listener, otherwise consider using the <see cref="EventChannel{T}"/> directly
+    /// The base class for event channel based listeners. Recommended for UI or if the GO only has one event listener, otherwise consider using the <see cref="BaseEventChannel{T}"/> directly
     /// </summary>
     /// <remarks>When inheriting this class, it is recommended to leave the body empty</remarks>
     public abstract class BaseEventListener<TListener, TArgument> : MonoBehaviour where TListener : BaseEventChannel<TArgument>
