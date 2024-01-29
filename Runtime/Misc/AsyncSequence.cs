@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -11,7 +12,10 @@ namespace JUtils
     /// </summary>
     public static class AsyncSequence
     {
-        public static async Task Then(this Task task, Action action)
+        /// <summary>
+        /// Runs a given action when a task has been completed
+        /// </summary>
+        public static async Task Then(this Task task, [NotNull] Action action)
         {
             await task;
             action();
