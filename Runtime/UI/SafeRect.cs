@@ -20,14 +20,13 @@ namespace JUtils.UI
             Rect safeArea = Screen.safeArea;
             Rect currentRect = worldBound;
 
-            if (!Application.isPlaying) return;
+            if (evt.destinationPanel.GetType().Name != "RuntimePanel") return;
             if (safeArea.Contains(new Vector2(currentRect.xMin, currentRect.yMin)) && safeArea.Contains(new Vector2(currentRect.xMax, currentRect.yMax))) return;
 
             style.top = new Length(safeArea.yMin - currentRect.yMin, LengthUnit.Pixel);
             style.left = new Length(safeArea.xMin - currentRect.xMin, LengthUnit.Pixel);
-
-            // style.right = new Length(safeArea.xMax - newRect.xMax, LengthUnit.Pixel);
-            // style.bottom = new Length(safeArea.yMax - newRect.yMax, LengthUnit.Pixel);
+            style.bottom = new Length(safeArea.yMax - currentRect.yMax, LengthUnit.Pixel);
+            style.right = new Length(safeArea.xMax - currentRect.xMax, LengthUnit.Pixel);
         }
     }
 }
