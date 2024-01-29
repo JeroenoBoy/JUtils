@@ -145,6 +145,30 @@ namespace JUtils
 
 
         /// <summary>
+        /// Activates the state machine
+        /// </summary>
+        public void Activate([CanBeNull] StateData data = null)
+        {
+            if (isActive) return;
+            ActivateState(data ?? new StateData());
+        }
+
+
+        /// <summary>
+        /// Continues the queue in the state machine, or deactivates the state if it is the root state machine
+        /// </summary>
+        public new void Deactivate()
+        {
+            if (!isActive) return;
+            if (stateMachine == null) {
+                DeactivateState();
+            } else {
+                base.Deactivate();
+            }
+        }
+
+
+        /// <summary>
         /// Internal function for deactivating the state
         /// </summary>
         internal override void DeactivateState()
@@ -171,6 +195,7 @@ namespace JUtils
         protected virtual void Start()
         {
             if (!_autoActivate) return;
+            if (isActive) return;
             ActivateState(new StateData());
         }
 
