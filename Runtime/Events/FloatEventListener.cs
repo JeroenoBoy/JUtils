@@ -1,4 +1,4 @@
 ﻿namespace JUtils
 {
-    public sealed class FloatEventListener : EventListener<FloatEventChannel, float> { }
+    public sealed class FloatEventListener : BaseEventListener<FloatEventChannel, float> { }
 }

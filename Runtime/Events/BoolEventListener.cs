@@ -1,4 +1,4 @@
 ﻿namespace JUtils
 {
-    public sealed class BoolEventListener : EventListener<BoolEventChannel, bool> { }
+    public sealed class BoolEventListener : BaseEventListener<BoolEventChannel, bool> { }
 }
