@@ -36,7 +36,7 @@ namespace JUtils
         /// <summary>
         /// Internal function of activating the state
         /// </summary>
-        internal virtual bool ActivateState(StateData data)
+        internal bool ActivateState(StateData data)
         {
             try {
                 _timeEnteredState = Time.time;
