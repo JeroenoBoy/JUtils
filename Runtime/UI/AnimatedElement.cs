@@ -41,7 +41,7 @@ namespace JUtils.UI
         public void ShowInstant()
         {
             if (_animateOpacity) {
-                style.opacity = new StyleFloat(_defaultOpacity.value) { keyword = _defaultOpacity.keyword };
+                style.opacity = _defaultOpacity;
             }
 
             if (_animateOffset) {
