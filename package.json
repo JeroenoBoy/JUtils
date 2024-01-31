@@ -8,5 +8,8 @@
     "name": "Jeroen van de Geest",
     "url": "https://jeroenvdg.com"
   },
+  "dependencies": {
+    "com.unity.editorcoroutines": "1.0.0"
+  },
   "hideInEditor": false
 }
