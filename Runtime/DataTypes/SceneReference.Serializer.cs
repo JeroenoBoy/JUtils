@@ -6,11 +6,11 @@ namespace JUtils
 {
 #if UNITY_EDITOR
     [StructLayout(LayoutKind.Auto)]
-    public partial struct SceneReference
+    public partial struct SceneReference : ISerializationCallbackReceiver
     {
         [SerializeField] private SceneAsset _sceneAsset;
-        
-        
+
+
         public void OnBeforeSerialize()
         {
             if (_sceneAsset == null) {
