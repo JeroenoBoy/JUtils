@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 namespace JUtils.Editor
 {
     [CanEditMultipleObjects]
-    [CustomEditor(typeof(EventChannel<>), true)]
+    [CustomEditor(typeof(BaseEventChannel<>), true)]
     public class EventChannelEditor : UnityEditor.Editor
     {
         [SerializeField] private VisualTreeAsset _eventChannelTree;

@@ -1,4 +1,4 @@
 ﻿namespace JUtils
 {
-    public sealed class ULongEventListener : EventListener<ULongEventChannel, ulong> { }
+    public sealed class ULongEventListener : BaseEventListener<ULongEventChannel, ulong> { }
 }

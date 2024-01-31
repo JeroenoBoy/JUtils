@@ -1,55 +1,27 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
+using System;
 
 namespace JUtils
 {
-    /// <summary>
-    /// The base class for event channel based listeners. Recommended for UI or if the GO only has one event listener, otherwise consider using the <see cref="EventChannel{T}"/> directly
-    /// </summary>
-    /// <remarks>When inheriting this class, it is recommended to leave the body empty</remarks>
-    public abstract class EventListener<TListener, TArgument> : MonoBehaviour where TListener : EventChannel<TArgument>
+    public sealed class EventListener : BaseEventListener<EventChannel, EventChannel.Empty>
     {
-        [SerializeField] private TListener _eventChannel;
-        [SerializeField] private UnityEvent<TArgument> _event;
-
-        private event Action<TArgument> myListeners;
+        private event Action myListeners;
 
 
-        /// <summary>
-        /// Add a listener to the internal eventListener of this class
-        /// </summary>
-        public void AddListener(Action<TArgument> listener)
+        public void AddListener(Action listener)
         {
             myListeners += listener;
         }
 
 
-        /// <summary>
-        /// Remove a listener to the internal eventListener of this class
-        /// </summary>
-        public void RemoveListener(Action<TArgument> listener)
+        public void RemoveListener(Action listener)
         {
             myListeners -= listener;
         }
 
 
-        private void OnEnable()
+        private void Awake()
         {
-            _eventChannel.AddListener(HandleChannelInvoked);
-        }
-
-
-        private void OnDisable()
-        {
-            _eventChannel.RemoveListener(HandleChannelInvoked);
-        }
-
-
-        private void HandleChannelInvoked(TArgument argument)
-        {
-            myListeners?.Invoke(argument);
-            _event.Invoke(argument);
+            AddListener(() => myListeners?.Invoke());
         }
     }
 }
