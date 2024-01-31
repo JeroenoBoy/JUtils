@@ -147,7 +147,7 @@ namespace JUtils.UI
             _defaultOpacity = style.opacity;
             _defaultPosition = style.translate;
 
-            if (Application.isPlaying) {
+            if (evt.destinationPanel.GetType().Name == "RuntimePanel") {
                 HideInstant();
             }
         }
