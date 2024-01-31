@@ -1,7 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
-
-
 
 namespace JUtils
 {
@@ -23,7 +22,7 @@ namespace JUtils
     ///     }
     /// }
     /// </code></example>>
-    [System.Serializable]
+    [Serializable]
     public partial struct SceneReference
     {
         [SerializeField] private string _sceneName;
@@ -32,8 +31,7 @@ namespace JUtils
         public string sceneName => _sceneName;
         public string scenePath => _scenePath;
 
-        public Scene scene      => SceneManager.GetSceneByPath(_scenePath);
-        public int   buildIndex => scene.buildIndex;
+        public int buildIndex => SceneUtility.GetBuildIndexByScenePath(_scenePath);
 
 
         public void LoadScene(LoadSceneMode mode = LoadSceneMode.Single)
