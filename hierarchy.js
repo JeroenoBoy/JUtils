@@ -12,6 +12,48 @@ var hierarchy =
     [ "JUtils.AutoSingletonBehaviour< ServiceManager >", "classJUtils_1_1AutoSingletonBehaviour.html", [
       [ "JUtils.ServiceManager", "classJUtils_1_1ServiceManager.html", null ]
     ] ],
+    [ "JUtils.BaseEventChannel< bool >", "classJUtils_1_1BaseEventChannel.html", [
+      [ "JUtils.BoolEventChannel", "classJUtils_1_1BoolEventChannel.html", null ]
+    ] ],
+    [ "JUtils.BaseEventChannel< EventChannel.Empty >", "classJUtils_1_1BaseEventChannel.html", [
+      [ "JUtils.EventChannel", "classJUtils_1_1EventChannel.html", null ]
+    ] ],
+    [ "JUtils.BaseEventChannel< float >", "classJUtils_1_1BaseEventChannel.html", [
+      [ "JUtils.FloatEventChannel", "classJUtils_1_1FloatEventChannel.html", null ]
+    ] ],
+    [ "JUtils.BaseEventChannel< int >", "classJUtils_1_1BaseEventChannel.html", [
+      [ "JUtils.IntEventChannel", "classJUtils_1_1IntEventChannel.html", null ]
+    ] ],
+    [ "JUtils.BaseEventChannel< long >", "classJUtils_1_1BaseEventChannel.html", [
+      [ "JUtils.LongEventChannel", "classJUtils_1_1LongEventChannel.html", null ]
+    ] ],
+    [ "JUtils.BaseEventChannel< uint >", "classJUtils_1_1BaseEventChannel.html", [
+      [ "JUtils.UIntEventChannel", "classJUtils_1_1UIntEventChannel.html", null ]
+    ] ],
+    [ "JUtils.BaseEventChannel< ulong >", "classJUtils_1_1BaseEventChannel.html", [
+      [ "JUtils.ULongEventChannel", "classJUtils_1_1ULongEventChannel.html", null ]
+    ] ],
+    [ "JUtils.BaseEventListener< BoolEventChannel, bool >", "classJUtils_1_1BaseEventListener.html", [
+      [ "JUtils.BoolEventListener", "classJUtils_1_1BoolEventListener.html", null ]
+    ] ],
+    [ "JUtils.BaseEventListener< EventChannel, EventChannel.Empty >", "classJUtils_1_1BaseEventListener.html", [
+      [ "JUtils.EventListener", "classJUtils_1_1EventListener.html", null ]
+    ] ],
+    [ "JUtils.BaseEventListener< FloatEventChannel, float >", "classJUtils_1_1BaseEventListener.html", [
+      [ "JUtils.FloatEventListener", "classJUtils_1_1FloatEventListener.html", null ]
+    ] ],
+    [ "JUtils.BaseEventListener< IntEventChannel, int >", "classJUtils_1_1BaseEventListener.html", [
+      [ "JUtils.IntEventListener", "classJUtils_1_1IntEventListener.html", null ]
+    ] ],
+    [ "JUtils.BaseEventListener< LongEventChannel, long >", "classJUtils_1_1BaseEventListener.html", [
+      [ "JUtils.LongEventListener", "classJUtils_1_1LongEventListener.html", null ]
+    ] ],
+    [ "JUtils.BaseEventListener< UIntEventChannel, uint >", "classJUtils_1_1BaseEventListener.html", [
+      [ "JUtils.UIntEventListener", "classJUtils_1_1UIntEventListener.html", null ]
+    ] ],
+    [ "JUtils.BaseEventListener< ULongEventChannel, ulong >", "classJUtils_1_1BaseEventListener.html", [
+      [ "JUtils.ULongEventListener", "classJUtils_1_1ULongEventListener.html", null ]
+    ] ],
     [ "JUtils.CollectionExtensions", "classJUtils_1_1CollectionExtensions.html", null ],
     [ "JUtils.ColorExtensions", "classJUtils_1_1ColorExtensions.html", null ],
     [ "JUtils.ComponentExtensions", "classJUtils_1_1ComponentExtensions.html", null ],
@@ -23,51 +65,9 @@ var hierarchy =
       [ "JUtils.Editor.EventChannelEditor", "classJUtils_1_1Editor_1_1EventChannelEditor.html", null ],
       [ "JUtils.Editor.MonoBehaviourEditor", "classJUtils_1_1Editor_1_1MonoBehaviourEditor.html", null ]
     ] ],
-    [ "JUtils.EmptyEventChannel.Empty", "structJUtils_1_1EmptyEventChannel_1_1Empty.html", null ],
+    [ "JUtils.EventChannel.Empty", "structJUtils_1_1EventChannel_1_1Empty.html", null ],
     [ "JUtils.Enumerable", "classJUtils_1_1Enumerable.html", null ],
-    [ "JUtils.EventChannel< bool >", "classJUtils_1_1EventChannel.html", [
-      [ "JUtils.BoolEventChannel", "classJUtils_1_1BoolEventChannel.html", null ]
-    ] ],
-    [ "JUtils.EventChannel< EmptyEventChannel.Empty >", "classJUtils_1_1EventChannel.html", [
-      [ "JUtils.EmptyEventChannel", "classJUtils_1_1EmptyEventChannel.html", null ]
-    ] ],
-    [ "JUtils.EventChannel< float >", "classJUtils_1_1EventChannel.html", [
-      [ "JUtils.FloatEventChannel", "classJUtils_1_1FloatEventChannel.html", null ]
-    ] ],
-    [ "JUtils.EventChannel< int >", "classJUtils_1_1EventChannel.html", [
-      [ "JUtils.IntEventChannel", "classJUtils_1_1IntEventChannel.html", null ]
-    ] ],
-    [ "JUtils.EventChannel< long >", "classJUtils_1_1EventChannel.html", [
-      [ "JUtils.LongEventChannel", "classJUtils_1_1LongEventChannel.html", null ]
-    ] ],
-    [ "JUtils.EventChannel< uint >", "classJUtils_1_1EventChannel.html", [
-      [ "JUtils.UIntEventChannel", "classJUtils_1_1UIntEventChannel.html", null ]
-    ] ],
-    [ "JUtils.EventChannel< ulong >", "classJUtils_1_1EventChannel.html", [
-      [ "JUtils.ULongEventChannel", "classJUtils_1_1ULongEventChannel.html", null ]
-    ] ],
     [ "JUtils.EventChannelExtensions", "classJUtils_1_1EventChannelExtensions.html", null ],
-    [ "JUtils.EventListener< BoolEventChannel, bool >", "classJUtils_1_1EventListener.html", [
-      [ "JUtils.BoolEventListener", "classJUtils_1_1BoolEventListener.html", null ]
-    ] ],
-    [ "JUtils.EventListener< EmptyEventChannel, EmptyEventChannel.Empty >", "classJUtils_1_1EventListener.html", [
-      [ "JUtils.EmptyEventListener", "classJUtils_1_1EmptyEventListener.html", null ]
-    ] ],
-    [ "JUtils.EventListener< FloatEventChannel, float >", "classJUtils_1_1EventListener.html", [
-      [ "JUtils.FloatEventListener", "classJUtils_1_1FloatEventListener.html", null ]
-    ] ],
-    [ "JUtils.EventListener< IntEventChannel, int >", "classJUtils_1_1EventListener.html", [
-      [ "JUtils.IntEventListener", "classJUtils_1_1IntEventListener.html", null ]
-    ] ],
-    [ "JUtils.EventListener< LongEventChannel, long >", "classJUtils_1_1EventListener.html", [
-      [ "JUtils.LongEventListener", "classJUtils_1_1LongEventListener.html", null ]
-    ] ],
-    [ "JUtils.EventListener< UIntEventChannel, uint >", "classJUtils_1_1EventListener.html", [
-      [ "JUtils.UIntEventListener", "classJUtils_1_1UIntEventListener.html", null ]
-    ] ],
-    [ "JUtils.EventListener< ULongEventChannel, ulong >", "classJUtils_1_1EventListener.html", [
-      [ "JUtils.ULongEventListener", "classJUtils_1_1ULongEventListener.html", null ]
-    ] ],
     [ "JUtils.GizmoUtils", "classJUtils_1_1GizmoUtils.html", null ],
     [ "JUtils.IDamageEvent", "interfaceJUtils_1_1IDamageEvent.html", [
       [ "JUtils.SimpleDamageEvent", "structJUtils_1_1SimpleDamageEvent.html", null ]
@@ -96,9 +96,9 @@ var hierarchy =
     [ "JUtils.MinMaxInt", "structJUtils_1_1MinMaxInt.html", null ],
     [ "MonoBehaviour", null, [
       [ "JUtils.AutoSingletonBehaviour< T >", "classJUtils_1_1AutoSingletonBehaviour.html", null ],
+      [ "JUtils.BaseEventListener< TListener, TArgument >", "classJUtils_1_1BaseEventListener.html", null ],
       [ "JUtils.BillboardCamera", "classJUtils_1_1BillboardCamera.html", null ],
       [ "JUtils.DontDestroyOnLoad", "classJUtils_1_1DontDestroyOnLoad.html", null ],
-      [ "JUtils.EventListener< TListener, TArgument >", "classJUtils_1_1EventListener.html", null ],
       [ "JUtils.HealthComponent", "classJUtils_1_1HealthComponent.html", null ],
       [ "JUtils.MultitonBehaviour< T >", "classJUtils_1_1MultitonBehaviour.html", null ],
       [ "JUtils.ObjectPool", "classJUtils_1_1ObjectPool.html", null ],
@@ -142,7 +142,7 @@ var hierarchy =
     [ "JUtils.Routines", "classJUtils_1_1Routines.html", null ],
     [ "JUtils.SceneReference", "structJUtils_1_1SceneReference.html", null ],
     [ "ScriptableObject", null, [
-      [ "JUtils.EventChannel< T >", "classJUtils_1_1EventChannel.html", null ]
+      [ "JUtils.BaseEventChannel< T >", "classJUtils_1_1BaseEventChannel.html", null ]
     ] ],
     [ "JUtils.SerializableDictionary< JUtils.PoolItem, JUtils.ObjectPool >", "classJUtils_1_1SerializableDictionary.html", null ],
     [ "JUtils.SerializableDictionary< JUtils.SerializableType, List< Object > >", "classJUtils_1_1SerializableDictionary.html", null ],

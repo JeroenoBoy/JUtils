@@ -1,25 +1,9 @@
 var searchData=
 [
-  ['empty_448',['Empty',['../structJUtils_1_1EmptyEventChannel_1_1Empty.html',1,'JUtils::EmptyEventChannel']]],
-  ['emptyeventchannel_449',['EmptyEventChannel',['../classJUtils_1_1EmptyEventChannel.html',1,'JUtils']]],
-  ['emptyeventlistener_450',['EmptyEventListener',['../classJUtils_1_1EmptyEventListener.html',1,'JUtils']]],
-  ['enumerable_451',['Enumerable',['../classJUtils_1_1Enumerable.html',1,'JUtils']]],
-  ['eventchannel_452',['EventChannel',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
-  ['eventchannel_3c_20bool_20_3e_453',['EventChannel&lt; bool &gt;',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
-  ['eventchannel_3c_20emptyeventchannel_2eempty_20_3e_454',['EventChannel&lt; EmptyEventChannel.Empty &gt;',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
-  ['eventchannel_3c_20float_20_3e_455',['EventChannel&lt; float &gt;',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
-  ['eventchannel_3c_20int_20_3e_456',['EventChannel&lt; int &gt;',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
-  ['eventchannel_3c_20long_20_3e_457',['EventChannel&lt; long &gt;',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
-  ['eventchannel_3c_20uint_20_3e_458',['EventChannel&lt; uint &gt;',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
-  ['eventchannel_3c_20ulong_20_3e_459',['EventChannel&lt; ulong &gt;',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
-  ['eventchanneleditor_460',['EventChannelEditor',['../classJUtils_1_1Editor_1_1EventChannelEditor.html',1,'JUtils::Editor']]],
-  ['eventchannelextensions_461',['EventChannelExtensions',['../classJUtils_1_1EventChannelExtensions.html',1,'JUtils']]],
-  ['eventlistener_462',['EventListener',['../classJUtils_1_1EventListener.html',1,'JUtils']]],
-  ['eventlistener_3c_20booleventchannel_2c_20bool_20_3e_463',['EventListener&lt; BoolEventChannel, bool &gt;',['../classJUtils_1_1EventListener.html',1,'JUtils']]],
-  ['eventlistener_3c_20emptyeventchannel_2c_20emptyeventchannel_2eempty_20_3e_464',['EventListener&lt; EmptyEventChannel, EmptyEventChannel.Empty &gt;',['../classJUtils_1_1EventListener.html',1,'JUtils']]],
-  ['eventlistener_3c_20floateventchannel_2c_20float_20_3e_465',['EventListener&lt; FloatEventChannel, float &gt;',['../classJUtils_1_1EventListener.html',1,'JUtils']]],
-  ['eventlistener_3c_20inteventchannel_2c_20int_20_3e_466',['EventListener&lt; IntEventChannel, int &gt;',['../classJUtils_1_1EventListener.html',1,'JUtils']]],
-  ['eventlistener_3c_20longeventchannel_2c_20long_20_3e_467',['EventListener&lt; LongEventChannel, long &gt;',['../classJUtils_1_1EventListener.html',1,'JUtils']]],
-  ['eventlistener_3c_20uinteventchannel_2c_20uint_20_3e_468',['EventListener&lt; UIntEventChannel, uint &gt;',['../classJUtils_1_1EventListener.html',1,'JUtils']]],
-  ['eventlistener_3c_20ulongeventchannel_2c_20ulong_20_3e_469',['EventListener&lt; ULongEventChannel, ulong &gt;',['../classJUtils_1_1EventListener.html',1,'JUtils']]]
+  ['empty_464',['Empty',['../structJUtils_1_1EventChannel_1_1Empty.html',1,'JUtils::EventChannel']]],
+  ['enumerable_465',['Enumerable',['../classJUtils_1_1Enumerable.html',1,'JUtils']]],
+  ['eventchannel_466',['EventChannel',['../classJUtils_1_1EventChannel.html',1,'JUtils']]],
+  ['eventchanneleditor_467',['EventChannelEditor',['../classJUtils_1_1Editor_1_1EventChannelEditor.html',1,'JUtils::Editor']]],
+  ['eventchannelextensions_468',['EventChannelExtensions',['../classJUtils_1_1EventChannelExtensions.html',1,'JUtils']]],
+  ['eventlistener_469',['EventListener',['../classJUtils_1_1EventListener.html',1,'JUtils']]]
 ];

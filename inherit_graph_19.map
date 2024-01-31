@@ -1,4 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classJUtils_1_1EventChannel.html" title=" " alt="" coords="5,5,156,47"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1IntEventChannel.html" title=" " alt="" coords="204,13,371,39"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,35,84,61"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1ButtonAttribute.html" title="Attach this button to a method to make it clickable in the inspector. This attribute will also draw p..." alt="" coords="169,5,329,32"/>
+<area shape="rect" id="node3" href="$classJUtils_1_1ResourcePlayModeChangeCallbackReceiverAttribute.html" title="Receive a call when the play mode has been changed in a resource. Can be used to reset some data of a..." alt="" coords="132,57,365,98"/>
 </map>

@@ -2,10 +2,10 @@
 <area shape="rect" id="node1" href="$interfaceJUtils_1_1ISingleton.html" title="Simple interface for working with singletons" alt="" coords="5,31,168,57"/>
 <area shape="rect" id="node2" href="$classJUtils_1_1AutoSingletonBehaviour.html" title="Your simple and everyday singleton class that automatically instantiates if there is no instance yet" alt="" coords="216,56,471,83"/>
 <area shape="rect" id="node3" href="$classJUtils_1_1SingletonBehaviour.html" title="Your simple and everyday singleton class" alt="" coords="231,5,456,32"/>
-<area shape="rect" id="node4" title=" " alt="" coords="25,267,149,293"/>
-<area shape="rect" id="node5" href="$classJUtils_1_1BillboardCamera.html" title="Bill&#45;boarding component which allows for advanced anchoring and other behaviours" alt="" coords="259,157,428,184"/>
-<area shape="rect" id="node6" href="$classJUtils_1_1DontDestroyOnLoad.html" title="Runs the DDOL function on this gameobject, this is a more declerative way to mark an object for DDOL" alt="" coords="248,208,439,235"/>
-<area shape="rect" id="node7" href="$classJUtils_1_1EventListener.html" title="The base class for event channel based listeners. Recommended for UI or if the GO only has one event ..." alt="" coords="248,259,439,301"/>
+<area shape="rect" id="node4" title=" " alt="" coords="25,275,149,301"/>
+<area shape="rect" id="node5" href="$classJUtils_1_1BaseEventListener.html" title="The base class for event channel based listeners. Recommended for UI or if the GO only has one event ..." alt="" coords="248,158,439,199"/>
+<area shape="rect" id="node6" href="$classJUtils_1_1BillboardCamera.html" title="Bill&#45;boarding component which allows for advanced anchoring and other behaviours" alt="" coords="259,224,428,251"/>
+<area shape="rect" id="node7" href="$classJUtils_1_1DontDestroyOnLoad.html" title="Runs the DDOL function on this gameobject, this is a more declerative way to mark an object for DDOL" alt="" coords="248,275,439,301"/>
 <area shape="rect" id="node8" href="$classJUtils_1_1HealthComponent.html" title="A simple yet versatile HealthComponent implementation that uses SendMessage to send its heal &amp; damage..." alt="" coords="254,325,433,352"/>
 <area shape="rect" id="node9" href="$classJUtils_1_1MultitonBehaviour.html" title="A MonoBehaviour where you can easily access all of its instances" alt="" coords="234,376,453,403"/>
 <area shape="rect" id="node10" href="$classJUtils_1_1ObjectPool.html" title="A simple implementation for an object pool" alt="" coords="278,427,409,453"/>

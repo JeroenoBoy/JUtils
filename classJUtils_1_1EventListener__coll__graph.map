@@ -1,4 +1,4 @@
-<map id="JUtils.EventListener&lt; TListener, TArgument &gt;" name="JUtils.EventListener&lt; TListener, TArgument &gt;">
-<area shape="rect" id="node1" title="The base class for event channel based listeners. Recommended for UI or if the GO only has one event ..." alt="" coords="5,80,196,121"/>
-<area shape="rect" id="node2" title=" " alt="" coords="39,5,163,32"/>
+<map id="JUtils.EventListener" name="JUtils.EventListener">
+<area shape="rect" id="node1" title=" " alt="" coords="40,109,189,136"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1BaseEventListener.html" title=" " alt="" coords="5,5,224,61"/>
 </map>

@@ -9,6 +9,12 @@ var files_dup =
     [ "AutoSingletonBehaviour.cs", "AutoSingletonBehaviour_8cs.html", [
       [ "AutoSingletonBehaviour", "classJUtils_1_1AutoSingletonBehaviour.html", "classJUtils_1_1AutoSingletonBehaviour" ]
     ] ],
+    [ "BaseEventChannel.cs", "BaseEventChannel_8cs.html", [
+      [ "BaseEventChannel", "classJUtils_1_1BaseEventChannel.html", "classJUtils_1_1BaseEventChannel" ]
+    ] ],
+    [ "BaseEventListener.cs", "BaseEventListener_8cs.html", [
+      [ "BaseEventListener", "classJUtils_1_1BaseEventListener.html", "classJUtils_1_1BaseEventListener" ]
+    ] ],
     [ "BaseMinMaxEditor.cs", "BaseMinMaxEditor_8cs.html", [
       [ "BaseMinMaxEditor", "classJUtils_1_1Editor_1_1BaseMinMaxEditor.html", "classJUtils_1_1Editor_1_1BaseMinMaxEditor" ]
     ] ],
@@ -47,16 +53,10 @@ var files_dup =
     [ "DontDestroyOnLoad.cs", "DontDestroyOnLoad_8cs.html", [
       [ "DontDestroyOnLoad", "classJUtils_1_1DontDestroyOnLoad.html", null ]
     ] ],
-    [ "EmptyEventChannel.cs", "EmptyEventChannel_8cs.html", [
-      [ "EmptyEventChannel", "classJUtils_1_1EmptyEventChannel.html", "classJUtils_1_1EmptyEventChannel" ],
-      [ "Empty", "structJUtils_1_1EmptyEventChannel_1_1Empty.html", null ]
-    ] ],
-    [ "EmptyEventListener.cs", "EmptyEventListener_8cs.html", [
-      [ "EmptyEventListener", "classJUtils_1_1EmptyEventListener.html", "classJUtils_1_1EmptyEventListener" ]
-    ] ],
     [ "Enumerable.cs", "Enumerable_8cs.html", "Enumerable_8cs" ],
     [ "EventChannel.cs", "EventChannel_8cs.html", [
-      [ "EventChannel", "classJUtils_1_1EventChannel.html", "classJUtils_1_1EventChannel" ]
+      [ "EventChannel", "classJUtils_1_1EventChannel.html", "classJUtils_1_1EventChannel" ],
+      [ "Empty", "structJUtils_1_1EventChannel_1_1Empty.html", null ]
     ] ],
     [ "EventChannelEditor.cs", "EventChannelEditor_8cs.html", [
       [ "EventChannelEditor", "classJUtils_1_1Editor_1_1EventChannelEditor.html", "classJUtils_1_1Editor_1_1EventChannelEditor" ]

@@ -46,7 +46,7 @@ var NAVTREEINDEX2 =
 "namespaceJUtils_1_1Internal.html":[1,0,0,1],
 "namespaces.html":[1,0],
 "pages.html":[],
-"structJUtils_1_1EmptyEventChannel_1_1Empty.html":[2,0,0,37,0],
+"structJUtils_1_1EventChannel_1_1Empty.html":[2,0,0,39,0],
 "structJUtils_1_1MinMax.html":[2,0,0,24],
 "structJUtils_1_1MinMax.html#a2f0a279f288407959b526528690edcb7":[2,0,0,24,3],
 "structJUtils_1_1MinMax.html#a76998df2801389efd7a2c3eba61b177e":[2,0,0,24,6],
