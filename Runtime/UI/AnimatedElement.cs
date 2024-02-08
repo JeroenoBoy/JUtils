@@ -21,6 +21,12 @@ namespace JUtils.UI
         [UxmlAttribute] private bool _animateOffset;
         [UxmlAttribute] private Vector2 _hideOffset;
 
+        public float showDuration => _showDuration;
+        public float showDelay => _showDelay;
+        public float hideDuration => _hideDuration;
+        public float hideDelay => _hideDelay;
+
+
         private StyleFloat _defaultOpacity;
         private StyleTranslate _defaultPosition;
 
