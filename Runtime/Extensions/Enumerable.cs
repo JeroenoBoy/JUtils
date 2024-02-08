@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
@@ -106,6 +105,22 @@ namespace JUtils
             }
 
             return nearestComponent;
+        }
+
+
+        /// <summary>
+        /// Try get an specific element in the list based on a predicate
+        /// </summary>
+        public static bool TryGet<T>(this IEnumerable<T> self, out T result, Predicate<T> predicate)
+        {
+            foreach (T item in self) {
+                if (!predicate(item)) continue;
+                result = item;
+                return true;
+            }
+
+            result = default;
+            return false;
         }
     }
 }
