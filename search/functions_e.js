@@ -18,5 +18,5 @@ var searchData=
   ['operator_21_3d_746',['operator!=',['../structJUtils_1_1SerializableGuid.html#a5156cb3112a723b3528029819a984e67',1,'JUtils::SerializableGuid']]],
   ['operator_3d_3d_747',['operator==',['../structJUtils_1_1SerializableGuid.html#aeb36be92e0c9d1fe198cd6825e1622a4',1,'JUtils::SerializableGuid']]],
   ['optional_748',['Optional',['../structJUtils_1_1Optional.html#afa9fe53276132abcca547ea7fd14361e',1,'JUtils::Optional']]],
-  ['ornull_749',['OrNull',['../classJUtils_1_1UnityObjectExtensions.html#acf1b3e2f952bec9795ba324c4896ea63',1,'JUtils::UnityObjectExtensions']]]
+  ['ornull_3c_20t_20_3e_749',['OrNull&lt; T &gt;',['../classJUtils_1_1UnityObjectExtensions.html#a7bb6ee61dfd34d8dff9265b29c5e000f',1,'JUtils::UnityObjectExtensions']]]
 ];
