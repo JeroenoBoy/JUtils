@@ -5,5 +5,6 @@ var classJUtils_1_1Enumerable =
     [ "IndexOf< T >", "classJUtils_1_1Enumerable.html#a8777e1930cd70016d273218416d156e3", null ],
     [ "Nearest< T >", "classJUtils_1_1Enumerable.html#aee89a3908299418600cde7ff66b9b9b4", null ],
     [ "Random< T >", "classJUtils_1_1Enumerable.html#a97a7caa8a1173527d4e189461e0b7ed6", null ],
-    [ "Random< T >", "classJUtils_1_1Enumerable.html#afd67a65877148fccb9573e9f6f6bd321", null ]
+    [ "Random< T >", "classJUtils_1_1Enumerable.html#afd67a65877148fccb9573e9f6f6bd321", null ],
+    [ "TryGet< T >", "classJUtils_1_1Enumerable.html#a4b9689c4b404e38e3facd64f4a6bfe14", null ]
 ];

@@ -115,6 +115,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a02568d90209acac2f21bd6df529add00"><td class="memItemLeft" align="right" valign="top">static T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Enumerable.html#a02568d90209acac2f21bd6df529add00">Furthest&lt; T &gt;</a> (this IEnumerable&lt; T &gt; self, Vector3 position)</td></tr>
 <tr class="memdesc:a02568d90209acac2f21bd6df529add00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the furthest object from a certain position  <a href="classJUtils_1_1Enumerable.html#a02568d90209acac2f21bd6df529add00">More...</a><br /></td></tr>
 <tr class="separator:a02568d90209acac2f21bd6df529add00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b9689c4b404e38e3facd64f4a6bfe14"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1Enumerable.html#a4b9689c4b404e38e3facd64f4a6bfe14">TryGet&lt; T &gt;</a> (this IEnumerable&lt; T &gt; self, out T result, Predicate&lt; T &gt; predicate)</td></tr>
+<tr class="memdesc:a4b9689c4b404e38e3facd64f4a6bfe14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try get an specific element in the list based on a predicate  <a href="classJUtils_1_1Enumerable.html#a4b9689c4b404e38e3facd64f4a6bfe14">More...</a><br /></td></tr>
+<tr class="separator:a4b9689c4b404e38e3facd64f4a6bfe14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Extensions for Enumerates </p>
@@ -358,6 +361,50 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get a random element from the enumerable using System.Random </p>
+
+</div>
+</div>
+<a id="a4b9689c4b404e38e3facd64f4a6bfe14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b9689c4b404e38e3facd64f4a6bfe14">&#9670;&nbsp;</a></span>TryGet&lt; T &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool JUtils.Enumerable.TryGet&lt; T &gt; </td>
+          <td>(</td>
+          <td class="paramtype">this IEnumerable&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">out T&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Predicate&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>predicate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Try get an specific element in the list based on a predicate </p>
 
 </div>
 </div>
