@@ -22,6 +22,8 @@ namespace JUtils
 
         public static bool exists => instance != null;
 
+        private bool _doDestroy = true;
+
 
         protected virtual void Awake()
         {
@@ -34,7 +36,15 @@ namespace JUtils
 
         protected virtual void OnDestroy()
         {
-            if (instance == this) SingletonManager.RemoveSingleton<T>();
+            if (!_doDestroy) return; // Prevents errors when exiting the game
+            if (instance != this) return;
+            SingletonManager.RemoveSingleton<T>();
+        }
+
+
+        private void OnApplicationQuit()
+        {
+            _doDestroy = false;
         }
     }
 }
