@@ -26,7 +26,6 @@ namespace JUtils.UI
         public float hideDuration => _hideDuration;
         public float hideDelay => _hideDelay;
 
-
         private StyleFloat _defaultOpacity;
         private StyleTranslate _defaultPosition;
 
