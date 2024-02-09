@@ -15,8 +15,8 @@ var searchData=
   ['eventchannelextensions_2ecs_113',['EventChannelExtensions.cs',['../EventChannelExtensions_8cs.html',1,'']]],
   ['eventlistener_114',['EventListener',['../classJUtils_1_1EventListener.html',1,'JUtils']]],
   ['eventlistener_2ecs_115',['EventListener.cs',['../EventListener_8cs.html',1,'']]],
-  ['exists_116',['exists',['../classJUtils_1_1AutoSingletonBehaviour.html#ac2af1535929bc3a8d96b908b4846abed',1,'JUtils.AutoSingletonBehaviour.exists()'],['../classJUtils_1_1SingletonBehaviour.html#a52747131a2cea105bdb2d2d4379588c0',1,'JUtils.SingletonBehaviour.exists()']]],
-  ['exists_117',['Exists',['../classJUtils_1_1ServiceManager.html#a789f9f9411f8823a7c3435cd758d8a42',1,'JUtils::ServiceManager']]],
+  ['exists_116',['Exists',['../classJUtils_1_1ServiceManager.html#a789f9f9411f8823a7c3435cd758d8a42',1,'JUtils::ServiceManager']]],
+  ['exists_117',['exists',['../classJUtils_1_1AutoSingletonBehaviour.html#ac2af1535929bc3a8d96b908b4846abed',1,'JUtils.AutoSingletonBehaviour.exists()'],['../classJUtils_1_1SingletonBehaviour.html#a52747131a2cea105bdb2d2d4379588c0',1,'JUtils.SingletonBehaviour.exists()']]],
   ['exists_3c_20t_20_3e_118',['Exists&lt; T &gt;',['../classJUtils_1_1ServiceManager.html#a5397ca3f070e9d6f4c5b6762b34d8177',1,'JUtils::ServiceManager']]],
   ['extendsclassorinterface_119',['ExtendsClassOrInterface',['../classJUtils_1_1AssemblyJUtils.html#a2155fd4f65a6c276e0d135f5868d18b7',1,'JUtils::AssemblyJUtils']]]
 ];
