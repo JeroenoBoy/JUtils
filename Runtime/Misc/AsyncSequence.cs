@@ -15,24 +15,39 @@ namespace JUtils
         /// <summary>
         /// Runs a given action when a task has been completed
         /// </summary>
-        public static async Task Then(this Task task, [NotNull] Action action)
+        public static Task Then(this Task task, [NotNull] Action action)
         {
-            await task;
-            action();
+            async Task Run()
+            {
+                await task;
+                action();
+            }
+
+            return Run();
         }
 
 
-        public static async Task Delay(float delay, CancellationToken cancellationToken)
+        public static Task Delay(float delay, CancellationToken cancellationToken)
         {
-            if (delay <= 0) return;
-            await Awaitable.WaitForSecondsAsync(delay, cancellationToken);
+            async Task Run()
+            {
+                if (delay <= 0) return;
+                await Awaitable.WaitForSecondsAsync(delay, cancellationToken);
+            }
+
+            return Run();
         }
 
 
-        public static async Task Delay(this Task task, float delay, CancellationToken cancellationToken)
+        public static Task Delay(this Task task, float delay, CancellationToken cancellationToken)
         {
-            await task;
-            if (delay >= 0) await Awaitable.WaitForSecondsAsync(delay, cancellationToken);
+            async Task Run()
+            {
+                await task;
+                if (delay >= 0) await Awaitable.WaitForSecondsAsync(delay, cancellationToken);
+            }
+
+            return Run();
         }
 
 
@@ -69,42 +84,67 @@ namespace JUtils
         }
 
 
-        public static async Task Tween(float a, float b, float duration, JEase ease, CancellationToken cancellationToken, Action<float> setter)
+        public static Task Tween(float a, float b, float duration, JEase ease, CancellationToken cancellationToken, Action<float> setter)
         {
-            for (float t = 0; t < 1; t += Time.deltaTime / duration) {
-                setter(ease.Lerp(a, b, t));
-                await Awaitable.NextFrameAsync(cancellationToken);
+            async Task Run()
+            {
+                for (float t = 0; t < 1; t += Time.deltaTime / duration) {
+                    setter(ease.Lerp(a, b, t));
+                    await Awaitable.NextFrameAsync(cancellationToken);
+                }
+
+                setter(1);
             }
 
-            setter(1);
+            return Run();
         }
 
 
-        public static async Task Tween(this Task task, Vector3 a, Vector3 b, float duration, JEase ease, CancellationToken cancellationToken, Action<Vector3> setter)
+        public static Task Tween(this Task task, Vector3 a, Vector3 b, float duration, JEase ease, CancellationToken cancellationToken, Action<Vector3> setter)
         {
-            await task;
-            await Tween(a, b, duration, ease, cancellationToken, setter);
+            async Task Run()
+            {
+                await task;
+                await Tween(a, b, duration, ease, cancellationToken, setter);
+            }
+
+            return Run();
         }
 
 
-        public static async Task Tween(this Task task, Translate a, Translate b, float duration, JEase ease, CancellationToken cancellationToken, Action<Translate> setter)
+        public static Task Tween(this Task task, Translate a, Translate b, float duration, JEase ease, CancellationToken cancellationToken, Action<Translate> setter)
         {
-            await task;
-            await Tween(a, b, duration, ease, cancellationToken, setter);
+            async Task Run()
+            {
+                await task;
+                await Tween(a, b, duration, ease, cancellationToken, setter);
+            }
+
+            return Run();
         }
 
 
-        public static async Task Tween(this Task task, Vector2 a, Vector2 b, float duration, JEase ease, CancellationToken cancellationToken, Action<Vector2> setter)
+        public static Task Tween(this Task task, Vector2 a, Vector2 b, float duration, JEase ease, CancellationToken cancellationToken, Action<Vector2> setter)
         {
-            await task;
-            await Tween(a, b, duration, ease, cancellationToken, setter);
+            async Task Run()
+            {
+                await task;
+                await Tween(a, b, duration, ease, cancellationToken, setter);
+            }
+
+            return Run();
         }
 
 
-        public static async Task Tween(this Task task, float a, float b, float duration, JEase ease, CancellationToken cancellationToken, Action<float> setter)
+        public static Task Tween(this Task task, float a, float b, float duration, JEase ease, CancellationToken cancellationToken, Action<float> setter)
         {
-            await task;
-            await Tween(a, b, duration, ease, cancellationToken, setter);
+            async Task Run()
+            {
+                await task;
+                await Tween(a, b, duration, ease, cancellationToken, setter);
+            }
+
+            return Run();
         }
     }
 }
