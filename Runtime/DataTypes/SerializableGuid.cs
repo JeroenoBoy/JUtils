@@ -8,7 +8,7 @@ namespace JUtils
     /// A lightweight guid class that can be serialized
     /// </summary>
     [Serializable]
-    public struct SerializableGuid
+    public struct SerializableGuid : IEquatable<SerializableGuid>
     {
         [SerializeField] private ulong _a;
         [SerializeField] private ulong _b;
