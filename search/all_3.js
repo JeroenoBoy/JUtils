@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['damage_88',['damage',['../interfaceJUtils_1_1IDamageEvent.html#ae996971c23cf5fcbd2afe3b0ad03c0e6',1,'JUtils.IDamageEvent.damage()'],['../structJUtils_1_1SimpleDamageEvent.html#a04e67fd953b4b8272f75922f0266a846',1,'JUtils.SimpleDamageEvent.damage()']]],
-  ['damage_89',['Damage',['../classJUtils_1_1HealthComponent.html#a8bcbaaa394c83b82eba6e2c0f3e1deb2',1,'JUtils.HealthComponent.Damage(int amount)'],['../classJUtils_1_1HealthComponent.html#a3849ec006d9d620efe56fec856876700',1,'JUtils.HealthComponent.Damage(IDamageEvent @event)']]],
+  ['damage_88',['Damage',['../classJUtils_1_1HealthComponent.html#a8bcbaaa394c83b82eba6e2c0f3e1deb2',1,'JUtils.HealthComponent.Damage(int amount)'],['../classJUtils_1_1HealthComponent.html#a3849ec006d9d620efe56fec856876700',1,'JUtils.HealthComponent.Damage(IDamageEvent @event)']]],
+  ['damage_89',['damage',['../interfaceJUtils_1_1IDamageEvent.html#ae996971c23cf5fcbd2afe3b0ad03c0e6',1,'JUtils.IDamageEvent.damage()'],['../structJUtils_1_1SimpleDamageEvent.html#a04e67fd953b4b8272f75922f0266a846',1,'JUtils.SimpleDamageEvent.damage()']]],
   ['data_90',['data',['../structJUtils_1_1StateMachine_1_1QueueEntry.html#a29ee129f35f24a04d9aea86aa73bc6d2',1,'JUtils::StateMachine::QueueEntry']]],
   ['deactivate_91',['Deactivate',['../classJUtils_1_1StateMachine.html#a142576cfa5976e90cb9af8e4ee8ded3c',1,'JUtils.StateMachine.Deactivate()'],['../classJUtils_1_1State.html#a483481bce4dff1952c7e49377ce13231',1,'JUtils.State.Deactivate()']]],
   ['debugtoolswindow_2ecs_92',['DebugToolsWindow.cs',['../DebugToolsWindow_8cs.html',1,'']]],

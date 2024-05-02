@@ -208,8 +208,7 @@ var NAVTREEINDEX0 =
 "classJUtils_1_1Editor_1_1SerializableGuidEditor.html":[2,0,0,0,12],
 "classJUtils_1_1Editor_1_1SerializableGuidEditor.html#aa54f65a269ac24d330e6d95bb57aa37e":[2,0,0,0,12,0],
 "classJUtils_1_1Editor_1_1SerializeInterfaceEditor.html":[2,0,0,0,2],
-"classJUtils_1_1Editor_1_1SerializeInterfaceEditor.html#a156998717598339f3f04da7aeb2e1f43":[2,0,0,0,2,1],
-"classJUtils_1_1Editor_1_1SerializeInterfaceEditor.html#a1620158141a7d719724d1fa86cd89e9a":[2,0,0,0,2,2],
+"classJUtils_1_1Editor_1_1SerializeInterfaceEditor.html#a1620158141a7d719724d1fa86cd89e9a":[2,0,0,0,2,1],
 "classJUtils_1_1Editor_1_1SerializeInterfaceEditor.html#ad70e112601e223c8637c0de03f2ff425":[2,0,0,0,2,0],
 "classJUtils_1_1Editor_1_1ShowWhenEditor.html":[2,0,0,0,3],
 "classJUtils_1_1Editor_1_1ShowWhenEditor.html#a06a74ac020e04d05637d33c3c15e6d24":[2,0,0,0,3,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX0 =
 "classJUtils_1_1GizmoUtils.html":[2,0,0,63],
 "classJUtils_1_1GizmoUtils.html#a109fcfcb82cb001773cd933f9c94f5e1":[2,0,0,63,1],
 "classJUtils_1_1GizmoUtils.html#a5570e363d6f0c80955628cd1de4f6db0":[2,0,0,63,0],
-"classJUtils_1_1HealthComponent.html":[2,0,0,13]
+"classJUtils_1_1HealthComponent.html":[2,0,0,13],
+"classJUtils_1_1HealthComponent.html#a04d81797da90d119096d726f23e5757a":[2,0,0,13,5]
 };

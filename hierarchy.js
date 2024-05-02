@@ -76,6 +76,9 @@ var hierarchy =
       [ "JUtils.CoroutineCatcher", "classJUtils_1_1CoroutineCatcher.html", null ],
       [ "JUtils.RangeEnumerator", "classJUtils_1_1RangeEnumerator.html", null ]
     ] ],
+    [ "IEquatable", null, [
+      [ "JUtils.SerializableGuid", "structJUtils_1_1SerializableGuid.html", null ]
+    ] ],
     [ "JUtils.IHealEvent", "interfaceJUtils_1_1IHealEvent.html", [
       [ "JUtils.SimpleHealEvent", "structJUtils_1_1SimpleHealEvent.html", null ]
     ] ],
@@ -147,7 +150,6 @@ var hierarchy =
     [ "JUtils.SerializableDictionary< JUtils.PoolItem, JUtils.ObjectPool >", "classJUtils_1_1SerializableDictionary.html", null ],
     [ "JUtils.SerializableDictionary< JUtils.SerializableType, List< Object > >", "classJUtils_1_1SerializableDictionary.html", null ],
     [ "JUtils.SerializableDictionary< JUtils.SerializableType, Object >", "classJUtils_1_1SerializableDictionary.html", null ],
-    [ "JUtils.SerializableGuid", "structJUtils_1_1SerializableGuid.html", null ],
     [ "State", null, [
       [ "JUtils.State< T1, T2, T3 >", "classJUtils_1_1State.html", null ],
       [ "JUtils.State< T1, T2, T3 >", "classJUtils_1_1State.html", null ],
