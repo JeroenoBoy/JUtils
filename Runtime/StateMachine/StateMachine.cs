@@ -138,8 +138,8 @@ namespace JUtils
             Log($"Created new state '{typeof(T).Name}'");
 
             GameObject obj = new(typeof(T).Name);
-            state = obj.AddComponent<T>();
             obj.transform.parent = transform;
+            state = obj.AddComponent<T>();
             return true;
         }
 
