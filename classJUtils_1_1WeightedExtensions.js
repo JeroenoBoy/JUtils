@@ -1,9 +1,9 @@
 var classJUtils_1_1WeightedExtensions =
 [
-    [ "GetWeightedValue< T >", "classJUtils_1_1WeightedExtensions.html#aa98547585e71f499fc5ed1095a2c8e7e", null ],
-    [ "Random< T >", "classJUtils_1_1WeightedExtensions.html#abbd11cf4b59ee7ae56d376c079c208ae", null ],
-    [ "Random< T >", "classJUtils_1_1WeightedExtensions.html#aec934c2bdd545659ded9a14ac41a4325", null ],
-    [ "Random< T >", "classJUtils_1_1WeightedExtensions.html#aeae2b097c6a7ae591c8e37ccffc922c1", null ],
-    [ "Random< T >", "classJUtils_1_1WeightedExtensions.html#a3370bb10b3114cddfada86d90098c560", null ],
-    [ "WeightedSum< T >", "classJUtils_1_1WeightedExtensions.html#a2bad49fdd9c2d997c2dad9d190219e9c", null ]
+    [ "GetWeightedValue< T >", "classJUtils_1_1WeightedExtensions.html#ad11e66ed3603464090eefa5792b117b8", null ],
+    [ "WeightedRandom< T >", "classJUtils_1_1WeightedExtensions.html#a95950e65f0be1eb6d65c8bef0c20e831", null ],
+    [ "WeightedRandom< T >", "classJUtils_1_1WeightedExtensions.html#ad89a1e0b42010115248358661acd5886", null ],
+    [ "WeightedRandom< T >", "classJUtils_1_1WeightedExtensions.html#abdc2c7684131d36a1c19d125a8880f03", null ],
+    [ "WeightedRandom< T >", "classJUtils_1_1WeightedExtensions.html#a0d77d20184793f28aa03d12a52180a60", null ],
+    [ "WeightedSum< T >", "classJUtils_1_1WeightedExtensions.html#ac07aea6d53f718338ac697c5918f901a", null ]
 ];

@@ -1,4 +1,0 @@
-<map id="JUtils.Routines.NextFrameRoutine" name="JUtils.Routines.NextFrameRoutine">
-<area shape="rect" id="node1" title="A routine that runs the action in the next frame" alt="" coords="244,5,437,47"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1Coroutines.html#a268b4578e1ab1618a519f442aedcd067" title="Run a action in the next frame" alt="" coords="5,5,196,47"/>
-</map>

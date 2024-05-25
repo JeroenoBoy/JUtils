@@ -1,4 +1,0 @@
-<map id="JUtils.ObjectPool.TryGetItem" name="JUtils.ObjectPool.TryGetItem">
-<area shape="rect" id="node1" title="Get an pooled item, returns false if the pool can&#39;t auto expand and if there are no items left" alt="" coords="260,5,467,32"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1ObjectPool.html#a541b2a462576488ef9058220f4cfd0ae" title="Spawn a pooled item" alt="" coords="5,5,212,32"/>
-</map>

@@ -1,0 +1,4 @@
+<map id="JUtils.Routines.ThenRoutine" name="JUtils.Routines.ThenRoutine">
+<area shape="rect" id="node1" title="Runs a action after a coroutine has completed" alt="" coords="220,5,423,32"/>
+<area shape="rect" id="node2" href="$classJUtils_1_1Coroutines.html#ac567e7b7c43ee4f9afceea4d320df62e" title="Allows method chaining for coroutines" alt="" coords="5,5,172,32"/>
+</map>

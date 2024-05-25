@@ -291,10 +291,19 @@ Properties</h2></td></tr>
 <tr class="separator:a1fbdd3b98df0466f9f3d0fec2dc05e01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaacf61fe1c198ae5920aec717c880c72"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1StateMachine.html#aaacf61fe1c198ae5920aec717c880c72">isQueueEmpty</a><code> [get]</code></td></tr>
 <tr class="separator:aaacf61fe1c198ae5920aec717c880c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ec000d62c08cbbb12406529c960fcdd"><td class="memItemLeft" align="right" valign="top">new <a class="el" href="classJUtils_1_1StateMachine.html">StateMachine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1StateMachine.html#a4ec000d62c08cbbb12406529c960fcdd">stateMachine</a><code> [get]</code></td></tr>
+<tr class="separator:a4ec000d62c08cbbb12406529c960fcdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header properties_classJUtils_1_1State"><td colspan="2" onclick="javascript:toggleInherit('properties_classJUtils_1_1State')"><img src="closed.png" alt="-"/>&#160;Properties inherited from <a class="el" href="classJUtils_1_1State.html">JUtils.State&lt; T1, T2, T3 &gt;</a></td></tr>
 <tr class="memitem:a91733376a4491a3ffae3a461819ed4b6 inherit properties_classJUtils_1_1State"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1State.html#a91733376a4491a3ffae3a461819ed4b6">isActive</a><code> [get]</code></td></tr>
 <tr class="separator:a91733376a4491a3ffae3a461819ed4b6 inherit properties_classJUtils_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e0972bf33cafc97dc0f1dfe5c2a4cb9 inherit properties_classJUtils_1_1State"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1State.html#a3e0972bf33cafc97dc0f1dfe5c2a4cb9">isActivating</a><code> [get]</code></td></tr>
+<tr class="memdesc:a3e0972bf33cafc97dc0f1dfe5c2a4cb9 inherit properties_classJUtils_1_1State"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is set to true while the state is activating  <a href="classJUtils_1_1State.html#a3e0972bf33cafc97dc0f1dfe5c2a4cb9">More...</a><br /></td></tr>
+<tr class="separator:a3e0972bf33cafc97dc0f1dfe5c2a4cb9 inherit properties_classJUtils_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdccf981c94a86ca3676f2d0efdb181d inherit properties_classJUtils_1_1State"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1State.html#afdccf981c94a86ca3676f2d0efdb181d">isDeactivating</a><code> [get]</code></td></tr>
+<tr class="memdesc:afdccf981c94a86ca3676f2d0efdb181d inherit properties_classJUtils_1_1State"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is set to true while the state is deactivating  <a href="classJUtils_1_1State.html#afdccf981c94a86ca3676f2d0efdb181d">More...</a><br /></td></tr>
+<tr class="separator:afdccf981c94a86ca3676f2d0efdb181d inherit properties_classJUtils_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7497b3b78e36608980a07aa4c998467 inherit properties_classJUtils_1_1State"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJUtils_1_1StateMachine.html">StateMachine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1State.html#ae7497b3b78e36608980a07aa4c998467">stateMachine</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ae7497b3b78e36608980a07aa4c998467 inherit properties_classJUtils_1_1State"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference of this state's state machine  <a href="classJUtils_1_1State.html#ae7497b3b78e36608980a07aa4c998467">More...</a><br /></td></tr>
 <tr class="separator:ae7497b3b78e36608980a07aa4c998467 inherit properties_classJUtils_1_1State"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a952d84b96a139d29ed96a48c8f6c7d92 inherit properties_classJUtils_1_1State"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1State.html#a952d84b96a139d29ed96a48c8f6c7d92">timeInState</a><code> [get]</code></td></tr>
 <tr class="memdesc:a952d84b96a139d29ed96a48c8f6c7d92 inherit properties_classJUtils_1_1State"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the amount of seconds that this state is active. Returns 0 if the state is not active  <a href="classJUtils_1_1State.html#a952d84b96a139d29ed96a48c8f6c7d92">More...</a><br /></td></tr>
@@ -1398,7 +1407,7 @@ Here is the caller graph for this function:</div>
 
 <p>Continues the queue in the state machine, or deactivates the state if it is the root state machine </p>
 
-<p class="reference">References <a class="el" href="classJUtils_1_1State.html#a91733376a4491a3ffae3a461819ed4b6">JUtils.State&lt; T1, T2, T3 &gt;.isActive</a>, and <a class="el" href="classJUtils_1_1State.html#ae7497b3b78e36608980a07aa4c998467">JUtils.State&lt; T1, T2, T3 &gt;.stateMachine</a>.</p>
+<p class="reference">References <a class="el" href="classJUtils_1_1State.html#a91733376a4491a3ffae3a461819ed4b6">JUtils.State&lt; T1, T2, T3 &gt;.isActive</a>, and <a class="el" href="classJUtils_1_1StateMachine.html#a4ec000d62c08cbbb12406529c960fcdd">JUtils.StateMachine.stateMachine</a>.</p>
 
 </div>
 </div>
@@ -2507,6 +2516,28 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">bool JUtils.StateMachine.isQueueFilled</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ec000d62c08cbbb12406529c960fcdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec000d62c08cbbb12406529c960fcdd">&#9670;&nbsp;</a></span>stateMachine</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">new <a class="el" href="classJUtils_1_1StateMachine.html">StateMachine</a> JUtils.StateMachine.stateMachine</td>
         </tr>
       </table>
   </td>

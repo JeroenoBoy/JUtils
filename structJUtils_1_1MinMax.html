@@ -113,6 +113,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afc3ca877efb8224098cb0e71ca3f9395"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJUtils_1_1MinMax.html#afc3ca877efb8224098cb0e71ca3f9395">Clamp</a> (float value)</td></tr>
 <tr class="memdesc:afc3ca877efb8224098cb0e71ca3f9395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clamps the value to be between A and B  <a href="structJUtils_1_1MinMax.html#afc3ca877efb8224098cb0e71ca3f9395">More...</a><br /></td></tr>
 <tr class="separator:afc3ca877efb8224098cb0e71ca3f9395"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fa3861b463e756f4c7dba1e9317b13f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJUtils_1_1MinMax.html#a3fa3861b463e756f4c7dba1e9317b13f">Lerp</a> (float time)</td></tr>
+<tr class="memdesc:a3fa3861b463e756f4c7dba1e9317b13f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lerp from min to max  <a href="structJUtils_1_1MinMax.html#a3fa3861b463e756f4c7dba1e9317b13f">More...</a><br /></td></tr>
+<tr class="separator:a3fa3861b463e756f4c7dba1e9317b13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5615e36b7db2573093ee5b283793b297"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJUtils_1_1MinMax.html#a5615e36b7db2573093ee5b283793b297">InverseLerp</a> (float value)</td></tr>
+<tr class="memdesc:a5615e36b7db2573093ee5b283793b297"><td class="mdescLeft">&#160;</td><td class="mdescRight">inverse lerp from min to max  <a href="structJUtils_1_1MinMax.html#a5615e36b7db2573093ee5b283793b297">More...</a><br /></td></tr>
+<tr class="separator:a5615e36b7db2573093ee5b283793b297"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -122,6 +128,9 @@ Properties</h2></td></tr>
 <tr class="memitem:ac483c66bd159e4c044d7f6a2537866be"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJUtils_1_1MinMax.html#ac483c66bd159e4c044d7f6a2537866be">max</a><code> [get]</code></td></tr>
 <tr class="memdesc:ac483c66bd159e4c044d7f6a2537866be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the max value  <a href="structJUtils_1_1MinMax.html#ac483c66bd159e4c044d7f6a2537866be">More...</a><br /></td></tr>
 <tr class="separator:ac483c66bd159e4c044d7f6a2537866be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7a46b7259c555cebf63c3db69bc96d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structJUtils_1_1MinMax.html#a6e7a46b7259c555cebf63c3db69bc96d">range</a><code> [get]</code></td></tr>
+<tr class="memdesc:a6e7a46b7259c555cebf63c3db69bc96d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns _max - _min  <a href="structJUtils_1_1MinMax.html#a6e7a46b7259c555cebf63c3db69bc96d">More...</a><br /></td></tr>
+<tr class="separator:a6e7a46b7259c555cebf63c3db69bc96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A struct with a custom editor which can be used to get a minimum and a maximum value, handy for random values &amp; clamping </p>
@@ -241,6 +250,66 @@ Properties</h2></td></tr>
 
 </div>
 </div>
+<a id="a5615e36b7db2573093ee5b283793b297"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5615e36b7db2573093ee5b283793b297">&#9670;&nbsp;</a></span>InverseLerp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float JUtils.MinMax.InverseLerp </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>inverse lerp from min to max </p>
+
+<p class="reference">References <a class="el" href="structJUtils_1_1MinMax.html#ac483c66bd159e4c044d7f6a2537866be">JUtils.MinMax.max</a>, and <a class="el" href="structJUtils_1_1MinMax.html#a76998df2801389efd7a2c3eba61b177e">JUtils.MinMax.min</a>.</p>
+
+</div>
+</div>
+<a id="a3fa3861b463e756f4c7dba1e9317b13f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fa3861b463e756f4c7dba1e9317b13f">&#9670;&nbsp;</a></span>Lerp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float JUtils.MinMax.Lerp </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Lerp from min to max </p>
+
+<p class="reference">References <a class="el" href="structJUtils_1_1MinMax.html#ac483c66bd159e4c044d7f6a2537866be">JUtils.MinMax.max</a>, and <a class="el" href="structJUtils_1_1MinMax.html#a76998df2801389efd7a2c3eba61b177e">JUtils.MinMax.min</a>.</p>
+
+</div>
+</div>
 <a id="a2f0a279f288407959b526528690edcb7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f0a279f288407959b526528690edcb7">&#9670;&nbsp;</a></span>Random() <span class="overload">[1/2]</span></h2>
 
@@ -343,6 +412,30 @@ Properties</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the min value </p>
+
+</div>
+</div>
+<a id="a6e7a46b7259c555cebf63c3db69bc96d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e7a46b7259c555cebf63c3db69bc96d">&#9670;&nbsp;</a></span>range</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float JUtils.MinMax.range</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns _max - _min </p>
 
 </div>
 </div>

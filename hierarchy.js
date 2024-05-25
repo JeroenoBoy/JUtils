@@ -101,6 +101,7 @@ var hierarchy =
       [ "JUtils.AutoSingletonBehaviour< T >", "classJUtils_1_1AutoSingletonBehaviour.html", null ],
       [ "JUtils.BaseEventListener< TListener, TArgument >", "classJUtils_1_1BaseEventListener.html", null ],
       [ "JUtils.BillboardCamera", "classJUtils_1_1BillboardCamera.html", null ],
+      [ "JUtils.DestroyObjectAfterKilled", "classJUtils_1_1DestroyObjectAfterKilled.html", null ],
       [ "JUtils.DontDestroyOnLoad", "classJUtils_1_1DontDestroyOnLoad.html", null ],
       [ "JUtils.HealthComponent", "classJUtils_1_1HealthComponent.html", null ],
       [ "JUtils.MultitonBehaviour< T >", "classJUtils_1_1MultitonBehaviour.html", null ],
@@ -108,6 +109,8 @@ var hierarchy =
       [ "JUtils.PoolItem", "classJUtils_1_1PoolItem.html", null ],
       [ "JUtils.SingletonBehaviour< T >", "classJUtils_1_1SingletonBehaviour.html", null ],
       [ "JUtils.SingletonManager", "classJUtils_1_1SingletonManager.html", null ],
+      [ "JUtils.SpawnPoolItemAfterDestroyed", "classJUtils_1_1SpawnPoolItemAfterDestroyed.html", null ],
+      [ "JUtils.SpawnPoolItemAfterEnabled", "classJUtils_1_1SpawnPoolItemAfterEnabled.html", null ],
       [ "JUtils.State< T1, T2, T3 >", "classJUtils_1_1State.html", [
         [ "JUtils.StateMachine", "classJUtils_1_1StateMachine.html", null ]
       ] ]

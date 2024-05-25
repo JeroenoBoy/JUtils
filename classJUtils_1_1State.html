@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('classJUtils_1_1State.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
-<p>A simple state that can be driven by <a class="el" href="classJUtils_1_1State.html#ae7497b3b78e36608980a07aa4c998467">stateMachine</a>  
+<p>A simple state that can be driven by <a class="el" href="classJUtils_1_1State.html#ae7497b3b78e36608980a07aa4c998467" title="The reference of this state&#39;s state machine">stateMachine</a>  
  <a href="classJUtils_1_1State.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for JUtils.State&lt; T1, T2, T3 &gt;:</div>
@@ -156,7 +156,14 @@ Protected Member Functions</h2></td></tr>
 Properties</h2></td></tr>
 <tr class="memitem:a91733376a4491a3ffae3a461819ed4b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1State.html#a91733376a4491a3ffae3a461819ed4b6">isActive</a><code> [get]</code></td></tr>
 <tr class="separator:a91733376a4491a3ffae3a461819ed4b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e0972bf33cafc97dc0f1dfe5c2a4cb9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1State.html#a3e0972bf33cafc97dc0f1dfe5c2a4cb9">isActivating</a><code> [get]</code></td></tr>
+<tr class="memdesc:a3e0972bf33cafc97dc0f1dfe5c2a4cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is set to true while the state is activating  <a href="classJUtils_1_1State.html#a3e0972bf33cafc97dc0f1dfe5c2a4cb9">More...</a><br /></td></tr>
+<tr class="separator:a3e0972bf33cafc97dc0f1dfe5c2a4cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdccf981c94a86ca3676f2d0efdb181d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1State.html#afdccf981c94a86ca3676f2d0efdb181d">isDeactivating</a><code> [get]</code></td></tr>
+<tr class="memdesc:afdccf981c94a86ca3676f2d0efdb181d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is set to true while the state is deactivating  <a href="classJUtils_1_1State.html#afdccf981c94a86ca3676f2d0efdb181d">More...</a><br /></td></tr>
+<tr class="separator:afdccf981c94a86ca3676f2d0efdb181d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7497b3b78e36608980a07aa4c998467"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classJUtils_1_1StateMachine.html">StateMachine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1State.html#ae7497b3b78e36608980a07aa4c998467">stateMachine</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:ae7497b3b78e36608980a07aa4c998467"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference of this state's state machine  <a href="classJUtils_1_1State.html#ae7497b3b78e36608980a07aa4c998467">More...</a><br /></td></tr>
 <tr class="separator:ae7497b3b78e36608980a07aa4c998467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a952d84b96a139d29ed96a48c8f6c7d92"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classJUtils_1_1State.html#a952d84b96a139d29ed96a48c8f6c7d92">timeInState</a><code> [get]</code></td></tr>
 <tr class="memdesc:a952d84b96a139d29ed96a48c8f6c7d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the amount of seconds that this state is active. Returns 0 if the state is not active  <a href="classJUtils_1_1State.html#a952d84b96a139d29ed96a48c8f6c7d92">More...</a><br /></td></tr>
@@ -175,7 +182,7 @@ Events</h2></td></tr>
 <tr class="separator:ade801c159b4c9c86561a4f30af76bf5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A simple state that can be driven by <a class="el" href="classJUtils_1_1State.html#ae7497b3b78e36608980a07aa4c998467">stateMachine</a> </p>
+<div class="textblock"><p>A simple state that can be driven by <a class="el" href="classJUtils_1_1State.html#ae7497b3b78e36608980a07aa4c998467" title="The reference of this state&#39;s state machine">stateMachine</a> </p>
 <p><a class="el" href="classJUtils_1_1State.html" title="A simple state that can be driven by stateMachine">State</a> with 3 type-safe arguments</p>
 <p><a class="el" href="classJUtils_1_1State.html" title="A simple state that can be driven by stateMachine">State</a> with 2 type-safe arguments</p>
 <p><a class="el" href="classJUtils_1_1State.html" title="A simple state that can be driven by stateMachine">State</a> with 1 type-safe arguments</p>
@@ -639,6 +646,30 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Property Documentation</h2>
+<a id="a3e0972bf33cafc97dc0f1dfe5c2a4cb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e0972bf33cafc97dc0f1dfe5c2a4cb9">&#9670;&nbsp;</a></span>isActivating</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classJUtils_1_1State.html">JUtils.State</a>&lt; T1, T2, T3 &gt;.isActivating</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is set to true while the state is activating </p>
+
+</div>
+</div>
 <a id="a91733376a4491a3ffae3a461819ed4b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a91733376a4491a3ffae3a461819ed4b6">&#9670;&nbsp;</a></span>isActive</h2>
 
@@ -658,6 +689,30 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="afdccf981c94a86ca3676f2d0efdb181d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdccf981c94a86ca3676f2d0efdb181d">&#9670;&nbsp;</a></span>isDeactivating</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classJUtils_1_1State.html">JUtils.State</a>&lt; T1, T2, T3 &gt;.isDeactivating</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">get</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Is set to true while the state is deactivating </p>
 
 </div>
 </div>
@@ -702,6 +757,8 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The reference of this state's state machine </p>
 
 </div>
 </div>

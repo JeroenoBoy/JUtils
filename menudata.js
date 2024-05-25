@@ -92,6 +92,7 @@ var menudata={children:[
 {text:"i",url:"functions_prop.html#index_i"},
 {text:"m",url:"functions_prop.html#index_m"},
 {text:"o",url:"functions_prop.html#index_o"},
+{text:"r",url:"functions_prop.html#index_r"},
 {text:"s",url:"functions_prop.html#index_s"},
 {text:"t",url:"functions_prop.html#index_t"},
 {text:"u",url:"functions_prop.html#index_u"},

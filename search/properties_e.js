@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['weight_869',['weight',['../interfaceJUtils_1_1IWeighted.html#abf8426b572a389b9d6dbd5e1e37942d4',1,'JUtils.IWeighted.weight()'],['../structJUtils_1_1Weighted.html#a686b9f40340f46a475ddb8bd1125eca0',1,'JUtils.Weighted.weight()']]],
-  ['wfsdictionary_870',['wfsDictionary',['../classJUtils_1_1Routines.html#a414f9bfb89e37fde183558fd663d1641',1,'JUtils::Routines']]],
-  ['wfsrtdictionary_871',['wfsRtDictionary',['../classJUtils_1_1Routines.html#ace1ff2777515aa9d1ea85489a4aa1f02',1,'JUtils::Routines']]]
+  ['value_900',['value',['../structJUtils_1_1Optional.html#a74c21e369953bfddf5562ed814aaa5bc',1,'JUtils.Optional.value()'],['../structJUtils_1_1Weighted.html#adaef3b3e5e57b83803b55178d7fc20de',1,'JUtils.Weighted.value()']]]
 ];

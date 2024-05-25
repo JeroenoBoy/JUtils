@@ -1,5 +1,0 @@
-<map id="JUtils.Coroutines.RunDelay" name="JUtils.Coroutines.RunDelay">
-<area shape="rect" id="node1" title="Run a action after a certain amount of seconds – You should always use StartCoroutine instead of the ..." alt="" coords="5,5,203,32"/>
-<area shape="rect" id="node2" href="$classJUtils_1_1Routines.html#afb170605c87d1ff4c41716066ad76046" title="A routine that runs the action at the given delay" alt="" coords="251,5,460,32"/>
-<area shape="rect" id="node3" href="$classJUtils_1_1Routines.html#a6d3862bea1d23ef6d13bc7ddede64e07" title="Faster alternative to WaitForSeconds, caches the object. This will permanently cache the instance unl..." alt="" coords="508,5,732,32"/>
-</map>

@@ -50,6 +50,9 @@ var files_dup =
       [ "CustomNameEditor", "classJUtils_1_1Editor_1_1CustomNameEditor.html", "classJUtils_1_1Editor_1_1CustomNameEditor" ]
     ] ],
     [ "DebugToolsWindow.cs", "DebugToolsWindow_8cs.html", null ],
+    [ "DestroyObjectAfterKilled.cs", "DestroyObjectAfterKilled_8cs.html", [
+      [ "DestroyObjectAfterKilled", "classJUtils_1_1DestroyObjectAfterKilled.html", null ]
+    ] ],
     [ "DontDestroyOnLoad.cs", "DontDestroyOnLoad_8cs.html", [
       [ "DontDestroyOnLoad", "classJUtils_1_1DontDestroyOnLoad.html", null ]
     ] ],
@@ -106,9 +109,7 @@ var files_dup =
     [ "MinMaxEditor.cs", "MinMaxEditor_8cs.html", [
       [ "MinMaxEditor", "classJUtils_1_1Editor_1_1MinMaxEditor.html", "classJUtils_1_1Editor_1_1MinMaxEditor" ]
     ] ],
-    [ "MinMaxInt.cs", "MinMaxInt_8cs.html", [
-      [ "MinMaxInt", "structJUtils_1_1MinMaxInt.html", "structJUtils_1_1MinMaxInt" ]
-    ] ],
+    [ "MinMaxInt.cs", "MinMaxInt_8cs.html", "MinMaxInt_8cs" ],
     [ "MinMaxIntEditor.cs", "MinMaxIntEditor_8cs.html", [
       [ "MinMaxIntEditor", "classJUtils_1_1Editor_1_1MinMaxIntEditor.html", "classJUtils_1_1Editor_1_1MinMaxIntEditor" ]
     ] ],
@@ -190,6 +191,12 @@ var files_dup =
       [ "SingletonBehaviour", "classJUtils_1_1SingletonBehaviour.html", "classJUtils_1_1SingletonBehaviour" ]
     ] ],
     [ "SingletonManager.cs", "SingletonManager_8cs.html", "SingletonManager_8cs" ],
+    [ "SpawnPoolItemAfterDisabled.cs", "SpawnPoolItemAfterDisabled_8cs.html", [
+      [ "SpawnPoolItemAfterDestroyed", "classJUtils_1_1SpawnPoolItemAfterDestroyed.html", "classJUtils_1_1SpawnPoolItemAfterDestroyed" ]
+    ] ],
+    [ "SpawnPoolItemAfterEnabled.cs", "SpawnPoolItemAfterEnabled_8cs.html", [
+      [ "SpawnPoolItemAfterEnabled", "classJUtils_1_1SpawnPoolItemAfterEnabled.html", "classJUtils_1_1SpawnPoolItemAfterEnabled" ]
+    ] ],
     [ "State.cs", "State_8cs.html", [
       [ "State", "classJUtils_1_1State.html", "classJUtils_1_1State" ]
     ] ],
