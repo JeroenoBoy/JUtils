@@ -15,6 +15,20 @@ namespace JUtils
         public event Action<State> onStateDeactivate;
 
         public bool isActive { get; private set; }
+
+        /// <summary>
+        /// Is set to true while the state is activating
+        /// </summary>
+        public bool isActivating { get; private set; }
+
+        /// <summary>
+        /// Is set to true while the state is deactivating
+        /// </summary>
+        public bool isDeactivating { get; private set; }
+
+        /// <summary>
+        /// The reference of this state's state machine
+        /// </summary>
         public StateMachine stateMachine { get; internal set; }
 
         /// <summary>
@@ -32,13 +46,13 @@ namespace JUtils
         private float _timeEnteredState;
         private float _unscaledTimeEnteredState;
 
-
         /// <summary>
         /// Internal function of activating the state
         /// </summary>
         internal bool ActivateState(StateData data)
         {
             try {
+                isActivating = true;
                 _timeEnteredState = Time.time;
                 _unscaledTimeEnteredState = Time.unscaledTime;
 
@@ -48,20 +62,23 @@ namespace JUtils
                 isActive = true;
                 OnActivate();
                 onStateActivate?.Invoke(this);
+                isActivating = false;
                 return true;
             } catch (Exception e) {
                 Debug.LogException(e);
                 Coroutines.RunNextFrame(Deactivate); // Run next frame to avoid stack overflow exceptions
+                isActivating = false;
                 return false;
             }
         }
-
 
         /// <summary>
         /// Internal function for deactivating the state
         /// </summary>
         internal virtual void DeactivateState()
         {
+            isDeactivating = true;
+
             try {
                 OnDeactivate();
 
@@ -75,8 +92,9 @@ namespace JUtils
             } catch (Exception e) {
                 Debug.LogException(e);
             }
-        }
 
+            isDeactivating = false;
+        }
 
         /// <summary>
         /// Deactivate this state and make the state-machine continue its queue
@@ -98,7 +116,6 @@ namespace JUtils
         /// </summary>
         protected abstract void OnDeactivate();
 
-
         /// <summary>
         /// Used for making typed argument adding to states prettier
         /// </summary>
@@ -112,18 +129,15 @@ namespace JUtils
             return new StateRef<T>();
         }
 
-
         /// <summary>
         /// Only runs the Update() function when the state is active
         /// </summary>
         protected virtual void ActiveUpdate() { }
 
-
         protected virtual void Awake()
         {
             if (!isActive && _setEnabledBasedOnActive) gameObject.SetActive(false);
         }
-
 
         protected virtual void Update()
         {
@@ -143,7 +157,6 @@ namespace JUtils
             OnActivate(param);
         }
 
-
         protected abstract void OnActivate(T param);
     }
 
@@ -159,7 +172,6 @@ namespace JUtils
             T2 param2 = stateData.Get<T2>(1);
             OnActivate(param1, param2);
         }
-
 
         protected abstract void OnActivate(T1 param1, T2 param2);
     }
@@ -177,7 +189,6 @@ namespace JUtils
             T3 param3 = stateData.Get<T3>(2);
             OnActivate(param1, param2, param3);
         }
-
 
         protected abstract void OnActivate(T1 param1, T2 param2, T3 param3);
     }

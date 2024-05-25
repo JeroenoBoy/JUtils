@@ -6,30 +6,28 @@ namespace JUtils
     /// <summary>
     /// A behaviour that is used with the <see cref="ObjectPool"/>. Other behaviours can listen to the events this class sends.
     /// </summary>
+    [DisallowMultipleComponent]
     public sealed class PoolItem : MonoBehaviour
     {
         public ObjectPool objectPool { get; internal set; }
         public bool isActive { get; private set; }
 
-        public event Action onSpawn;
-        public event Action onDespawn;
-
+        public event Action<PoolItem> onSpawn;
+        public event Action<PoolItem> onDespawn;
 
         internal void Spawn()
         {
             gameObject.SetActive(true);
             isActive = true;
-            onSpawn?.Invoke();
+            onSpawn?.Invoke(this);
         }
-
 
         internal void Despawn()
         {
-            onDespawn?.Invoke();
+            onDespawn?.Invoke(this);
             isActive = false;
             gameObject.SetActive(false);
         }
-
 
         public void ReturnToPool()
         {
