@@ -8,7 +8,7 @@ namespace JUtils
     /// <summary>
     /// A simple implementation for an object pool
     /// </summary>
-    /// <remarks>Disabling this component may result in errornous behaviour</remarks>
+    /// <remarks>Disabling this component may result in erroneous behaviour</remarks>
     public sealed class ObjectPool : MonoBehaviour
     {
         [SerializeField] private PoolItem _template;
