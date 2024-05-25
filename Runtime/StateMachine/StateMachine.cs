@@ -20,9 +20,11 @@ namespace JUtils
         public bool isQueueFilled => stateQueue.Count > 0;
         public bool isQueueEmpty => stateQueue.Count == 0;
 
+        [CanBeNull]
+        public new StateMachine stateMachine => base.stateMachine; // Added this to hopefully help with accidental calls to sub state machines that do not exist
+
         protected State currentState;
         protected List<QueueEntry> stateQueue = new();
-
 
         /// <summary>
         /// Queues the current given state, then goes to it
@@ -34,7 +36,6 @@ namespace JUtils
             ContinueQueue();
         }
 
-
         /// <summary>
         /// Clears the StateQueue and goes to the given state
         /// </summary>
@@ -43,7 +44,6 @@ namespace JUtils
             if (!TryFindState(out T state)) throw new Exception($"Could not find state '{typeof(T).Name}'");
             GoToState(state, data);
         }
-
 
         /// <summary>
         /// Adds a new state to the queue
@@ -54,7 +54,6 @@ namespace JUtils
             Log(queueFirst ? $"Inserted '{state.GetType().Name}' to the queue" : $"Added '{state.GetType().Name}' to the queue");
         }
 
-
         /// <summary>
         /// Adds a new state to the queue
         /// </summary>
@@ -64,7 +63,6 @@ namespace JUtils
             AddToQueue(state, data, queueFirst);
         }
 
-
         /// <summary>
         /// Clears all states in the queue
         /// </summary>
@@ -72,7 +70,6 @@ namespace JUtils
         {
             stateQueue.Clear();
         }
-
 
         /// <summary>
         /// Deactivate the current state and go to the next one
@@ -114,7 +111,6 @@ namespace JUtils
             onStateChanged?.Invoke(state);
         }
 
-
         /// <summary>
         /// Find a state within the child objects of this state-machine, if <see cref="_autoCreateStates" /> is enabled, it
         /// will automatically instantiate the state
@@ -124,7 +120,6 @@ namespace JUtils
             TryFindState(out T state);
             return state;
         }
-
 
         /// <summary>
         /// Try finding a state within the child objects of this state-machine, if <see cref="_autoCreateStates" /> is enabled,
@@ -143,7 +138,6 @@ namespace JUtils
             return true;
         }
 
-
         /// <summary>
         /// Activates the state machine
         /// </summary>
@@ -152,7 +146,6 @@ namespace JUtils
             if (isActive) return;
             ActivateState(data ?? new StateData());
         }
-
 
         /// <summary>
         /// Continues the queue in the state machine, or deactivates the state if it is the root state machine
@@ -167,7 +160,6 @@ namespace JUtils
             }
         }
 
-
         /// <summary>
         /// Internal function for deactivating the state
         /// </summary>
@@ -179,18 +171,15 @@ namespace JUtils
             }
         }
 
-
         /// <summary>
         /// Gets called when there is no next state in the queue
         /// </summary>
         protected abstract void OnNoState();
 
-
         protected override void Awake()
         {
             if (!_autoActivate) base.Awake();
         }
-
 
         protected virtual void Start()
         {
@@ -199,12 +188,10 @@ namespace JUtils
             ActivateState(new StateData());
         }
 
-
         protected virtual void Reset()
         {
             _autoActivate = !this.GetComponentInParentsDirect<StateMachine>();
         }
-
 
         protected virtual void OnValidate()
         {
@@ -214,7 +201,6 @@ namespace JUtils
             Debug.LogWarning($"[{GetType().Name}] : {nameof(_autoActivate)} cannot be enabled when this is a sub-statemachine");
         }
 
-
         private void AddToQueueInternal(State state, StateData data, bool queueFirst)
         {
             if (queueFirst)
@@ -222,7 +208,6 @@ namespace JUtils
             else
                 stateQueue.Add(new QueueEntry { state = state, data = data ?? new StateData() });
         }
-
 
         private void Log(object message)
         {
