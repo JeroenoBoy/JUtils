@@ -2,8 +2,6 @@
 using UnityEngine;
 using Random = System.Random;
 
-
-
 namespace JUtils
 {
     /// <summary>
@@ -19,12 +17,16 @@ namespace JUtils
         /// Get the min value
         /// </summary>
         public float min => _min;
-        
+
         /// <summary>
         /// Get the max value
         /// </summary>
         public float max => _max;
 
+        /// <summary>
+        /// Returns _max - _min
+        /// </summary>
+        public float range => _max - _min;
 
         /// <summary>
         /// Create a new MinMax instance
@@ -37,7 +39,6 @@ namespace JUtils
             _max = max;
         }
 
-
         /// <summary>
         /// Get a random value from min to max using UnityEngine.Random
         /// </summary>
@@ -47,7 +48,6 @@ namespace JUtils
             return UnityEngine.Random.Range(_min, _max);
         }
 
-        
         /// <summary>
         /// Get a random value from min to max using System.Random
         /// </summary>
@@ -55,7 +55,6 @@ namespace JUtils
         {
             return (float)(random.NextDouble() * (_max - _min) + _min);
         }
-
 
         /// <summary>
         /// Check if the value is contained between min and max
@@ -73,6 +72,22 @@ namespace JUtils
         public float Clamp(float value)
         {
             return Mathf.Clamp(value, min, max);
+        }
+
+        /// <summary>
+        /// Lerp from min to max
+        /// </summary>
+        public float Lerp(float time)
+        {
+            return Mathf.Lerp(min, max, time);
+        }
+
+        /// <summary>
+        /// inverse lerp from min to max
+        /// </summary>
+        public float InverseLerp(float value)
+        {
+            return Mathf.InverseLerp(min, max, value);
         }
     }
 }
