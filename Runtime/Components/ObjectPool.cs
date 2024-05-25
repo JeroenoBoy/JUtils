@@ -77,7 +77,7 @@ namespace JUtils
         }
 
         /// <summary>
-        /// Get an pooled item, returns false if the pool can't auto expand and if there are no items left
+        /// Get a pooled item, returns false if the pool can't auto expand and if there are no items left
         /// </summary>
         public bool TryGetItem(out PoolItem item)
         {
