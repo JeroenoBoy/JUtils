@@ -11,23 +11,14 @@ namespace JUtils
         [SerializeField] private int _health;
         [SerializeField] private int _maxHealth;
         [SerializeField] private bool _isDead;
-        
-        public int maxHealth => _maxHealth;
-        public int health    => _health;
 
-        public bool isDead
-        {
+        public int maxHealth => _maxHealth;
+        public int health => _health;
+
+        public bool isDead {
             get => _isDead;
             set => _isDead = value;
         }
-
-
-        private void Awake()
-        {
-            isDead = false;
-            _health = _maxHealth;
-        }
-
 
         /// <summary>
         /// Damage the component by a set amount, sends SimpleDamageEvent
@@ -38,12 +29,11 @@ namespace JUtils
 
             int changed = -ChangeHealth(-amount);
 
-            IDamageEvent evt = new SimpleDamageEvent() { damage = changed};
+            IDamageEvent evt = new SimpleDamageEvent { damage = changed };
             if (changed > 0) SendMessage("OnDamage", evt, SendMessageOptions.DontRequireReceiver);
 
             return changed;
         }
-
 
         /// <summary>
         /// Heal the component by a set amount, sends SimpleHealEvent
@@ -53,13 +43,12 @@ namespace JUtils
             if (amount < 1) throw new ArgumentException("Amount must not be lower than one");
 
             int changed = ChangeHealth(amount);
-            
-            IHealEvent evt = new SimpleHealEvent() { amount = changed};
+
+            IHealEvent evt = new SimpleHealEvent { amount = changed };
             if (changed > 0) SendMessage("OnHeal", evt, SendMessageOptions.DontRequireReceiver);
 
             return changed;
         }
-
 
         /// <summary>
         /// Damage the component using a damage event
@@ -73,10 +62,9 @@ namespace JUtils
             @event.damage = changed;
 
             if (changed > 0) SendMessage("OnDamage", @event, SendMessageOptions.DontRequireReceiver);
-            
+
             return changed;
         }
-
 
         /// <summary>
         /// Heal the component using a heal event
@@ -88,48 +76,63 @@ namespace JUtils
 
             int changed = ChangeHealth(amount);
             @event.amount = changed;
-            
+
             if (changed > 0) SendMessage("OnHeal", @event, SendMessageOptions.DontRequireReceiver);
-            
+
             return changed;
         }
 
+        /// <summary>
+        /// Kill the component
+        /// </summary>
+        [Button]
+        public void Kill()
+        {
+            if (isDead) return;
+            ChangeHealth(-int.MaxValue);
+        }
+
+        /// <summary>
+        /// Kill the component after a delay
+        /// </summary>
+        public void KillDelayed(float delay)
+        {
+            Invoke(nameof(Kill), delay);
+        }
+
+        /// <summary>
+        /// Make the health component alive again
+        /// </summary>
+        public void Revive()
+        {
+            if (!isDead) return;
+            isDead = false;
+            _health = _maxHealth;
+            SendMessage("OnRevive", SendMessageOptions.DontRequireReceiver);
+        }
+
+        private void Awake()
+        {
+            isDead = false;
+            _health = _maxHealth;
+        }
 
         private int ChangeHealth(int amount)
         {
             if (isDead) return 0;
 
-            //  Setting the health based on the changed amount
-
             int newHealth = Mathf.Clamp(_health + amount, 0, _maxHealth);
-            int changed   = newHealth - _health;
-            _health       = newHealth;
+            int changed = newHealth - _health;
+            _health = newHealth;
 
-            //  Running events
-
-            if (_health == 0) {
+            if (_health == 0 && !isDead) {
                 isDead = true;
                 SendMessage("OnDeath", SendMessageOptions.DontRequireReceiver);
             }
 
-            //  Sending general HealthChange event
-
             SendMessage("HealthChange", changed, SendMessageOptions.DontRequireReceiver);
 
-            //  Returning changed amount
-
             return changed;
-        }
-
-
-        /**
-         * Kill the unit
-         */
-        [ContextMenu("Kill")]
-        public void Kill()
-        {
-            if (isDead) return;
-            ChangeHealth(-_maxHealth * 10000);
         }
     }
 }
