@@ -27,7 +27,6 @@ namespace JUtils
         private bool _templateChangeable = true;
         private bool _isGettingDestroyed = true;
 
-
         /// <summary>
         /// Spawn a pooled item
         /// </summary>
@@ -35,7 +34,6 @@ namespace JUtils
         {
             return SpawnItem(Vector3.zero, Quaternion.identity);
         }
-
 
         /// <summary>
         /// Spawn a pooled item
@@ -45,7 +43,6 @@ namespace JUtils
             return SpawnItem(localPosition, Quaternion.identity);
         }
 
-
         /// <summary>
         /// Spawn a pooled item
         /// </summary>
@@ -53,7 +50,6 @@ namespace JUtils
         {
             return SpawnItem(localPosition, Quaternion.identity, parent);
         }
-
 
         /// <summary>
         /// Spawn a pooled item
@@ -63,40 +59,32 @@ namespace JUtils
             return SpawnItem(Vector3.zero, Quaternion.identity, parent);
         }
 
-
         /// <summary>
         /// Spawn a pooled item
         /// </summary>
         public PoolItem SpawnItem(Vector3 localPosition, Quaternion localRotation, Transform parent = null)
         {
-            if (!TryGetItem(out PoolItem item)) return null;
+            if (!TryGetInternal(out PoolItem item)) return null;
             Transform itemTransform = item.transform;
 
             itemTransform.parent = parent;
             itemTransform.localPosition = localPosition;
-            itemTransform.rotation = localRotation;
+            itemTransform.localRotation = localRotation;
+
+            item.Spawn();
 
             return item;
         }
-
 
         /// <summary>
         /// Get an pooled item, returns false if the pool can't auto expand and if there are no items left
         /// </summary>
         public bool TryGetItem(out PoolItem item)
         {
-            if (_freeItems.Count == 0 && (!_autoExpand || InstantiateNewItems() == 0)) {
-                item = null;
-                return false;
-            }
-
-            item = _freeItems[^1];
-            _freeItems.Remove(item);
+            if (!TryGetInternal(out item)) return false;
             item.Spawn();
-
             return true;
         }
-
 
         /// <summary>
         /// Request X amount of items to be made
@@ -119,7 +107,6 @@ namespace JUtils
             return amount;
         }
 
-
         /// <summary>
         /// Change the template of this object pool
         /// </summary>
@@ -132,7 +119,6 @@ namespace JUtils
 
             _template = newTemplate;
         }
-
 
         internal bool ReturnItem(PoolItem item)
         {
@@ -148,7 +134,6 @@ namespace JUtils
             return true;
         }
 
-
         internal void PoolItemDestroyed(PoolItem destroyedElement)
         {
             if (this == null || _isGettingDestroyed) return;
@@ -156,6 +141,18 @@ namespace JUtils
             InstantiatePoolItem(index);
         }
 
+        private bool TryGetInternal(out PoolItem item)
+        {
+            if (_freeItems.Count == 0 && (!_autoExpand || InstantiateNewItems() == 0)) {
+                item = null;
+                return false;
+            }
+
+            item = _freeItems[^1];
+            _freeItems.Remove(item);
+
+            return true;
+        }
 
         private void Awake()
         {
@@ -163,18 +160,15 @@ namespace JUtils
             _poolItems = Array.Empty<PoolItem>();
         }
 
-
         private void OnEnable()
         {
             _isGettingDestroyed = false;
         }
 
-
         private void OnDisable()
         {
             _isGettingDestroyed = true;
         }
-
 
         private void InstantiatePoolItem(int poolIndex)
         {
